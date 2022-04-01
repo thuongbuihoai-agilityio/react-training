@@ -1,6 +1,6 @@
 ## Home
 ### REACT TRAINING PLAN
-#### Dec 20, 2021
+#### April 1, 2022
 ### OVERVIEW
 - A revision of React training plan which focuses on the latest version of React (v17.0.2). It will help trainees learn React fundamentals step by step following the instructions and hands-on practices.
 
