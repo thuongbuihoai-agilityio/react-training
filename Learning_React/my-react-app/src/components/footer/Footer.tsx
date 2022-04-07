@@ -8,7 +8,7 @@ interface FooterProps {
 export default function Footer({ copyrightInfo }: FooterProps): JSX.Element {
   return (
     <footer className="footer">
-      <p className="footer__copyright"> {copyrightInfo} </p>
+      <p className="footer__copyright">{copyrightInfo}</p>
     </footer>
   );
 }
