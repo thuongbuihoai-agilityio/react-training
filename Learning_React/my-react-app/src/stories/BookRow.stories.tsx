@@ -1,7 +1,7 @@
 import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import {Table} from "react-bootstrap";
-import BookRow from "./BookRow";
+import BookRow from "../components/book/BookRow";
 
 export default {
   title: "Components/BookRow",
