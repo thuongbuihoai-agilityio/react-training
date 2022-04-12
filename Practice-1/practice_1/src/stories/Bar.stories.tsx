@@ -1,6 +1,5 @@
 import React from "react";
-import MENU_LIST from "../constants/menu";
-import Navigation from "../components/navigation/Menu";
+import Bar from "../components/navBar/Bar";
 import menuBar from "../assets/images/icons/menuBar.svg"
 
 export default {
@@ -8,10 +7,10 @@ export default {
   * See https://storybook.js.org/docs/react/configure/overview#configure-story-loading
   * to learn how to generate automatic titles
   */
-  title: "Component/Navigation",
-  component: Navigation,
+  title: "Component/Bar",
+  component: Bar,
 };
 
 export function Default() {
-  return <Navigation menuList={MENU_LIST} menuBar={menuBar} />;
+  return <Bar logo={menuBar} />;
 }
