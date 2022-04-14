@@ -1,6 +1,6 @@
 import React from "react";
-import { FeatureListProps } from "../../types/feature";
-import FeatureItem from "../featureItem/FeatureItem";
+import { FeatureListProps } from "../../../types/feature";
+import FeatureItem from "../../featureItem/FeatureItem";
 
 interface RenderFeature {
   featureList: FeatureListProps[];
