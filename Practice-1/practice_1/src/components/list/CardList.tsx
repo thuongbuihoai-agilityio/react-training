@@ -1,6 +1,6 @@
 import React from "react";
 import { CardProps } from "../../types/card";
-import Card from "./Card";
+import Card from "../cards/card/Card";
 import "./cardList.css"
 
 interface RenderCard {
@@ -24,6 +24,8 @@ export default function CardList({ cardList }: RenderCard): JSX.Element {
     ));
   }
   return (
-    <div className="card__list">{renderCardList(cardList)}</div>
+    <div className="container">
+      <div className="card__list">{renderCardList(cardList)}</div>
+    </div>
   );
 }
