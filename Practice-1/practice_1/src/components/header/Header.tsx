@@ -1,25 +1,13 @@
 import React from "react";
 import Navigation from "../navigation/Menu";
-import { MenuType } from "../../types/menu";
 import SectionTitle from "../title/SectionTitle";
 import "./header.css";
 import { Description } from "../description/Description";
 import Button from "../button/Button";
-
-export interface HeaderProps {
-  children1: string;
-  children2: string;
-  children3: string;
-  MAIN_TEXT: string;
-  menuList: MenuType[]
-  menuBar: string;
-}
+import { HeaderProps } from "../../types/header";
 
 export default function Header({
-  children1,
-  children2,
-  children3,
-  MAIN_TEXT,
+  mainText,
   menuList,
   menuBar
 }: HeaderProps): JSX.Element {
@@ -27,7 +15,7 @@ export default function Header({
     <header className="header">
       <div className="header__menu">
         <SectionTitle className="nav__title">
-          <span>{children1}</span>
+          HOFMANN
         </SectionTitle>
         <Navigation menuList={menuList} menuBar={menuBar}></Navigation>
       </div>
@@ -35,10 +23,10 @@ export default function Header({
         <div className="header__info">
           <div className="header__content">
             <SectionTitle className="main__title">
-              <span>{children2}</span>
+              What Makes A Hotel Boutique
             </SectionTitle>
-            <Description className="main">{MAIN_TEXT}</Description>
-            <Button className="primary">{children3}</Button>
+            <Description className="main">{mainText}</Description>
+            <Button className="primary">Explore</Button>
           </div>
         </div>
       </div>

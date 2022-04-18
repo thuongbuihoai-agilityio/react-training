@@ -15,7 +15,7 @@ export default function FeatureItem({
     <div className="feature__item">
       <img className={`icon--${className}`} src={icon} alt={alt} />
       <div>
-        <SectionTitle className="feature__title"><span>{title}</span></SectionTitle>
+        <SectionTitle className="feature__title">{title}</SectionTitle>
         <Description className="responsive">{content}</Description>
       </div>
     </div>
