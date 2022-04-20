@@ -32,4 +32,3 @@
     return <div />;
   }
 ```
-### Declaring a State Variable
