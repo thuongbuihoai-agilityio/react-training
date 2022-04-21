@@ -4,6 +4,9 @@ import { ClearUp, PreviewAvatar, Timer, UseLayoutEffect } from "./components/hoo
 import { ExampleUseMemo } from "./components/hooks/memoHooks/Memo"
 import { RefHook } from "./components/hooks/refHooks/refHooks"
 import Example, { Reducer } from "./components/hooks/stateHooks/StateHook"
+import { Gift } from "./gift/Gift"
+import { TodoApp } from "./todoApp/TodoApp"
+import { TodoList } from "./todoList/Todo"
 
 function App(): JSX.Element {
   return (
@@ -25,6 +28,12 @@ function App(): JSX.Element {
     <Reducer />
     <hr />
     <ExampleUseMemo />
+    <hr />
+    <TodoList />
+    <hr />
+    <TodoApp />
+    <hr />
+    <Gift />
    </>
   )
 }
