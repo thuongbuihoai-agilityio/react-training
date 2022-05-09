@@ -1,42 +1,57 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
 import fetchCategory from "../../hooks/fetchCategory";
-import { FormProps } from "../../types/form";
 import { CategoriesProps } from "../../types/categories";
-import { ProductPropRouter } from "../../types/product";
+import { ProductPropRouter, ProductType } from "../../types/product";
 import { SUCCESS_MSG } from "../../constants/message";
 import { ProductListContext } from "../../App";
+import { FormProps } from "../../types/form";
 import "./form.css"
 
-export default function Form({ id, hideModalUpdate }: FormProps) {
+const Form: React.FC<FormProps> = ({ id, hideModalUpdate, onChangeProductDetail }) => {
   const location = useLocation()
-  const { product } = location.state as ProductPropRouter
-  const [productEdit, setProductEdit] = useState(product)
+  const product: ProductType = (location.state as ProductPropRouter).product
+  const [productEdit, setProductEdit] = useState<ProductType>(product)
+
   const categories = fetchCategory();
   const setIsReset = useContext(ProductListContext) as Function
-  console.log("setIsReset", setIsReset);
+  const [selectedFile, setSelectedFile] = useState([]);
 
   const handleUpdateProduct = async (id: string) => {
-    await axios.put("products/"+ id,
-      {...productEdit}
-    )
-    .then(function (response) {
-      console.log("abc", response)
-    })
-    .catch(function (error) {
-      // console.log(error);
-    });
-
-    setIsReset(true)
-    alert(SUCCESS_MSG.MESSAGE_UPDATE_PRODUCT)
-    hideModalUpdate(false)
-  }
+    for (let i = 0; i < selectedFile.length; i++) {
+      productEdit.images.push("src/assets/images/" + selectedFile[i].name)
+    }
+      await axios ({
+        method: "put",
+        url: "products/"+ id,
+        data:{...productEdit},
+      })
+      .then(function (response) {
+        setIsReset(true)
+        onChangeProductDetail(response.data)
+        alert(SUCCESS_MSG.MESSAGE_UPDATE_PRODUCT)
+        hideModalUpdate(false)
+      })
+      .catch(function (error) {
+        alert(error)
+      });
+    }
 
   const handleChange = (event: { target: { value: {}; name: string; } }) => {
     const value = event.target.value
     const key = event.target.name
     setProductEdit({...productEdit, [key]: value})
+  }
+
+  const imageChange = (event: React.ChangeEvent) => {
+    const target= event.target;
+    if(target.files) {
+      for(let i = 0; i < event.target.files.length; i++){
+        setSelectedFile(selectedFile => [...selectedFile, target.files[i]] as any);
+        // setSelectedFile(target.files[i])
+      }
+    }
   }
 
   return (
@@ -63,15 +78,22 @@ export default function Form({ id, hideModalUpdate }: FormProps) {
                 )}
               </select>
             </div>
-            <div className="form-control">
-              <label htmlFor="">Quantity: </label>
-              <input className="modal__input" type="number" name="quantity" onChange={handleChange} value={productEdit.quantity} />
+            <div id="form__number" className="form-control">
+              <div className="form__price">
+                <label htmlFor="">Price: </label>
+                <input className="modal__input" type="number" name="price" onChange={handleChange} value={productEdit.price} />
+              </div>
+              <div className="form__quantity">
+                <label htmlFor="">Quantity: </label>
+                <input className="modal__input" type="number" name="quantity" onChange={handleChange} value={productEdit.quantity} />
+              </div>
             </div>
             <div className="form-control">
               <div className="form__img--list">
-                {product.images.map((img: string, index: number) => 
+                {product.images.map((img: string, index: number) =>
                   <img key={index} className="form__img" src={img} />
                 )}
+                <input type="file" multiple name="images" onChange={imageChange} className="form__input--img"/>
               </div>
             </div>
           </div>
@@ -84,3 +106,5 @@ export default function Form({ id, hideModalUpdate }: FormProps) {
     </div>
   );
 }
+
+export default Form;
