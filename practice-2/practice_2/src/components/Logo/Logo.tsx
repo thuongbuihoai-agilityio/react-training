@@ -1,5 +1,5 @@
-import React from "react";
-import { ImagesProps } from "../../types/logo";
+import React, { memo } from "react";
+import { ImagesProps } from "@/types/logo";
 
 const Logo: React.FC<ImagesProps> = ({
   href,
@@ -14,4 +14,4 @@ const Logo: React.FC<ImagesProps> = ({
   );
 }
 
-export default Logo;
+export default memo(Logo);
