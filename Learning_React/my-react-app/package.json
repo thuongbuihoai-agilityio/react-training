@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "antd": "^4.19.5",
+    "brunch": "^4.0.0",
     "react": "^17.0.2",
     "react-bootstrap": "^2.2.3",
     "react-data-table-component": "^7.4.7",
@@ -31,11 +32,15 @@
     "@types/react-dom": "^17.0.10",
     "@vitejs/plugin-react": "^1.0.7",
     "babel-loader": "^8.2.4",
+    "envify": "^4.1.0",
     "eslint": "^8.13.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-react-hooks": "^4.4.0",
+    "terser": "^5.13.1",
+    "terser-brunch": "^4.1.0",
     "typescript": "^4.6.3",
+    "uglifyify": "^5.0.2",
     "vite": "^2.9.0"
   }
 }

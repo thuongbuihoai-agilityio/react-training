@@ -1,7 +1,9 @@
 import { useState } from "react"
 import { ThemeProvider } from "./components/hooks/contextHooks/Context"
 import { ClearUp, PreviewAvatar, Timer, UseLayoutEffect } from "./components/hooks/effectHooks/EffectHook"
+import FileInput from "./components/hooks/fileInput/FileInput"
 import { ExampleUseMemo } from "./components/hooks/memoHooks/Memo"
+import NameForm from "./components/hooks/nameForm/NameForm"
 import { RefHook } from "./components/hooks/refHooks/refHooks"
 import Example, { Reducer } from "./components/hooks/stateHooks/StateHook"
 import { Gift } from "./gift/Gift"
@@ -34,6 +36,10 @@ function App(): JSX.Element {
     <TodoApp />
     <hr />
     <Gift />
+    <hr />
+    <NameForm />
+    <hr />
+    <FileInput />
    </>
   )
 }
