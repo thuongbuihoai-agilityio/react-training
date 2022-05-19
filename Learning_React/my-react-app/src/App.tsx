@@ -43,7 +43,7 @@ function App(): JSX.Element {
     <hr />
     <FileInput />
     <hr />
-    {/* <Profile /> */}
+    <Profile />
     <hr />
     <Pagination />
    </>
