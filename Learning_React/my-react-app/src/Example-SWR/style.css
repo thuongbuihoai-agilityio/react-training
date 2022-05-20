@@ -1,0 +1,40 @@
+body {
+  margin: 0 auto;
+}
+
+.nav {
+  position: fixed;
+  padding: 10px;
+  background-color: bisque;
+  width: 100%;
+}
+
+.nav__item {
+  text-decoration: none;
+  color: black;
+  margin-right: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.nav__item:hover {
+  color: blue;
+}
+
+.todo__input {
+  margin: 50px 10px 0 20px;
+  padding: 10px;
+  border: 1px solid gray;
+  border-radius: 5px;
+}
+
+.btn__add {
+  padding: 8px;
+  background-color: transparent;
+  border: 1px solid gray;
+  cursor: pointer;
+}
+
+.btn__add:hover {
+  background-color: bisque;
+}

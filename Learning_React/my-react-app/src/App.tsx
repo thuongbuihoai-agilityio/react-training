@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { BrowserRouter } from "react-router-dom"
 import { ThemeProvider } from "./components/hooks/contextHooks/Context"
 import { ClearUp, PreviewAvatar, Timer, UseLayoutEffect } from "./components/hooks/effectHooks/EffectHook"
 import FileInput from "./components/hooks/fileInput/FileInput"
@@ -8,14 +9,18 @@ import Pagination from "./components/hooks/pagination/Pagination"
 import { RefHook } from "./components/hooks/refHooks/refHooks"
 import Example, { Reducer } from "./components/hooks/stateHooks/StateHook"
 import Profile from "./components/hooks/swr/FetchingData"
+import TodoAppSWR from "./Example-SWR/TodoApp"
 import { Gift } from "./gift/Gift"
+import Counter from "./test/act/Counter"
+import Toggle from "./test/event/Event"
 import { TodoApp } from "./todoApp/TodoApp"
 import { TodoList } from "./todoList/Todo"
 
 function App(): JSX.Element {
   return (
    <>
-    <Example />
+    <TodoAppSWR />
+    {/* <Example />
     <hr />
     <Timer />
     <hr />
@@ -45,7 +50,11 @@ function App(): JSX.Element {
     <hr />
     <Profile />
     <hr />
-    <Pagination />
+    <Pagination /> */}
+    {/* <Counter /> */}
+    {/* <Toggle onChange={function (arg0: boolean): void {
+        throw new Error("Function not implemented.")
+      } } /> */}
    </>
   )
 }
