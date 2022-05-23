@@ -11,7 +11,10 @@
         "revalidates",
         "Revalidations",
         "Sapshots",
+        "testid",
+        "todos",
         "uglifyify",
-        "unfetch"
+        "unfetch",
+        "uuidv"
     ]
 }
