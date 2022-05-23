@@ -1,12 +1,24 @@
 {
   "task": [
     {
-      "id": "1",
-      "title": "Reading unit testing"
+      "id": "a56403e9-8163-451c-a17b-6bd2fa3f389a",
+      "title": "Example create Todo App (20220522)"
     },
     {
-      "id": "2",
-      "title": "Reading SWR"
+      "id": "42d48708-fcb9-401d-9576-e9a8419c339f",
+      "title": "Apply SWR to Example (20220522)"
+    },
+    {
+      "id": "ced91e2f-b968-4bd7-a41c-06b1794193be",
+      "title": "Finish create todo (20220523)"
+    },
+    {
+      "id": "08f54093-d386-410c-9680-dd43885031c4",
+      "title": "Finish update todo (20220523)"
+    },
+    {
+      "id": "70bd9dcc-4c08-4dc4-805d-0ce5c4492905",
+      "title": "Finish delete todo (20220523)"
     }
   ]
 }
