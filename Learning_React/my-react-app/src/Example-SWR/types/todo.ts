@@ -1,5 +1,16 @@
+export interface TodoType {
+  id: string;
+  title: string;
+}
+
 export interface TodoProps {
-  id?: string;
-  title?: string;
-  todo: {}
+  todo: TodoType;
+  deleteTodo: (id: string) => void;
+}
+
+export interface ModalUpdateProps {
+  todo: TodoType;
+  hideModalUpdate: Function;
+  isReload: Boolean;
+  setIsReLoad: Function;
 }
