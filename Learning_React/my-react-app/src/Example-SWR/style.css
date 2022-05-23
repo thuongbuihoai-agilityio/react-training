@@ -28,6 +28,25 @@ body {
   border-radius: 5px;
 }
 
+.form__input {
+  padding: 10px;
+  width: 80%;
+  border: 1px solid gray;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.modals {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  width: 30%;
+  padding: 10px;
+  margin-left: 20px;
+}
+
+.modal-footer {
+  margin-left: 275px;
+}
+
 .btn__add {
   padding: 8px;
   background-color: transparent;
@@ -35,6 +54,41 @@ body {
   cursor: pointer;
 }
 
+.btn__submit,
+.btn__cancel {
+  padding: 5px;
+  border: none;
+}
+
+.btn__submit {
+  margin-right: 10px;
+  background-color: cadetblue;
+}
+
+.btn__cancel {
+  background-color: orange;
+}
+
 .btn__add:hover {
   background-color: bisque;
+}
+
+.btn__del,
+.btn__update {
+  border: none;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.task__link {
+  text-decoration: none;
+  color: black;
+}
+
+.detail__list {
+  display: flex;
+}
+
+.detail__item {
+  cursor: pointer;
 }

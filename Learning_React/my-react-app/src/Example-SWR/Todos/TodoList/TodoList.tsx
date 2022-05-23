@@ -1,20 +1,24 @@
+import Input from "../../components/Input/Input";
 import useTodo from "../../hooks/useTodo";
+import { TodoType } from "../../types/todo";
 import Todo from "../Todo/Todo";
 
-const TodoList: React.FC = () => {
-  const { todos } = useTodo();
+const TodoListSWR: React.FC = () => {
+  const {todos, addTodo, deleteTodo}  = useTodo();
+
   return (
-      <>
-      <input className="todo__input" type="text" />
-      <button className="btn btn__add">Add todo</button>
+    <>
+      <Input addTodo={addTodo} />
       <div className="product__list">
-      {todos.map((todo: any, index: number) => <div className="product__item" key={index}>
-        <Todo todo={todo} />
+        {todos.map((todo: TodoType, index: number) =>
+          <div className="product__item" key={index}>
+            <Todo todo={todo} deleteTodo={deleteTodo} />
+          </div>
+        )}
       </div>
-      )}
-    </div></>
+    </>
   );
 
 }
 
-export default TodoList;
+export default TodoListSWR;

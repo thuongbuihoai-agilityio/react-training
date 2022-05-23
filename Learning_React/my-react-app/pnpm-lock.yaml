@@ -14,6 +14,7 @@ specifiers:
   '@types/node': ^17.0.34
   '@types/react': ^18.0.9
   '@types/react-dom': ^18.0.4
+  '@types/uuid': ^8.3.4
   '@vitejs/plugin-react': ^1.0.7
   antd: ^4.19.5
   axios: ^0.27.2
@@ -40,6 +41,7 @@ specifiers:
   ts-node: ^10.7.0
   typescript: ^4.6.3
   uglifyify: ^5.0.2
+  uuid: ^8.3.2
   vite: ^2.9.0
   webpack: ^4.46.0
 
@@ -55,6 +57,7 @@ dependencies:
   react-router-dom: 6.3.0_react-dom@17.0.2+react@17.0.2
   styled-components: 5.3.5_1f55980affd76ea66174a1939c753673
   swr: 1.3.0_react@17.0.2
+  uuid: 8.3.2
   webpack: 4.46.0
 
 devDependencies:
@@ -71,6 +74,7 @@ devDependencies:
   '@types/node': 17.0.34
   '@types/react': 18.0.9
   '@types/react-dom': 18.0.4
+  '@types/uuid': 8.3.4
   '@vitejs/plugin-react': 1.3.0
   babel-loader: 8.2.4_b72fb7e629d39881e138edb6dcd0dfbe
   envify: 4.1.0
@@ -3840,6 +3844,10 @@ packages:
 
   /@types/unist/2.0.6:
     resolution: {integrity: sha512-PBjIUxZHOuj0R15/xuwJYjFi+KZdNFrehocChv4g5hu6aFroHue8m0lBP0POdK2nKzbw0cgV1mws8+V/JAcEkQ==}
+    dev: true
+
+  /@types/uuid/8.3.4:
+    resolution: {integrity: sha512-c/I8ZRb51j+pYGAu5CrFMRxqZ2ke4y2grEBO5AUjgSkSk+qT2Ea+OdWElz/OiMf5MNpn2b17kuVBwZLQJXzihw==}
     dev: true
 
   /@types/warning/3.0.0:
@@ -12794,6 +12802,11 @@ packages:
     deprecated: Please upgrade  to version 7 or higher.  Older versions may use Math.random() in certain circumstances, which is known to be problematic.  See https://v8.dev/blog/math-random for details.
     hasBin: true
     dev: true
+
+  /uuid/8.3.2:
+    resolution: {integrity: sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==}
+    hasBin: true
+    dev: false
 
   /v8-compile-cache-lib/3.0.1:
     resolution: {integrity: sha512-wa7YjyUGfNZngI/vtK0UHAN+lgDCxBPCylVXGp0zu59Fz5aiGtNXaq3DhIov063MorB+VfufLh3JlF2KdTK3xg==}
