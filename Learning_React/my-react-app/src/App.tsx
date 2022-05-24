@@ -1,4 +1,4 @@
-import TodoAppSWR from "./Example-SWR/TodoApp"
+import TodoAppSWR from "./Example-SWR/App/TodoApp"
 
 const App: React.FC = (): JSX.Element => {
   return (
