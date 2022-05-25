@@ -13,6 +13,6 @@ describe("Home component", () => {
         <Home />
       </Router>
     )
-    expect(getByTestId("home")).toBeInTheDocument();
+    expect(getByTestId("home-page")).toBeInTheDocument();
   })
 })

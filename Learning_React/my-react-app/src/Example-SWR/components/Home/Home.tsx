@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Home: React.FC = () => {
   return (
-    <div className="todo" data-testid="home">
+    <div className="todo" data-testid="home-page">
       <nav className="nav">
         <Link className="nav__item" to="/about" data-testid="about">About</Link>
         <Link className="nav__item" to="/contact">Contact</Link>
