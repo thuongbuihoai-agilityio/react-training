@@ -1,7 +1,7 @@
 const Contact: React.FC = () => {
   return (
     <div>
-      <h1>This is the contact page</h1>
+      <h1 data-testid="contact-page">This is the contact page</h1>
     </div>
   );
 }
