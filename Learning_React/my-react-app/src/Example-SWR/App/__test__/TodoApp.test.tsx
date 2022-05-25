@@ -1,25 +1,51 @@
 import React from "react"
 import {render, screen} from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
 import {createMemoryHistory} from "history";
 import {Router} from "react-router-dom";
 import "@testing-library/jest-dom";
 import TodoApp from "../TodoApp";
 
 describe("TodoApp component", () => {
-  test("full app rendering/navigating", async () => {
+  test("rendering a component that uses useLocation", () => {
     const history = createMemoryHistory();
-    const {getByTestId} = render(
+    const route = "/about";
+    history.push(route);
+    render(
       <Router location={history.location} navigator={history}>
         <TodoApp />
-      </Router>,
+      </Router>
     )
-    const user = userEvent.setup();
-    // verify page content for expected route
-    // often you"d use a data-testid or role query, but this is also possible
-    expect(getByTestId("about-page")).toBeInTheDocument();
-    await user.click(getByTestId("about"));
-    // check that the content changed to the new page
-    expect(screen.getByText(/This is the about page/i)).toBeInTheDocument();
+
+    expect(screen.getByTestId("about-page")).toHaveTextContent(/This is the about page/i);
+  })
+});
+
+describe("TodoApp component", () => {
+  test("rendering a component that uses useLocation", () => {
+    const history = createMemoryHistory();
+    const route = "/contact";
+    history.push(route);
+    render(
+      <Router location={history.location} navigator={history}>
+        <TodoApp />
+      </Router>
+    )
+
+    expect(screen.getByTestId("contact-page")).toHaveTextContent(/This is the contact page/i);
+  })
+});
+
+describe("TodoApp component", () => {
+  test("rendering a component that uses useLocation", () => {
+    const history = createMemoryHistory();
+    const route = "/";
+    history.push(route);
+    render(
+      <Router location={history.location} navigator={history}>
+        <TodoApp />
+      </Router>
+    )
+
+    expect(screen.getByTestId("home-page")).toBeInTheDocument();
   })
 })

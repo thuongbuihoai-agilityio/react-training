@@ -13,7 +13,8 @@ const swrConfig = {
 
 const TodoAppSWR: React.FC = () => {
   return (
-    <SWRConfig value={swrConfig}>
+    <div data-testid="todo-app">
+      <SWRConfig value={swrConfig}>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
@@ -22,6 +23,7 @@ const TodoAppSWR: React.FC = () => {
         <Route path={`/todo/:id`} element={<TodoDetail />} />
       </Routes>
     </SWRConfig>
+    </div>
   )
 }
 
