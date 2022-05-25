@@ -20,6 +20,9 @@ const config: Config.InitialOptions = {
   ],
   moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
   modulePaths: ["node_modules", "<rootDir>/src/Example-SWR", "/shared/vendor/modules"],
+  transformIgnorePatterns: [
+    "/node_modules/(?!antd|@ant-design|rc-.+?|@babel/runtime).+(js|jsx)$",
+  ],
 };
 
 module.exports = config;

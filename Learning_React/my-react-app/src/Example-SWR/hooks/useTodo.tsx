@@ -1,19 +1,18 @@
 import axios from "axios";
 import useSWR from "swr";
-import { v4 as uuidv4 } from "uuid";
-import { useCallback } from "react";
 import { TASK_URL } from "../constants/url";
 import { TodoType } from "../types/todo";
 import { SUCCESS_MSG } from "../constants/message";
 
 export default function useTodo() {
-  const fetcher = useCallback((url: string) => axios.get(url).then(res => res.data), [])
+  const fetcher = (url: string) => axios.get(url).then(res => res.data);
   const { data, error } = useSWR(TASK_URL, fetcher, { refreshInterval: 1000 });
   const todos: TodoType[] = data ? ([] as TodoType[]).concat(...data) : [];
+  const renderId = new Date();
 
   const addTodo = async (title: string) => {
     const newTodo: TodoType = {
-      id: uuidv4(),
+      id: renderId.valueOf().toString(),
       title,
     };
     try {
