@@ -15,4 +15,14 @@ describe("Home component", () => {
     )
     expect(getByTestId("home-page")).toBeInTheDocument();
   })
+
+  test("matches snapshot", () => {
+    const history = createMemoryHistory();
+    const { asFragment } = render(
+      <Router location={history.location} navigator={history}>
+        <Home />
+      </Router>
+    );
+    expect(asFragment()).toMatchSnapshot();
+  });
 })

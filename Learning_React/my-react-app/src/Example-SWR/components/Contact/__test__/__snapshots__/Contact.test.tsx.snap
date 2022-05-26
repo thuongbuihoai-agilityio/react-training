@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Contact component matches snapshot 1`] = `
+<DocumentFragment>
+  <div>
+    <h1
+      data-testid="contact-page"
+    >
+      This is the contact page
+    </h1>
+  </div>
+</DocumentFragment>
+`;

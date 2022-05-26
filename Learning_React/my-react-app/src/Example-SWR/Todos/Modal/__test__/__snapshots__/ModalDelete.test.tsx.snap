@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button component matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="modal"
+    id="showModal"
+  >
+    <div
+      class="modal-dialog"
+    >
+      <div
+        class="modal-content"
+      >
+        <div
+          class="modal-body"
+        >
+          <span>
+            Are you sure to delete todo?
+          </span>
+        </div>
+        <div
+          class="modal-footer"
+        >
+          <button
+            class="btn btn__no"
+          >
+            No
+          </button>
+          <button
+            class="btn btn__yes"
+          >
+            Yes
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

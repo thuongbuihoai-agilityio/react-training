@@ -15,12 +15,9 @@ describe("TodoApp component", () => {
         <TodoApp />
       </Router>
     )
-
     expect(screen.getByTestId("about-page")).toHaveTextContent(/This is the about page/i);
   })
-});
 
-describe("TodoApp component", () => {
   test("rendering a component that uses useLocation", () => {
     const history = createMemoryHistory();
     const route = "/contact";
@@ -30,12 +27,9 @@ describe("TodoApp component", () => {
         <TodoApp />
       </Router>
     )
-
     expect(screen.getByTestId("contact-page")).toHaveTextContent(/This is the contact page/i);
-  })
-});
+  });
 
-describe("TodoApp component", () => {
   test("rendering a component that uses useLocation", () => {
     const history = createMemoryHistory();
     const route = "/";
@@ -45,7 +39,16 @@ describe("TodoApp component", () => {
         <TodoApp />
       </Router>
     )
-
     expect(screen.getByTestId("home-page")).toBeInTheDocument();
   })
+
+  test("matches snapshot", () => {
+    const history = createMemoryHistory();
+    const { asFragment } = render(
+      <Router location={history.location} navigator={history}>
+        <TodoApp />
+      </Router>
+    );
+    expect(asFragment()).toMatchSnapshot();
+  });
 })

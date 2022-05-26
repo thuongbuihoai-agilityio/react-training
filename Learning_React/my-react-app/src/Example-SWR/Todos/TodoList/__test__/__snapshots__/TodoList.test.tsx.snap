@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TodoDetail component matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    data-testid="todoList-page"
+  >
+    <input
+      class="todo__input"
+      placeholder="Add new todo"
+      value=""
+    />
+    <div
+      class="product__list"
+    />
+  </div>
+</DocumentFragment>
+`;

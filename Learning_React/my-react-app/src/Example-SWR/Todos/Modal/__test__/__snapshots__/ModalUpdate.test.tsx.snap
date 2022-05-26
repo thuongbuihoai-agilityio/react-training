@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button component matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="modals"
+    id="bookDeleteModal"
+  >
+    <div
+      class="modal-dialog"
+    >
+      <div
+        class="modal-content"
+      >
+        <div
+          class="modal-header"
+        >
+          <h4
+            class="modal-title"
+            id="productModalLabel"
+          >
+            Edit Task
+          </h4>
+        </div>
+        <div
+          class="modal-body"
+        >
+          <div
+            class="form-control"
+          >
+            <label
+              for=""
+            >
+              Title:
+            </label>
+            <input
+              class="form__input"
+              data-testid="update-input"
+              name="title"
+              type="text"
+              value="Example create Todo App (20220522)"
+            />
+          </div>
+        </div>
+        <div
+          class="modal-footer"
+        >
+          <button
+            class="btn btn__submit"
+          >
+            Submit
+          </button>
+          <button
+            class="btn btn__cancel"
+          >
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

@@ -36,7 +36,7 @@ const TodoDetail: React.FC = () => {
   }, []);
 
   return (
-    <div className="todo__item">
+    <div data-testid="todoDetail-page" className="todo__item">
       <ul className="detail__list">
         <li className="detail__item">
           {todoDetailNew.title}

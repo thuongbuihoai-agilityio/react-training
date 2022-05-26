@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Button from "../../components/Button/Button";
 import useTodo from "../../hooks/useTodo";
 import { ModalUpdateProps, TodoType } from "../../types/todo";
 
@@ -28,12 +29,12 @@ const ModalUpdate: React.FC<ModalUpdateProps> = ({todo, isReload, setIsReLoad, h
           <div className="modal-body">
             <div className="form-control">
               <label htmlFor="">Title:</label>
-              <input className="form__input" type="text" onChange={handleChange} value={todoEdit.title} name="title" />
+              <input data-testid="update-input" className="form__input" type="text" onChange={handleChange} value={todoEdit.title} name="title" />
             </div>
           </div>
           <div className="modal-footer">
-            <button className="btn btn__submit" onClick={() => update(todoEdit.id, todoEdit)}>Submit</button>
-            <button className="btn btn__cancel" onClick={() => hideModalUpdate(false)}>Cancel</button>
+            <Button value="Submit" className="btn btn__submit" onClick={() => update(todoEdit.id, todoEdit)} />
+            <Button value="Cancel" className="btn btn__cancel" onClick={() => hideModalUpdate(false)} />
           </div>
         </div>
       </div>

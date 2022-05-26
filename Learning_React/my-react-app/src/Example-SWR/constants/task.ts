@@ -1,4 +1,4 @@
-import { TodoType } from "../Example-SWR/types/todo";
+import { TodoType } from "../types/todo";
 
 const TASK_MOCKING: TodoType = {
   id: "1",

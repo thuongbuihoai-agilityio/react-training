@@ -23,6 +23,7 @@ const config: Config.InitialOptions = {
   transformIgnorePatterns: [
     "/node_modules/(?!antd|@ant-design|rc-.+?|@babel/runtime).+(js|jsx)$",
   ],
+  setupFilesAfterEnv: ["./jest.setup.js"]
 };
 
 module.exports = config;

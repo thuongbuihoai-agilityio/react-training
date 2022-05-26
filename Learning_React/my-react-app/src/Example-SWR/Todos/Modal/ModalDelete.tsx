@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "../../components/Button/Button";
 import useTodo from "../../hooks/useTodo";
 import { ModalDeleteProps } from "../../types/modal";
 
@@ -9,16 +10,17 @@ const ModalDelete: React.FC<ModalDeleteProps> = ({ id, hideModalDelete }) => {
     deleteTodo(id);
     hideModalDelete(false);
   }
+
   return (
     <div className="modal" id="showModal">
       <div className="modal-dialog">
         <div className="modal-content">
           <div className="modal-body">
-            <span>Are you sure to delete this product?</span>
+            <span>Are you sure to delete todo?</span>
           </div>
           <div className="modal-footer">
-            <button className="btn btn__no" onClick={() => hideModalDelete(false)}>No</button>
-            <button className="btn btn__yes" onClick={() => deleteTodoItem(id)}>Yes</button>
+            <Button className="btn btn__no" onClick={() => hideModalDelete(false)} value="No" />
+            <Button className="btn btn__yes" onClick={() => deleteTodoItem(id)} value="Yes" />
           </div>
         </div>
       </div>

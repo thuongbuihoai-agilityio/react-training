@@ -2,7 +2,7 @@ import axios from "axios";
 import useSWR from "swr";
 import { TASK_URL } from "../constants/url";
 import { TodoType } from "../types/todo";
-import { SUCCESS_MSG } from "../constants/message";
+import { createItem, deleteItem, updateItem } from "../helpers/fetchApi";
 
 export default function useTodo() {
   const fetcher = (url: string) => axios.get(url).then(res => res.data);
@@ -15,17 +15,7 @@ export default function useTodo() {
       id: renderId.valueOf().toString(),
       title,
     };
-    try {
-      await axios({
-        method: "POST",
-        url: TASK_URL,
-        data: newTodo
-      });
-      alert(SUCCESS_MSG.MESSAGE_ADD_TODO);
-    }
-    catch(error) {
-      alert(error);
-    };
+    await createItem(newTodo);
   };
 
   const updateTodo = async (id: string, todoData: TodoType) => {
@@ -33,25 +23,11 @@ export default function useTodo() {
       id: todoData.id,
       title: todoData.title,
     };
-    try {
-      await axios ({
-        method: "PUT",
-        url: (`${TASK_URL}/${id}`),
-        data: {...todoEdit},
-      });
-      alert(SUCCESS_MSG.MESSAGE_UPDATE_TODO);
-    } catch(error) {
-        alert(error);
-    };
+    updateItem(id, todoEdit);
   }
 
   const deleteTodo = async (id: string) => {
-    try {
-      await axios.delete(`${TASK_URL}/${id}`);
-      alert(SUCCESS_MSG.MESSAGE_DELETE_TODO);
-    } catch(error) {
-      alert(error);
-    };
+    deleteItem(id);
   };
 
   return {

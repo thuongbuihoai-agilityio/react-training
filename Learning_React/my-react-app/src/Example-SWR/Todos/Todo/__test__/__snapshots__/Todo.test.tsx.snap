@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Todo item matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="todo__item"
+    data-testid="todo-item"
+  >
+    <ul
+      class="task__list"
+    >
+      <li
+        class="task__item"
+      >
+        <a
+          class="task__link"
+          href="/todo/a56403e9-8163-451c-a17b-6bd2fa3f389a"
+        >
+          Example create Todo App (20220522)
+        </a>
+        <button
+          class="btn btn__del"
+        >
+          Delete
+        </button>
+      </li>
+    </ul>
+  </div>
+</DocumentFragment>
+`;

@@ -1,8 +1,8 @@
-import { act, fireEvent, render } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import { createMemoryHistory } from "history";
 import { Router } from "react-router-dom";
 import "@testing-library/jest-dom"
-import { TODO_CONSTANTS } from "../../../../constants/todo";
+import { TODO_CONSTANTS } from "../../../constants/todo";
 import Todo from "../Todo";
 
 describe("Todo item", () => {
@@ -19,19 +19,30 @@ describe("Todo item", () => {
 
   test("Should render pop when clicking delete button", async () => {
     const deleteTodo = jest.fn();
-    const testingClassName = `pop-confirm-${Math.random}`;
-    const { getByTestId } = render(
-      <Todo
-        {...TODO_CONSTANTS}
-        deleteTodo={deleteTodo}
-      />
+    const history = createMemoryHistory();
+    render (
+      <Router location={history.location} navigator={history}>
+        <Todo
+          {...TODO_CONSTANTS}
+          deleteTodo={deleteTodo}
+        />
+      </Router>
     );
+    const deleteBtn = screen.getByRole("button", {name: /Delete/i});
+    fireEvent.click(deleteBtn);
+    expect(deleteTodo).toHaveBeenCalled();
+  });
 
-    const deleteBtn = getByTestId("delete-btn");
-    act(() => {
-      fireEvent.click(deleteBtn);
-    });
-    const popConfirmElm = document.getElementsByClassName(testingClassName)[0];
-    expect(popConfirmElm).toBeInTheDocument();
+  test("matches snapshot", () => {
+    const history = createMemoryHistory();
+    const { asFragment } = render(
+      <Router location={history.location} navigator={history}>
+        <Todo
+          {...TODO_CONSTANTS}
+          deleteTodo={() => {}}
+        />
+      </Router>
+    );
+    expect(asFragment()).toMatchSnapshot();
   });
 });

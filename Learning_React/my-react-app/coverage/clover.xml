@@ -1,24 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1653468679878" clover="3.2.0">
-  <project timestamp="1653468679878" name="All files">
-    <metrics statements="7" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1" elements="10" coveredelements="7" complexity="0" loc="7" ncloc="7" packages="2" files="2" classes="2"/>
-    <package name="Example-SWR.Todos.Todo">
-      <metrics statements="5" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
-      <file name="Todo.tsx" path="C:\Users\HOAITHUONG\Desktop\learing react\react-training\Learning_React\my-react-app\src\Example-SWR\Todos\Todo\Todo.tsx">
-        <metrics statements="5" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+<coverage generated="1653563973746" clover="3.2.0">
+  <project timestamp="1653563973746" name="All files">
+    <metrics statements="29" coveredstatements="18" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1" elements="32" coveredelements="19" complexity="0" loc="29" ncloc="29" packages="2" files="4" classes="4"/>
+    <package name="constants">
+      <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="message.ts" path="C:\Users\HOAITHUONG\Desktop\learing react\react-training\Learning_React\my-react-app\src\Example-SWR\constants\message.ts">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+      </file>
+      <file name="task.ts" path="C:\Users\HOAITHUONG\Desktop\learing react\react-training\Learning_React\my-react-app\src\Example-SWR\constants\task.ts">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+      </file>
+      <file name="url.ts" path="C:\Users\HOAITHUONG\Desktop\learing react\react-training\Learning_React\my-react-app\src\Example-SWR\constants\url.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
         <line num="4" count="1" type="stmt"/>
-        <line num="5" count="1" type="stmt"/>
-        <line num="10" count="0" type="stmt"/>
-        <line num="19" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="constants">
-      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
-      <file name="todo.ts" path="C:\Users\HOAITHUONG\Desktop\learing react\react-training\Learning_React\my-react-app\src\constants\todo.ts">
-        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+    <package name="helpers">
+      <metrics statements="22" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
+      <file name="fetchApi.ts" path="C:\Users\HOAITHUONG\Desktop\learing react\react-training\Learning_React\my-react-app\src\Example-SWR\helpers\fetchApi.ts">
+        <metrics statements="22" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
-        <line num="12" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="34" count="1" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="37" count="0" type="stmt"/>
+        <line num="39" count="0" type="stmt"/>
+        <line num="44" count="1" type="stmt"/>
+        <line num="45" count="1" type="stmt"/>
+        <line num="46" count="1" type="stmt"/>
       </file>
     </package>
   </project>

@@ -15,7 +15,7 @@ const Todo: React.FC<TodoProps> = ({ todo }) => {
       <ul className="task__list">
         <li className="task__item">
           <Link className="task__link" to={`/todo/${todo.id}`} state={{ todo }}>{todo.title}</Link>
-          <Button value="Delete" onClick={handleOpenModalDelete} data-testid="delete-btn" />
+          <Button value="Delete" onClick={handleOpenModalDelete} data-testid="delete-btn" className="btn btn__del" />
         </li>
       </ul>
       {openModalDelete && <ModalDelete hideModalDelete={setOpenModalDelete} id={todo.id} />}

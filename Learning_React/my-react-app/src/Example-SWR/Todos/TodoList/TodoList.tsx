@@ -7,18 +7,17 @@ const TodoListSWR: React.FC = () => {
   const {todos, addTodo, deleteTodo}  = useTodo();
 
   return (
-    <>
+    <div data-testid={"todoList-page"}>
       <Input addTodo={addTodo} />
       <div className="product__list">
-        {todos.map((todo: TodoType, index: number) =>
-          <div className="product__item" key={index}>
+        {todos.map((todo: TodoType) =>
+          <div className="product__item" key={todo.id}>
             <Todo todo={todo} deleteTodo={deleteTodo} />
           </div>
         )}
       </div>
-    </>
+    </div>
   );
-
 }
 
 export default TodoListSWR;
