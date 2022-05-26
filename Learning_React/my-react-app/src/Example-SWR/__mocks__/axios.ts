@@ -1,7 +1,3 @@
-import { TASK_URL } from "../constants/url";
+import mockAxios from "jest-mock-axios";
 
-const axiosInstance = {
-    baseURL: TASK_URL
-};
-
-export { axiosInstance }
+export default mockAxios;
