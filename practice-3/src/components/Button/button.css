@@ -42,7 +42,11 @@
   color: red;
   border: none;
   font-size: 15px;
-  /* display: none; */
+  display: none;
+}
+
+.btn__delete:hover {
+  display: block;
 }
 
 .btn__no,
