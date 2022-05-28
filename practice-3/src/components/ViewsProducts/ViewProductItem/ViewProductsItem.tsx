@@ -15,7 +15,7 @@ const ViewProductItem: React.FC<ProductItemProps> = ({ product }) => {
           src={product.images[0]}
         />
         <div className="productViewPage__content">
-          <Link className="productViewPage__link" to={`/product/${product.id}`}>
+          <Link className="productViewPage__link" state={{ product }} to={`/product/${product.id}`}>
             <Title className="productViewPage__title" text={product.name} />
           </Link>
           <Text className="productViewPage__description" text={product.description} />

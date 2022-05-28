@@ -5,6 +5,7 @@ import Footer from "./components/Footer/Footer"
 import Header from "./components/Header/Header"
 import Navigation from "./components/Navigation/Navigation"
 import ViewProductList from "./components/ViewsProducts/ViewProductList/ViewProductList"
+import MainContext from "./context/FilterContext";
 import ProductDetails from "./pages/ProductDetail/ProductDetail"
 import ProductList from "./pages/ProductList/ProductList"
 
@@ -16,14 +17,16 @@ const swrConfig = {
 const App: React.FC = () => {
   return (
     <SWRConfig value={swrConfig}>
-      <Navigation />
       <Header />
-      <Category />
-      <Routes>
-        <Route path="/" element={<ViewProductList />} />
-        <Route path="/products" element={<ProductList />} />
-        <Route path={`/product/:id`} element={<ProductDetails />} />
-      </Routes>
+      <MainContext>
+        <Navigation />
+        <Category />
+        <Routes>
+          <Route path="/" element={<ViewProductList />} />
+          <Route path="/products" element={<ProductList />} />
+          <Route path={`/product/:id`} element={<ProductDetails />} />
+        </Routes>
+      </MainContext>
       <Footer />
     </SWRConfig>
   )
