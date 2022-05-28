@@ -1,3 +1,28 @@
-.btn__test {
-  color: red;
+.btn {
+  color: #555;
+  border-color: #555;
+  border-radius: 3px;
+  background-color: transparent;
+  cursor: pointer;
+  font-family: "Poppins";
+  font-weight: bold;
+}
+
+.btn__primary {
+  display: flex;
+  align-self: center;
+  line-height: 30px;
+  height: 35px;
+}
+
+.btn__secondary {
+  padding: 5px;
+  margin: 0 auto;
+  align-self: center;
+  display: flex;
+}
+
+.btn__secondary:hover {
+  color: white;
+  background-color: #555;
 }
