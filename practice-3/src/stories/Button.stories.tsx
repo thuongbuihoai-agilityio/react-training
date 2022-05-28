@@ -10,6 +10,8 @@ export default {
   component: Button,
 };
 
-export function Primary() {
+const Primary: React.FC = () => {
   return <Button text="View all products" className="primary" />;
 }
+
+export { Primary };
