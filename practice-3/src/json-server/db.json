@@ -38,12 +38,12 @@
     {
       "id": "1651999210233272318",
       "categoryId": "1651999197973",
-      "name": "Ice cream",
-      "price": 15,
-      "quantity": 3,
+      "name": "Black forest",
+      "price": 15.5,
+      "quantity": 4,
       "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
       "images": [
-        "/src/assets/images/products/cheese-cake.jpg",
+        "/src/assets/images/products/black-forest-cake.jpg",
         "/src/assets/images/products/cheese-cake.jpg",
         "/src/assets/images/products/cheese-cake.jpg"
       ]
@@ -51,12 +51,12 @@
     {
       "id": "1651993222445553",
       "categoryId": "1651999197973",
-      "name": "Ice cream",
-      "price": 15,
-      "quantity": 3,
+      "name": "Ciabatta",
+      "price": 9.5,
+      "quantity": 7,
       "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
       "images": [
-        "/src/assets/images/products/cheese-cake.jpg",
+        "/src/assets/images/products/ciabatta-cake.jpg",
         "/src/assets/images/products/cheese-cake.jpg",
         "/src/assets/images/products/cheese-cake.jpg"
       ]
@@ -64,9 +64,9 @@
     {
       "id": "16519992102442282747",
       "categoryId": "1651999197973",
-      "name": "Ice cream",
-      "price": 15,
-      "quantity": 3,
+      "name": "Cheese cake",
+      "price": 20,
+      "quantity": 5,
       "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
       "images": [
         "/src/assets/images/products/cheese-cake.jpg",
