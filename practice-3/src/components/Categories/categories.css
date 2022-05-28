@@ -1,0 +1,44 @@
+.categories {
+  text-align: center;
+}
+
+.categories__title {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.categories__list {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0 40px 0;
+  padding: 0;
+}
+
+.categories__item {
+  list-style: none;
+  cursor: pointer;
+  margin: 0 30px;
+  position: relative;
+  color: #696969;
+}
+
+.categories__item:hover {
+  color: #ebb576;
+}
+
+.categories__item::after {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: #555;
+  position: absolute;
+  right: -30px;
+  top: 45%;
+  color: #696969;
+}
+
+.categories__item > a {
+  color: black;
+  text-decoration: none;
+}
