@@ -11,6 +11,7 @@ export interface Product {
 
 export interface ProductItemProps {
   product: Product;
+  deleteProduct: (id: string) => void;
 }
 
 export interface ProductUpdateProps {

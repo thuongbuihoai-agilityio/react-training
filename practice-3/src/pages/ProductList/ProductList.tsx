@@ -5,13 +5,13 @@ import ProductItem from "../ProductItem/ProductItem";
 import "./productList.css";
 
 const ProductList: React.FC = () => {
-  const { products } = useProducts();
+  const { products, deleteProduct } = useProducts();
   return (
     <>
       <div className="product__list">
         {products?.map((product: Product) =>
           <div className="product__item" key={product.id}>
-            <ProductItem product={product} />
+            <ProductItem deleteProduct={deleteProduct} product={product} />
           </div>
         )}
       </div>

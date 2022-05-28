@@ -19,7 +19,7 @@ const ViewProductItem: React.FC<ProductItemProps> = ({ product }) => {
             <Title className="productViewPage__title" text={product.name} />
           </Link>
           <Text className="productViewPage__description" text={product.description} />
-          <Price value={product.price} />
+          <Price className="productViewPage__price" value={product.price} />
         </div>
       </div>
     </>

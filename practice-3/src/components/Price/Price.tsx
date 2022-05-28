@@ -2,9 +2,9 @@ import { PriceProps } from "@/types/price";
 import React, { memo } from "react";
 import "./price.css";
 
-const Price: React.FC<PriceProps> = ({ value }) => {
+const Price: React.FC<PriceProps> = ({ value, className }) => {
   return (
-    <p className="price">
+    <p className={className}>
       ${value}
     </p>
   );

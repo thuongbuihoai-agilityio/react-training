@@ -32,19 +32,19 @@ const get = async (url: string) => {
 //   };
 // }
 
-// const deleteItem = async (id: string) => {
-//   try {
-//     const res = await axios.delete(id);
-//     // alert(SUCCESS_MSG.MESSAGE_DELETE_TODO);
-//     return res;
-//   } catch(error) {
-//     console.log(error);
-//   };
-// }
+const remove = async (id: string) => {
+  try {
+    const res = await axios.delete(id);
+    // alert(SUCCESS_MSG.MESSAGE_DELETE_TODO);
+    return res;
+  } catch(error) {
+    console.log(error);
+  };
+}
 
 export {
   get,
   // createItem,
   // updateItem,
-  // deleteItem
+  remove
 }
