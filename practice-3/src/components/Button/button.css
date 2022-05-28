@@ -28,7 +28,7 @@
 }
 
 .btn__update {
-  border-color: green;
+  border: none;
   color: green;
   height: 35px;
   font-size: larger;
