@@ -30,9 +30,9 @@
       "quantity": 3,
       "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
       "images": [
-        "src/assets/images/products/cheese-cake.jpg",
-        "src/assets/images/products/cheese-cake.jpg",
-        "src/assets/images/products/cheese-cake.jpg"
+        "/src/assets/images/products/cheese-cake.jpg",
+        "/src/assets/images/products/cheese-cake.jpg",
+        "/src/assets/images/products/cheese-cake.jpg"
       ]
     },
     {
@@ -43,9 +43,9 @@
       "quantity": 3,
       "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
       "images": [
-        "src/assets/images/products/cheese-cake.jpg",
-        "src/assets/images/products/cheese-cake.jpg",
-        "src/assets/images/products/cheese-cake.jpg"
+        "/src/assets/images/products/cheese-cake.jpg",
+        "/src/assets/images/products/cheese-cake.jpg",
+        "/src/assets/images/products/cheese-cake.jpg"
       ]
     },
     {
@@ -56,9 +56,9 @@
       "quantity": 3,
       "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
       "images": [
-        "src/assets/images/products/cheese-cake.jpg",
-        "src/assets/images/products/cheese-cake.jpg",
-        "src/assets/images/products/cheese-cake.jpg"
+        "/src/assets/images/products/cheese-cake.jpg",
+        "/src/assets/images/products/cheese-cake.jpg",
+        "/src/assets/images/products/cheese-cake.jpg"
       ]
     },
     {
@@ -69,9 +69,9 @@
       "quantity": 3,
       "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
       "images": [
-        "src/assets/images/products/cheese-cake.jpg",
-        "src/assets/images/products/cheese-cake.jpg",
-        "src/assets/images/products/cheese-cake.jpg"
+        "/src/assets/images/products/cheese-cake.jpg",
+        "/src/assets/images/products/cheese-cake.jpg",
+        "/src/assets/images/products/cheese-cake.jpg"
       ]
     }
   ]

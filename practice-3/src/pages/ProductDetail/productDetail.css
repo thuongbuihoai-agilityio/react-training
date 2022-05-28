@@ -27,6 +27,7 @@
 
 .productDetail__update {
   display: flex;
+  align-items: center;
 }
 
 .product__prev {
@@ -39,4 +40,15 @@
   display: flex;
   align-self: center;
   margin-right: 10px;
+}
+
+.productDetail__price {
+  color: #ebb576;
+  font-weight: bold;
+}
+
+.productDetail__title {
+  font-size: 20px;
+  margin-right: 20px;
+  text-transform: uppercase;
 }

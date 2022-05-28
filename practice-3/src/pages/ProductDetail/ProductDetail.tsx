@@ -3,13 +3,12 @@ import { useLocation, useParams } from "react-router-dom";
 import Price from "../../components/Price/Price";
 import Button from "../../components/Button/Button";
 import Title from "../../components/Title/Title";
-import "./productDetail.css";
 import Text from "../../components/Text/Text";
 import { ProductUpdateProps } from "../../types/product";
+import "./productDetail.css";
 
 const ProductDetails: React.FC = () => {
   const location = useLocation();
-  const { id } = useParams();
   const { product } = location.state as ProductUpdateProps;
 
   if(!product) {
@@ -26,9 +25,9 @@ const ProductDetails: React.FC = () => {
           />
         </div>
         <div className="productDetails__img--right">
-          {product.images.map((img: string) =>
+          {product.images.map((img: string, index: number) =>
             <img
-              key={product.id}
+              key={index}
               src={img}
               alt="This is image"
             />
@@ -37,11 +36,11 @@ const ProductDetails: React.FC = () => {
         </div>
         <div className="productDetails__info">
           <div className="productDetail__update">
-            <Price value={product.price} />
-            <Button text="Update" />
+            <Title className="productDetail__title" text={product.name} />
+            <Button className="btn btn__update" text={<i className="fa fa-pen"></i>} />
           </div>
-          <Title text={product.name} />
-          <input className="productDetails__input" min={0} type="number" value="2" />
+            <Price className="productDetail__price" value={product.price} />
+          <input className="productDetails__input" min={0} type="number" value={product.quantity} />
           <Text text={product.description} />
         </div>
       </div>

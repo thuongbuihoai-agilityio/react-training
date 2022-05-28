@@ -26,3 +26,21 @@
   color: white;
   background-color: #555;
 }
+
+.btn__update {
+  border-color: green;
+  color: green;
+  height: 35px;
+  font-size: larger;
+}
+
+.btn__delete {
+  position: absolute;
+  z-index: 5;
+  top: 3%;
+  right: 5%;
+  color: red;
+  border: none;
+  font-size: 15px;
+  display: none;
+}
