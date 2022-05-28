@@ -20,5 +20,59 @@
       "id": "1651454657532",
       "name": "Muffins"
     }
+  ],
+  "products": [
+    {
+      "id": "1651999210588",
+      "categoryId": "1651999177368",
+      "name": "Sandwich",
+      "price": 14,
+      "quantity": 3,
+      "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
+      "images": [
+        "src/assets/images/products/cheese-cake.jpg",
+        "src/assets/images/products/cheese-cake.jpg",
+        "src/assets/images/products/cheese-cake.jpg"
+      ]
+    },
+    {
+      "id": "1651999210233272318",
+      "categoryId": "1651999197973",
+      "name": "Ice cream",
+      "price": 15,
+      "quantity": 3,
+      "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
+      "images": [
+        "src/assets/images/products/cheese-cake.jpg",
+        "src/assets/images/products/cheese-cake.jpg",
+        "src/assets/images/products/cheese-cake.jpg"
+      ]
+    },
+    {
+      "id": "1651993222445553",
+      "categoryId": "1651999197973",
+      "name": "Ice cream",
+      "price": 15,
+      "quantity": 3,
+      "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
+      "images": [
+        "src/assets/images/products/cheese-cake.jpg",
+        "src/assets/images/products/cheese-cake.jpg",
+        "src/assets/images/products/cheese-cake.jpg"
+      ]
+    },
+    {
+      "id": "16519992102442282747",
+      "categoryId": "1651999197973",
+      "name": "Ice cream",
+      "price": 15,
+      "quantity": 3,
+      "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
+      "images": [
+        "src/assets/images/products/cheese-cake.jpg",
+        "src/assets/images/products/cheese-cake.jpg",
+        "src/assets/images/products/cheese-cake.jpg"
+      ]
+    }
   ]
 }
