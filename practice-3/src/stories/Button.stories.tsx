@@ -10,6 +10,6 @@ export default {
   component: Button,
 };
 
-export function Default() {
-  return <Button text="cancel" />;
+export function Primary() {
+  return <Button text="View all products" className="primary" />;
 }
