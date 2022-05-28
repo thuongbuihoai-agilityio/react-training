@@ -44,3 +44,21 @@
   font-size: 15px;
   display: none;
 }
+
+.btn__no,
+.btn__yes {
+  border: 1px solid gray;
+  margin: 3px;
+}
+
+.btn__yes:hover {
+  color: white;
+  border-color: green;
+  background-color: green;
+}
+
+.btn__no:hover {
+  color: white;
+  border-color: orange;
+  background-color: orange;
+}

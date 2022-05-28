@@ -1,7 +1,7 @@
 import Button from "../../../components/Button/Button";
 import { ModalDeleteProps } from "../../../types/modal";
 import React from "react";
-// import "./modalDelete.css";
+import "./modalDelete.css";
 
 const ModalDelete: React.FC<ModalDeleteProps> = ({ id, hideModalDelete, deleteProduct }) => {
   return (
@@ -9,11 +9,11 @@ const ModalDelete: React.FC<ModalDeleteProps> = ({ id, hideModalDelete, deletePr
       <div className="modal-dialog">
         <div className="modal-content">
           <div className="modal-body">
-            <span>Are you sure to delete this product?</span>
+            <span className="modal-title">Are you sure to delete this product?</span>
           </div>
           <div className="modal-footer">
-            <Button onClick={() => hideModalDelete(false)} text="No" />
-            <Button onClick={() => deleteProduct(id)} text="Yes" />
+            <Button className="btn btn__no" onClick={() => hideModalDelete(false)} text="No" />
+            <Button className="btn btn__yes" onClick={() => deleteProduct(id)} text="Yes" />
           </div>
         </div>
       </div>
