@@ -40,7 +40,7 @@ const ProductDetails: React.FC = () => {
             <Button className="btn btn__update" text={<i className="fa fa-pen"></i>} />
           </div>
             <Price className="productDetail__price" value={product.price} />
-          <input className="productDetails__input" min={0} type="number" value={product.quantity} />
+          <input className="productDetails__input" min={0} type="number" defaultValue={product.quantity} />
           <Text text={product.description} />
         </div>
       </div>

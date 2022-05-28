@@ -10,8 +10,7 @@ export default function useProducts() {
   const filter = {
     ...filterInput,
   };
-  console.log("filter", filter);
-  
+
   const queryParams: URLSearchParams = new URLSearchParams(filter);
 
   const { data, error } = useSWR(PRODUCTS_URL + queryParams.toString(), get, { refreshInterval: 1000 });

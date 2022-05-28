@@ -27,16 +27,8 @@
   color: #ebb576;
 }
 
-.categories__item::after {
-  content: "";
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background-color: #555;
-  position: absolute;
-  right: -30px;
-  top: 45%;
-  color: #696969;
+.active {
+  color: #ebb576;
 }
 
 .categories__item > a {
