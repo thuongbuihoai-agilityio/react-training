@@ -1,3 +1,3 @@
 export interface PriceProps {
-  value: string;
+  value: number;
 }

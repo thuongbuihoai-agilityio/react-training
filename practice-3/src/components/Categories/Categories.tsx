@@ -1,7 +1,17 @@
 import React from "react";
+import useCategories from "../../hooks/useCategories";
+import { CategoryProps } from "@/types/category";
 import "./categories.css";
 
 const Category: React.FC = () => {
+  const {categories} = useCategories();
+  function renderCategoryList(categories: []) {
+    return categories?.map((category: CategoryProps) =>
+      <li  key={category.id} className="categories__item">
+        {category.name}
+      </li>
+    );
+  }
 
   return (
     <>
@@ -9,11 +19,7 @@ const Category: React.FC = () => {
         <p className="categories__title">What are you looking for here?</p>
           <ul className="categories__list">
             <li className="categories__item">All</li>
-            <li className="categories__item">Breads</li>
-            <li className="categories__item">Cakes</li>
-            <li className="categories__item">Cookies</li>
-            <li className="categories__item">Pastries</li>
-            <li className="categories__item">Muffins</li>
+            {renderCategoryList(categories as [])}
           </ul>
       </div>
     </>

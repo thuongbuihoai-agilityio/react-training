@@ -1,26 +1,27 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Price from "../../../components/Price/Price";
 import Title from "../../../components/Title/Title";
-import url from "../../../assets/images/products/black-forest-cake.jpg";
 import Text from "../../../components/Text/Text";
+import { ProductItemProps } from "@/types/product";
 import "./viewProductItem.css"
-import Button from "../../../components/Button/Button";
 
-const ViewProductItem: React.FC = () => {
+const ViewProductItem: React.FC<ProductItemProps> = ({ product }) => {
   return (
     <>
       <div className="productViewPage">
         <img
           className="productViewPage__image"
-          src={url} 
+          src={product.images[0]}
         />
         <div className="productViewPage__content">
-          <Title className="productViewPage__title" text="Sourdough" />
-          <Text className="productViewPage__description" text="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium." />
-          <Price value="3.99" />
+          <Link className="productViewPage__link" to={`/product/${product.id}`}>
+            <Title className="productViewPage__title" text={product.name} />
+          </Link>
+          <Text className="productViewPage__description" text={product.description} />
+          <Price value={product.price} />
         </div>
       </div>
-      <Button className="btn btn__secondary" text="VIEW ALL PRODUCTS" />
     </>
   );
 }

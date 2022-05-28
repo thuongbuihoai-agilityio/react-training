@@ -1,7 +1,10 @@
 .productViewPage {
   display: flex;
-  flex-wrap: wrap;
-  padding: 0 70px 0 130px;
+}
+
+.productViewPage__link {
+  color: #555;
+  text-decoration: none;
 }
 
 .productViewPage__image {
