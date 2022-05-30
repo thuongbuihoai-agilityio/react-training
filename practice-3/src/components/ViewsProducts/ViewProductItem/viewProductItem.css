@@ -3,7 +3,7 @@
 }
 
 .productViewPage__link {
-  color: #555;
+  color: var(--text-master);
   text-decoration: none;
 }
 
@@ -24,11 +24,11 @@
 
 .productViewPage__description {
   font-size: 14px;
-  color: #696969;
+  color: var(--text-secondary);
 }
 
 .productViewPage__price {
-  color: #ebb576;
+  color: var(--text-primary);
   font-weight: bold;
   margin: 0;
 }

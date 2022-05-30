@@ -6,8 +6,8 @@
   left: 33%;
   display: flex;
   flex-direction: column;
-  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
-  background-color: white;
+  box-shadow: var(--box-shadow-first) 0px 22px 70px 4px;
+  background-color: var(--bg-modal);
 }
 
 .modal-dialog-modalUpdate {
@@ -23,7 +23,7 @@
 .modal__input {
   padding: 7px 0;
   width: 100px;
-  border: 1px solid gray;
+  border: 1px solid var(--border-btn);
   margin-right: 10px;
 }
 
@@ -48,7 +48,7 @@
 .form__text {
   padding: 7px 10px;
   font-size: 13px;
-  border: 1px solid gray;
+  border: 1px solid var(--border-btn);
   border-radius: 3px;
 }
 
@@ -60,7 +60,7 @@
 .form-control > input:hover,
 .form__select:hover,
 .form__text:hover {
-  border-color: #ebb576;
+  border-color: var(--text-primary);
 }
 
 .form__img--list {
@@ -88,7 +88,7 @@ input[type='file'] {
 .form__input--img {
   width: 100px;
   height: 100px;
-  border: 1px dashed gray;
+  border: 1px dashed var(--border-btn);
 }
 
 #form__number {
