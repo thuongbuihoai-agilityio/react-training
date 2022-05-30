@@ -1,12 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Price from "../../../components/Price/Price";
+import Price from "@/components/Price/Price";
 import Title from "../../common/Title/Title";
-import Text from "../../../components/Text/Text";
+import Text from "@/components/Text/Text";
 import { ProductItemProps } from "@/types/product";
 import "./viewProductItem.css"
 
 const ViewProductItem: React.FC<ProductItemProps> = ({ product }) => {
+
   return (
     <>
       <div className="productViewPage">
