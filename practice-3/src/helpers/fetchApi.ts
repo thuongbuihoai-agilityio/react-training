@@ -1,7 +1,5 @@
 import axios from "axios";
-import { Product } from "../types/product";
-// import { SUCCESS_MSG } from "../constants/message";
-// import { TodoType } from "../types/todo";
+import { Product } from "@/types/product";
 
 const get = async (url: string) => {
   try {
