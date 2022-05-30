@@ -1,9 +1,9 @@
 import React from "react";
 import Logo from "../Logo/Logo";
-import url from "../../../assets/images/logos/logos.png";
-import backgroundUrl from "../../../assets/images/backgrounds/slide-1.jpg";
+import url from "@/assets/images/logos/logos.png";
+import backgroundUrl from "@/assets/images/backgrounds/slide-1.jpg";
 import Menu from "../Menu/Menu";
-import MENU_LIST from "../../../constants/menu";
+import MENU_LIST from "@/constants/menu";
 import Button from "../Button/Button";
 import "./header.css";
 
