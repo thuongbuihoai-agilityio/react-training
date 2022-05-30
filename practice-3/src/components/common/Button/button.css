@@ -15,16 +15,17 @@
   height: 35px;
 }
 
-.btn__cancel {
+.btn__secondary {
   padding: 5px;
   margin: 0 auto;
   align-self: center;
   display: flex;
 }
 
-.btn__cancel:hover {
+.btn__secondary:hover,
+.btn__add:hover {
   color: var(--btn-primary);
-  background-color: var(--bg-cancel);
+  background-color: var(--bg-view);
 }
 
 .btn__update {

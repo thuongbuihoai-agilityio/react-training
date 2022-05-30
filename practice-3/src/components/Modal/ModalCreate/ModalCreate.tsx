@@ -6,13 +6,23 @@ import { CategoryProps } from "@/types/category";
 import Input from "@/components/Input/Input/Input";
 import useProducts from "@/hooks/useProducts";
 import getBase64 from "@/helpers/getBase64";
+import { Product } from "@/types/product";
 
 const ModalCreate: React.FC<ModalCreateProps> = ({ hideModalUpdate}) => {
   const {createProduct} = useProducts(); 
   const [newProduct, setNewProduct] = useState([]);
-
+  const initialValues = {
+    name: "",
+    price: 0,
+    images: [],
+    quantity: 0,
+    categoryId: "",
+    description: ""
+  }
   const {categories} = useCategories();
   const [selectedFile, setSelectedFile] = useState([]);
+  const [formValues, setFormValues] = useState(initialValues);
+  const [isValidate, setIsValidate] = useState({});
 
   const handleCreateProduct = async () => {
     const images: string[] = [];
@@ -20,13 +30,30 @@ const ModalCreate: React.FC<ModalCreateProps> = ({ hideModalUpdate}) => {
       images.push(selectedFile[i]);
     }
     createProduct({images, ...newProduct} as any);
+    setIsValidate(validate(formValues));
     hideModalUpdate(false);
+  }
+
+  const validate = (values: Product) => {
+    const errors = {
+      name: "",
+      price: 0,
+      images: [],
+      quantity: 0,
+      categoryId: "",
+      description: ""
+    }
+    if(!values.name) {
+      errors.name = "Name is required!"
+    }
+    return errors;
   }
 
   const handleChange = (event: { target: { value: {}; name: string; } }) => {
     const value = event.target.value;
     const key = event.target.name;
     setNewProduct({...newProduct, [key]: value});
+    setFormValues({...formValues, [key]: value});
   }
 
   const imageChange = async (event: { target: { files: any; }; }) => {
@@ -49,8 +76,9 @@ const ModalCreate: React.FC<ModalCreateProps> = ({ hideModalUpdate}) => {
         <div className="modal-body">
           <div className="form-control">
             <label htmlFor="">Product name: </label>
-            <Input className="form__input" type="text" onChange={handleChange} name="name" />
+            <Input className="form__input" type="text" value={formValues.name} onChange={handleChange} name="name" />
           </div>
+          <small>{isValidate.name}</small>
           <div className="form-control">
             <label htmlFor="">Description: </label>
             <textarea className="form__text" onChange={handleChange} name="description" id="" cols={30} rows={5}></textarea>
