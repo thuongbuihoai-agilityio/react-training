@@ -1,12 +1,12 @@
 import React, { useCallback, useState } from "react";
-import { useLocation, useParams } from "react-router-dom";
-import Price from "../../components/Price/Price";
-import Button from "../../components/common/Button/Button";
-import Title from "../../components/common/Title/Title";
-import Text from "../../components/Text/Text";
-import { Product, ProductUpdateProps } from "../../types/product";
+import { useLocation } from "react-router-dom";
+import Price from "@/components/Price/Price";
+import Button from "@/components/common/Button/Button";
+import Title from "@/components/common/Title/Title";
+import Text from "@/components/Text/Text";
+import { Product, ProductUpdateProps } from "@/types/product";
+import ModalUpdate from "@/components/Modal/ModalUpdate/ModalUpdate";
 import "./productDetail.css";
-import ModalUpdate from "../../components/Modal/ModalUpdate/ModalUpdate";
 
 const ProductDetails: React.FC = () => {
   const location = useLocation();
@@ -15,15 +15,11 @@ const ProductDetails: React.FC = () => {
   const [openModalUpdate, setOpenModalUpdate] = useState(false);
 
   const handleOpenModalUpdate = useCallback(() => {
-    setOpenModalUpdate(true)
+    setOpenModalUpdate(true);
   }, []);
 
   const handleChangeProductDetail = (newProduct: {}) => {
     (location.state as Product).product = newProduct;
-  }
-
-  if(!product) {
-    return <div>Loading...</div>
   }
 
   return (
