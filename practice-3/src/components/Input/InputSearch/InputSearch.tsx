@@ -1,5 +1,5 @@
-import { FilterContext } from "../../../context/FilterContext";
 import React, { memo, useContext } from "react";
+import { FilterContext } from "@/context/FilterContext";
 import "./inputSearch.css";
 
 const InputSearch: React.FC = () => {  
