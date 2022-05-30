@@ -4,6 +4,8 @@ import { PRODUCTS_URL, PRODUCT_CRUD } from "@/constants/url";
 import { create, get, remove, update } from "@/helpers/fetchApi";
 import { FilterContext } from "@/context/FilterContext";
 import { Product } from "@/types/product";
+import Toast from "@/components/Toast/Toast";
+import { SUCCESS_MSG } from "@/constants/message";
 
 export default function useProducts() {
   const renderId = new Date();
@@ -28,6 +30,11 @@ export default function useProducts() {
       images: productData.images
     };
     create(PRODUCT_CRUD, newProduct);
+    Toast({
+      title: "Success!",
+      message: SUCCESS_MSG.MESSAGE_ADD_PRODUCT,
+      type: "success",
+    });
   }
 
   const updateProduct = async (id: string, productData: Product) => {
@@ -41,10 +48,20 @@ export default function useProducts() {
       images: productData.images
     };
     update(`${PRODUCT_CRUD}/${id}`, productEdit);
+    Toast({
+      title: "Success!",
+      message: SUCCESS_MSG.MESSAGE_UPDATE_PRODUCT,
+      type: "success",
+    });
   }
 
   const deleteProduct = async (id: string) => {
     remove(`${PRODUCT_CRUD}/${id}`);
+    Toast({
+      title: "Success!",
+      message: SUCCESS_MSG.MESSAGE_DELETE_PRODUCT,
+      type: "success",
+    });
   };
 
   return {

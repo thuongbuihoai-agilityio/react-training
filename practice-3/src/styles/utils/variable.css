@@ -11,6 +11,7 @@
   --bg-cancel: orange;
   --bg-delete: red;
   --bg-modal: #fff;
+  --bg-view: #555;
 
   /* border color */
   --border-btn: gray;
@@ -21,4 +22,9 @@
   
   /* button color */
   --btn-primary: #fff;
+
+  /* Display message */
+  --success: #47d864;
+  --error: #ff623d;
+  --close: rgba(0, 0, 0, 0.3);
 }
