@@ -1,9 +1,9 @@
 import { Route, Routes } from "react-router-dom";
 import { SWRConfig } from "swr";
 import Category from "./components/Categories/Categories"
-import Footer from "./components/Footer/Footer"
-import Header from "./components/Header/Header"
-import Navigation from "./components/Navigation/Navigation"
+import Footer from "./components/common/Footer/Footer"
+import Header from "./components/common/Header/Header"
+import Navigation from "./components/common/Navigation/Navigation"
 import ViewProductList from "./components/ViewsProducts/ViewProductList/ViewProductList"
 import MainContext from "./context/FilterContext";
 import ProductDetails from "./pages/ProductDetail/ProductDetail"

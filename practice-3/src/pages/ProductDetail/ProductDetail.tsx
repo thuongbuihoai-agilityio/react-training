@@ -1,15 +1,26 @@
-import React from "react";
+import React, { useCallback, useState } from "react";
 import { useLocation, useParams } from "react-router-dom";
 import Price from "../../components/Price/Price";
-import Button from "../../components/Button/Button";
-import Title from "../../components/Title/Title";
+import Button from "../../components/common/Button/Button";
+import Title from "../../components/common/Title/Title";
 import Text from "../../components/Text/Text";
-import { ProductUpdateProps } from "../../types/product";
+import { Product, ProductUpdateProps } from "../../types/product";
 import "./productDetail.css";
+import ModalUpdate from "../../components/Modal/ModalUpdate/ModalUpdate";
 
 const ProductDetails: React.FC = () => {
   const location = useLocation();
   const { product } = location.state as ProductUpdateProps;
+
+  const [openModalUpdate, setOpenModalUpdate] = useState(false);
+
+  const handleOpenModalUpdate = useCallback(() => {
+    setOpenModalUpdate(true)
+  }, []);
+
+  const handleChangeProductDetail = (newProduct: {}) => {
+    (location.state as Product).product = newProduct;
+  }
 
   if(!product) {
     return <div>Loading...</div>
@@ -37,13 +48,14 @@ const ProductDetails: React.FC = () => {
         <div className="productDetails__info">
           <div className="productDetail__update">
             <Title className="productDetail__title" text={product.name} />
-            <Button className="btn btn__update" text={<i className="fa fa-pen"></i>} />
+            <Button onClick={handleOpenModalUpdate} className="btn btn__update" text={<i className="fa fa-pen"></i>} />
           </div>
             <Price className="productDetail__price" value={product.price} />
-          <input className="productDetails__input" min={0} type="number" defaultValue={product.quantity} />
+          <input className="productDetails__input" min={0} type="number" value={product.quantity} />
           <Text text={product.description} />
         </div>
       </div>
+      {openModalUpdate && <ModalUpdate product={product} onChangeProductDetail={handleChangeProductDetail} hideModalUpdate={setOpenModalUpdate} />}
     </>
   );
 }

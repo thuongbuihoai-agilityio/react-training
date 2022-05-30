@@ -1,5 +1,9 @@
 .product__list {
+  position: relative;
+  padding: 0 100px;
+}
+
+.product__info {
   display: flex;
   flex-wrap: wrap;
-  padding: 0 100px;
 }
