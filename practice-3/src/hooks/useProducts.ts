@@ -1,9 +1,9 @@
-import { PRODUCTS_URL, PRODUCT_CRUD } from "../constants/url";
-import { create, get, remove, update } from "../helpers/fetchApi";
 import useSWR from "swr";
 import { useContext } from "react";
-import { FilterContext } from "../context/FilterContext";
-import { Product } from "../types/product";
+import { PRODUCTS_URL, PRODUCT_CRUD } from "@/constants/url";
+import { create, get, remove, update } from "@/helpers/fetchApi";
+import { FilterContext } from "@/context/FilterContext";
+import { Product } from "@/types/product";
 
 export default function useProducts() {
   const renderId = new Date();
