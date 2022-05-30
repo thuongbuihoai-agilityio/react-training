@@ -1,6 +1,6 @@
-import Button from "../../../components/common/Button/Button";
-import { ModalDeleteProps } from "../../../types/modal";
 import React from "react";
+import Button from "@/components/common/Button/Button";
+import { ModalDeleteProps } from "@/types/modal";
 import "./modalDelete.css";
 
 const ModalDelete: React.FC<ModalDeleteProps> = ({ id, hideModalDelete, deleteProduct }) => {
