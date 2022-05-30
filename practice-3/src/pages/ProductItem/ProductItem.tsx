@@ -15,20 +15,20 @@ const ProductItem: React.FC<ProductItemProps> = ({ product, deleteProduct }) => 
 
   return (
     <>
-    <div className="product">
-      <img
-        className="product__image"
-        src={product.images[0]}
-      />
-      <Button onClick={handleOpenModalDelete} className="btn btn__delete" text={<i className="fa fa-trash"></i>} />
-      <div className="product__content">
-        <Link className="productViewPage__link" state={{ product }} to={`/product/${product.id}`}>
-          <Title className="productViewPage__title" text={product.name} />
-        </Link>
-        <Price className="productViewPage__price" value={product.price} />
+      <div className="product">
+        <img
+          className="product__image"
+          src={product.images[0]}
+        />
+        <Button onClick={handleOpenModalDelete} className="btn btn__delete" text={<i className="fa fa-trash"></i>} />
+        <div className="product__content">
+          <Link className="productViewPage__link" state={{ product }} to={`/product/${product.id}`}>
+            <Title className="productViewPage__title" text={product.name} />
+          </Link>
+          <Price className="productViewPage__price" value={product.price} />
+        </div>
+        {openModalDelete && <ModalDelete deleteProduct={deleteProduct} hideModalDelete={setOpenModalDelete} id={product.id} />}
       </div>
-    </div>
-    {openModalDelete && <ModalDelete deleteProduct={deleteProduct} hideModalDelete={setOpenModalDelete} id={product.id} />}
     </>
   );
 }

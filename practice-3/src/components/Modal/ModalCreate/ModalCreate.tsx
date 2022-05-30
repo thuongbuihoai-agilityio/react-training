@@ -41,11 +41,11 @@ const ModalCreate: React.FC<ModalCreateProps> = ({ hideModalUpdate}) => {
   }
 
   return (
-    <div className="modals" id="bookDeleteModal">
+    <div className="modal-update" id="bookDeleteModal">
     <div className="modal-dialog-modalUpdate">
       <div className="modal-content">
         <div className="modal-header">
-          <h4 className="modal-heading" id="productModalLabel">Edit Product Information</h4>
+          <h4 className="modal-heading" id="productModalLabel">Add New Product Information</h4>
         </div>
         <div className="modal-body">
           <div className="form-control">
