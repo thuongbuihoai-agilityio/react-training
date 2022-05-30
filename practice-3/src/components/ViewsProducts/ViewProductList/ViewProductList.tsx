@@ -1,13 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Button from "../../../components/common/Button/Button";
-import useProducts from "../../../hooks/useProducts";
-import { Product } from "../../../types/product";
+import Button from "@/components/common/Button/Button";
+import useProducts from "@/hooks/useProducts";
+import { Product } from "@/types/product";
 import ViewProductItem from "../ViewProductItem/ViewProductsItem";
 import "./viewProductList.css";
 
 const ViewProductList: React.FC = () => {
   const { products } = useProducts();
+
   return (
     <>
       <div className="viewProduct__list">
