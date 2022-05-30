@@ -1,11 +1,11 @@
-import Button from "../../../components/Button/Button";
+import Button from "../../../components/common/Button/Button";
 import { ModalDeleteProps } from "../../../types/modal";
 import React from "react";
 import "./modalDelete.css";
 
 const ModalDelete: React.FC<ModalDeleteProps> = ({ id, hideModalDelete, deleteProduct }) => {
   return (
-    <div className="modal" id="showModal">
+    <div className="modal-delete" id="showModal">
       <div className="modal-dialog">
         <div className="modal-content">
           <div className="modal-body">
