@@ -1,16 +1,16 @@
 import React, { useCallback, useState } from "react";
 import { Link } from "react-router-dom";
-import Title from "../../components/common/Title/Title";
-import Price from "../../components/Price/Price";
-import { ProductItemProps } from "../../types/product";
-import "./productItem.css"
-import Button from "../../components/common/Button/Button";
-import ModalDelete from "../../components/Modal/ModalDelete/ModalDelete";
+import Title from "@/components/common/Title/Title";
+import Price from "@/components/Price/Price";
+import { ProductItemProps } from "@/types/product";
+import Button from "@/components/common/Button/Button";
+import ModalDelete from "@/components/Modal/ModalDelete/ModalDelete";
+import "./productItem.css";
 
 const ProductItem: React.FC<ProductItemProps> = ({ product, deleteProduct }) => {
   const [openModalDelete, setOpenModalDelete] = useState(false);
   const handleOpenModalDelete = useCallback(() => {
-    setOpenModalDelete(true)
+    setOpenModalDelete(true);
   }, []);
 
   return (

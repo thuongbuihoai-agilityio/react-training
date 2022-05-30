@@ -1,8 +1,8 @@
 import React, { useCallback, useState } from "react";
-import ModalCreate from "../../components/Modal/ModalCreate/ModalCreate";
-import Button from "../../components/common/Button/Button";
-import useProducts from "../../hooks/useProducts";
-import { Product } from "../../types/product";
+import ModalCreate from "@/components/Modal/ModalCreate/ModalCreate";
+import Button from "@/components/common/Button/Button";
+import useProducts from "@/hooks/useProducts";
+import { Product } from "@/types/product";
 import ProductItem from "../ProductItem/ProductItem";
 import "./productList.css";
 
@@ -11,7 +11,7 @@ const ProductList: React.FC = () => {
   const [openModalUpdate, setOpenModalUpdate] = useState(false);
 
   const handleOpenModalUpdate = useCallback(() => {
-    setOpenModalUpdate(true)
+    setOpenModalUpdate(true);
   }, []);
 
   return (
