@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import Button from "../../../components/common/Button/Button";
-import { ModalUpdateProps } from "../../../types/modal";
-import useCategories from "../../../hooks/useCategories";
-import { CategoryProps } from "../../../types/category";
-import Input from "../../../components/Input/Input/Input";
-import "./modalUpdate.css"
-import useProducts from "../../../hooks/useProducts";
-import { Product } from "../../../types/product";
-import getBase64 from "../../../helpers/getBase64";
+import Button from "@/components/common/Button/Button";
+import { ModalUpdateProps } from "@/types/modal";
+import useCategories from "@/hooks/useCategories";
+import { CategoryProps } from "@/types/category";
+import Input from "@/components/Input/Input/Input";
+import useProducts from "@/hooks/useProducts";
+import { Product } from "@/types/product";
+import getBase64 from "@/helpers/getBase64";
+import "./modalUpdate.css";
 
 const ModalUpdate: React.FC<ModalUpdateProps> = ({ product, hideModalUpdate, onChangeProductDetail }) => {
   const {updateProduct} = useProducts(); 

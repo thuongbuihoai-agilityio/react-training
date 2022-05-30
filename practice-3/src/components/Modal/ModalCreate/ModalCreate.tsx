@@ -1,14 +1,13 @@
 import React, { useState } from "react";
-import Button from "../../../components/common/Button/Button";
-import { ModalCreateProps } from "../../../types/modal";
-import useCategories from "../../../hooks/useCategories";
-import { CategoryProps } from "../../../types/category";
-import Input from "../../../components/Input/Input/Input";
-import useProducts from "../../../hooks/useProducts";
-import getBase64 from "../../../helpers/getBase64";
+import Button from "@/components/common/Button/Button";
+import { ModalCreateProps } from "@/types/modal";
+import useCategories from "@/hooks/useCategories";
+import { CategoryProps } from "@/types/category";
+import Input from "@/components/Input/Input/Input";
+import useProducts from "@/hooks/useProducts";
+import getBase64 from "@/helpers/getBase64";
 
 const ModalCreate: React.FC<ModalCreateProps> = ({ hideModalUpdate}) => {
-
   const {createProduct} = useProducts(); 
   const [newProduct, setNewProduct] = useState([]);
 
