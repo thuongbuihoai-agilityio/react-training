@@ -1,15 +1,15 @@
 import React, { memo } from "react";
-import {InputProps} from "../../../types/input";
+import { InputProps } from "@/types/input";
 
 const Input: React.FC<InputProps> = ({
-    id,
-    onChange,
-    className,
-    type,
-    name,
-    value,
-    min,
-    multiple
+  id,
+  onChange,
+  className,
+  type,
+  name,
+  value,
+  min,
+  multiple
 }) => {
 
   return (
