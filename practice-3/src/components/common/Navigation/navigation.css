@@ -6,7 +6,7 @@
   z-index: 5;
   width: 85.5%;
   padding: 0 100px;
-  background-color: #ebb576;
+  background-color: var(--text-primary);
 }
 
 .nav__list {
@@ -22,5 +22,5 @@
 .nav__item > a {
   font-size: 13px;
   text-decoration: none;
-  color: white;
+  color: var(--text-link);
 }

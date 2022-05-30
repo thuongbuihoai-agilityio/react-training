@@ -28,7 +28,7 @@
 }
 
 .productViewPage__price {
-  color: #ebb576;
+  color: var(--text-primary);
   font-weight: bold;
   margin: 0;
 }

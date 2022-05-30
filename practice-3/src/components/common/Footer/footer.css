@@ -1,6 +1,6 @@
 .footer {
   margin-top: 100px;
-  background-color: gray;
+  background-color: var(--border-btn);
   padding: 10px;
 }
 
