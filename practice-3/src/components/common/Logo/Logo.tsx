@@ -1,5 +1,5 @@
-import { LogoProps } from "@/types/logo";
 import React, { memo } from "react";
+import { LogoProps } from "@/types/logo";
 import "./logo.css"
 
 const Logo: React.FC<LogoProps> = ({
