@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Button from "../../../components/Button/Button";
+import Button from "../../../components/common/Button/Button";
 import useProducts from "../../../hooks/useProducts";
 import { Product } from "../../../types/product";
 import ViewProductItem from "../ViewProductItem/ViewProductsItem";
@@ -12,7 +12,7 @@ const ViewProductList: React.FC = () => {
     <>
       <div className="viewProduct__list">
         {products?.map((product: Product) => <div className="viewProduct__item" key={product.id}>
-          <ViewProductItem product={product} />
+          <ViewProductItem product={product} deleteProduct={() => {}} />
         </div>
         )}
       </div>

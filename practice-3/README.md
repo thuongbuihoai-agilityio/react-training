@@ -10,8 +10,9 @@
 - Vite
 
 # TARGET
-- Understand simple flow in React
-- Understand how to use React hooks and how to build an own custom hook
+- Understand how to use context, useReducer for state management
+- Understand how to use SWR for fetching data
+- Understand how to write unit tests for components
 
 # REQUIREMENT
 - Adding more features for practice 2

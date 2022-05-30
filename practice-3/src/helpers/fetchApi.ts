@@ -1,4 +1,5 @@
 import axios from "axios";
+import { Product } from "../types/product";
 // import { SUCCESS_MSG } from "../constants/message";
 // import { TodoType } from "../types/todo";
 
@@ -11,31 +12,28 @@ const get = async (url: string) => {
   }
 };
 
-// const createItem = async (url: string, newTodo: TodoType) => {
-//   try {
-//     const res = await axios.post(url, newTodo);
-//     // alert(SUCCESS_MSG.MESSAGE_ADD_TODO);
-//     return res;
-//   }
-//   catch(error) {
-//     console.log(error);
-//   };
-// }
+const create = async (url: string, newProduct: Product) => {
+  try {
+    const res = await axios.post(url, newProduct);
+    return res;
+  }
+  catch(error) {
+    console.log(error);
+  };
+}
 
-// const updateItem = async (id: string, todoEdit: TodoType) => {
-//   try {
-//     const res = await axios.put(id, {...todoEdit});
-//     // alert(SUCCESS_MSG.MESSAGE_UPDATE_TODO);
-//     return res;
-//   } catch(error) {
-//       console.log(error);
-//   };
-// }
+const update = async (id: string, productEdit: Product) => {
+  try {
+    const res = await axios.put(id, {...productEdit});
+    return res;
+  } catch(error) {
+      console.log(error);
+  };
+}
 
 const remove = async (id: string) => {
   try {
     const res = await axios.delete(id);
-    // alert(SUCCESS_MSG.MESSAGE_DELETE_TODO);
     return res;
   } catch(error) {
     console.log(error);
@@ -44,7 +42,7 @@ const remove = async (id: string) => {
 
 export {
   get,
-  // createItem,
-  // updateItem,
+  create,
+  update,
   remove
 }

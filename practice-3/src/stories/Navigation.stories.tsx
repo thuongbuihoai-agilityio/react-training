@@ -1,5 +1,5 @@
 import React from "react";
-import Navigation from "../components/Navigation/Navigation";
+import Navigation from "../components/common/Navigation/Navigation";
 
 export default {
   /* 👇 The title prop is optional.

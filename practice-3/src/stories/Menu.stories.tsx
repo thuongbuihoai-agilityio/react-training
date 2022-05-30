@@ -1,6 +1,6 @@
 import React from "react";
 import MENU_LIST from "../constants/menu";
-import Menu from "../components/Menu/Menu";
+import Menu from "../components/common/Menu/Menu";
 
 export default {
   /* 👇 The title prop is optional.

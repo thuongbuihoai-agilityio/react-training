@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Price from "../../../components/Price/Price";
-import Title from "../../../components/Title/Title";
+import Title from "../../common/Title/Title";
 import Text from "../../../components/Text/Text";
 import { ProductItemProps } from "@/types/product";
 import "./viewProductItem.css"
