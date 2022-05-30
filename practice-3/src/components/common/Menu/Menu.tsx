@@ -1,5 +1,5 @@
-import { MenuProps, MenuType } from "@/types/menu";
 import React, { memo } from "react";
+import { MenuProps, MenuType } from "@/types/menu";
 import "./menu.css";
 
 const Menu: React.FC<MenuProps> = ({ menuList }) => {
