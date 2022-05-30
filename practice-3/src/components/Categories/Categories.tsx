@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
-import useCategories from "../../hooks/useCategories";
-import { CategoryProps } from "../../types/category";
-import { FilterContext } from "../../context/FilterContext";
+import useCategories from "@/hooks/useCategories";
+import { CategoryProps } from "@/types/category";
+import { FilterContext } from "@/context/FilterContext";
 import "./categories.css";
 
 const Category: React.FC = () => {
