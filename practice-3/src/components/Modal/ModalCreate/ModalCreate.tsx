@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Button from "@/components/common/Button/Button";
 import { ModalCreateProps } from "@/types/modal";
 import useCategories from "@/hooks/useCategories";
@@ -7,53 +7,38 @@ import Input from "@/components/Input/Input/Input";
 import useProducts from "@/hooks/useProducts";
 import getBase64 from "@/helpers/getBase64";
 import { Product } from "@/types/product";
+import FORM_VALUES from "@/constants/form";
+import {validate} from "@/helpers/validate";
+import {setFieldsValue} from "../../../helpers/index";
+import "./modalCreate.css";
 
 const ModalCreate: React.FC<ModalCreateProps> = ({ hideModalUpdate}) => {
-  const {createProduct} = useProducts(); 
+  const {createProduct} = useProducts();
   const [newProduct, setNewProduct] = useState([]);
-  const initialValues = {
-    name: "",
-    price: 0,
-    images: [],
-    quantity: 0,
-    categoryId: "",
-    description: ""
-  }
   const {categories} = useCategories();
   const [selectedFile, setSelectedFile] = useState([]);
-  const [formValues, setFormValues] = useState(initialValues);
-  const [isValidate, setIsValidate] = useState({});
+  const [formValues, setFormValues] = useState(FORM_VALUES);
 
-  const handleCreateProduct = async () => {
+  const handleCreateProduct = () => {
     const images: string[] = [];
     for (let i = 0; i < selectedFile.length; i++) {
       images.push(selectedFile[i]);
     }
-    createProduct({images, ...newProduct} as any);
-    setIsValidate(validate(formValues));
-    hideModalUpdate(false);
-  }
-
-  const validate = (values: Product) => {
-    const errors = {
-      name: "",
-      price: 0,
-      images: [],
-      quantity: 0,
-      categoryId: "",
-      description: ""
+    setFormValues(validate(formValues));
+    console.log("formValue", formValues);
+    if(!formValues) {
+      createProduct({images, ...newProduct} as any);
+      hideModalUpdate(false);
     }
-    if(!values.name) {
-      errors.name = "Name is required!"
-    }
-    return errors;
   }
 
   const handleChange = (event: { target: { value: {}; name: string; } }) => {
     const value = event.target.value;
-    const key = event.target.name;
-    setNewProduct({...newProduct, [key]: value});
-    setFormValues({...formValues, [key]: value});
+    const fieldName = event.target.name;
+    setNewProduct({...newProduct, [fieldName]: value});
+    setFormValues(setFieldsValue(formValues, value, fieldName));
+    // console.log("setField", setFieldsValue(formValues, value, fieldName));
+    // setFormValues(validate(setFieldsValue(formValues, value, fieldName)));
   }
 
   const imageChange = async (event: { target: { files: any; }; }) => {
@@ -76,12 +61,13 @@ const ModalCreate: React.FC<ModalCreateProps> = ({ hideModalUpdate}) => {
         <div className="modal-body">
           <div className="form-control">
             <label htmlFor="">Product name: </label>
-            <Input className="form__input" type="text" value={formValues.name} onChange={handleChange} name="name" />
+            <Input className="form__input" type="text" onChange={handleChange} name="name" />
+            <small className="form__error">{formValues.name.error}</small>
           </div>
-          <small>{isValidate.name}</small>
           <div className="form-control">
             <label htmlFor="">Description: </label>
-            <textarea className="form__text" onChange={handleChange} name="description" id="" cols={30} rows={5}></textarea>
+            <textarea className="form__text" onChange={handleChange} name="description" id="" cols={30} rows={3}></textarea>
+            <small className="form__error">{formValues.description.error}</small>
           </div>
           <div className="form-control">
             <label htmlFor="">Categories: </label>
