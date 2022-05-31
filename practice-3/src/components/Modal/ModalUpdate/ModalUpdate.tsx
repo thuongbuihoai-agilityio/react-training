@@ -43,7 +43,7 @@ const ModalUpdate: React.FC<ModalUpdateProps> = ({ product, hideModalUpdate, onC
 
   const handleDeleteImage = (event: { target: Element| any}) => {
     const target = event.target as Element;
-    const indexOfArr = productEdit.images.findIndex(item=> item == (target as HTMLInputElement).dataset.id);
+    const indexOfArr = productEdit.images.findIndex((item: string)=> item == (target as HTMLInputElement).dataset.id);
     productEdit.images.splice(indexOfArr, 1);
   }
 

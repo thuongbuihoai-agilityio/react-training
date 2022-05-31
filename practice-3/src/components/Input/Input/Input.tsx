@@ -19,7 +19,7 @@ const Input: React.FC<InputProps> = ({
       type={type}
       name={name}
       className={className}
-      defaultValue={value}
+      value={value}
       min={min}
       multiple={multiple}
     />
