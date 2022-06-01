@@ -7,8 +7,8 @@ const config: Config.InitialOptions = {
     ".+\\.(css|less|jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "jest-transform-stub",
   },
   moduleNameMapper: {
-    "^@app(.*)$": "<rootDir>/src/Example-SWR/app$1",
-    "^@root(.*)$": "<rootDir>/src/Example-SWR$1",
+    "^@app(.*)$": "<rootDir>/src/app$1",
+    "^@root(.*)$": "<rootDir>/src$1",
   },
   testRegex: "(/__tests__/.*|(\\.|/)(test|spec))\\.(tsx|ts)$",
   testEnvironment: "jsdom",
@@ -16,10 +16,10 @@ const config: Config.InitialOptions = {
     "node_modules",
     "bower_components",
     "shared",
-    "src/Example-SWR",
+    "src",
   ],
   moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
-  modulePaths: ["node_modules", "<rootDir>/src/Example-SWR", "/shared/vendor/modules"],
+  modulePaths: ["node_modules", "<rootDir>/src", "/shared/vendor/modules"],
   transformIgnorePatterns: [
     "/node_modules/(?!antd|@ant-design|rc-.+?|@babel/runtime).+(js|jsx)$",
   ]

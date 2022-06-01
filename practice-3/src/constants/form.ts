@@ -1,32 +1,34 @@
+import { RULES } from "./rules"
+
 const FORM_VALUES = {
   categoryId: {
     value: "",
-    rules: ["required"],
+    rules: [RULES.REQUIRED],
     error: "",
   },
   name: {
     value: "",
-    rules: ["required"],
+    rules: [RULES.REQUIRED],
     error: "",
   },
   price: {
     value: "",
-    rules: ["required", "number"],
+    rules: [RULES.REQUIRED, RULES.NUMBER],
     error: "",
   },
   quantity: {
     value: "",
-    rules: ["required", "number"],
+    rules: [RULES.REQUIRED, RULES.NUMBER],
     error: "",
   },
   description: {
     value: "",
-    rules: [],
+    rules: [RULES.REQUIRED],
     error: "",
   },
   images: {
     value: "",
-    rules: ["required"],
+    rules: [],
     error: "",
   }
 }

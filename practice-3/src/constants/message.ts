@@ -4,4 +4,9 @@ const SUCCESS_MSG = {
   MESSAGE_DELETE_PRODUCT: "Product delete successful",
 };
 
-export { SUCCESS_MSG };
+const ERROR_MSG = {
+  REQUIRED: "Field is required",
+  NUMBER: "Enter a non-negative number"
+}
+
+export { SUCCESS_MSG, ERROR_MSG };

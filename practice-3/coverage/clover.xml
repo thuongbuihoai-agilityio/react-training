@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1654052567831" clover="3.2.0">
+  <project timestamp="1654052567832" name="All files">
+    <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1" elements="7" coveredelements="7" complexity="0" loc="6" ncloc="6" packages="1" files="2" classes="2"/>
+    <file name="Button.tsx" path="C:\Users\HOAITHUONG\Desktop\react-practice3\react-training\practice-3\src\components\common\Button\Button.tsx">
+      <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <line num="1" count="1" type="stmt"/>
+      <line num="3" count="1" type="stmt"/>
+      <line num="5" count="1" type="stmt"/>
+      <line num="6" count="2" type="stmt"/>
+      <line num="15" count="1" type="stmt"/>
+    </file>
+    <file name="button.css" path="C:\Users\HOAITHUONG\Desktop\react-practice3\react-training\practice-3\src\components\common\Button\button.css">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <line num="1" count="1" type="stmt"/>
+    </file>
+  </project>
+</coverage>
