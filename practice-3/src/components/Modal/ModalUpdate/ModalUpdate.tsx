@@ -36,7 +36,7 @@ const ModalUpdate: React.FC<ModalUpdateProps> = ({ product, hideModalUpdate, onC
     if(files) {
       for (let i = 0; i < files.length; i++) {
         const imageSrc = await getBase64(files[i]);
-        setSelectedFile(selectedFile=>[...selectedFile, imageSrc] as any)
+        setSelectedFile(selectedFile => [...selectedFile, imageSrc] as any)
       }
     }
   }
@@ -44,7 +44,10 @@ const ModalUpdate: React.FC<ModalUpdateProps> = ({ product, hideModalUpdate, onC
   const handleDeleteImage = (event: { target: Element| any}) => {
     const target = event.target as Element;
     const indexOfArr = productEdit.images.findIndex((item: string)=> item == (target as HTMLInputElement).dataset.id);
+    const indexOf = selectedFile.findIndex((item: string) =>item == (target as HTMLInputElement).dataset.id);
+    selectedFile.splice(indexOf, 1);
     productEdit.images.splice(indexOfArr, 1);
+    setSelectedFile([...selectedFile]);
   }
 
   return (
@@ -83,9 +86,14 @@ const ModalUpdate: React.FC<ModalUpdateProps> = ({ product, hideModalUpdate, onC
             </div>
             <div className="form-control">
               <div className="form__img--list">
-                {product.images.map((img: string, index: number) =>
+                {productEdit.images.map((img: string, index: number) =>
                   <img key={index} data-id={img} onClick={handleDeleteImage} className="form__img" src={img} />
                 )}
+                {
+                  (selectedFile.length > 0) && selectedFile.map((src, key: number) =>
+                    <img key={key} data-id={src} onClick={handleDeleteImage} className="form__img" src={src} />
+                  )
+                }
                 <Input type="file" id="file" onChange={imageChange} multiple name="images" className="form__input--img"/>
               </div>
             </div>
