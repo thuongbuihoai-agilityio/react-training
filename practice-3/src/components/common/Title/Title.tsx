@@ -5,7 +5,7 @@ import "./title.css";
 const Title: React.FC<TitleProps> = ({ text, className }) => {
 
   return (
-    <h2 className={className}>
+    <h2 data-testid="title-test" className={className}>
       {text}
     </h2>
   );

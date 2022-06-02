@@ -4,7 +4,7 @@ import { TitleProps } from "@/types/title";
 const Text: React.FC<TitleProps> = ({ text, className }) => {
 
   return (
-    <p className={className}>
+    <p data-testid="text" className={className}>
       {text}
     </p>
   );

@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Category component matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="categories"
+    data-testid="categories"
+  >
+    <p
+      class="categories__title"
+    >
+      What are you looking for here?
+    </p>
+    <ul
+      class="categories__list"
+    >
+      <li
+        class="categories__item active"
+        data-testid="category-item"
+      >
+        All
+      </li>
+    </ul>
+  </div>
+</DocumentFragment>
+`;

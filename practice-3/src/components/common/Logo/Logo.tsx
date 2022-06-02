@@ -9,7 +9,7 @@ const Logo: React.FC<LogoProps> = ({
 }) => {
 
   return (
-    <a href={href}>
+    <a data-testid="logo" href={href}>
       <img className="logo" src={src} alt={alt} />
     </a>
   );

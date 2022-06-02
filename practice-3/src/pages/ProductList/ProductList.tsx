@@ -16,7 +16,7 @@ const ProductList: React.FC = () => {
 
   return (
     <>
-      <div className="product__list">
+      <div data-testid="product-list-page" className="product__list">
         <Button onClick={handleOpenModalUpdate} className="btn btn__add" text="Add new product" />
         <div className="product__info">
           {products?.map((product: Product) =>

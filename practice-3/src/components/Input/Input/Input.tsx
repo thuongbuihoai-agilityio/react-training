@@ -13,7 +13,7 @@ const Input: React.FC<InputProps> = ({
 }) => {
 
   return (
-    <input
+    <input data-testid="input"
       id={id}
       onChange={onChange}
       type={type}

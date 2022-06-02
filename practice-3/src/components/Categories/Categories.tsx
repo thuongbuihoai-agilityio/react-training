@@ -4,7 +4,7 @@ import { CategoryProps } from "@/types/category";
 import { FilterContext } from "@/context/FilterContext";
 import "./categories.css";
 
-const Category: React.FC = () => {
+const Categories: React.FC = () => {
   const [activeId, setActiveId] = useState("");
   const {setFilterInput} = useContext(FilterContext);
   const handleSearch = ( id: string) => (e: React.MouseEvent<HTMLElement>) => {
@@ -22,7 +22,7 @@ const Category: React.FC = () => {
   const {categories} = useCategories();
   function renderCategoryList(categories: []) {
     return categories?.map((category: CategoryProps) =>
-      <li data-index={category.id} onClick={handleSearch(category.id)} key={category.id}
+      <li data-testid="category-item" data-index={category.id} onClick={handleSearch(category.id)} key={category.id}
         className={`categories__item ${activeId === category.id ? "active" : "inactive"}`}>
         {category.name}
       </li>
@@ -31,10 +31,10 @@ const Category: React.FC = () => {
 
   return (
     <>
-      <div className="categories">
+      <div data-testid="categories" className="categories">
         <p className="categories__title">What are you looking for here?</p>
           <ul className="categories__list">
-            <li onClick={handleDefaultCategory}
+            <li data-testid="category-item" onClick={handleDefaultCategory}
               className={`categories__item ${activeId === "" ? "active" : "inactive"}`}>All</li>
               {renderCategoryList(categories as [])}
           </ul>
@@ -43,4 +43,4 @@ const Category: React.FC = () => {
   );
 }
 
-export default Category;
+export default Categories;

@@ -4,7 +4,7 @@ import "./price.css";
 
 const Price: React.FC<PriceProps> = ({ value, className }) => {
   return (
-    <p className={className}>
+    <p data-testid="price" className={className}>
       ${value}
     </p>
   );

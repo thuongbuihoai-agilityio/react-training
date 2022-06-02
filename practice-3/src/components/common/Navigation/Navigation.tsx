@@ -4,7 +4,7 @@ import "./navigation.css";
 
 const Navigation: React.FC = () => {
   return (
-    <nav className="nav">
+    <nav data-testid="navigation" className="nav">
       <ul className="nav__list">
         <li className="nav__item">
           <a href="" className="nav__link"> <i className="fa fa-clock"></i> Mon - Sat: 8AM - 5PM</a>
