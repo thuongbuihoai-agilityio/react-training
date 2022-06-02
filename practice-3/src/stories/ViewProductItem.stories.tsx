@@ -1,5 +1,5 @@
 import React from "react";
-import PRODUCT_CONTENT from "../constants/product";
+import {PRODUCT_CONTENT} from "../constants/product";
 import ViewProductItem from "../components/ViewsProducts/ViewProductItem/ViewProductsItem";
 import { Route, Routes } from "react-router-dom";
 

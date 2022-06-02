@@ -1,7 +1,7 @@
 import { Product } from "types/product";
 
 const PRODUCT_CONTENT: Product = {
-  id: "16519992102442282747",
+  id: "1",
   categoryId: "1651924356334",
   name: "Cheese cake",
   price: 20,
@@ -14,4 +14,4 @@ const PRODUCT_CONTENT: Product = {
   ]
 }
 
-export default PRODUCT_CONTENT;
+export { PRODUCT_CONTENT };

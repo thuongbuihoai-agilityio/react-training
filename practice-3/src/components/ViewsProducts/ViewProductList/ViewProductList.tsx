@@ -11,7 +11,7 @@ const ViewProductList: React.FC = () => {
 
   return (
     <>
-      <div className="viewProduct__list">
+      <div data-testid="view-product-list" className="viewProduct__list">
         {products?.map((product: Product) => <div className="viewProduct__item" key={product.id}>
           <ViewProductItem product={product} deleteProduct={() => {}} />
         </div>

@@ -24,7 +24,7 @@ const ProductDetails: React.FC = () => {
 
   return (
     <>
-      <div className="productDetails">
+      <div data-testid="product-detail-page" className="productDetails">
         <div className="productDetails__img--left">
           <img
             className="product__image"

@@ -12,7 +12,7 @@ const Menu: React.FC<MenuProps> = ({ menuList }) => {
   }
 
   return (
-    <div className="menu">
+    <div data-testid="menu" className="menu">
       <ul className="menu__list">{renderMenuList(menuList)}</ul>
     </div>
   );

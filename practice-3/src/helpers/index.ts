@@ -1,4 +1,4 @@
-const setFieldsValue = (fieldsValue, value: string, fieldName: string) => {
+const setFieldsValue = (fieldsValue: any, value: string, fieldName: string) => {
   const fieldData = fieldsValue[fieldName];
   return {
     ...fieldsValue,

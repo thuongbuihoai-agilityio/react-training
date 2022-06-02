@@ -10,7 +10,7 @@ import "./header.css";
 const Header: React.FC = () => {
   return (
     <>
-      <header className="header">
+      <header data-testid="header" className="header">
         <div className="header__logo">
           <Logo href="#Home" src={url} />
         </div>
