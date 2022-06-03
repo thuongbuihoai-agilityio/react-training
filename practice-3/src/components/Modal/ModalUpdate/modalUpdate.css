@@ -1,4 +1,5 @@
-.modal-update {
+.modal-update,
+.modal-create {
   position: fixed;
   margin-left: 20px;
   z-index: 15;
