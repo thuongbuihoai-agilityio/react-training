@@ -51,7 +51,7 @@ const ModalUpdate: React.FC<ModalUpdateProps> = ({ product, hideModalUpdate, onC
   }
 
   return (
-    <div className="modal-update" id="bookDeleteModal">
+    <div data-testid="modal-update" className="modal-update" id="bookDeleteModal">
       <div className="modal-dialog-modalUpdate">
         <div className="modal-content">
           <div className="modal-header">
@@ -69,7 +69,7 @@ const ModalUpdate: React.FC<ModalUpdateProps> = ({ product, hideModalUpdate, onC
             <div className="form-control">
               <label htmlFor="">Categories: </label>
               <select className="form__select" name="categoryId" onChange={handleChange} id="">
-                {categories.map((cate: CategoryProps, index: number) =>
+                {categories?.map((cate: CategoryProps, index: number) =>
                   <option key={index} value={cate.id} selected={productEdit.categoryId == cate.id}>{cate.name}</option>
                 )}
               </select>
@@ -99,8 +99,8 @@ const ModalUpdate: React.FC<ModalUpdateProps> = ({ product, hideModalUpdate, onC
             </div>
           </div>
           <div className="modal-footer-modalUpdate">
-            <Button className="btn btn__no" onClick={() => hideModalUpdate(false)} text="Cancel" />
-            <Button className="btn btn__yes" onClick={() => handleUpdateProduct(product.id, productEdit)} text="Submit" />
+            <button data-testid="btn-no-modalUpdate" className="btn btn__no" onClick={() => hideModalUpdate(false)}>Cancel</button>
+            <button data-testid="btn-yes-modalUpdate" className="btn btn__yes" onClick={() => handleUpdateProduct(product.id, productEdit)}>Submit</button>
           </div>
         </div>
       </div>
