@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">28.57% </span>
+                <span class="strong">85.71% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>6/21</span>
+                <span class='fraction'>18/21</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/4</span>
+                <span class='fraction'>2/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">83.33% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/6</span>
+                <span class='fraction'>5/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">30% </span>
+                <span class="strong">85% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>6/20</span>
+                <span class='fraction'>17/20</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -116,31 +116,31 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -161,38 +161,38 @@ import { CategoryProps } from "@/types/category";
 import { FilterContext } from "@/context/FilterContext";
 import "./categories.css";
 &nbsp;
-const Categories: React.FC = <span class="fstat-no" title="function not covered" >() =</span>&gt; {
-  const [activeId, setActiveId] = <span class="cstat-no" title="statement not covered" >useState("");</span>
-  const {setFilterInput} = <span class="cstat-no" title="statement not covered" >useContext(FilterContext);</span>
-  const handleSearch = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >( i</span>d: string) =&gt; <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(e</span>: React.MouseEvent&lt;HTMLElement&gt;) =&gt; {</span></span>
+const Categories: React.FC = () =&gt; {
+  const [activeId, setActiveId] = useState("");
+  const {setFilterInput} = useContext(FilterContext);
+  const handleSearch = ( id: string) =&gt; <span class="fstat-no" title="function not covered" >(e</span>: React.MouseEvent&lt;HTMLElement&gt;) =&gt; {
     const categoryId = <span class="cstat-no" title="statement not covered" >{categoryId : e.currentTarget.dataset.index};</span>
 <span class="cstat-no" title="statement not covered" >    setFilterInput(categoryId);</span>
 <span class="cstat-no" title="statement not covered" >    setActiveId(id);</span>
   }
 &nbsp;
-  const handleDefaultCategory = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >() =</span>&gt; {</span>
-    const categoryId = <span class="cstat-no" title="statement not covered" >"";</span>
-<span class="cstat-no" title="statement not covered" >    setFilterInput(categoryId);</span>
-<span class="cstat-no" title="statement not covered" >    setActiveId("");</span>
+  const handleDefaultCategory = () =&gt; {
+    const categoryId = "";
+    setFilterInput(categoryId);
+    setActiveId("");
   }
 &nbsp;
-  const {categories} = <span class="cstat-no" title="statement not covered" >useCategories();</span>
-  function <span class="fstat-no" title="function not covered" >renderCategoryList(</span>categories: []) {
-<span class="cstat-no" title="statement not covered" >    return categories?.map(<span class="fstat-no" title="function not covered" >(c</span>ategory: CategoryProps) =&gt;</span>
-<span class="cstat-no" title="statement not covered" >      &lt;li data-testid="category-item" data-index={category.id} onClick={handleSearch(category.id)} key={category.id}</span>
-        className={`categories__item ${activeId === category.id ? "active" : "inactive"}`}&gt;
+  const {categories} = useCategories();
+  function renderCategoryList(categories: []) {
+    return categories?.map((category: CategoryProps) =&gt;
+      &lt;li data-index={category.id} onClick={handleSearch(category.id)} key={category.id}
+        className={`categories__item ${activeId === category.id ? <span class="branch-0 cbranch-no" title="branch not covered" >"active" </span>: "inactive"}`}&gt;
         {category.name}
       &lt;/li&gt;
     );
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  return (</span>
+  return (
     &lt;&gt;
       &lt;div data-testid="categories" className="categories"&gt;
         &lt;p className="categories__title"&gt;What are you looking for here?&lt;/p&gt;
           &lt;ul className="categories__list"&gt;
             &lt;li data-testid="category-item" onClick={handleDefaultCategory}
-              className={`categories__item ${activeId === "" ? "active" : "inactive"}`}&gt;All&lt;/li&gt;
+              className={`categories__item ${activeId === "" ? "active" : <span class="branch-1 cbranch-no" title="branch not covered" >"inactive"}</span>`}&gt;All&lt;/li&gt;
               {renderCategoryList(categories as [])}
           &lt;/ul&gt;
       &lt;/div&gt;
@@ -208,7 +208,7 @@ export default Categories;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Thu Jun 02 2022 17:33:20 GMT+0700 (Indochina Time)
+                at Fri Jun 03 2022 09:17:18 GMT+0700 (Indochina Time)
             </div>
         <script src="../../prettify.js"></script>
         <script>

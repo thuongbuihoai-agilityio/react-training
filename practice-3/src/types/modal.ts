@@ -13,5 +13,5 @@ export interface ModalUpdateProps {
 }
 
 export interface ModalCreateProps {
-  hideModalUpdate: Function;
+  hideModalCreate: Function;
 }

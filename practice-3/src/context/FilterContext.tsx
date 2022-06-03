@@ -1,7 +1,7 @@
 import { createContext, useState } from "react";
 
 export const FilterContext = createContext<any>({});
-const MainContext: React.FC<{children: JSX.Element[]}> = ({children}) => {
+const MainContext: React.FC<{children: JSX.Element[]}> = ({ children }) => {
   const [filterInput, setFilterInput] = useState({});
 
   return (
