@@ -10,7 +10,7 @@ const ViewProductItem: React.FC<ProductItemProps> = ({ product }) => {
 
   return (
     <>
-      <div className="productViewPage">
+      <div data-testid="productViewPage" className="productViewPage">
         <img
           className="productViewPage__image"
           src={product.images[0]}
