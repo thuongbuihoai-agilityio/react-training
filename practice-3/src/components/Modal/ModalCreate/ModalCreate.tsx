@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import Button from "@/components/common/Button/Button";
+import React, { useState } from "react";
 import { ModalCreateProps } from "@/types/modal";
 import useCategories from "@/hooks/useCategories";
 import { CategoryProps } from "@/types/category";
@@ -13,7 +12,7 @@ import { Product } from "@/types/product";
 import { FormProps } from "@/types/form";
 import "./modalCreate.css";
 
-const ModalCreate: React.FC<ModalCreateProps> = ({ hideModalUpdate }) => {
+const ModalCreate: React.FC<ModalCreateProps> = ({ hideModalCreate }) => {
   const {createProduct} = useProducts();
   const [newProduct, setNewProduct] = useState([]);
   const {categories} = useCategories();
@@ -24,7 +23,7 @@ const ModalCreate: React.FC<ModalCreateProps> = ({ hideModalUpdate }) => {
     (Object.keys(formValues) as (keyof typeof formValues)[]).map(fieldName => {
       formValues[fieldName].error = "";
     })
-    hideModalUpdate(false);
+    hideModalCreate(false);
   }
 
   const handleCreateProduct = () => {
@@ -41,7 +40,7 @@ const ModalCreate: React.FC<ModalCreateProps> = ({ hideModalUpdate }) => {
 
     if(!temp.includes(false)){
       createProduct({ images, ...newProduct } as unknown as Product);
-      hideModalUpdate(false);
+      hideModalCreate(false);
     }
   }
 
@@ -71,7 +70,7 @@ const ModalCreate: React.FC<ModalCreateProps> = ({ hideModalUpdate }) => {
   }
 
   return (
-    <div className="modal-update" id="bookDeleteModal">
+    <div data-testid="modal-create" className="modal-create" id="bookDeleteModal">
     <div className="modal-dialog-modalUpdate">
       <div className="modal-content">
         <div className="modal-header">
@@ -121,8 +120,8 @@ const ModalCreate: React.FC<ModalCreateProps> = ({ hideModalUpdate }) => {
           </div>
         </div>
         <div className="modal-footer-modalUpdate">
-          <Button className="btn btn__no" onClick={handleClearModal} text="Cancel" />
-          <Button className="btn btn__yes" onClick={() => handleCreateProduct()} text="Submit" />
+          <button data-testid="hide-modal-btn" className="btn btn__no" onClick={handleClearModal}>Cancel</button>
+          <button data-testid="submit-btn" className="btn btn__yes" onClick={() => handleCreateProduct()}>Submit</button>
         </div>
       </div>
     </div>
