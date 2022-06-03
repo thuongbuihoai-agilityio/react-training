@@ -25,7 +25,7 @@ const ProductList: React.FC = () => {
             </div>
           )}
         </div>
-        {openModalUpdate && <ModalCreate hideModalUpdate={setOpenModalUpdate} />}
+        {openModalUpdate && <ModalCreate hideModalCreate={setOpenModalUpdate} />}
       </div>
     </>
   );
