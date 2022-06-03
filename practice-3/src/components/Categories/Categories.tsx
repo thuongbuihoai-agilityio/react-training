@@ -22,7 +22,7 @@ const Categories: React.FC = () => {
   const {categories} = useCategories();
   function renderCategoryList(categories: []) {
     return categories?.map((category: CategoryProps) =>
-      <li data-testid="category-item" data-index={category.id} onClick={handleSearch(category.id)} key={category.id}
+      <li data-index={category.id} onClick={handleSearch(category.id)} key={category.id}
         className={`categories__item ${activeId === category.id ? "active" : "inactive"}`}>
         {category.name}
       </li>
