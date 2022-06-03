@@ -2,6 +2,8 @@ import { fireEvent, render } from "@testing-library/react";
 import { FilterContext } from "@/context/FilterContext";
 import Categories from "../Categories";
 import "@testing-library/jest-dom";
+import { useState } from "react";
+import { CATEGORY_MOCKING_LIST } from "@/constants/categories";
 
 const contextValueMock: any = {
   setFilterInput: jest.fn()
@@ -12,13 +14,15 @@ jest.mock("react", () => ({
   useState: jest.fn(),
 }));
 
-describe("Category component", () => {
-  const setIsVisible = jest.fn();
-  const useStateMock: any = (isVisible: "") => [isVisible, setIsVisible];
+const useCategoriesMock = { categories: CATEGORY_MOCKING_LIST };
+  jest.mock("../../../hooks/useCategories.ts", () => ({
+    default: jest.fn(() => useCategoriesMock),
+}));
 
-  beforeEach(() => {
-    (useStateMock as jest.Mock).mockImplementation(init => [init, setIsVisible])
-  });
+describe("Category component", () => {
+  beforeEach(()=>{
+    (useState as jest.Mock).mockImplementation(jest.requireActual("react").useState);
+  })
 
   test("render category component", () => {
     const { getByTestId } = render(<Categories />);
