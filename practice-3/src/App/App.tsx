@@ -1,29 +1,32 @@
-import { Route, Routes } from "react-router-dom";
 import { SWRConfig } from "swr";
+import { Route, Routes } from "react-router-dom";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 import Categories from "@/components/Categories/Categories";
 import Footer from "@/components/common/Footer/Footer";
 import Header from "@/components/common/Header/Header";
 import Navigation from "@/components/common/Navigation/Navigation";
-import ViewProductList from "@/components/ViewsProducts/ViewProductList/ViewProductList";
-import MainContext from "@/context/FilterContext";
 import ProductDetails from "@/pages/ProductDetail/ProductDetail";
-import ProductList from "@/pages/ProductList/ProductList";
 import SWR_CONFIG from "../constants/swrConfig";
+import ProductListView from "@/pages/ProductListView/ProductListView";
+import ProductGridView from "@/pages/ProductGridView/ProductGridView";
+import AppProvider from "@/context/AppContext";
 
 const App: React.FC = () => {
 
   return (
     <SWRConfig value={SWR_CONFIG}>
+      <ToastContainer />
       <Header />
-      <MainContext>
+      <AppProvider>
         <Navigation />
         <Categories />
         <Routes>
-          <Route path="/" element={<ViewProductList />} />
-          <Route path="/products" element={<ProductList />} />
+          <Route path="/" element={<ProductListView />} />
+          <Route path="/products" element={<ProductGridView />} />
           <Route path={`/product/:id`} element={<ProductDetails />} />
         </Routes>
-      </MainContext>
+      </AppProvider>
       <Footer />
     </SWRConfig>
   )
