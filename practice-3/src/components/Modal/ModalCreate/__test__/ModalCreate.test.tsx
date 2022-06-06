@@ -22,7 +22,6 @@ jest.mock("react", () => ({
 
 describe("Modal create component", () => {
   const hideModalCreate = jest.fn();
-  const selectedFile = jest.fn();
   beforeEach(()=>{
     (useState as jest.Mock).mockImplementation(jest.requireActual("react").useState);
   })
