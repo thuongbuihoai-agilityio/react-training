@@ -1,21 +1,21 @@
 import React, { memo, useContext } from "react";
-import { FilterContext } from "@/context/FilterContext";
+import { SearchContext } from "@/context/SearchContext";
 import "./inputSearch.css";
 
 const InputSearch: React.FC = () => {
-  const { setFilterInput } = useContext(FilterContext);
+  const { setSearchValue } = useContext(SearchContext);
   const handleSearch = (e: { target: { value: string } }) => {
     const nameLike = {name_like:e.target.value};
-    setFilterInput(nameLike);
+    setSearchValue?.(nameLike);
   }
 
   return (
     <div data-testid="input-search" className="search">
       <input
-        onChange={handleSearch}
-        type="text"
         className="search__text"
+        type="text"
         placeholder="Search item"
+        onChange={handleSearch}
       />
     </div>
   );
