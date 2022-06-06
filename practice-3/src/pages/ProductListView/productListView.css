@@ -1,0 +1,9 @@
+.viewProduct__list {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 30px 70px 40px 130px;
+}
+
+.viewProduct__link {
+  text-decoration: none;
+}
