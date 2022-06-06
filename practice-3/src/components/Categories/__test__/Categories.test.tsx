@@ -1,5 +1,5 @@
 import { fireEvent, render } from "@testing-library/react";
-import { FilterContext } from "@/context/FilterContext";
+import { ProductsContext } from "@/context/SearchContext";
 import Categories from "../Categories";
 import "@testing-library/jest-dom";
 import { useState } from "react";
@@ -32,9 +32,9 @@ describe("Category component", () => {
 
   test("should filter when click category", () => {
     const { getByTestId } = render(
-      <FilterContext.Provider value={contextValueMock}>
+      <ProductsContext.Provider value={contextValueMock}>
         <Categories />
-      </FilterContext.Provider>,
+      </ProductsContext.Provider>,
     );
     const categoryItem = getByTestId("category-item");
     fireEvent.click(categoryItem);
