@@ -124,25 +124,13 @@
 <a name='L59'></a><a href='#L59'>59</a>
 <a name='L60'></a><a href='#L60'>60</a>
 <a name='L61'></a><a href='#L61'>61</a>
-<a name='L62'></a><a href='#L62'>62</a>
-<a name='L63'></a><a href='#L63'>63</a>
-<a name='L64'></a><a href='#L64'>64</a>
-<a name='L65'></a><a href='#L65'>65</a>
-<a name='L66'></a><a href='#L66'>66</a>
-<a name='L67'></a><a href='#L67'>67</a>
-<a name='L68'></a><a href='#L68'>68</a>
-<a name='L69'></a><a href='#L69'>69</a>
-<a name='L70'></a><a href='#L70'>70</a>
-<a name='L71'></a><a href='#L71'>71</a>
-<a name='L72'></a><a href='#L72'>72</a>
-<a name='L73'></a><a href='#L73'>73</a>
-<a name='L74'></a><a href='#L74'>74</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L62'></a><a href='#L62'>62</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
@@ -171,10 +159,6 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -189,17 +173,9 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
@@ -211,11 +187,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import useSWR from "swr";
 import { useContext } from "react";
+import { toast } from "react-toastify";
 import { PRODUCTS_URL, PRODUCT_CRUD } from "@/constants/url";
 import { create, get, remove, update } from "@/helpers/fetchApi";
 import { FilterContext } from "@/context/FilterContext";
 import { Product } from "@/types/product";
-import Toast from "@/components/Toast/Toast";
 import { SUCCESS_MSG } from "@/constants/message";
 &nbsp;
 export default function useProducts() {
@@ -241,11 +217,7 @@ export default function useProducts() {
       images: productData.images
     };
 <span class="cstat-no" title="statement not covered" >    create(PRODUCT_CRUD, newProduct);</span>
-<span class="cstat-no" title="statement not covered" >    Toast({</span>
-      title: "Success!",
-      message: SUCCESS_MSG.MESSAGE_ADD_PRODUCT,
-      type: "success",
-    });
+<span class="cstat-no" title="statement not covered" >    toast.success(SUCCESS_MSG.MESSAGE_ADD_PRODUCT);</span>
   }
 &nbsp;
   const updateProduct = async (id: string, productData: Product) =&gt; {
@@ -259,20 +231,12 @@ export default function useProducts() {
       images: productData.images
     };
     update(`${PRODUCT_CRUD}/${id}`, productEdit);
-    Toast({
-      title: "Success!",
-      message: SUCCESS_MSG.MESSAGE_UPDATE_PRODUCT,
-      type: "success",
-    });
+    toast.success(SUCCESS_MSG.MESSAGE_UPDATE_PRODUCT);
   }
 &nbsp;
   const deleteProduct = <span class="fstat-no" title="function not covered" >async </span>(id: string) =&gt; {
 <span class="cstat-no" title="statement not covered" >    remove(`${PRODUCT_CRUD}/${id}`);</span>
-<span class="cstat-no" title="statement not covered" >    Toast({</span>
-      title: "Success!",
-      message: SUCCESS_MSG.MESSAGE_DELETE_PRODUCT,
-      type: "success",
-    });
+<span class="cstat-no" title="statement not covered" >    toast.success(SUCCESS_MSG.MESSAGE_DELETE_PRODUCT);</span>
   };
 &nbsp;
   return {
@@ -289,7 +253,7 @@ export default function useProducts() {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Fri Jun 03 2022 09:09:08 GMT+0700 (Indochina Time)
+                at Fri Jun 03 2022 15:45:49 GMT+0700 (Indochina Time)
             </div>
         <script src="../prettify.js"></script>
         <script>

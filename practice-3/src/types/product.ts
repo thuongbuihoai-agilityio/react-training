@@ -14,6 +14,10 @@ export interface ProductItemProps {
   deleteProduct: (id: string) => void;
 }
 
+export interface ProductCardProps {
+  product: Product;
+}
+
 export interface ProductUpdateProps {
   product: Product;
   setIsReset: Function;
