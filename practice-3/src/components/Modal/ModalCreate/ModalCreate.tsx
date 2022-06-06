@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import { ModalCreateProps } from "@/types/modal";
-import useCategories from "@/hooks/useCategories";
 import { CategoryProps } from "@/types/category";
 import Input from "@/components/Input/Input/Input";
-import useProducts from "@/hooks/useProducts";
 import getBase64 from "@/helpers/getBase64";
 import FORM_VALUES from "@/constants/form";
 import { validate } from "@/helpers/validate";
@@ -11,11 +9,15 @@ import { setFieldsValue } from "@/helpers/index";
 import { Product } from "@/types/product";
 import { FormProps } from "@/types/form";
 import "./modalCreate.css";
+import useSWR, { Key } from "swr";
+import { CATEGORIES_URL } from "@/constants/url";
+import { get } from "@/helpers/fetchApi";
 
-const ModalCreate: React.FC<ModalCreateProps> = ({ hideModalCreate }) => {
-  const {createProduct} = useProducts();
+const ModalCreate: React.FC<ModalCreateProps> = ({ createProduct, hideModalCreate }) => {
   const [newProduct, setNewProduct] = useState([]);
-  const {categories} = useCategories();
+  const key: Key = CATEGORIES_URL;
+  const fetcher = () => get<Product[]>(CATEGORIES_URL)
+  const { data } = useSWR(key, fetcher);
   const [selectedFile, setSelectedFile] = useState([]);
   const [formValues, setFormValues] = useState<FormProps>(FORM_VALUES);
 
@@ -90,8 +92,8 @@ const ModalCreate: React.FC<ModalCreateProps> = ({ hideModalCreate }) => {
           <div className="form-control">
             <label htmlFor="">Categories: </label>
             <select className="form__select" name="categoryId" onChange={handleChange}>
-              {categories.map((cate: CategoryProps, index: number) =>
-                <option key={index} value={cate.id}>{cate.name}</option>
+              {data?.map(({id, name}: CategoryProps, index: number) =>
+                <option key={index} value={id}>{name}</option>
               )}
             </select>
             <small className="form__error">{formValues.categoryId.error ? formValues.categoryId.error : ""}</small>
