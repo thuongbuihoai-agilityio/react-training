@@ -1,18 +1,17 @@
 import axios from "axios";
-import { Product } from "@/types/product";
 
-const get = async (url: string) => {
+const get = async <T>(url: string) => {
   try {
-    const res = await axios.get(url);
+    const res = await axios.get<T>(url);
     return res.data;
   } catch(error) {
     console.log(error)
   }
 };
 
-const create = async (url: string, newProduct: Product) => {
+const create = async <T>(url: string, newData: T) => {
   try {
-    const res = await axios.post(url, newProduct);
+    const res = await axios.post<T>(url, newData);
     return res;
   }
   catch(error) {
@@ -20,9 +19,9 @@ const create = async (url: string, newProduct: Product) => {
   };
 }
 
-const update = async (id: string, productEdit: Product) => {
+const update = async <T>(id: string, dataEdit: T) => {
   try {
-    const res = await axios.put(id, {...productEdit});
+    const res = await axios.put<T>(id, {...dataEdit});
     return res;
   } catch(error) {
       console.log(error);
