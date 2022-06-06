@@ -18,13 +18,13 @@ describe("Modal create component", () => {
 
   test("should render modal delete component", () => {
     const { getByTestId } = render(<ModalUpdate product={PRODUCT_MOCKING}
-      hideModalUpdate={() => {}} onChangeProductDetail={() => {}} />);
+      hideModalUpdate={() => {}} />);
     expect(getByTestId("modal-update")).toBeInTheDocument();
   });
 
   test("should hide modal update when click Cancel", () => {
     const { getByTestId } = render(<ModalUpdate product={PRODUCT_MOCKING}
-      hideModalUpdate={hideModalUpdate} onChangeProductDetail={() => {}} />);
+      hideModalUpdate={hideModalUpdate} />);
     const hideModal = getByTestId("btn-no-modalUpdate");
     fireEvent.click(hideModal);
     expect(hideModalUpdate).toHaveBeenCalled();
@@ -32,7 +32,7 @@ describe("Modal create component", () => {
 
   test("should update product when click Submit", () => {
     const { getByTestId } = render(<ModalUpdate product={PRODUCT_MOCKING}
-      hideModalUpdate={() => {}} onChangeProductDetail={updateProduct} />);
+      hideModalUpdate={() => {}} />);
     const hideModal = getByTestId("btn-yes-modalUpdate");
     fireEvent.click(hideModal);
     expect(updateProduct).toHaveBeenCalled();
