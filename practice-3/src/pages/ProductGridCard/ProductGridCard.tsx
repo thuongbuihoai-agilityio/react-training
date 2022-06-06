@@ -5,9 +5,9 @@ import Price from "@/components/Price/Price";
 import { ProductItemProps } from "@/types/product";
 import Button from "@/components/common/Button/Button";
 import ModalDelete from "@/components/Modal/ModalDelete/ModalDelete";
-import "./productItem.css";
+import "./productGridCard.css";
 
-const ProductItem: React.FC<ProductItemProps> = ({ product, deleteProduct }) => {
+const ProductGridCard: React.FC<ProductItemProps> = ({ product, deleteProduct }) => {
   const [openModalDelete, setOpenModalDelete] = useState(false);
   const handleOpenModalDelete = useCallback(() => {
     setOpenModalDelete(true);
@@ -22,7 +22,7 @@ const ProductItem: React.FC<ProductItemProps> = ({ product, deleteProduct }) => 
         />
         <Button onClick={handleOpenModalDelete} className="btn btn__delete" text={<i className="fa fa-trash"></i>} />
         <div className="product__content">
-          <Link className="productViewPage__link" state={{ product }} to={`/product/${product.id}`}>
+          <Link className="productViewPage__link" to={`/product/${product.id}`}>
             <Title className="productViewPage__title" text={product.name} />
           </Link>
           <Price className="productViewPage__price" value={product.price} />
@@ -33,4 +33,4 @@ const ProductItem: React.FC<ProductItemProps> = ({ product, deleteProduct }) => 
   );
 }
 
-export default ProductItem;
+export default ProductGridCard;
