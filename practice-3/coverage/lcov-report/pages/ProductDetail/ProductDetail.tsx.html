@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">63.15% </span>
+                <span class="strong">85% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>12/19</span>
+                <span class='fraction'>17/20</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">63.15% </span>
+                <span class="strong">89.47% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>12/19</span>
+                <span class='fraction'>17/19</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -118,35 +118,27 @@
 <a name='L53'></a><a href='#L53'>53</a>
 <a name='L54'></a><a href='#L54'>54</a>
 <a name='L55'></a><a href='#L55'>55</a>
-<a name='L56'></a><a href='#L56'>56</a>
-<a name='L57'></a><a href='#L57'>57</a>
-<a name='L58'></a><a href='#L58'>58</a>
-<a name='L59'></a><a href='#L59'>59</a>
-<a name='L60'></a><a href='#L60'>60</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L56'></a><a href='#L56'>56</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -181,41 +173,37 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { useCallback, useState } from "react";
-import { useLocation } from "react-router-dom";
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { useCallback, useContext, useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import Price from "@/components/Price/Price";
 import Button from "@/components/common/Button/Button";
 import Title from "@/components/common/Title/Title";
 import Text from "@/components/Text/Text";
-import { Product, ProductUpdateProps } from "@/types/product";
 import ModalUpdate from "@/components/Modal/ModalUpdate/ModalUpdate";
+import { ProductsContext } from "@/context/ProductsContext";
 import "./productDetail.css";
 &nbsp;
 const ProductDetails: React.FC = () =&gt; {
-  const location = useLocation();
-  const { product } = location.state as ProductUpdateProps;
+  const { data } = useContext(ProductsContext);
+  const { id } = useParams();
+  const dataEl = data.find(<span class="fstat-no" title="function not covered" >(i</span>tem: { id: string }) =&gt; <span class="cstat-no" title="statement not covered" >item.id === id)</span>;
+  const [openModalUpdate, setOpenModalUpdate] = useState(false);
 &nbsp;
-  const [openModalUpdate, setOpenModalUpdate] = <span class="cstat-no" title="statement not covered" >useState(false);</span>
+  const toggleModalUpdate = useCallback(<span class="fstat-no" title="function not covered" >() =</span>&gt; {
+<span class="cstat-no" title="statement not covered" >    setOpenModalUpdate(!openModalUpdate);</span>
+  }, [openModalUpdate]);
 &nbsp;
-  const handleOpenModalUpdate = <span class="cstat-no" title="statement not covered" >useCallback(<span class="fstat-no" title="function not covered" >() =</span>&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    setOpenModalUpdate(true);</span>
-  }, []);
-&nbsp;
-  const handleChangeProductDetail = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(n</span>ewProduct: {}) =&gt; {</span>
-    (<span class="cstat-no" title="statement not covered" >location.state as Product).product = newProduct;</span>
-  }
-&nbsp;
-<span class="cstat-no" title="statement not covered" >  return (</span>
+  return (
     &lt;&gt;
       &lt;div data-testid="product-detail-page" className="productDetails"&gt;
         &lt;div className="productDetails__img--left"&gt;
           &lt;img
             className="product__image"
-            src={product.images[0]}
+            src={dataEl?.images[0]}
           /&gt;
         &lt;/div&gt;
         &lt;div className="productDetails__img--right"&gt;
-          {product.images.map(<span class="fstat-no" title="function not covered" >(i</span>mg: string, index: number) =&gt;
+          {dataEl?.images.map(<span class="fstat-no" title="function not covered" >(i</span>mg: string, index: number) =&gt;
 <span class="cstat-no" title="statement not covered" >            &lt;img</span>
               key={index}
               src={img}
@@ -226,15 +214,15 @@ const ProductDetails: React.FC = () =&gt; {
         &lt;/div&gt;
         &lt;div className="productDetails__info"&gt;
           &lt;div className="productDetail__update"&gt;
-            &lt;Title className="productDetail__title" text={product.name} /&gt;
-            &lt;Button onClick={handleOpenModalUpdate} className="btn btn__update" text={&lt;i className="fa fa-pen"&gt;&lt;/i&gt;} /&gt;
+            &lt;Title className="productDetail__title" text={dataEl.name} /&gt;
+            &lt;Button onClick={toggleModalUpdate} className="btn btn__update" text={&lt;i className="fa fa-pen"&gt;&lt;/i&gt;} /&gt;
           &lt;/div&gt;
-            &lt;Price className="productDetail__price" value={product.price} /&gt;
-          &lt;input className="productDetails__input" min={0} type="number" value={product.quantity} /&gt;
-          &lt;Text text={product.description} /&gt;
+            &lt;Price className="productDetail__price" value={dataEl.price} /&gt;
+          &lt;input className="productDetails__input" min={0} type="number" value={dataEl.quantity} /&gt;
+          &lt;Text text={dataEl.description} /&gt;
         &lt;/div&gt;
       &lt;/div&gt;
-      {openModalUpdate &amp;&amp; &lt;ModalUpdate product={product} onChangeProductDetail={handleChangeProductDetail} hideModalUpdate={setOpenModalUpdate} /&gt;}
+      {openModalUpdate &amp;&amp; &lt;ModalUpdate product={dataEl} hideModalUpdate={toggleModalUpdate} /&gt;}
     &lt;/&gt;
   );
 }
@@ -247,7 +235,7 @@ export default ProductDetails;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Fri Jun 03 2022 09:09:08 GMT+0700 (Indochina Time)
+                at Mon Jun 06 2022 10:16:54 GMT+0700 (Indochina Time)
             </div>
         <script src="../../prettify.js"></script>
         <script>
