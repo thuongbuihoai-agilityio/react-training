@@ -3,15 +3,22 @@
 exports[`ViewProductItem component matches snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="productViewPage"
-    data-testid="product-list-card"
+    class="product"
+    data-testid="product-grid-card"
   >
     <img
-      class="productViewPage__image"
+      class="product__image"
       src="/src/assets/images/products/cheese-cake.jpg"
     />
+    <button
+      class="btn btn__btn btn__delete"
+    >
+      <i
+        class="fa fa-trash"
+      />
+    </button>
     <div
-      class="productViewPage__content"
+      class="product__content"
     >
       <a
         class="productViewPage__link"
@@ -24,12 +31,6 @@ exports[`ViewProductItem component matches snapshot 1`] = `
           Cheese cake
         </h2>
       </a>
-      <p
-        class="productViewPage__description"
-        data-testid="text"
-      >
-        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.
-      </p>
       <p
         class="productViewPage__price"
         data-testid="price"

@@ -1,5 +1,5 @@
 import useSWR, { Key } from "swr";
-import React, { useCallback, useContext, useEffect, useState } from "react";
+import React, { useCallback, useContext, useState } from "react";
 import ModalCreate from "@/components/Modal/ModalCreate/ModalCreate";
 import Button from "@/components/common/Button/Button";
 import { Product } from "@/types/product";
@@ -10,19 +10,13 @@ import { create, get, remove } from "@/helpers/fetchApi";
 import { toast } from "react-toastify";
 import { SUCCESS_MSG } from "@/constants/message";
 import "./productGridView.css";
-import { ProductContext } from "@/context/ProductContext";
 
 const ProductGridView: React.FC = () => {
-  const [openModalUpdate, setOpenModalUpdate] = useState(false);
+  const [openModalCreate, setOpenModalCreate] = useState(false);
   const { searchValue } = useContext(SearchContext);
-  const { setData } = useContext(ProductContext);
-  const filter = {
-    searchValue,
-  };
-
-  const queryParams: URLSearchParams = new URLSearchParams(filter);
+  const queryParams: URLSearchParams = new URLSearchParams(searchValue);
   const key: Key = PRODUCTS_URL + queryParams.toString();
-  const fetcher = () => get<Product[]>(PRODUCTS_URL)
+  const fetcher = () => get<Product[]>(key)
   const { data, mutate } = useSWR(key, fetcher);
 
   const createProduct = async (productData: Product) => {
@@ -46,19 +40,15 @@ const ProductGridView: React.FC = () => {
     toast.success(SUCCESS_MSG.MESSAGE_DELETE_PRODUCT);
   };
 
-  useEffect(() => {
-    setData(data);
-  }, [data]);
-
-  const handleOpenModalUpdate = useCallback(() => {
-    setOpenModalUpdate(true);
-  }, []);
+  const toggleModalUpdate = useCallback(() => {
+    setOpenModalCreate(!openModalCreate);
+  }, [openModalCreate]);
 
   return (
     <>
       <div data-testid="product-gird-view" className="product__list">
         <Button
-          onClick={handleOpenModalUpdate}
+          onClick={toggleModalUpdate}
           className="btn btn__add"
           text="Add new product"
         />
@@ -72,10 +62,10 @@ const ProductGridView: React.FC = () => {
             </div>
           ))}
         </div>
-        {openModalUpdate && (
+        {openModalCreate && (
           <ModalCreate
             createProduct={createProduct}
-            hideModalCreate={setOpenModalUpdate}
+            hideModalCreate={toggleModalUpdate}
           />
         )}
       </div>

@@ -11,10 +11,10 @@ import { PRODUCT_CRUD } from "@/constants/url";
 import { ProductContext } from "@/context/ProductContext";
 
 const ProductDetails: React.FC = () => {
-  const { data } = useContext(ProductContext);
+  const { products } = useContext(ProductContext);
   const { id } = useParams();
   const [isReload, setIsReLoad] = useState(false);
-  const dataEl = data.find((item: { id: string }) => item.id === id);
+  const dataEl = products?.find((item: { id: string }) => item.id === id);
   const [productDetailNew, setProductDetailNew] = useState(dataEl);
   const [openModalUpdate, setOpenModalUpdate] = useState(false);
 
@@ -52,21 +52,21 @@ const ProductDetails: React.FC = () => {
         </div>
         <div className="productDetails__info">
           <div className="productDetail__update">
-            <Title className="productDetail__title" text={productDetailNew.name} />
+            <Title className="productDetail__title" text={productDetailNew?.name} />
             <Button
               onClick={toggleModalUpdate}
               className="btn btn__update"
               text={<i className="fa fa-pen"></i>}
             />
           </div>
-          <Price className="productDetail__price" value={productDetailNew.price} />
+          <Price className="productDetail__price" value={productDetailNew?.price} />
           <input
             className="productDetails__input"
             min={0}
             type="number"
-            value={productDetailNew.quantity}
+            value={productDetailNew?.quantity}
           />
-          <Text text={productDetailNew.description} />
+          <Text text={productDetailNew?.description} />
         </div>
       </div>
       {openModalUpdate && (

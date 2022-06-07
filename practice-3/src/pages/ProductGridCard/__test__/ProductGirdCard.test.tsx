@@ -1,26 +1,26 @@
-import { render } from "@testing-library/react";
+import { fireEvent, render } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import ProductListCard from "../ProductListCard";
 import { PRODUCT_MOCKING } from "@/constants/product";
 import { createMemoryHistory } from "history";
 import { Router } from "react-router-dom";
+import ProductGridCard from "../ProductGridCard";
 
 describe("ViewProductItem component", () => {
-  test("should render productListCard component", () => {
+  test("should render product grid card component", () => {
     const history = createMemoryHistory();
     const { getByTestId } = render (
       <Router location={history.location} navigator={history}>
-        <ProductListCard product={PRODUCT_MOCKING} />
+        <ProductGridCard product={PRODUCT_MOCKING} deleteProduct={() => {}} />
       </Router>
     );
-    expect(getByTestId("product-list-card")).toBeInTheDocument();
+    expect(getByTestId("product-grid-card")).toBeInTheDocument();
   });
 
   test("matches snapshot", () => {
     const history = createMemoryHistory();
     const { asFragment } = render(
       <Router location={history.location} navigator={history}>
-        <ProductListCard product={PRODUCT_MOCKING} />
+        <ProductGridCard product={PRODUCT_MOCKING} deleteProduct={() => {}} />
       </Router>);
     expect(asFragment()).toMatchSnapshot();
   });
