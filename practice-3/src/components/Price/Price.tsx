@@ -8,6 +8,6 @@ const Price: React.FC<PriceProps> = ({ value, className }) => {
       ${value}
     </p>
   );
-}
+};
 
 export default memo(Price);
