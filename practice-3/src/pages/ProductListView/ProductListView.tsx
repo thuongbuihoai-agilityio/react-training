@@ -6,26 +6,15 @@ import { get } from "@/helpers/fetchApi";
 import { PRODUCTS_URL } from "@/constants/url";
 import Button from "@/components/common/Button/Button";
 import { SearchContext } from "@/context/SearchContext";
-import { ProductContext } from "@/context/ProductContext";
 import ProductListCard from "../ProductListCard/ProductListCard";
 import "./productListView.css";
 
 const ProductListView: React.FC = () => {
   const { searchValue } = useContext(SearchContext);
-  const { setData } = useContext(ProductContext);
-
-  const filter = {
-    searchValue,
-  };
-
-  const queryParams: URLSearchParams = new URLSearchParams(filter);
+  const queryParams: URLSearchParams = new URLSearchParams(searchValue);
   const key: Key = PRODUCTS_URL + queryParams.toString();
-  const fetcher = () => get<Product[]>(PRODUCTS_URL)
+  const fetcher = () => get<Product[]>(key);
   const { data } = useSWR(key, fetcher);
-
-  useEffect(() => {
-    setData(data);
-  }, [data]);
 
   return (
     <>

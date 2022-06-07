@@ -9,7 +9,7 @@ import "./productListCard.css";
 const ProductListCard: React.FC<ProductCardProps> = ({ product }) => {
   return (
     <>
-      <div data-testid="productViewPage" className="productViewPage">
+      <div data-testid="product-list-card" className="productViewPage">
         <img
           className="productViewPage__image"
           src={product?.images[0]}
