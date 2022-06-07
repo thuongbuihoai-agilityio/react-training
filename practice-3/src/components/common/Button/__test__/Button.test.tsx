@@ -2,8 +2,8 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import Button from "../Button";
 
 describe("Button component", () => {
+  const onClickButton = jest.fn();
   test("Should render prop when clicking button", async () => {
-    const onClickButton = jest.fn();
     render (
       <Button onClick={onClickButton} text="Submit" />
     );
