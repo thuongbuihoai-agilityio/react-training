@@ -9,21 +9,21 @@ const Input: React.FC<InputProps> = ({
   name,
   value,
   min,
-  multiple
+  multiple,
 }) => {
-
   return (
-    <input data-testid="input"
+    <input
+      data-testid="input"
       id={id}
-      onChange={onChange}
+      className={className}
       type={type}
       name={name}
-      className={className}
-      value={value}
       min={min}
+      value={value}
       multiple={multiple}
+      onChange={onChange}
     />
   );
-}
+};
 
 export default memo(Input);
