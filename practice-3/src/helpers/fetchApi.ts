@@ -5,13 +5,13 @@ const get = async <T>(url: string) => {
     const res = await axios.get<T>(url);
     return res.data;
   } catch(error) {
-    console.log(error)
+      console.log(error);
   }
 };
 
 const create = async <T>(url: string, newData: T) => {
   try {
-    const res = await axios.post<T>(url, newData);
+    const res = await axios.post(url, newData);
     return res;
   }
   catch(error) {
@@ -21,7 +21,7 @@ const create = async <T>(url: string, newData: T) => {
 
 const update = async <T>(id: string, dataEdit: T) => {
   try {
-    const res = await axios.put<T>(id, {...dataEdit});
+    const res = await axios.put(id, {...dataEdit});
     return res;
   } catch(error) {
       console.log(error);
