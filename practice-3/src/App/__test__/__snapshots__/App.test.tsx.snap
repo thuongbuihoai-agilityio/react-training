@@ -2,6 +2,9 @@
 
 exports[`App component matches snapshot 1`] = `
 <DocumentFragment>
+  <div
+    class="Toastify"
+  />
   <header
     class="header"
     data-testid="header"
@@ -111,7 +114,6 @@ exports[`App component matches snapshot 1`] = `
           class="nav__link"
           href=""
         >
-           
           <i
             class="fa fa-clock"
           />
@@ -125,7 +127,6 @@ exports[`App component matches snapshot 1`] = `
           class="nav__link"
           href=""
         >
-           
           <i
             class="fa fa-phone"
           />
@@ -162,107 +163,12 @@ exports[`App component matches snapshot 1`] = `
       >
         All
       </li>
-      <li
-        class="categories__item inactive"
-        data-index="1"
-        data-testid="category-item"
-      >
-        Cake
-      </li>
-      <li
-        class="categories__item inactive"
-        data-index="2"
-        data-testid="category-item"
-      >
-        Breads
-      </li>
     </ul>
   </div>
   <div
     class="viewProduct__list"
     data-testid="view-product-list"
-  >
-    <div
-      class="viewProduct__item"
-    >
-      <div
-        class="productViewPage"
-        data-testid="productViewPage"
-      >
-        <img
-          class="productViewPage__image"
-          src="/src/assets/images/products/cheese-cake.jpg"
-        />
-        <div
-          class="productViewPage__content"
-        >
-          <a
-            class="productViewPage__link"
-            href="/product/1"
-          >
-            <h2
-              class="productViewPage__title"
-              data-testid="title-test"
-            >
-              Cheese cake
-            </h2>
-          </a>
-          <p
-            class="productViewPage__description"
-            data-testid="text"
-          >
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.
-          </p>
-          <p
-            class="productViewPage__price"
-            data-testid="price"
-          >
-            $20
-          </p>
-        </div>
-      </div>
-    </div>
-    <div
-      class="viewProduct__item"
-    >
-      <div
-        class="productViewPage"
-        data-testid="productViewPage"
-      >
-        <img
-          class="productViewPage__image"
-          src="/src/assets/images/products/cheese-cake.jpg"
-        />
-        <div
-          class="productViewPage__content"
-        >
-          <a
-            class="productViewPage__link"
-            href="/product/2"
-          >
-            <h2
-              class="productViewPage__title"
-              data-testid="title-test"
-            >
-              Amaretti Cookie
-            </h2>
-          </a>
-          <p
-            class="productViewPage__description"
-            data-testid="text"
-          >
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.
-          </p>
-          <p
-            class="productViewPage__price"
-            data-testid="price"
-          >
-            $10
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
+  />
   <a
     class="viewProduct__link"
     href="/products"
@@ -280,7 +186,7 @@ exports[`App component matches snapshot 1`] = `
       class="footer__contact"
       data-testid="footer"
     >
-      Copyright © 2022 —  Bakery WordPress Theme by Milingona.
+      Copyright © 2022 — Bakery WordPress Theme by Milingona.
     </p>
   </footer>
 </DocumentFragment>
