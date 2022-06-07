@@ -10,11 +10,11 @@ describe("InputSearch component", () => {
 
   test("display product after inputSearch", async () => {
     act(() => {
-      render (
-        <InputSearch />
-      );
-      const inputElement = screen.getByPlaceholderText(/Search item/i) as HTMLInputElement;
-      fireEvent.change(inputElement, {target: { value: "Cheese pocket" } });
+      render(<InputSearch />);
+      const inputElement = screen.getByPlaceholderText(
+        /Search item/i
+      ) as HTMLInputElement;
+      fireEvent.change(inputElement, { target: { value: "Cheese pocket" } });
       expect(inputElement.value).toBe("Cheese pocket");
     });
   });
@@ -23,4 +23,4 @@ describe("InputSearch component", () => {
     const { asFragment } = render(<InputSearch />);
     expect(asFragment()).toMatchSnapshot();
   });
-})
+});

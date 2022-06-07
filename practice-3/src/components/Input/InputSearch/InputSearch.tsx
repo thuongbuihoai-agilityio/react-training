@@ -5,9 +5,9 @@ import "./inputSearch.css";
 const InputSearch: React.FC = () => {
   const { setSearchValue } = useContext(SearchContext);
   const handleSearch = (e: { target: { value: string } }) => {
-    const nameLike = {name_like:e.target.value};
+    const nameLike = { name_like: e.target.value };
     setSearchValue?.(nameLike);
-  }
+  };
 
   return (
     <div data-testid="input-search" className="search">
@@ -19,6 +19,6 @@ const InputSearch: React.FC = () => {
       />
     </div>
   );
-}
+};
 
 export default memo(InputSearch);
