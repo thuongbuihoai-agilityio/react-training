@@ -1,12 +1,17 @@
 import { fireEvent, render } from "@testing-library/react";
-import { ProductsContext } from "@/context/SearchContext";
+import { SearchContext } from "@/context/SearchContext";
 import Categories from "../Categories";
 import "@testing-library/jest-dom";
 import { useState } from "react";
+import mockAxios from "@/__mocks__/axios";
 import { CATEGORY_MOCKING_LIST } from "@/constants/categories";
+import { get } from "@/helpers/fetchApi";
+import { CATEGORIES_URL } from "@/constants/url";
+import { Search } from "@/types/search";
 
-const contextValueMock: any = {
-  setFilterInput: jest.fn()
+const contextValueMock: Search = {
+  setSearchValue: jest.fn(),
+  searchValue: ""
 };
 
 jest.mock("react", () => ({
@@ -14,15 +19,21 @@ jest.mock("react", () => ({
   useState: jest.fn(),
 }));
 
-const useCategoriesMock = { categories: CATEGORY_MOCKING_LIST };
-  jest.mock("../../../hooks/useCategories.ts", () => ({
-    default: jest.fn(() => useCategoriesMock),
-}));
-
 describe("Category component", () => {
   beforeEach(()=>{
     (useState as jest.Mock).mockImplementation(jest.requireActual("react").useState);
   })
+
+  afterEach(() => {
+    mockAxios.reset();
+  });
+
+  test("get categories item should call", async () => {
+    mockAxios.get.mockResolvedValueOnce({data: CATEGORY_MOCKING_LIST});
+    const result = await get(CATEGORIES_URL);
+    expect(mockAxios.get).toHaveBeenCalledWith(CATEGORIES_URL);
+    expect(result).toEqual(CATEGORY_MOCKING_LIST);
+  });
 
   test("render category component", () => {
     const { getByTestId } = render(<Categories />);
@@ -32,13 +43,13 @@ describe("Category component", () => {
 
   test("should filter when click category", () => {
     const { getByTestId } = render(
-      <ProductsContext.Provider value={contextValueMock}>
+      <SearchContext.Provider value={contextValueMock}>
         <Categories />
-      </ProductsContext.Provider>,
+      </SearchContext.Provider>,
     );
     const categoryItem = getByTestId("category-item");
     fireEvent.click(categoryItem);
-    expect(contextValueMock.setFilterInput).toHaveBeenCalled();
+    expect(contextValueMock.setSearchValue).toHaveBeenCalled();
   });
 
   test("matches snapshot", () => {
