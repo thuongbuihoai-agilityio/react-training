@@ -43,7 +43,9 @@ exports[`Modal create component matches snapshot 1`] = `
             />
             <small
               class="form__error"
-            />
+            >
+              Field is required
+            </small>
           </div>
           <div
             class="form-control"
@@ -62,7 +64,9 @@ exports[`Modal create component matches snapshot 1`] = `
             />
             <small
               class="form__error"
-            />
+            >
+              Field is required
+            </small>
           </div>
           <div
             class="form-control"
@@ -75,21 +79,12 @@ exports[`Modal create component matches snapshot 1`] = `
             <select
               class="form__select"
               name="categoryId"
-            >
-              <option
-                value="1"
-              >
-                Cake
-              </option>
-              <option
-                value="2"
-              >
-                Breads
-              </option>
-            </select>
+            />
             <small
               class="form__error"
-            />
+            >
+              Field is required
+            </small>
           </div>
           <div
             class="form-control"
@@ -113,7 +108,9 @@ exports[`Modal create component matches snapshot 1`] = `
               />
               <small
                 class="form__error"
-              />
+              >
+                Field is required
+              </small>
             </div>
             <div
               class="form-control"
@@ -133,7 +130,9 @@ exports[`Modal create component matches snapshot 1`] = `
               />
               <small
                 class="form__error"
-              />
+              >
+                Field is required
+              </small>
             </div>
           </div>
           <div
