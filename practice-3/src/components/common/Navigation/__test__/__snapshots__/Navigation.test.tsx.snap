@@ -16,7 +16,6 @@ exports[`Navigation component matches snapshot 1`] = `
           class="nav__link"
           href=""
         >
-           
           <i
             class="fa fa-clock"
           />
@@ -30,7 +29,6 @@ exports[`Navigation component matches snapshot 1`] = `
           class="nav__link"
           href=""
         >
-           
           <i
             class="fa fa-phone"
           />
@@ -40,6 +38,7 @@ exports[`Navigation component matches snapshot 1`] = `
     </ul>
     <div
       class="search"
+      data-testid="input-search"
     >
       <input
         class="search__text"

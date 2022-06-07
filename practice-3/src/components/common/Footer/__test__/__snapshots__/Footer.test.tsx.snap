@@ -9,7 +9,7 @@ exports[`Footer component matches snapshot 1`] = `
       class="footer__contact"
       data-testid="footer"
     >
-      Copyright © 2022 —  Bakery WordPress Theme by Milingona.
+      Copyright © 2022 — Bakery WordPress Theme by Milingona.
     </p>
   </footer>
 </DocumentFragment>
