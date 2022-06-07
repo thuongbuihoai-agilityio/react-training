@@ -2,7 +2,7 @@ import { Product } from "./product";
 
 export interface ModalDeleteProps {
   id: string;
-  hideModalDelete: Function;
+  hideModalDelete: () => void;
   deleteProduct: (id: string) => void;
 }
 

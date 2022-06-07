@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">23.8% </span>
+                <span class="strong">80.95% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>5/21</span>
+                <span class='fraction'>17/21</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">66.66% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/6</span>
+                <span class='fraction'>4/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/4</span>
+                <span class='fraction'>4/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">23.8% </span>
+                <span class="strong">80.95% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>5/21</span>
+                <span class='fraction'>17/21</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -99,76 +99,76 @@
 <a name='L34'></a><a href='#L34'>34</a>
 <a name='L35'></a><a href='#L35'>35</a>
 <a name='L36'></a><a href='#L36'>36</a>
-<a name='L37'></a><a href='#L37'>37</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
+<a name='L37'></a><a href='#L37'>37</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span></td><td class="text"><pre class="prettyprint lang-js">import { ERROR_MSG } from "@/constants/message";
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span></td><td class="text"><pre class="prettyprint lang-js">import { ERROR_MSG } from "@/constants/message";
 import { RULES } from "@/constants/rules";
 import { FormProps } from "@/types/form";
 &nbsp;
-const validateValue = <span class="fstat-no" title="function not covered" >(v</span>alue: string, rule: string, errors: {[fieldName: string]: any}, fieldName: string) =&gt; {
-<span class="cstat-no" title="statement not covered" >  <span class="missing-if-branch" title="if path not taken" >I</span>if (rule === RULES.REQUIRED) {</span>
-<span class="cstat-no" title="statement not covered" >    if (value) {</span>
+const validateValue = (value: string, rule: string, errors: {[fieldName: string]: any}, fieldName: string) =&gt; {
+  if (rule === RULES.REQUIRED) {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (value) {
 <span class="cstat-no" title="statement not covered" >      errors[fieldName].error = "";</span>
 <span class="cstat-no" title="statement not covered" >      return;</span>
     } else {
-<span class="cstat-no" title="statement not covered" >      errors[fieldName].error = ERROR_MSG.REQUIRED;</span>
-<span class="cstat-no" title="statement not covered" >      return;</span>
+      errors[fieldName].error = ERROR_MSG.REQUIRED;
+      return;
     }
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  <span class="missing-if-branch" title="if path not taken" >I</span>if (rule === RULES.NUMBER) {</span>
-<span class="cstat-no" title="statement not covered" >    if (typeof +value == RULES.NUMBER) {</span>
-<span class="cstat-no" title="statement not covered" >      errors[fieldName].error += "";</span>
-    } else {
+  if (rule === RULES.NUMBER) {
+    if (typeof +value == RULES.NUMBER) {
+      errors[fieldName].error += "";
+    } else <span class="missing-if-branch" title="else path not taken" >E</span>{
 <span class="cstat-no" title="statement not covered" >      errors[fieldName].error += ERROR_MSG.NUMBER;</span>
 <span class="cstat-no" title="statement not covered" >      return;</span>
     }
   }
 }
 &nbsp;
-const validate = <span class="fstat-no" title="function not covered" >(v</span>alues: FormProps) =&gt; {
-  const errors = <span class="cstat-no" title="statement not covered" >{...values};</span>
-  (<span class="cstat-no" title="statement not covered" >Object.keys(errors) as (keyof FormProps)[]).map(<span class="fstat-no" title="function not covered" >fieldName </span>=&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    errors[fieldName].rules.map(<span class="fstat-no" title="function not covered" >(r</span>ule: string)=&gt;{</span>
-<span class="cstat-no" title="statement not covered" >        validateValue(errors[fieldName].value, rule, errors, fieldName)</span>
+const validate = (values: FormProps) =&gt; {
+  const errors = {...values};
+  (Object.keys(errors) as (keyof FormProps)[]).map(fieldName =&gt; {
+    errors[fieldName].rules.map((rule: string)=&gt;{
+        validateValue(errors[fieldName].value, rule, errors, fieldName)
       });
     });
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  return errors;</span>
+  return errors;
 }
 &nbsp;
 export {validate};</pre></td></tr></table></pre>
@@ -178,7 +178,7 @@ export {validate};</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Mon Jun 06 2022 10:16:54 GMT+0700 (Indochina Time)
+                at Tue Jun 07 2022 17:00:54 GMT+0700 (Indochina Time)
             </div>
         <script src="../prettify.js"></script>
         <script>
