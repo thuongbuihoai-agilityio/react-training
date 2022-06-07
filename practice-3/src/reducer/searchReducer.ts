@@ -1,15 +1,4 @@
-export interface SearchState {
-  searchValue: string;
-}
-
-export enum Action {
-  SetSearchValue = "SET_SEARCH_VALUE",
-}
-
-export interface SearchAction {
-  action: Action;
-  payload: string;
-}
+import { Action, SearchAction, SearchState } from "@/types/search";
 
 const initialState: SearchState = {
   searchValue: "",
