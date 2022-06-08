@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 import { InputProps } from "@/types/input";
 
-const Input: React.FC<InputProps> = ({
+const Input: React.FC<InputProps> = memo(({
   id,
   onChange,
   className,
@@ -24,6 +24,6 @@ const Input: React.FC<InputProps> = ({
       onChange={onChange}
     />
   );
-};
+});
 
-export default memo(Input);
+export default Input;

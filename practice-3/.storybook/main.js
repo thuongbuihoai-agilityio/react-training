@@ -14,5 +14,4 @@ module.exports = {
     config.resolve.plugins = [new TsconfigPathsPlugin({ configFile: "./tsconfig.json" })];
     return config;
   },
-  // staticDirs: ["../src/assets/images", "../src/assets/fonts"],
 }

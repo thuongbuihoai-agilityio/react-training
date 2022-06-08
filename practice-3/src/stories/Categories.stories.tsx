@@ -1,17 +1,17 @@
 import React from "react";
-import Button from "@/components/common/Button/Button";
+import Categories from "@/components/Categories/Categories";
 
 export default {
   /* 👇 The title prop is optional.
   * See https://storybook.js.org/docs/react/configure/overview#configure-story-loading
   * to learn how to generate automatic titles
   */
-  title: "Component/Button",
-  component: Button,
+  title: "Component/Categories",
+  component: Categories,
 };
 
-const Primary: React.FC = () => {
-  return <Button text="View all products" className="primary" />;
+const Default: React.FC = () => {
+  return <Categories />;
 }
 
-export { Primary };
+export { Default };

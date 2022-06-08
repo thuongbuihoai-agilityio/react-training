@@ -57,7 +57,7 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
     const value = event.target.value;
     const fieldName = event.target.name;
     setNewProduct({ ...newProduct, [fieldName]: value });
-    setFormValues(setFieldsValue(formValues, value, fieldName) as any);
+    setFormValues(setFieldsValue(formValues, value, fieldName));
   };
 
   const imageChange = async (event: { target: { files: any } }) => {
