@@ -1,5 +1,5 @@
 import React from "react";
-import InputSearch from "../components/Input/InputSearch/InputSearch";
+import InputSearch from "@/components/Input/InputSearch/InputSearch";
 
 export default {
   /* 👇 The title prop is optional.

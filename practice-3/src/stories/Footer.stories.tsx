@@ -1,5 +1,5 @@
-import Footer from "@/components/common/Footer/Footer";
 import React from "react";
+import Footer from "@/components/common/Footer/Footer";
 
 export default {
   /* 👇 The title prop is optional.

@@ -1,5 +1,5 @@
 import React from "react";
-import Title from "../components/common/Title/Title";
+import Title from "@/components/common/Title/Title";
 
 export default {
   /* 👇 The title prop is optional.
