@@ -1,3 +1,4 @@
+import React from "react";
 import { memo } from "react";
 import { SWRConfig } from "swr";
 import { Route, Routes } from "react-router-dom";
@@ -18,15 +19,15 @@ const App: React.FC = memo(() => {
     <SWRConfig value={{ revalidateOnFocus: false }}>
       <ToastContainer />
       <Header />
-      <AppProvider>
-        <Navigation />
-        <Categories />
-          <Routes>
-            <Route path="/" element={<ProductListView />} />
-            <Route path="/products" element={<ProductGridView />} />
-            <Route path={`/product/:id`} element={<ProductDetails />} />
-          </Routes>
-      </AppProvider>
+        <AppProvider>
+          <Navigation />
+          <Categories />
+            <Routes>
+              <Route path="/" element={<ProductListView />} />
+              <Route path="/products" element={<ProductGridView />} />
+              <Route path={`/product/:id`} element={<ProductDetails />} />
+            </Routes>
+        </AppProvider>
       <Footer />
     </SWRConfig>
   )

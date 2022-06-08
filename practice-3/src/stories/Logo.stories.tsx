@@ -1,6 +1,6 @@
 import React from "react";
-import Logo from "../components/common/Logo/Logo";
-import url from "../assets/images/logos/logos.png"
+import Logo from "@/components/common/Logo/Logo";
+import url from "@/assets/images/logos/logos.png"
 
 export default {
   /* 👇 The title prop is optional.

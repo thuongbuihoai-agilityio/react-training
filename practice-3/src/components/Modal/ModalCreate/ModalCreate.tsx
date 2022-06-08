@@ -48,8 +48,8 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
     );
 
     if (!temp.includes(false)) {
+      handleClearValidate();
       createProduct({ images, ...newProduct } as unknown as Product);
-      hideModalCreate();
     }
   };
 
@@ -112,7 +112,7 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
                 name="description"
                 id=""
                 cols={30}
-                rows={3}
+                rows={5}
                 onChange={handleChange}
               ></textarea>
               <small className="form__error">
@@ -128,6 +128,7 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
                 name="categoryId"
                 onChange={handleChange}
               >
+                <option value="">Select category</option>
                 {data?.map(({ id, name }: CategoryProps, index: number) => (
                   <option key={index} value={id}>
                     {name}

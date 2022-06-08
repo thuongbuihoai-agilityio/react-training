@@ -41,7 +41,6 @@
 .form-control > label {
   font-weight: bold;
   font-size: 14px;
-  margin-bottom: 10px;
 }
 
 .form-control > input,
@@ -69,7 +68,7 @@
 }
 
 input#file {
-  background: url(@/assets/images/plus-icon.jpg) center no-repeat;
+  background: url(../../../assets/images/plus-icon.jpg) center no-repeat;
   background-size: 60px 60px;
 }
 
