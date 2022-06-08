@@ -2,7 +2,7 @@ import React, { memo } from "react";
 import { MenuProps, MenuType } from "@/types/menu";
 import "./menu.css";
 
-const Menu: React.FC<MenuProps> = ({ menuList }) => {
+const Menu: React.FC<MenuProps> = memo(({ menuList }) => {
   function renderMenuList(list: MenuType[]) {
     return list.map((item) =>
       <li className="menu__item" key={item.key}>
@@ -16,6 +16,6 @@ const Menu: React.FC<MenuProps> = ({ menuList }) => {
       <ul className="menu__list">{renderMenuList(menuList)}</ul>
     </div>
   );
-}
+});
 
-export default memo(Menu);
+export default Menu;

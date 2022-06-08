@@ -2,7 +2,7 @@ import React, { memo, useContext } from "react";
 import { SearchContext } from "@/context/SearchContext";
 import "./inputSearch.css";
 
-const InputSearch: React.FC = () => {
+const InputSearch: React.FC = memo(() => {
   const { setSearchValue } = useContext(SearchContext);
   const handleSearch = (e: { target: { value: string } }) => {
     const nameLike = { name_like: e.target.value };
@@ -19,6 +19,6 @@ const InputSearch: React.FC = () => {
       />
     </div>
   );
-};
+});
 
-export default memo(InputSearch);
+export default InputSearch;

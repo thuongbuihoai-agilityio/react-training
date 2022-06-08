@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useCallback, useContext, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Price from "@/components/Price/Price";
@@ -5,10 +6,9 @@ import Button from "@/components/common/Button/Button";
 import Title from "@/components/common/Title/Title";
 import Text from "@/components/Text/Text";
 import ModalUpdate from "@/components/Modal/ModalUpdate/ModalUpdate";
-import "./productDetail.css";
-import axios from "axios";
 import { PRODUCT_CRUD } from "@/constants/url";
 import { ProductContext } from "@/context/ProductContext";
+import "./productDetail.css";
 
 const ProductDetails: React.FC = () => {
   const { products } = useContext(ProductContext);

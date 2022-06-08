@@ -62,7 +62,7 @@ const ModalUpdate: React.FC<ModalUpdateProps> = ({
     }
   };
 
-  const handleDeleteImage = (event: { target: Element | any }) => {
+  const handleDeleteImage = (event: { target: Element | any}) => {
     const target = event.target as Element;
     const indexOfArr = productEdit.images.findIndex(
       (item: string) => item == (target as HTMLInputElement).dataset.id

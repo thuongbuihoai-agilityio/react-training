@@ -1,4 +1,5 @@
 import { Product } from "types/product";
+import url from "../assets/images/products/black-forest-cake.jpg";
 
 const PRODUCT_MOCKING: Product = {
   id: "1",
@@ -8,9 +9,7 @@ const PRODUCT_MOCKING: Product = {
   quantity: 5,
   description: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
   images: [
-    "/src/assets/images/products/cheese-cake.jpg",
-    "/src/assets/images/products/cheese-cake.jpg",
-    "/src/assets/images/products/cheese-cake.jpg"
+    url
   ]
 }
 

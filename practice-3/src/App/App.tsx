@@ -14,23 +14,22 @@ import ProductGridView from "@/pages/ProductGridView/ProductGridView";
 import AppProvider from "@/context/AppContext";
 
 const App: React.FC = memo(() => {
-
   return (
     <SWRConfig value={{ revalidateOnFocus: false }}>
       <ToastContainer />
       <Header />
-        <AppProvider>
-          <Navigation />
-          <Categories />
-            <Routes>
-              <Route path="/" element={<ProductListView />} />
-              <Route path="/products" element={<ProductGridView />} />
-              <Route path={`/product/:id`} element={<ProductDetails />} />
-            </Routes>
-        </AppProvider>
+      <AppProvider>
+        <Navigation />
+        <Categories />
+        <Routes>
+          <Route path="/" element={<ProductListView />} />
+          <Route path="/products" element={<ProductGridView />} />
+          <Route path={`/product/:id`} element={<ProductDetails />} />
+        </Routes>
+      </AppProvider>
       <Footer />
     </SWRConfig>
-  )
+  );
 });
 
-export default App
+export default App;
