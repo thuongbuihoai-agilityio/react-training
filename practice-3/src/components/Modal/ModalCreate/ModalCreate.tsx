@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { ModalCreateProps } from "@/types/modal";
 import { CategoryProps } from "@/types/category";
-import Input from "@/components/Input/Input/Input";
 import getBase64 from "@/helpers/getBase64";
 import FORM_VALUES from "@/constants/form";
 import { validate } from "@/helpers/validate";
@@ -95,7 +94,8 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
           <div className="modal-body">
             <div className="form-control">
               <label htmlFor="">Product name: </label>
-              <Input
+              <input
+                data-testid="change-value-name"
                 className="form__input"
                 type="text"
                 name="name"
@@ -142,7 +142,7 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
             <div id="form__number" className="form-control">
               <div className="form-control">
                 <label htmlFor="">Price: </label>
-                <Input
+                <input
                   className="modal__input"
                   type="number"
                   min={0}
@@ -155,7 +155,7 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
               </div>
               <div className="form-control">
                 <label htmlFor="">Quantity: </label>
-                <Input
+                <input
                   className="modal__input"
                   type="number"
                   min={0}
@@ -170,8 +170,9 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
             <div className="form-control">
               <div className="form__img--list">
                 {selectedFile.length > 0 &&
-                  selectedFile.map((src, key: number) => (
+                  selectedFile.map((src, key: number, index) => (
                     <img
+                      data-testid="after-change-file"
                       className="form__img"
                       key={key}
                       data-id={src}
@@ -179,7 +180,8 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
                       onClick={handleDeleteImage}
                     />
                   ))}
-                <Input
+                <input
+                  data-testid="change-file"
                   className="form__input--img"
                   type="file"
                   id="file"
@@ -199,7 +201,7 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
               Cancel
             </button>
             <button
-              data-testid="submit-btn"
+              data-testid="create-btn"
               className="btn btn__yes"
               onClick={() => handleCreateProduct()}
             >

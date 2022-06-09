@@ -2,7 +2,6 @@ import axios from "axios";
 import React, { useCallback, useContext, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Price from "@/components/Price/Price";
-import Button from "@/components/common/Button/Button";
 import Title from "@/components/common/Title/Title";
 import Text from "@/components/Text/Text";
 import ModalUpdate from "@/components/Modal/ModalUpdate/ModalUpdate";
@@ -24,17 +23,17 @@ const ProductDetails: React.FC = () => {
 
   async function fetchMyAPI() {
     const result = await axios
-    .get(`${PRODUCT_CRUD}/${id}`)
-    .then((res) => {
-      setProductDetailNew(res.data);
-    })
-    .catch(function (error) {
-      alert(error);
-    });
+      .get(`${PRODUCT_CRUD}/${id}`)
+      .then((res) => {
+        setProductDetailNew(res.data);
+      })
+      .catch(function (error) {
+        alert(error);
+      });
   }
 
   useEffect(() => {
-    if(id) {
+    if (id) {
       fetchMyAPI();
     }
   }, [isReload]);
@@ -46,20 +45,28 @@ const ProductDetails: React.FC = () => {
           <img className="product__image" src={productDetailNew?.images[0]} />
         </div>
         <div className="productDetails__img--right">
-          {productDetailNew?.images.map((img: string, index: number) => (
-            <img key={index} src={img} alt="This is image" />
+          {productDetailNew?.images.map((img: string, key: number) => (
+            <img key={key} src={img} alt="This is image" />
           ))}
         </div>
         <div className="productDetails__info">
           <div className="productDetail__update">
-            <Title className="productDetail__title" text={productDetailNew?.name} />
-            <Button
+            <Title
+              className="productDetail__title"
+              text={productDetailNew?.name}
+            />
+            <button
+              data-testid="open-modal-update"
               onClick={toggleModalUpdate}
               className="btn btn__update"
-              text={<i className="fa fa-pen"></i>}
-            />
+            >
+              <i className="fa fa-pen"></i>
+            </button>
           </div>
-          <Price className="productDetail__price" value={productDetailNew?.price} />
+          <Price
+            className="productDetail__price"
+            value={productDetailNew?.price}
+          />
           <input
             className="productDetails__input"
             min={0}

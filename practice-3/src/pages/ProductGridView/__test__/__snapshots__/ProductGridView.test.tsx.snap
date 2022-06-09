@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ViewProductItem component matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="product__list"
+    data-testid="product-gird-view"
+  >
+    <button
+      class="btn btn__add"
+      data-testid="open-modal"
+    >
+      Add new product
+    </button>
+    <div
+      class="product__info"
+      data-testid="delete-product"
+    />
+  </div>
+</DocumentFragment>
+`;
