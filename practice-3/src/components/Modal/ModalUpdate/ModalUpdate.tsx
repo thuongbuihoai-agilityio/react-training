@@ -2,7 +2,6 @@ import useSWR, { Key } from "swr";
 import React, { useState } from "react";
 import { ModalUpdateProps } from "@/types/modal";
 import { CategoryProps } from "@/types/category";
-import Input from "@/components/Input/Input/Input";
 import { Product } from "@/types/product";
 import getBase64 from "@/helpers/getBase64";
 import { get, update } from "@/helpers/fetchApi";
@@ -18,7 +17,7 @@ const ModalUpdate: React.FC<ModalUpdateProps> = ({
   hideModalUpdate,
 }) => {
   const key: Key = CATEGORIES_URL;
-  const fetcher = () => get<Product[]>(CATEGORIES_URL)
+  const fetcher = () => get<Product[]>(CATEGORIES_URL);
   const { data, mutate } = useSWR(key, fetcher);
   const [selectedFile, setSelectedFile] = useState([]);
   const [productEdit, setProductEdit] = useState(product);
@@ -87,11 +86,12 @@ const ModalUpdate: React.FC<ModalUpdateProps> = ({
           <div className="modal-body">
             <div className="form-control">
               <label htmlFor="">Product name: </label>
-              <Input
+              <input
+                data-testid="change-value-name"
                 className="form__input"
                 type="text"
                 name="name"
-                value={productEdit.name}
+                value={productEdit?.name}
                 onChange={handleChange}
               />
             </div>
@@ -101,7 +101,7 @@ const ModalUpdate: React.FC<ModalUpdateProps> = ({
                 className="form__text"
                 cols={30}
                 rows={5}
-                value={productEdit.description}
+                value={productEdit?.description}
                 name="description"
                 onChange={handleChange}
               ></textarea>
@@ -117,7 +117,7 @@ const ModalUpdate: React.FC<ModalUpdateProps> = ({
                   <option
                     key={index}
                     value={id}
-                    selected={productEdit.categoryId == id}
+                    selected={productEdit?.categoryId == id}
                   >
                     {name}
                   </option>
@@ -127,22 +127,22 @@ const ModalUpdate: React.FC<ModalUpdateProps> = ({
             <div id="form__number" className="form-control">
               <div className="form-control">
                 <label htmlFor="">Price: </label>
-                <Input
+                <input
                   className="modal__input"
                   type="number"
                   min={0}
-                  value={productEdit.price}
+                  value={productEdit?.price}
                   name="price"
                   onChange={handleChange}
                 />
               </div>
               <div className="form-control">
                 <label htmlFor="">Quantity: </label>
-                <Input
+                <input
                   className="modal__input"
                   type="number"
                   min={0}
-                  value={productEdit.quantity}
+                  value={productEdit?.quantity}
                   name="quantity"
                   onChange={handleChange}
                 />
@@ -162,6 +162,7 @@ const ModalUpdate: React.FC<ModalUpdateProps> = ({
                 {selectedFile.length > 0 &&
                   selectedFile.map((src, key: number) => (
                     <img
+                      data-testid="after-change-file"
                       key={key}
                       className="form__img"
                       data-id={src}
@@ -169,7 +170,8 @@ const ModalUpdate: React.FC<ModalUpdateProps> = ({
                       onClick={handleDeleteImage}
                     />
                   ))}
-                <Input
+                <input
+                  data-testid="change-file"
                   className="form__input--img"
                   type="file"
                   id="file"

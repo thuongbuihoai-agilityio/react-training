@@ -8,7 +8,6 @@ exports[`ViewProductItem component matches snapshot 1`] = `
   >
     <img
       class="product__image"
-      src="/src/assets/images/products/cheese-cake.jpg"
     />
     <button
       class="btn btn__btn btn__delete"

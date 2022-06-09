@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1654671319529" clover="3.2.0">
-  <project timestamp="1654671319529" name="All files">
-    <metrics statements="445" coveredstatements="357" conditionals="38" coveredconditionals="24" methods="91" coveredmethods="52" elements="574" coveredelements="433" complexity="0" loc="445" ncloc="445" packages="28" files="57" classes="57"/>
+<coverage generated="1654770091563" clover="3.2.0">
+  <project timestamp="1654770091563" name="All files">
+    <metrics statements="440" coveredstatements="390" conditionals="38" coveredconditionals="30" methods="90" coveredmethods="68" elements="568" coveredelements="488" complexity="0" loc="440" ncloc="440" packages="28" files="57" classes="57"/>
     <package name="App">
       <metrics statements="16" coveredstatements="16" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-      <file name="App.tsx" path="C:\Users\HOAITHUONG\Desktop\react-practice3\react-training\practice-3\src\App\App.tsx">
+      <file name="App.tsx" path="C:\Users\HOAITHUONG\Desktop\final\react-training\practice-3\src\App\App.tsx">
         <metrics statements="16" coveredstatements="16" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -20,27 +20,34 @@
         <line num="13" count="1" type="stmt"/>
         <line num="14" count="1" type="stmt"/>
         <line num="16" count="1" type="stmt"/>
-        <line num="18" count="4" type="stmt"/>
-        <line num="36" count="1" type="stmt"/>
+        <line num="17" count="4" type="stmt"/>
+        <line num="35" count="1" type="stmt"/>
       </file>
     </package>
     <package name="assets.images.backgrounds">
       <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      <file name="slide-1.jpg" path="C:\Users\HOAITHUONG\Desktop\react-practice3\react-training\practice-3\src\assets\images\backgrounds\slide-1.jpg">
+      <file name="slide-1.jpg" path="C:\Users\HOAITHUONG\Desktop\final\react-training\practice-3\src\assets\images\backgrounds\slide-1.jpg">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="2" type="stmt"/>
       </file>
     </package>
     <package name="assets.images.logos">
       <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      <file name="logos.png" path="C:\Users\HOAITHUONG\Desktop\react-practice3\react-training\practice-3\src\assets\images\logos\logos.png">
+      <file name="logos.png" path="C:\Users\HOAITHUONG\Desktop\final\react-training\practice-3\src\assets\images\logos\logos.png">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="3" type="stmt"/>
       </file>
     </package>
+    <package name="assets.images.products">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="black-forest-cake.jpg" path="C:\Users\HOAITHUONG\Desktop\final\react-training\practice-3\src\assets\images\products\black-forest-cake.jpg">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="7" type="stmt"/>
+      </file>
+    </package>
     <package name="components.Categories">
       <metrics statements="23" coveredstatements="19" conditionals="4" coveredconditionals="1" methods="6" coveredmethods="3"/>
-      <file name="Categories.tsx" path="C:\Users\HOAITHUONG\Desktop\react-practice3\react-training\practice-3\src\components\Categories\Categories.tsx">
+      <file name="Categories.tsx" path="C:\Users\HOAITHUONG\Desktop\final\react-training\practice-3\src\components\Categories\Categories.tsx">
         <metrics statements="22" coveredstatements="18" conditionals="4" coveredconditionals="1" methods="6" coveredmethods="3"/>
         <line num="1" count="4" type="stmt"/>
         <line num="3" count="4" type="stmt"/>
@@ -65,24 +72,14 @@
         <line num="40" count="9" type="stmt"/>
         <line num="61" count="4" type="stmt"/>
       </file>
-      <file name="categories.css" path="C:\Users\HOAITHUONG\Desktop\react-practice3\react-training\practice-3\src\components\Categories\categories.css">
+      <file name="categories.css" path="C:\Users\HOAITHUONG\Desktop\final\react-training\practice-3\src\components\Categories\categories.css">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="4" type="stmt"/>
       </file>
     </package>
-    <package name="components.Input.Input">
-      <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-      <file name="Input.tsx" path="C:\Users\HOAITHUONG\Desktop\react-practice3\react-training\practice-3\src\components\Input\Input\Input.tsx">
-        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="1" count="6" type="stmt"/>
-        <line num="4" count="6" type="stmt"/>
-        <line num="14" count="34" type="stmt"/>
-        <line num="29" count="6" type="stmt"/>
-      </file>
-    </package>
     <package name="components.Input.InputSearch">
       <metrics statements="11" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-      <file name="InputSearch.tsx" path="C:\Users\HOAITHUONG\Desktop\react-practice3\react-training\practice-3\src\components\Input\InputSearch\InputSearch.tsx">
+      <file name="InputSearch.tsx" path="C:\Users\HOAITHUONG\Desktop\final\react-training\practice-3\src\components\Input\InputSearch\InputSearch.tsx">
         <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="1" count="3" type="stmt"/>
         <line num="2" count="3" type="stmt"/>
@@ -95,78 +92,77 @@
         <line num="12" count="9" type="stmt"/>
         <line num="24" count="3" type="stmt"/>
       </file>
-      <file name="inputSearch.css" path="C:\Users\HOAITHUONG\Desktop\react-practice3\react-training\practice-3\src\components\Input\InputSearch\inputSearch.css">
+      <file name="inputSearch.css" path="C:\Users\HOAITHUONG\Desktop\final\react-training\practice-3\src\components\Input\InputSearch\inputSearch.css">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="3" type="stmt"/>
       </file>
     </package>
     <package name="components.Modal.ModalCreate">
-      <metrics statements="55" coveredstatements="36" conditionals="15" coveredconditionals="12" methods="14" coveredmethods="7"/>
-      <file name="ModalCreate.tsx" path="C:\Users\HOAITHUONG\Desktop\react-practice3\react-training\practice-3\src\components\Modal\ModalCreate\ModalCreate.tsx">
-        <metrics statements="54" coveredstatements="35" conditionals="15" coveredconditionals="12" methods="14" coveredmethods="7"/>
+      <metrics statements="54" coveredstatements="45" conditionals="15" coveredconditionals="14" methods="14" coveredmethods="11"/>
+      <file name="ModalCreate.tsx" path="C:\Users\HOAITHUONG\Desktop\final\react-training\practice-3\src\components\Modal\ModalCreate\ModalCreate.tsx">
+        <metrics statements="53" coveredstatements="44" conditionals="15" coveredconditionals="14" methods="14" coveredmethods="11"/>
         <line num="1" count="3" type="stmt"/>
         <line num="4" count="3" type="stmt"/>
         <line num="5" count="3" type="stmt"/>
         <line num="6" count="3" type="stmt"/>
         <line num="7" count="3" type="stmt"/>
-        <line num="8" count="3" type="stmt"/>
+        <line num="10" count="3" type="stmt"/>
         <line num="11" count="3" type="stmt"/>
         <line num="12" count="3" type="stmt"/>
         <line num="13" count="3" type="stmt"/>
-        <line num="14" count="3" type="stmt"/>
-        <line num="16" count="3" type="stmt"/>
-        <line num="20" count="5" type="stmt"/>
-        <line num="21" count="5" type="stmt"/>
-        <line num="22" count="5" type="stmt"/>
-        <line num="23" count="5" type="stmt"/>
-        <line num="24" count="5" type="stmt"/>
-        <line num="25" count="5" type="stmt"/>
-        <line num="27" count="5" type="stmt"/>
-        <line num="28" count="1" type="stmt"/>
-        <line num="30" count="6" type="stmt"/>
-        <line num="33" count="1" type="stmt"/>
-        <line num="36" count="5" type="stmt"/>
+        <line num="15" count="3" type="stmt"/>
+        <line num="19" count="10" type="stmt"/>
+        <line num="20" count="10" type="stmt"/>
+        <line num="21" count="10" type="stmt"/>
+        <line num="22" count="10" type="stmt"/>
+        <line num="23" count="10" type="stmt"/>
+        <line num="24" count="10" type="stmt"/>
+        <line num="26" count="10" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="29" count="6" type="stmt"/>
+        <line num="32" count="1" type="stmt"/>
+        <line num="35" count="10" type="stmt"/>
+        <line num="36" count="1" type="stmt"/>
         <line num="37" count="1" type="stmt"/>
-        <line num="38" count="1" type="stmt"/>
-        <line num="39" count="0" type="stmt"/>
+        <line num="38" count="0" type="stmt"/>
+        <line num="40" count="1" type="stmt"/>
         <line num="41" count="1" type="stmt"/>
-        <line num="42" count="1" type="stmt"/>
-        <line num="44" count="6" type="cond" truecount="1" falsecount="0"/>
-        <line num="45" count="5" type="stmt"/>
-        <line num="50" count="1" type="cond" truecount="0" falsecount="1"/>
+        <line num="43" count="6" type="cond" truecount="1" falsecount="0"/>
+        <line num="44" count="5" type="stmt"/>
+        <line num="49" count="1" type="cond" truecount="0" falsecount="1"/>
+        <line num="50" count="0" type="stmt"/>
         <line num="51" count="0" type="stmt"/>
-        <line num="52" count="0" type="stmt"/>
-        <line num="56" count="5" type="stmt"/>
-        <line num="57" count="0" type="stmt"/>
-        <line num="58" count="0" type="stmt"/>
-        <line num="59" count="0" type="stmt"/>
-        <line num="60" count="0" type="stmt"/>
-        <line num="63" count="5" type="stmt"/>
-        <line num="64" count="0" type="stmt"/>
-        <line num="65" count="0" type="cond" truecount="0" falsecount="1"/>
-        <line num="66" count="0" type="stmt"/>
-        <line num="67" count="0" type="stmt"/>
-        <line num="68" count="0" type="stmt"/>
-        <line num="73" count="5" type="stmt"/>
+        <line num="55" count="10" type="stmt"/>
+        <line num="56" count="1" type="stmt"/>
+        <line num="57" count="1" type="stmt"/>
+        <line num="58" count="1" type="stmt"/>
+        <line num="59" count="1" type="stmt"/>
+        <line num="62" count="10" type="stmt"/>
+        <line num="63" count="1" type="stmt"/>
+        <line num="64" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="65" count="1" type="stmt"/>
+        <line num="66" count="1" type="stmt"/>
+        <line num="67" count="1" type="stmt"/>
+        <line num="72" count="10" type="stmt"/>
+        <line num="73" count="0" type="stmt"/>
         <line num="74" count="0" type="stmt"/>
         <line num="75" count="0" type="stmt"/>
-        <line num="76" count="0" type="stmt"/>
+        <line num="77" count="0" type="stmt"/>
         <line num="78" count="0" type="stmt"/>
-        <line num="79" count="0" type="stmt"/>
-        <line num="82" count="5" type="stmt"/>
+        <line num="81" count="10" type="stmt"/>
         <line num="133" count="0" type="stmt"/>
-        <line num="174" count="0" type="stmt"/>
-        <line num="204" count="1" type="stmt"/>
-        <line num="215" count="3" type="stmt"/>
+        <line num="174" count="1" type="stmt"/>
+        <line num="206" count="1" type="stmt"/>
+        <line num="217" count="3" type="stmt"/>
       </file>
-      <file name="modalCreate.css" path="C:\Users\HOAITHUONG\Desktop\react-practice3\react-training\practice-3\src\components\Modal\ModalCreate\modalCreate.css">
+      <file name="modalCreate.css" path="C:\Users\HOAITHUONG\Desktop\final\react-training\practice-3\src\components\Modal\ModalCreate\modalCreate.css">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="3" type="stmt"/>
       </file>
     </package>
     <package name="components.Modal.ModalDelete">
       <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-      <file name="ModalDelete.tsx" path="C:\Users\HOAITHUONG\Desktop\react-practice3\react-training\practice-3\src\components\Modal\ModalDelete\ModalDelete.tsx">
+      <file name="ModalDelete.tsx" path="C:\Users\HOAITHUONG\Desktop\final\react-training\practice-3\src\components\Modal\ModalDelete\ModalDelete.tsx">
         <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="3" count="4" type="stmt"/>
         <line num="5" count="4" type="stmt"/>
@@ -174,115 +170,114 @@
         <line num="15" count="1" type="stmt"/>
         <line num="23" count="4" type="stmt"/>
       </file>
-      <file name="modalDelete.css" path="C:\Users\HOAITHUONG\Desktop\react-practice3\react-training\practice-3\src\components\Modal\ModalDelete\modalDelete.css">
+      <file name="modalDelete.css" path="C:\Users\HOAITHUONG\Desktop\final\react-training\practice-3\src\components\Modal\ModalDelete\modalDelete.css">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="4" type="stmt"/>
       </file>
     </package>
     <package name="components.Modal.ModalUpdate">
-      <metrics statements="52" coveredstatements="24" conditionals="3" coveredconditionals="1" methods="14" coveredmethods="3"/>
-      <file name="ModalUpdate.tsx" path="C:\Users\HOAITHUONG\Desktop\react-practice3\react-training\practice-3\src\components\Modal\ModalUpdate\ModalUpdate.tsx">
-        <metrics statements="51" coveredstatements="23" conditionals="3" coveredconditionals="1" methods="14" coveredmethods="3"/>
+      <metrics statements="51" coveredstatements="41" conditionals="3" coveredconditionals="3" methods="14" coveredmethods="10"/>
+      <file name="ModalUpdate.tsx" path="C:\Users\HOAITHUONG\Desktop\final\react-training\practice-3\src\components\Modal\ModalUpdate\ModalUpdate.tsx">
+        <metrics statements="50" coveredstatements="40" conditionals="3" coveredconditionals="3" methods="14" coveredmethods="10"/>
         <line num="1" count="3" type="stmt"/>
         <line num="2" count="3" type="stmt"/>
-        <line num="5" count="3" type="stmt"/>
+        <line num="6" count="3" type="stmt"/>
         <line num="7" count="3" type="stmt"/>
         <line num="8" count="3" type="stmt"/>
         <line num="9" count="3" type="stmt"/>
         <line num="10" count="3" type="stmt"/>
         <line num="11" count="3" type="stmt"/>
-        <line num="12" count="3" type="stmt"/>
-        <line num="14" count="3" type="stmt"/>
-        <line num="20" count="3" type="stmt"/>
-        <line num="21" count="3" type="stmt"/>
-        <line num="22" count="3" type="stmt"/>
-        <line num="23" count="3" type="stmt"/>
-        <line num="24" count="3" type="stmt"/>
-        <line num="25" count="3" type="stmt"/>
-        <line num="26" count="0" type="stmt"/>
-        <line num="35" count="0" type="stmt"/>
-        <line num="36" count="0" type="stmt"/>
-        <line num="37" count="0" type="stmt"/>
-        <line num="38" count="0" type="stmt"/>
-        <line num="41" count="3" type="stmt"/>
+        <line num="13" count="3" type="stmt"/>
+        <line num="19" count="9" type="stmt"/>
+        <line num="20" count="9" type="stmt"/>
+        <line num="21" count="9" type="stmt"/>
+        <line num="22" count="9" type="stmt"/>
+        <line num="23" count="9" type="stmt"/>
+        <line num="24" count="9" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="34" count="1" type="stmt"/>
+        <line num="35" count="1" type="stmt"/>
+        <line num="36" count="1" type="stmt"/>
+        <line num="37" count="1" type="stmt"/>
+        <line num="40" count="9" type="stmt"/>
+        <line num="41" count="1" type="stmt"/>
         <line num="42" count="0" type="stmt"/>
-        <line num="43" count="0" type="stmt"/>
-        <line num="45" count="0" type="stmt"/>
-        <line num="46" count="0" type="stmt"/>
-        <line num="49" count="3" type="stmt"/>
-        <line num="50" count="0" type="stmt"/>
-        <line num="51" count="0" type="stmt"/>
-        <line num="52" count="0" type="stmt"/>
-        <line num="55" count="3" type="stmt"/>
-        <line num="56" count="0" type="stmt"/>
-        <line num="57" count="0" type="cond" truecount="0" falsecount="1"/>
-        <line num="58" count="0" type="stmt"/>
-        <line num="59" count="0" type="stmt"/>
-        <line num="60" count="0" type="stmt"/>
-        <line num="65" count="3" type="stmt"/>
+        <line num="44" count="1" type="stmt"/>
+        <line num="45" count="1" type="stmt"/>
+        <line num="48" count="9" type="stmt"/>
+        <line num="49" count="1" type="stmt"/>
+        <line num="50" count="1" type="stmt"/>
+        <line num="51" count="1" type="stmt"/>
+        <line num="54" count="9" type="stmt"/>
+        <line num="55" count="1" type="stmt"/>
+        <line num="56" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="57" count="1" type="stmt"/>
+        <line num="58" count="1" type="stmt"/>
+        <line num="59" count="1" type="stmt"/>
+        <line num="64" count="9" type="stmt"/>
+        <line num="65" count="0" type="stmt"/>
         <line num="66" count="0" type="stmt"/>
         <line num="67" count="0" type="stmt"/>
-        <line num="68" count="0" type="stmt"/>
+        <line num="69" count="0" type="stmt"/>
         <line num="70" count="0" type="stmt"/>
-        <line num="71" count="0" type="stmt"/>
+        <line num="72" count="0" type="stmt"/>
         <line num="73" count="0" type="stmt"/>
         <line num="74" count="0" type="stmt"/>
-        <line num="75" count="0" type="stmt"/>
-        <line num="78" count="3" type="stmt"/>
+        <line num="77" count="9" type="stmt"/>
         <line num="117" count="0" type="stmt"/>
-        <line num="154" count="9" type="stmt"/>
-        <line num="164" count="0" type="stmt"/>
-        <line num="194" count="0" type="stmt"/>
-        <line num="205" count="3" type="stmt"/>
+        <line num="154" count="8" type="stmt"/>
+        <line num="164" count="1" type="stmt"/>
+        <line num="196" count="1" type="stmt"/>
+        <line num="207" count="3" type="stmt"/>
       </file>
-      <file name="modalUpdate.css" path="C:\Users\HOAITHUONG\Desktop\react-practice3\react-training\practice-3\src\components\Modal\ModalUpdate\modalUpdate.css">
+      <file name="modalUpdate.css" path="C:\Users\HOAITHUONG\Desktop\final\react-training\practice-3\src\components\Modal\ModalUpdate\modalUpdate.css">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="3" type="stmt"/>
       </file>
     </package>
     <package name="components.Price">
       <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-      <file name="Price.tsx" path="C:\Users\HOAITHUONG\Desktop\react-practice3\react-training\practice-3\src\components\Price\Price.tsx">
+      <file name="Price.tsx" path="C:\Users\HOAITHUONG\Desktop\final\react-training\practice-3\src\components\Price\Price.tsx">
         <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="1" count="7" type="stmt"/>
         <line num="3" count="7" type="stmt"/>
         <line num="5" count="7" type="stmt"/>
-        <line num="6" count="8" type="stmt"/>
+        <line num="6" count="10" type="stmt"/>
         <line num="13" count="7" type="stmt"/>
       </file>
-      <file name="price.css" path="C:\Users\HOAITHUONG\Desktop\react-practice3\react-training\practice-3\src\components\Price\price.css">
+      <file name="price.css" path="C:\Users\HOAITHUONG\Desktop\final\react-training\practice-3\src\components\Price\price.css">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="7" type="stmt"/>
       </file>
     </package>
     <package name="components.Text">
       <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-      <file name="Text.tsx" path="C:\Users\HOAITHUONG\Desktop\react-practice3\react-training\practice-3\src\components\Text\Text.tsx">
+      <file name="Text.tsx" path="C:\Users\HOAITHUONG\Desktop\final\react-training\practice-3\src\components\Text\Text.tsx">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="1" count="5" type="stmt"/>
         <line num="4" count="5" type="stmt"/>
-        <line num="5" count="6" type="stmt"/>
+        <line num="5" count="8" type="stmt"/>
         <line num="12" count="5" type="stmt"/>
       </file>
     </package>
     <package name="components.common.Button">
       <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-      <file name="Button.tsx" path="C:\Users\HOAITHUONG\Desktop\react-practice3\react-training\practice-3\src\components\common\Button\Button.tsx">
+      <file name="Button.tsx" path="C:\Users\HOAITHUONG\Desktop\final\react-training\practice-3\src\components\common\Button\Button.tsx">
         <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="1" count="7" type="stmt"/>
-        <line num="3" count="7" type="stmt"/>
-        <line num="5" count="7" type="stmt"/>
-        <line num="6" count="18" type="stmt"/>
-        <line num="13" count="7" type="stmt"/>
+        <line num="1" count="6" type="stmt"/>
+        <line num="3" count="6" type="stmt"/>
+        <line num="5" count="6" type="stmt"/>
+        <line num="6" count="14" type="stmt"/>
+        <line num="13" count="6" type="stmt"/>
       </file>
-      <file name="button.css" path="C:\Users\HOAITHUONG\Desktop\react-practice3\react-training\practice-3\src\components\common\Button\button.css">
+      <file name="button.css" path="C:\Users\HOAITHUONG\Desktop\final\react-training\practice-3\src\components\common\Button\button.css">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="7" type="stmt"/>
+        <line num="1" count="6" type="stmt"/>
       </file>
     </package>
     <package name="components.common.Footer">
       <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-      <file name="Footer.tsx" path="C:\Users\HOAITHUONG\Desktop\react-practice3\react-training\practice-3\src\components\common\Footer\Footer.tsx">
+      <file name="Footer.tsx" path="C:\Users\HOAITHUONG\Desktop\final\react-training\practice-3\src\components\common\Footer\Footer.tsx">
         <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="1" count="2" type="stmt"/>
         <line num="2" count="2" type="stmt"/>
@@ -290,14 +285,14 @@
         <line num="5" count="6" type="stmt"/>
         <line num="14" count="2" type="stmt"/>
       </file>
-      <file name="footer.css" path="C:\Users\HOAITHUONG\Desktop\react-practice3\react-training\practice-3\src\components\common\Footer\footer.css">
+      <file name="footer.css" path="C:\Users\HOAITHUONG\Desktop\final\react-training\practice-3\src\components\common\Footer\footer.css">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="2" type="stmt"/>
       </file>
     </package>
     <package name="components.common.Header">
       <metrics statements="12" coveredstatements="12" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-      <file name="Header.tsx" path="C:\Users\HOAITHUONG\Desktop\react-practice3\react-training\practice-3\src\components\common\Header\Header.tsx">
+      <file name="Header.tsx" path="C:\Users\HOAITHUONG\Desktop\final\react-training\practice-3\src\components\common\Header\Header.tsx">
         <metrics statements="11" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="1" count="2" type="stmt"/>
         <line num="2" count="2" type="stmt"/>
@@ -311,14 +306,14 @@
         <line num="11" count="6" type="stmt"/>
         <line num="29" count="2" type="stmt"/>
       </file>
-      <file name="header.css" path="C:\Users\HOAITHUONG\Desktop\react-practice3\react-training\practice-3\src\components\common\Header\header.css">
+      <file name="header.css" path="C:\Users\HOAITHUONG\Desktop\final\react-training\practice-3\src\components\common\Header\header.css">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="2" type="stmt"/>
       </file>
     </package>
     <package name="components.common.Logo">
       <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-      <file name="Logo.tsx" path="C:\Users\HOAITHUONG\Desktop\react-practice3\react-training\practice-3\src\components\common\Logo\Logo.tsx">
+      <file name="Logo.tsx" path="C:\Users\HOAITHUONG\Desktop\final\react-training\practice-3\src\components\common\Logo\Logo.tsx">
         <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="1" count="3" type="stmt"/>
         <line num="3" count="3" type="stmt"/>
@@ -326,14 +321,14 @@
         <line num="6" count="8" type="stmt"/>
         <line num="13" count="3" type="stmt"/>
       </file>
-      <file name="logo.css" path="C:\Users\HOAITHUONG\Desktop\react-practice3\react-training\practice-3\src\components\common\Logo\logo.css">
+      <file name="logo.css" path="C:\Users\HOAITHUONG\Desktop\final\react-training\practice-3\src\components\common\Logo\logo.css">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="3" type="stmt"/>
       </file>
     </package>
     <package name="components.common.Menu">
       <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
-      <file name="Menu.tsx" path="C:\Users\HOAITHUONG\Desktop\react-practice3\react-training\practice-3\src\components\common\Menu\Menu.tsx">
+      <file name="Menu.tsx" path="C:\Users\HOAITHUONG\Desktop\final\react-training\practice-3\src\components\common\Menu\Menu.tsx">
         <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
         <line num="1" count="3" type="stmt"/>
         <line num="3" count="3" type="stmt"/>
@@ -343,14 +338,14 @@
         <line num="14" count="8" type="stmt"/>
         <line num="21" count="3" type="stmt"/>
       </file>
-      <file name="menu.css" path="C:\Users\HOAITHUONG\Desktop\react-practice3\react-training\practice-3\src\components\common\Menu\menu.css">
+      <file name="menu.css" path="C:\Users\HOAITHUONG\Desktop\final\react-training\practice-3\src\components\common\Menu\menu.css">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="3" type="stmt"/>
       </file>
     </package>
     <package name="components.common.Navigation">
       <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-      <file name="Navigation.tsx" path="C:\Users\HOAITHUONG\Desktop\react-practice3\react-training\practice-3\src\components\common\Navigation\Navigation.tsx">
+      <file name="Navigation.tsx" path="C:\Users\HOAITHUONG\Desktop\final\react-training\practice-3\src\components\common\Navigation\Navigation.tsx">
         <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="1" count="2" type="stmt"/>
         <line num="2" count="2" type="stmt"/>
@@ -359,62 +354,63 @@
         <line num="6" count="6" type="stmt"/>
         <line num="25" count="2" type="stmt"/>
       </file>
-      <file name="navigation.css" path="C:\Users\HOAITHUONG\Desktop\react-practice3\react-training\practice-3\src\components\common\Navigation\navigation.css">
+      <file name="navigation.css" path="C:\Users\HOAITHUONG\Desktop\final\react-training\practice-3\src\components\common\Navigation\navigation.css">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="2" type="stmt"/>
       </file>
     </package>
     <package name="components.common.Title">
       <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-      <file name="Title.tsx" path="C:\Users\HOAITHUONG\Desktop\react-practice3\react-training\practice-3\src\components\common\Title\Title.tsx">
+      <file name="Title.tsx" path="C:\Users\HOAITHUONG\Desktop\final\react-training\practice-3\src\components\common\Title\Title.tsx">
         <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="1" count="7" type="stmt"/>
         <line num="3" count="7" type="stmt"/>
         <line num="5" count="7" type="stmt"/>
-        <line num="6" count="8" type="stmt"/>
+        <line num="6" count="10" type="stmt"/>
         <line num="13" count="7" type="stmt"/>
       </file>
-      <file name="title.css" path="C:\Users\HOAITHUONG\Desktop\react-practice3\react-training\practice-3\src\components\common\Title\title.css">
+      <file name="title.css" path="C:\Users\HOAITHUONG\Desktop\final\react-training\practice-3\src\components\common\Title\title.css">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="7" type="stmt"/>
       </file>
     </package>
     <package name="constants">
-      <metrics statements="20" coveredstatements="20" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      <file name="categories.ts" path="C:\Users\HOAITHUONG\Desktop\react-practice3\react-training\practice-3\src\constants\categories.ts">
+      <metrics statements="21" coveredstatements="21" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="categories.ts" path="C:\Users\HOAITHUONG\Desktop\final\react-training\practice-3\src\constants\categories.ts">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="3" count="3" type="stmt"/>
         <line num="14" count="3" type="stmt"/>
       </file>
-      <file name="form.ts" path="C:\Users\HOAITHUONG\Desktop\react-practice3\react-training\practice-3\src\constants\form.ts">
+      <file name="form.ts" path="C:\Users\HOAITHUONG\Desktop\final\react-training\practice-3\src\constants\form.ts">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="3" type="stmt"/>
         <line num="3" count="3" type="stmt"/>
         <line num="36" count="3" type="stmt"/>
       </file>
-      <file name="menu.ts" path="C:\Users\HOAITHUONG\Desktop\react-practice3\react-training\practice-3\src\constants\menu.ts">
+      <file name="menu.ts" path="C:\Users\HOAITHUONG\Desktop\final\react-training\practice-3\src\constants\menu.ts">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="3" count="3" type="stmt"/>
         <line num="30" count="3" type="stmt"/>
       </file>
-      <file name="message.ts" path="C:\Users\HOAITHUONG\Desktop\react-practice3\react-training\practice-3\src\constants\message.ts">
+      <file name="message.ts" path="C:\Users\HOAITHUONG\Desktop\final\react-training\practice-3\src\constants\message.ts">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="5" type="stmt"/>
         <line num="7" count="5" type="stmt"/>
         <line num="12" count="5" type="stmt"/>
       </file>
-      <file name="product.ts" path="C:\Users\HOAITHUONG\Desktop\react-practice3\react-training\practice-3\src\constants\product.ts">
-        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="3" count="6" type="stmt"/>
-        <line num="17" count="6" type="stmt"/>
-        <line num="46" count="6" type="stmt"/>
+      <file name="product.ts" path="C:\Users\HOAITHUONG\Desktop\final\react-training\practice-3\src\constants\product.ts">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="2" count="7" type="stmt"/>
+        <line num="4" count="7" type="stmt"/>
+        <line num="16" count="7" type="stmt"/>
+        <line num="45" count="7" type="stmt"/>
       </file>
-      <file name="rules.ts" path="C:\Users\HOAITHUONG\Desktop\react-practice3\react-training\practice-3\src\constants\rules.ts">
+      <file name="rules.ts" path="C:\Users\HOAITHUONG\Desktop\final\react-training\practice-3\src\constants\rules.ts">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="3" type="stmt"/>
         <line num="6" count="3" type="stmt"/>
       </file>
-      <file name="url.ts" path="C:\Users\HOAITHUONG\Desktop\react-practice3\react-training\practice-3\src\constants\url.ts">
+      <file name="url.ts" path="C:\Users\HOAITHUONG\Desktop\final\react-training\practice-3\src\constants\url.ts">
         <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="8" type="stmt"/>
         <line num="2" count="8" type="stmt"/>
@@ -425,7 +421,7 @@
     </package>
     <package name="context">
       <metrics statements="23" coveredstatements="22" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="4"/>
-      <file name="AppContext.tsx" path="C:\Users\HOAITHUONG\Desktop\react-practice3\react-training\practice-3\src\context\AppContext.tsx">
+      <file name="AppContext.tsx" path="C:\Users\HOAITHUONG\Desktop\final\react-training\practice-3\src\context\AppContext.tsx">
         <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -433,7 +429,7 @@
         <line num="5" count="4" type="stmt"/>
         <line num="14" count="1" type="stmt"/>
       </file>
-      <file name="ProductContext.tsx" path="C:\Users\HOAITHUONG\Desktop\react-practice3\react-training\practice-3\src\context\ProductContext.tsx">
+      <file name="ProductContext.tsx" path="C:\Users\HOAITHUONG\Desktop\final\react-training\practice-3\src\context\ProductContext.tsx">
         <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="1" count="2" type="stmt"/>
         <line num="3" count="2" type="stmt"/>
@@ -442,7 +438,7 @@
         <line num="7" count="4" type="stmt"/>
         <line num="14" count="2" type="stmt"/>
       </file>
-      <file name="SearchContext.tsx" path="C:\Users\HOAITHUONG\Desktop\react-practice3\react-training\practice-3\src\context\SearchContext.tsx">
+      <file name="SearchContext.tsx" path="C:\Users\HOAITHUONG\Desktop\final\react-training\practice-3\src\context\SearchContext.tsx">
         <metrics statements="12" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2"/>
         <line num="1" count="6" type="stmt"/>
         <line num="2" count="6" type="stmt"/>
@@ -459,54 +455,54 @@
       </file>
     </package>
     <package name="helpers">
-      <metrics statements="58" coveredstatements="41" conditionals="6" coveredconditionals="4" methods="13" coveredmethods="8"/>
-      <file name="fetchApi.ts" path="C:\Users\HOAITHUONG\Desktop\react-practice3\react-training\practice-3\src\helpers\fetchApi.ts">
+      <metrics statements="58" coveredstatements="49" conditionals="6" coveredconditionals="4" methods="13" coveredmethods="12"/>
+      <file name="fetchApi.ts" path="C:\Users\HOAITHUONG\Desktop\final\react-training\practice-3\src\helpers\fetchApi.ts">
         <metrics statements="25" coveredstatements="21" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
         <line num="1" count="8" type="stmt"/>
         <line num="3" count="8" type="stmt"/>
-        <line num="4" count="15" type="stmt"/>
-        <line num="5" count="15" type="stmt"/>
+        <line num="4" count="17" type="stmt"/>
+        <line num="5" count="17" type="stmt"/>
         <line num="6" count="6" type="stmt"/>
         <line num="8" count="0" type="stmt"/>
         <line num="12" count="8" type="stmt"/>
-        <line num="13" count="1" type="stmt"/>
-        <line num="14" count="1" type="stmt"/>
-        <line num="15" count="1" type="stmt"/>
+        <line num="13" count="2" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
+        <line num="15" count="2" type="stmt"/>
         <line num="18" count="0" type="stmt"/>
         <line num="22" count="8" type="stmt"/>
-        <line num="23" count="1" type="stmt"/>
-        <line num="24" count="1" type="stmt"/>
-        <line num="25" count="1" type="stmt"/>
+        <line num="23" count="4" type="stmt"/>
+        <line num="24" count="4" type="stmt"/>
+        <line num="25" count="3" type="stmt"/>
         <line num="27" count="0" type="stmt"/>
         <line num="31" count="8" type="stmt"/>
-        <line num="32" count="1" type="stmt"/>
-        <line num="33" count="1" type="stmt"/>
-        <line num="34" count="1" type="stmt"/>
+        <line num="32" count="2" type="stmt"/>
+        <line num="33" count="2" type="stmt"/>
+        <line num="34" count="2" type="stmt"/>
         <line num="36" count="0" type="stmt"/>
         <line num="41" count="8" type="stmt"/>
         <line num="42" count="8" type="stmt"/>
         <line num="43" count="8" type="stmt"/>
         <line num="44" count="8" type="stmt"/>
       </file>
-      <file name="getBase64.ts" path="C:\Users\HOAITHUONG\Desktop\react-practice3\react-training\practice-3\src\helpers\getBase64.ts">
-        <metrics statements="8" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
-        <line num="2" count="0" type="stmt"/>
-        <line num="3" count="0" type="stmt"/>
-        <line num="4" count="0" type="stmt"/>
-        <line num="5" count="0" type="stmt"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="8" count="0" type="stmt"/>
+      <file name="getBase64.ts" path="C:\Users\HOAITHUONG\Desktop\final\react-training\practice-3\src\helpers\getBase64.ts">
+        <metrics statements="8" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="3"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
         <line num="9" count="0" type="stmt"/>
         <line num="14" count="5" type="stmt"/>
       </file>
-      <file name="index.ts" path="C:\Users\HOAITHUONG\Desktop\react-practice3\react-training\practice-3\src\helpers\index.ts">
-        <metrics statements="4" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <file name="index.ts" path="C:\Users\HOAITHUONG\Desktop\final\react-training\practice-3\src\helpers\index.ts">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="1" count="3" type="stmt"/>
-        <line num="2" count="0" type="stmt"/>
-        <line num="3" count="0" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
         <line num="13" count="3" type="stmt"/>
       </file>
-      <file name="validate.ts" path="C:\Users\HOAITHUONG\Desktop\react-practice3\react-training\practice-3\src\helpers\validate.ts">
+      <file name="validate.ts" path="C:\Users\HOAITHUONG\Desktop\final\react-training\practice-3\src\helpers\validate.ts">
         <metrics statements="21" coveredstatements="17" conditionals="6" coveredconditionals="4" methods="4" coveredmethods="4"/>
         <line num="1" count="3" type="stmt"/>
         <line num="2" count="3" type="stmt"/>
@@ -532,9 +528,9 @@
       </file>
     </package>
     <package name="pages.ProductDetail">
-      <metrics statements="30" coveredstatements="26" conditionals="3" coveredconditionals="2" methods="8" coveredmethods="3"/>
-      <file name="ProductDetail.tsx" path="C:\Users\HOAITHUONG\Desktop\react-practice3\react-training\practice-3\src\pages\ProductDetail\ProductDetail.tsx">
-        <metrics statements="29" coveredstatements="25" conditionals="3" coveredconditionals="2" methods="8" coveredmethods="3"/>
+      <metrics statements="29" coveredstatements="26" conditionals="3" coveredconditionals="3" methods="8" coveredmethods="4"/>
+      <file name="ProductDetail.tsx" path="C:\Users\HOAITHUONG\Desktop\final\react-training\practice-3\src\pages\ProductDetail\ProductDetail.tsx">
+        <metrics statements="28" coveredstatements="25" conditionals="3" coveredconditionals="3" methods="8" coveredmethods="4"/>
         <line num="1" count="2" type="stmt"/>
         <line num="2" count="2" type="stmt"/>
         <line num="3" count="2" type="stmt"/>
@@ -545,34 +541,33 @@
         <line num="8" count="2" type="stmt"/>
         <line num="9" count="2" type="stmt"/>
         <line num="10" count="2" type="stmt"/>
-        <line num="11" count="2" type="stmt"/>
-        <line num="13" count="2" type="stmt"/>
-        <line num="14" count="2" type="stmt"/>
-        <line num="15" count="2" type="stmt"/>
-        <line num="16" count="2" type="stmt"/>
-        <line num="17" count="2" type="stmt"/>
-        <line num="18" count="2" type="stmt"/>
-        <line num="19" count="2" type="stmt"/>
-        <line num="21" count="2" type="stmt"/>
-        <line num="22" count="0" type="stmt"/>
-        <line num="26" count="1" type="stmt"/>
-        <line num="29" count="0" type="stmt"/>
-        <line num="32" count="0" type="stmt"/>
-        <line num="36" count="2" type="stmt"/>
-        <line num="37" count="2" type="cond" truecount="1" falsecount="0"/>
-        <line num="38" count="1" type="stmt"/>
-        <line num="42" count="2" type="stmt"/>
-        <line num="50" count="0" type="stmt"/>
-        <line num="84" count="2" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="13" count="5" type="stmt"/>
+        <line num="14" count="5" type="stmt"/>
+        <line num="15" count="5" type="stmt"/>
+        <line num="16" count="5" type="stmt"/>
+        <line num="17" count="5" type="stmt"/>
+        <line num="18" count="5" type="stmt"/>
+        <line num="20" count="5" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="31" count="0" type="stmt"/>
+        <line num="35" count="5" type="stmt"/>
+        <line num="36" count="4" type="cond" truecount="1" falsecount="0"/>
+        <line num="37" count="1" type="stmt"/>
+        <line num="41" count="5" type="stmt"/>
+        <line num="49" count="0" type="stmt"/>
+        <line num="91" count="2" type="stmt"/>
       </file>
-      <file name="productDetail.css" path="C:\Users\HOAITHUONG\Desktop\react-practice3\react-training\practice-3\src\pages\ProductDetail\productDetail.css">
+      <file name="productDetail.css" path="C:\Users\HOAITHUONG\Desktop\final\react-training\practice-3\src\pages\ProductDetail\productDetail.css">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="2" type="stmt"/>
       </file>
     </package>
     <package name="pages.ProductGridCard">
       <metrics statements="14" coveredstatements="13" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="1"/>
-      <file name="ProductGridCard.tsx" path="C:\Users\HOAITHUONG\Desktop\react-practice3\react-training\practice-3\src\pages\ProductGridCard\ProductGridCard.tsx">
+      <file name="ProductGridCard.tsx" path="C:\Users\HOAITHUONG\Desktop\final\react-training\practice-3\src\pages\ProductGridCard\ProductGridCard.tsx">
         <metrics statements="13" coveredstatements="12" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="1"/>
         <line num="1" count="3" type="stmt"/>
         <line num="2" count="3" type="stmt"/>
@@ -588,19 +583,18 @@
         <line num="19" count="2" type="stmt"/>
         <line num="46" count="3" type="stmt"/>
       </file>
-      <file name="productGridCard.css" path="C:\Users\HOAITHUONG\Desktop\react-practice3\react-training\practice-3\src\pages\ProductGridCard\productGridCard.css">
+      <file name="productGridCard.css" path="C:\Users\HOAITHUONG\Desktop\final\react-training\practice-3\src\pages\ProductGridCard\productGridCard.css">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="3" type="stmt"/>
       </file>
     </package>
     <package name="pages.ProductGridView">
-      <metrics statements="33" coveredstatements="24" conditionals="2" coveredconditionals="1" methods="6" coveredmethods="2"/>
-      <file name="ProductGridView.tsx" path="C:\Users\HOAITHUONG\Desktop\react-practice3\react-training\practice-3\src\pages\ProductGridView\ProductGridView.tsx">
-        <metrics statements="32" coveredstatements="23" conditionals="2" coveredconditionals="1" methods="6" coveredmethods="2"/>
+      <metrics statements="33" coveredstatements="25" conditionals="2" coveredconditionals="2" methods="6" coveredmethods="3"/>
+      <file name="ProductGridView.tsx" path="C:\Users\HOAITHUONG\Desktop\final\react-training\practice-3\src\pages\ProductGridView\ProductGridView.tsx">
+        <metrics statements="32" coveredstatements="24" conditionals="2" coveredconditionals="2" methods="6" coveredmethods="3"/>
         <line num="1" count="2" type="stmt"/>
         <line num="2" count="2" type="stmt"/>
         <line num="3" count="2" type="stmt"/>
-        <line num="4" count="2" type="stmt"/>
         <line num="6" count="2" type="stmt"/>
         <line num="7" count="2" type="stmt"/>
         <line num="8" count="2" type="stmt"/>
@@ -609,35 +603,36 @@
         <line num="11" count="2" type="stmt"/>
         <line num="12" count="2" type="stmt"/>
         <line num="14" count="2" type="stmt"/>
-        <line num="15" count="2" type="stmt"/>
-        <line num="16" count="2" type="stmt"/>
-        <line num="17" count="2" type="stmt"/>
-        <line num="18" count="2" type="stmt"/>
-        <line num="19" count="2" type="stmt"/>
-        <line num="20" count="2" type="stmt"/>
-        <line num="22" count="2" type="stmt"/>
+        <line num="15" count="5" type="stmt"/>
+        <line num="16" count="5" type="stmt"/>
+        <line num="17" count="5" type="stmt"/>
+        <line num="18" count="5" type="stmt"/>
+        <line num="19" count="5" type="stmt"/>
+        <line num="20" count="5" type="stmt"/>
+        <line num="21" count="5" type="stmt"/>
+        <line num="22" count="5" type="stmt"/>
         <line num="23" count="0" type="stmt"/>
         <line num="32" count="0" type="stmt"/>
         <line num="33" count="0" type="stmt"/>
         <line num="34" count="0" type="stmt"/>
-        <line num="37" count="2" type="stmt"/>
+        <line num="37" count="5" type="stmt"/>
         <line num="38" count="0" type="stmt"/>
         <line num="39" count="0" type="stmt"/>
         <line num="40" count="0" type="stmt"/>
-        <line num="43" count="2" type="stmt"/>
-        <line num="44" count="0" type="stmt"/>
-        <line num="47" count="2" type="stmt"/>
-        <line num="57" count="0" type="stmt"/>
-        <line num="76" count="2" type="stmt"/>
+        <line num="43" count="5" type="stmt"/>
+        <line num="44" count="1" type="stmt"/>
+        <line num="47" count="5" type="stmt"/>
+        <line num="55" count="0" type="stmt"/>
+        <line num="74" count="2" type="stmt"/>
       </file>
-      <file name="productGridView.css" path="C:\Users\HOAITHUONG\Desktop\react-practice3\react-training\practice-3\src\pages\ProductGridView\productGridView.css">
+      <file name="productGridView.css" path="C:\Users\HOAITHUONG\Desktop\final\react-training\practice-3\src\pages\ProductGridView\productGridView.css">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="2" type="stmt"/>
       </file>
     </package>
     <package name="pages.ProductListCard">
       <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-      <file name="ProductListCard.tsx" path="C:\Users\HOAITHUONG\Desktop\react-practice3\react-training\practice-3\src\pages\ProductListCard\ProductListCard.tsx">
+      <file name="ProductListCard.tsx" path="C:\Users\HOAITHUONG\Desktop\final\react-training\practice-3\src\pages\ProductListCard\ProductListCard.tsx">
         <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="2" count="3" type="stmt"/>
         <line num="3" count="3" type="stmt"/>
@@ -648,14 +643,14 @@
         <line num="10" count="2" type="stmt"/>
         <line num="29" count="3" type="stmt"/>
       </file>
-      <file name="productListCard.css" path="C:\Users\HOAITHUONG\Desktop\react-practice3\react-training\practice-3\src\pages\ProductListCard\productListCard.css">
+      <file name="productListCard.css" path="C:\Users\HOAITHUONG\Desktop\final\react-training\practice-3\src\pages\ProductListCard\productListCard.css">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="3" type="stmt"/>
       </file>
     </package>
     <package name="pages.ProductListView">
       <metrics statements="19" coveredstatements="18" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2"/>
-      <file name="ProductListView.tsx" path="C:\Users\HOAITHUONG\Desktop\react-practice3\react-training\practice-3\src\pages\ProductListView\ProductListView.tsx">
+      <file name="ProductListView.tsx" path="C:\Users\HOAITHUONG\Desktop\final\react-training\practice-3\src\pages\ProductListView\ProductListView.tsx">
         <metrics statements="18" coveredstatements="17" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2"/>
         <line num="1" count="2" type="stmt"/>
         <line num="2" count="2" type="stmt"/>
@@ -676,14 +671,14 @@
         <line num="23" count="0" type="stmt"/>
         <line num="35" count="2" type="stmt"/>
       </file>
-      <file name="productListView.css" path="C:\Users\HOAITHUONG\Desktop\react-practice3\react-training\practice-3\src\pages\ProductListView\productListView.css">
+      <file name="productListView.css" path="C:\Users\HOAITHUONG\Desktop\final\react-training\practice-3\src\pages\ProductListView\productListView.css">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="2" type="stmt"/>
       </file>
     </package>
     <package name="reducer">
       <metrics statements="7" coveredstatements="3" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="0"/>
-      <file name="searchReducer.ts" path="C:\Users\HOAITHUONG\Desktop\react-practice3\react-training\practice-3\src\reducer\searchReducer.ts">
+      <file name="searchReducer.ts" path="C:\Users\HOAITHUONG\Desktop\final\react-training\practice-3\src\reducer\searchReducer.ts">
         <metrics statements="7" coveredstatements="3" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="1" count="6" type="stmt"/>
         <line num="3" count="6" type="stmt"/>
@@ -696,7 +691,7 @@
     </package>
     <package name="types">
       <metrics statements="2" coveredstatements="2" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
-      <file name="search.ts" path="C:\Users\HOAITHUONG\Desktop\react-practice3\react-training\practice-3\src\types\search.ts">
+      <file name="search.ts" path="C:\Users\HOAITHUONG\Desktop\final\react-training\practice-3\src\types\search.ts">
         <metrics statements="2" coveredstatements="2" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
         <line num="9" count="6" type="cond" truecount="2" falsecount="0"/>
         <line num="10" count="6" type="stmt"/>

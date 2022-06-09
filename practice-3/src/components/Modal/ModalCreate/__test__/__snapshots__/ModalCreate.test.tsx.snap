@@ -36,10 +36,9 @@ exports[`Modal create component matches snapshot 1`] = `
             </label>
             <input
               class="form__input"
-              data-testid="input"
+              data-testid="change-value-name"
               name="name"
               type="text"
-              value=""
             />
             <small
               class="form__error"
@@ -106,11 +105,9 @@ exports[`Modal create component matches snapshot 1`] = `
               </label>
               <input
                 class="modal__input"
-                data-testid="input"
                 min="0"
                 name="price"
                 type="number"
-                value=""
               />
               <small
                 class="form__error"
@@ -128,11 +125,9 @@ exports[`Modal create component matches snapshot 1`] = `
               </label>
               <input
                 class="modal__input"
-                data-testid="input"
                 min="0"
                 name="quantity"
                 type="number"
-                value=""
               />
               <small
                 class="form__error"
@@ -149,12 +144,11 @@ exports[`Modal create component matches snapshot 1`] = `
             >
               <input
                 class="form__input--img"
-                data-testid="input"
+                data-testid="change-file"
                 id="file"
                 multiple=""
                 name="images"
                 type="file"
-                value=""
               />
             </div>
           </div>
@@ -170,7 +164,7 @@ exports[`Modal create component matches snapshot 1`] = `
           </button>
           <button
             class="btn btn__yes"
-            data-testid="submit-btn"
+            data-testid="create-btn"
           >
             Submit
           </button>
