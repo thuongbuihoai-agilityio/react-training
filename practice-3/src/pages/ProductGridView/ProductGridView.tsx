@@ -63,8 +63,7 @@ const ProductGridView: React.FC = () => {
         {openModalCreate && (
           <ModalCreate
             createProduct={createProduct}
-            hideModalCreate={toggleModalUpdate}
-          />
+            hideModalCreate={toggleModalUpdate} />
         )}
       </div>
     </>

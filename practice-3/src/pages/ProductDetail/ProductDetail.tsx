@@ -81,7 +81,7 @@ const ProductDetails: React.FC = () => {
           product={productDetailNew}
           isReload={isReload}
           setIsReLoad={setIsReLoad}
-          hideModalUpdate={toggleModalUpdate}
+          hideModalUpdate={toggleModalUpdate} deleteImage={() => {}}
         />
       )}
     </>
