@@ -152,6 +152,7 @@ const ModalUpdate: React.FC<ModalUpdateProps> = ({
               <div className="form__img--list">
                 {productEdit?.images?.map((img: string, index: number) => (
                   <img
+                    data-testid="delete-image"
                     key={index}
                     className="form__img"
                     data-id={img}

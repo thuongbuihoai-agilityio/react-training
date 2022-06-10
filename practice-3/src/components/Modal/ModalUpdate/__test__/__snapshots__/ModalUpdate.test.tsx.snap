@@ -114,9 +114,6 @@ exports[`Modal create component matches snapshot 1`] = `
             <div
               class="form__img--list"
             >
-              <img
-                class="form__img"
-              />
               <input
                 class="form__input--img"
                 data-testid="change-file"
