@@ -21,6 +21,15 @@ const validateValue = (value: string, rule: string, errors: {[fieldName: string]
       return;
     }
   }
+
+  if(rule === RULES.NEGATIVE) {
+    if(+value < 0) {
+      errors[fieldName].error += ERROR_MSG.NUMBER;
+    } else {
+      errors[fieldName].error += "";
+      return;
+    }
+  }
 }
 
 const validate = (values: FormProps) => {
