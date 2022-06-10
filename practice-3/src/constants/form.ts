@@ -13,12 +13,12 @@ const FORM_VALUES = {
   },
   price: {
     value: "",
-    rules: [RULES.REQUIRED, RULES.NUMBER],
+    rules: [RULES.REQUIRED, RULES.NUMBER, RULES.NEGATIVE],
     error: "",
   },
   quantity: {
     value: "",
-    rules: [RULES.REQUIRED, RULES.NUMBER],
+    rules: [RULES.REQUIRED, RULES.NUMBER, RULES.NEGATIVE],
     error: "",
   },
   description: {
