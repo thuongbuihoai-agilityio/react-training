@@ -29,13 +29,13 @@ const ProductGridView: React.FC = () => {
       description: productData.description,
       images: productData.images,
     };
-    create(PRODUCT_CRUD, newProduct);
+    await create(PRODUCT_CRUD, newProduct);
     mutate();
     toast.success(SUCCESS_MSG.MESSAGE_ADD_PRODUCT);
   };
 
   const deleteProduct = async (id: string) => {
-    remove(`${PRODUCT_CRUD}/${id}`);
+    await remove(`${PRODUCT_CRUD}/${id}`);
     mutate();
     toast.success(SUCCESS_MSG.MESSAGE_DELETE_PRODUCT);
   };
