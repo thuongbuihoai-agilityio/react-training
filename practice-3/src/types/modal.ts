@@ -11,6 +11,7 @@ export interface ModalUpdateProps {
   isReload: Boolean;
   setIsReLoad: Function;
   hideModalUpdate: () => void;
+  deleteImage: () => void;
 }
 
 export interface ModalCreateProps {
