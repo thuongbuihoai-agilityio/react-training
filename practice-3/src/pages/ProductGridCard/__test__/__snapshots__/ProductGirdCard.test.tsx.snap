@@ -10,7 +10,8 @@ exports[`ViewProductItem component matches snapshot 1`] = `
       class="product__image"
     />
     <button
-      class="btn btn__btn btn__delete"
+      class="btn btn__delete"
+      data-testid="open-modal-delete"
     >
       <i
         class="fa fa-trash"

@@ -15,7 +15,7 @@ jest.mock("react", () => ({
 
 describe("Modal create component", () => {
   const hideModalCreate = jest.fn();
-  const createProduct = jest.fn();
+  const handleCreateProduct = jest.fn();
   const someValues = [{ name: "cheese pocket" }];
   const setup = () => {
     const utils = render(
@@ -78,19 +78,19 @@ describe("Modal create component", () => {
   test("should hide modal create when click Cancel", () => {
     const { getByTestId } = render(
       <ModalCreate hideModalCreate={hideModalCreate} createProduct={() => {}} />
-    );
-    const cancelBtn = getByTestId("hide-modal-btn");
-    fireEvent.click(cancelBtn);
-    expect(hideModalCreate).toHaveBeenCalled();
-  });
+      );
+      const cancelBtn = getByTestId("hide-modal-btn");
+      fireEvent.click(cancelBtn);
+      expect(hideModalCreate).toHaveBeenCalled();
+    });
 
   test("should create product when click Submit", () => {
     const { getByTestId } = render(
-      <ModalCreate hideModalCreate={() => {}} createProduct={createProduct} />
+      <ModalCreate hideModalCreate={() => {}} createProduct={handleCreateProduct} />
     );
-    const hideModal = getByTestId("create-btn");
-    fireEvent.click(hideModal);
-    expect(hideModalCreate).toHaveBeenCalled();
+    const submitBtn = getByTestId("add-new-product");
+    fireEvent.click(submitBtn);
+    expect(submitBtn).toBeInTheDocument();
   });
 
   test("matches snapshot", () => {

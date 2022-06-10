@@ -8,21 +8,6 @@ import "./categories.css";
 
 const Categories: React.FC = () => {
   const { data } = useSWR(CATEGORIES_URL, get);
-  function renderCategoryList(data: []) {
-    return data?.map((category: CategoryProps) => (
-      <li
-        data-index={category.id}
-        className={`categories__item ${
-          activeId === category.id ? "active" : "inactive"
-        }`}
-        key={category.id}
-        onClick={handleSearch(category.id)}
-      >
-        {category.name}
-      </li>
-    ));
-  }
-
   const [activeId, setActiveId] = useState("");
   const { setSearchValue } = useContext(SearchContext);
   const handleSearch = (id: string) => (e: React.MouseEvent<HTMLElement>) => {
@@ -36,6 +21,23 @@ const Categories: React.FC = () => {
     setSearchValue?.(categoryId);
     setActiveId("");
   };
+
+  function renderCategoryList(data: []) {
+    return data?.map((category: CategoryProps) => (
+      <li
+        data-testid={category.id}
+        data-index={category.id}
+        className={`categories__item ${
+          activeId === category.id ? "active" : "inactive"
+        }`}
+        key={category.id}
+        onClick={handleSearch(category.id)}
+      >
+        {category.name}
+      </li>
+    ));
+  }
+
 
   return (
     <>

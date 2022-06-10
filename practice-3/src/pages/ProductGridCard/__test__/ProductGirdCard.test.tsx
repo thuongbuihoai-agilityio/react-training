@@ -16,6 +16,18 @@ describe("ViewProductItem component", () => {
     expect(getByTestId("product-grid-card")).toBeInTheDocument();
   });
 
+  test("should open modal delete when click button delete", () => {
+    const history = createMemoryHistory();
+    const { getByTestId } = render (
+      <Router location={history.location} navigator={history}>
+        <ProductGridCard product={PRODUCT_MOCKING} deleteProduct={() => {}} />
+      </Router>
+    );
+    const btnOpenModal = getByTestId("open-modal-delete");
+    fireEvent.click(btnOpenModal);
+    expect(btnOpenModal).toBeInTheDocument();
+  });
+
   test("matches snapshot", () => {
     const history = createMemoryHistory();
     const { asFragment } = render(

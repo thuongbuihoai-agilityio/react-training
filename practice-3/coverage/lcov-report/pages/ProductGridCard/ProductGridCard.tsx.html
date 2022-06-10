@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">92.3% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>12/13</span>
+                <span class='fraction'>12/12</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>1/2</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/2</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">92.3% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>12/13</span>
+                <span class='fraction'>12/12</span>
             </div>
         
             
@@ -109,25 +109,27 @@
 <a name='L44'></a><a href='#L44'>44</a>
 <a name='L45'></a><a href='#L45'>45</a>
 <a name='L46'></a><a href='#L46'>46</a>
-<a name='L47'></a><a href='#L47'>47</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">3x</span>
+<a name='L47'></a><a href='#L47'>47</a>
+<a name='L48'></a><a href='#L48'>48</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -160,7 +162,6 @@ import { Link } from "react-router-dom";
 import Title from "@/components/common/Title/Title";
 import Price from "@/components/Price/Price";
 import { ProductItemProps } from "@/types/product";
-import Button from "@/components/common/Button/Button";
 import ModalDelete from "@/components/Modal/ModalDelete/ModalDelete";
 import "./productGridCard.css";
 &nbsp;
@@ -169,19 +170,21 @@ const ProductGridCard: React.FC&lt;ProductItemProps&gt; = ({
   deleteProduct,
 }) =&gt; {
   const [openModalDelete, setOpenModalDelete] = useState(false);
-  const toggleModalUpdate = useCallback(<span class="fstat-no" title="function not covered" >() =</span>&gt; {
-<span class="cstat-no" title="statement not covered" >    setOpenModalDelete(!openModalDelete);</span>
+  const toggleModalUpdate = useCallback(() =&gt; {
+    setOpenModalDelete(!openModalDelete);
   }, [openModalDelete]);
 &nbsp;
   return (
     &lt;&gt;
       &lt;div data-testid="product-grid-card" className="product"&gt;
         &lt;img className="product__image" src={product.images[0]} /&gt;
-        &lt;Button
+        &lt;button
+          data-testid="open-modal-delete"
           onClick={toggleModalUpdate}
           className="btn btn__delete"
-          text={&lt;i className="fa fa-trash"&gt;&lt;/i&gt;}
-        /&gt;
+        &gt;
+          &lt;i className="fa fa-trash"&gt;&lt;/i&gt;
+        &lt;/button&gt;
         &lt;div className="product__content"&gt;
           &lt;Link className="productViewPage__link" to={`/product/${product.id}`}&gt;
             &lt;Title className="productViewPage__title" text={product.name} /&gt;
@@ -189,7 +192,7 @@ const ProductGridCard: React.FC&lt;ProductItemProps&gt; = ({
           &lt;Price className="productViewPage__price" value={product.price} /&gt;
         &lt;/div&gt;
         {openModalDelete &amp;&amp; (
-<span class="branch-1 cbranch-no" title="branch not covered" >          &lt;ModalDelete</span>
+          &lt;ModalDelete
             id={product.id}
             deleteProduct={deleteProduct}
             hideModalDelete={toggleModalUpdate}
@@ -208,7 +211,7 @@ export default ProductGridCard;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Thu Jun 09 2022 17:21:30 GMT+0700 (Indochina Time)
+                at Fri Jun 10 2022 10:51:56 GMT+0700 (Indochina Time)
             </div>
         <script src="../../prettify.js"></script>
         <script>

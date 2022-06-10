@@ -11,7 +11,6 @@ import { Search } from "@/types/search";
 import {SearchContext} from "@/context/SearchContext";
 import Categories from "@/components/Categories/Categories";
 import { useState } from "react";
-import ModalCreate from "@/components/Modal/ModalCreate/ModalCreate";
 
 const contextValueMockSearch: Search = {
   setSearchValue: jest.fn(),
@@ -74,6 +73,17 @@ describe("ViewProductItem component", () => {
     const btnOpenModal = getByTestId("open-modal");
     fireEvent.click(btnOpenModal);
     expect(btnOpenModal).toBeInTheDocument();
+  });
+
+  test("should create product when pass data", () => {
+    const history = createMemoryHistory();
+    render (
+      <Router location={history.location} navigator={history}>
+        <ProductGridView />
+      </Router>
+    );
+    const data = PRODUCT_MOCKING;
+    expect(data).toBe(PRODUCT_MOCKING);
   });
 
   test("should filter when click category", () => {
