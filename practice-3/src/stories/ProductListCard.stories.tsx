@@ -1,6 +1,6 @@
 import React from "react";
 import { PRODUCT_MOCKING } from "@/constants/product";
-import { Route, BrowserRouter as Router, Routes, BrowserRouter } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import ProductListCard from "@/pages/ProductListCard/ProductListCard";
 
 
