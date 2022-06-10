@@ -20,6 +20,17 @@ jest.mock("react", () => ({
 }));
 
 describe("Category component", () => {
+  const setup = () => {
+    const utils = render(
+      <Categories />
+    );
+    const input = utils.getByTestId("category-item") as HTMLInputElement;
+    return {
+      input,
+      ...utils,
+    };
+  };
+
   beforeEach(()=>{
     (useState as jest.Mock).mockImplementation(jest.requireActual("react").useState);
   })
@@ -50,6 +61,12 @@ describe("Category component", () => {
     const categoryItem = getByTestId("category-item");
     fireEvent.click(categoryItem);
     expect(contextValueMock.setSearchValue).toHaveBeenCalled();
+  });
+
+  test("should render product by search category", () => {
+    const { input } = setup();
+    fireEvent.change(input, { target: { id: "1651999177368" } });
+    expect(input.id).toEqual("1651999177368");
   });
 
   test("matches snapshot", () => {

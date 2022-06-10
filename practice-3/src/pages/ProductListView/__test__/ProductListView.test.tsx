@@ -28,7 +28,7 @@ describe("ViewProductItem component", () => {
     expect(result).toEqual(PRODUCT_MOCKING_LIST);
   });
 
-  test("should render ViewProductItem component", () => {
+  test("should render product list view component", () => {
     const history = createMemoryHistory();
     const { getByTestId } = render (
       <Router location={history.location} navigator={history}>

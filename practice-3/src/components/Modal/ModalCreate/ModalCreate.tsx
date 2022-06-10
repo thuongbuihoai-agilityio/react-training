@@ -13,8 +13,8 @@ import { get } from "@/helpers/fetchApi";
 import "./modalCreate.css";
 
 const ModalCreate: React.FC<ModalCreateProps> = ({
-  createProduct,
   hideModalCreate,
+  createProduct,
 }) => {
   const [newProduct, setNewProduct] = useState([]);
   const key: Key = CATEGORIES_URL;
@@ -201,7 +201,7 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
               Cancel
             </button>
             <button
-              data-testid="create-btn"
+              data-testid="add-new-product"
               className="btn btn__yes"
               onClick={() => handleCreateProduct()}
             >

@@ -164,7 +164,7 @@ exports[`Modal create component matches snapshot 1`] = `
           </button>
           <button
             class="btn btn__yes"
-            data-testid="create-btn"
+            data-testid="add-new-product"
           >
             Submit
           </button>

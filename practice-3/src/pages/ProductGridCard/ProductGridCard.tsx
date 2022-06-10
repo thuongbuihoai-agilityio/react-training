@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import Title from "@/components/common/Title/Title";
 import Price from "@/components/Price/Price";
 import { ProductItemProps } from "@/types/product";
-import Button from "@/components/common/Button/Button";
 import ModalDelete from "@/components/Modal/ModalDelete/ModalDelete";
 import "./productGridCard.css";
 
@@ -20,11 +19,13 @@ const ProductGridCard: React.FC<ProductItemProps> = ({
     <>
       <div data-testid="product-grid-card" className="product">
         <img className="product__image" src={product.images[0]} />
-        <Button
+        <button
+          data-testid="open-modal-delete"
           onClick={toggleModalUpdate}
           className="btn btn__delete"
-          text={<i className="fa fa-trash"></i>}
-        />
+        >
+          <i className="fa fa-trash"></i>
+        </button>
         <div className="product__content">
           <Link className="productViewPage__link" to={`/product/${product.id}`}>
             <Title className="productViewPage__title" text={product.name} />
