@@ -170,7 +170,7 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
             <div className="form-control">
               <div className="form__img--list">
                 {selectedFile.length > 0 &&
-                  selectedFile.map((src, key: number, index) => (
+                  selectedFile.map((src, key: number) => (
                     <img
                       data-testid="after-change-file"
                       className="form__img"

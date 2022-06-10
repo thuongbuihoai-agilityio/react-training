@@ -23,7 +23,7 @@
 
 .modal__input {
   padding: 7px 0;
-  width: 100px;
+  width: 150px;
   border: 1px solid var(--border-btn);
   margin-right: 10px;
 }
