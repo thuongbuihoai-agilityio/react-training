@@ -25,7 +25,6 @@ const Categories: React.FC = () => {
   function renderCategoryList(data: []) {
     return data?.map((category: CategoryProps) => (
       <li
-        data-testid={category.id}
         data-index={category.id}
         className={`categories__item ${
           activeId === category.id ? "active" : "inactive"

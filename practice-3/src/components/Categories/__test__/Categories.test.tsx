@@ -1,4 +1,4 @@
-import { fireEvent, render } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import { SearchContext } from "@/context/SearchContext";
 import Categories from "../Categories";
 import "@testing-library/jest-dom";
@@ -11,7 +11,7 @@ import { Search } from "@/types/search";
 
 const contextValueMock: Search = {
   setSearchValue: jest.fn(),
-  searchValue: ""
+  searchValue: "",
 };
 
 jest.mock("react", () => ({
@@ -21,9 +21,7 @@ jest.mock("react", () => ({
 
 describe("Category component", () => {
   const setup = () => {
-    const utils = render(
-      <Categories />
-    );
+    const utils = render(<Categories />);
     const input = utils.getByTestId("category-item") as HTMLInputElement;
     return {
       input,
@@ -31,16 +29,18 @@ describe("Category component", () => {
     };
   };
 
-  beforeEach(()=>{
-    (useState as jest.Mock).mockImplementation(jest.requireActual("react").useState);
-  })
+  beforeEach(() => {
+    (useState as jest.Mock).mockImplementation(
+      jest.requireActual("react").useState
+    );
+  });
 
   afterEach(() => {
     mockAxios.reset();
   });
 
   test("get categories item should call", async () => {
-    mockAxios.get.mockResolvedValueOnce({data: CATEGORY_MOCKING_LIST});
+    mockAxios.get.mockResolvedValueOnce({ data: CATEGORY_MOCKING_LIST });
     const result = await get(CATEGORIES_URL);
     expect(mockAxios.get).toHaveBeenCalledWith(CATEGORIES_URL);
     expect(result).toEqual(CATEGORY_MOCKING_LIST);
@@ -56,7 +56,7 @@ describe("Category component", () => {
     const { getByTestId } = render(
       <SearchContext.Provider value={contextValueMock}>
         <Categories />
-      </SearchContext.Provider>,
+      </SearchContext.Provider>
     );
     const categoryItem = getByTestId("category-item");
     fireEvent.click(categoryItem);
@@ -70,9 +70,7 @@ describe("Category component", () => {
   });
 
   test("matches snapshot", () => {
-    const { asFragment } = render(
-      <Categories />,
-    );
+    const { asFragment } = render(<Categories />);
     expect(asFragment()).toMatchSnapshot();
   });
 });

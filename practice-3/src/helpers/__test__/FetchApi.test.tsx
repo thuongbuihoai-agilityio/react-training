@@ -1,11 +1,19 @@
 import { PRODUCT_MOCKING } from "@/constants/product";
-import { PRODUCTS_URL } from "@/constants/url";
+import { CATEGORIES_URL, PRODUCTS_URL } from "@/constants/url";
 import { create, remove, get, update } from "../fetchApi";
 import mockAxios from "jest-mock-axios";
+import { CATEGORY_MOCKING_LIST } from "@/constants/categories";
 
 describe("fetch api", () => {
   afterEach(() => {
     mockAxios.reset();
+  });
+
+  test("get categories item should call", async () => {
+    mockAxios.get.mockResolvedValueOnce({data: CATEGORY_MOCKING_LIST});
+    const result = await get(CATEGORIES_URL);
+    expect(mockAxios.get).toHaveBeenCalledWith(CATEGORIES_URL);
+    expect(result).toEqual(CATEGORY_MOCKING_LIST);
   });
 
   test("get product item should call", async () => {
