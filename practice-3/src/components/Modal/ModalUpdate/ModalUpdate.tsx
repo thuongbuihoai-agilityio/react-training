@@ -1,5 +1,5 @@
 import useSWR, { Key } from "swr";
-import React, { useState } from "react";
+import React, { ChangeEvent, useState } from "react";
 import { ModalUpdateProps } from "@/types/modal";
 import { CategoryProps } from "@/types/category";
 import { Product } from "@/types/product";
@@ -8,7 +8,7 @@ import { get, update } from "@/helpers/fetchApi";
 import { CATEGORIES_URL, PRODUCT_CRUD } from "@/constants/url";
 import { SUCCESS_MSG } from "@/constants/message";
 import { toast } from "react-toastify";
-import "./modalUpdate.css";
+import "../modal.css";
 
 const ModalUpdate: React.FC<ModalUpdateProps> = ({
   product,
@@ -31,10 +31,14 @@ const ModalUpdate: React.FC<ModalUpdateProps> = ({
       description: productData.description,
       images: productData.images,
     };
-    update(`${PRODUCT_CRUD}/${id}`, productEdit);
-    mutate();
-    setIsReLoad(!isReload);
-    toast.success(SUCCESS_MSG.MESSAGE_UPDATE_PRODUCT);
+    try {
+      update(`${PRODUCT_CRUD}/${id}`, productEdit);
+      mutate();
+      setIsReLoad(!isReload);
+      toast.success(SUCCESS_MSG.MESSAGE_UPDATE_PRODUCT);
+    } catch (error) {
+      toast.error((error as any).message);
+    }
   };
 
   const handleUpdateProduct = async (id: string, productEdit: Product) => {
@@ -51,17 +55,17 @@ const ModalUpdate: React.FC<ModalUpdateProps> = ({
     setProductEdit({ ...productEdit, [key]: value });
   };
 
-  const imageChange = async (event: { target: { files: any } }) => {
+  const imageChange = async (event: ChangeEvent<HTMLInputElement>) => {
     const files = event.target.files;
     if (files) {
       for (let i = 0; i < files.length; i++) {
         const imageSrc = await getBase64(files[i]);
-        setSelectedFile((selectedFile) => [...selectedFile, imageSrc] as any);
+        setSelectedFile((selectedFile) => [...selectedFile, imageSrc] as never);
       }
     }
   };
 
-  const handleDeleteImage = (event: { target: Element | any}) => {
+  const handleDeleteImage = (event: { target: EventTarget }) => {
     const target = event.target as Element;
     const indexOfArr = productEdit.images.findIndex(
       (item: string) => item == (target as HTMLInputElement).dataset.id
@@ -113,7 +117,7 @@ const ModalUpdate: React.FC<ModalUpdateProps> = ({
                 name="categoryId"
                 onChange={handleChange}
               >
-                {data?.map(({id, name}: CategoryProps, index: number) => (
+                {data?.map(({ id, name }: CategoryProps, index: number) => (
                   <option
                     key={index}
                     value={id}
