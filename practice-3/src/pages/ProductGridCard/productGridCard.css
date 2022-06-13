@@ -17,6 +17,16 @@
   display: block;
 }
 
+.productViewPage__link {
+  color: var(--text-master);
+  text-decoration: none;
+}
+
+.productViewPage__title {
+  cursor: pointer;
+  font-size: 16px;
+}
+
 .product__content {
   text-align: center;
 }
