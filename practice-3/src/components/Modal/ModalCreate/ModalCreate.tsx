@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { ChangeEvent, useState } from "react";
 import { ModalCreateProps } from "@/types/modal";
 import { CategoryProps } from "@/types/category";
 import getBase64 from "@/helpers/getBase64";
@@ -10,7 +10,7 @@ import { FormProps } from "@/types/form";
 import useSWR, { Key } from "swr";
 import { CATEGORIES_URL } from "@/constants/url";
 import { get } from "@/helpers/fetchApi";
-import "./modalCreate.css";
+import "../modal.css";
 
 const ModalCreate: React.FC<ModalCreateProps> = ({
   hideModalCreate,
@@ -59,17 +59,17 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
     setFormValues(setFieldsValue(formValues, value, fieldName));
   };
 
-  const imageChange = async (event: { target: { files: any } }) => {
+  const imageChange = async (event: ChangeEvent<HTMLInputElement>) => {
     const files = event.target.files;
     if (files) {
       for (let i = 0; i < files.length; i++) {
         const imageSrc = await getBase64(files[i]);
-        setSelectedFile((selectedFile) => [...selectedFile, imageSrc] as any);
+        setSelectedFile((selectedFile) => [...selectedFile, imageSrc] as never);
       }
     }
   };
 
-  const handleDeleteImage = (event: { target: Element | any }) => {
+  const handleDeleteImage = (event: { target: EventTarget }) => {
     const target = event.target as Element;
     const indexOfArr = selectedFile.findIndex(
       (item: string) => item == (target as HTMLInputElement).dataset.id
