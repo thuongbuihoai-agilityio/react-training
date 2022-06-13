@@ -14,11 +14,10 @@ export default {
 const Default: React.FC = () => {
   return (
     <ModalUpdate
-      hideModalUpdate={() => {}}
+      hideModalUpdate={() => { } }
       product={PRODUCT_MOCKING}
       isReload={false}
-      setIsReLoad={() => {}}
-    />
+      setIsReLoad={() => { } } deleteImage={() => {}} />
   );
 };
 
