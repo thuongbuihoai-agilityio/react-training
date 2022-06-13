@@ -14,7 +14,7 @@ describe("App component", () => {
         <App />
       </Router>
     )
-    expect(screen.getByTestId("view-product-list")).toBeInTheDocument();
+    expect(screen.getByTestId("loading-page")).toBeInTheDocument();
   })
 
   test("rendering a product list component that uses useLocation", () => {
@@ -26,7 +26,7 @@ describe("App component", () => {
         <App />
       </Router>
     )
-    expect(screen.getByTestId("product-gird-view")).toBeInTheDocument();
+    expect(screen.getByTestId("loading-page")).toBeInTheDocument();
   });
 
   test("rendering a product detail component that uses useLocation", () => {
@@ -38,7 +38,7 @@ describe("App component", () => {
         <App />
       </Router>
     )
-    expect(screen.getByTestId("product-detail-page")).toBeInTheDocument();
+    expect(screen.getByTestId("loading-page")).toBeInTheDocument();
   })
 
   test("matches snapshot", () => {

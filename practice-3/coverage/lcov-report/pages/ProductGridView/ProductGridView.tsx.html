@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">75.75% </span>
+                <span class="strong">66.66% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>25/33</span>
+                <span class='fraction'>24/36</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">75% </span>
+                <span class="strong">65.71% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>24/32</span>
+                <span class='fraction'>23/35</span>
             </div>
         
             
@@ -136,11 +136,21 @@
 <a name='L71'></a><a href='#L71'>71</a>
 <a name='L72'></a><a href='#L72'>72</a>
 <a name='L73'></a><a href='#L73'>73</a>
-<a name='L74'></a><a href='#L74'>74</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">2x</span>
+<a name='L74'></a><a href='#L74'>74</a>
+<a name='L75'></a><a href='#L75'>75</a>
+<a name='L76'></a><a href='#L76'>76</a>
+<a name='L77'></a><a href='#L77'>77</a>
+<a name='L78'></a><a href='#L78'>78</a>
+<a name='L79'></a><a href='#L79'>79</a>
+<a name='L80'></a><a href='#L80'>80</a>
+<a name='L81'></a><a href='#L81'>81</a>
+<a name='L82'></a><a href='#L82'>82</a>
+<a name='L83'></a><a href='#L83'>83</a>
+<a name='L84'></a><a href='#L84'>84</a>
+<a name='L85'></a><a href='#L85'>85</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
@@ -150,7 +160,6 @@
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-yes">6x</span>
@@ -170,12 +179,20 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">6x</span>
@@ -190,7 +207,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -212,7 +234,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import useSWR, { Key } from "swr";
 import React, { useCallback, useContext, useState } from "react";
 import ModalCreate from "@/components/Modal/ModalCreate/ModalCreate";
-import Button from "@/components/common/Button/Button";
 import { Product } from "@/types/product";
 import ProductGridCard from "../ProductGridCard/ProductGridCard";
 import { SearchContext } from "@/context/SearchContext";
@@ -223,7 +244,6 @@ import { SUCCESS_MSG } from "@/constants/message";
 import "./productGridView.css";
 &nbsp;
 const ProductGridView: React.FC = () =&gt; {
-  const renderId = new Date();
   const [openModalCreate, setOpenModalCreate] = useState(false);
   const { searchValue } = useContext(SearchContext);
   const queryParams: URLSearchParams = new URLSearchParams(searchValue);
@@ -232,7 +252,7 @@ const ProductGridView: React.FC = () =&gt; {
   const { data, mutate } = useSWR(key, fetcher);
   const createProduct = <span class="fstat-no" title="function not covered" >async </span>(productData: Product) =&gt; {
     const newProduct: Product = <span class="cstat-no" title="statement not covered" >{</span>
-      id: renderId.valueOf.toString(),
+      id: new Date().valueOf().toString(),
       categoryId: productData.categoryId,
       name: productData.name,
       price: +productData.price,
@@ -240,15 +260,23 @@ const ProductGridView: React.FC = () =&gt; {
       description: productData.description,
       images: productData.images,
     };
-<span class="cstat-no" title="statement not covered" >    await create(PRODUCT_CRUD, newProduct);</span>
-<span class="cstat-no" title="statement not covered" >    mutate();</span>
-<span class="cstat-no" title="statement not covered" >    toast.success(SUCCESS_MSG.MESSAGE_ADD_PRODUCT);</span>
+<span class="cstat-no" title="statement not covered" >    try {</span>
+<span class="cstat-no" title="statement not covered" >      await create(PRODUCT_CRUD, newProduct);</span>
+<span class="cstat-no" title="statement not covered" >      mutate();</span>
+<span class="cstat-no" title="statement not covered" >      toast.success(SUCCESS_MSG.MESSAGE_ADD_PRODUCT);</span>
+    } catch (error) {
+<span class="cstat-no" title="statement not covered" >      toast.error((error as any).message);</span>
+    }
   };
 &nbsp;
   const deleteProduct = <span class="fstat-no" title="function not covered" >async </span>(id: string) =&gt; {
-<span class="cstat-no" title="statement not covered" >    await remove(`${PRODUCT_CRUD}/${id}`);</span>
-<span class="cstat-no" title="statement not covered" >    mutate();</span>
-<span class="cstat-no" title="statement not covered" >    toast.success(SUCCESS_MSG.MESSAGE_DELETE_PRODUCT);</span>
+<span class="cstat-no" title="statement not covered" >    try {</span>
+<span class="cstat-no" title="statement not covered" >      await remove(`${PRODUCT_CRUD}/${id}`);</span>
+<span class="cstat-no" title="statement not covered" >      mutate();</span>
+<span class="cstat-no" title="statement not covered" >      toast.success(SUCCESS_MSG.MESSAGE_DELETE_PRODUCT);</span>
+    } catch (error) {
+<span class="cstat-no" title="statement not covered" >      toast.error((error as any).message);</span>
+    }
   };
 &nbsp;
   const toggleModalUpdate = useCallback(() =&gt; {
@@ -258,15 +286,19 @@ const ProductGridView: React.FC = () =&gt; {
   return (
     &lt;&gt;
       &lt;div data-testid="product-gird-view" className="product__list"&gt;
-        &lt;button data-testid="open-modal" onClick={toggleModalUpdate} className="btn btn__add"&gt;
+        &lt;button
+          data-testid="open-modal"
+          className="btn btn__add"
+          onClick={toggleModalUpdate}
+        &gt;
           Add new product
         &lt;/button&gt;
         &lt;div data-testid="delete-product" className="product__info"&gt;
           {data?.map(<span class="fstat-no" title="function not covered" >(p</span>roduct: Product) =&gt; (
 <span class="cstat-no" title="statement not covered" >            &lt;div className="product__item" key={product.id}&gt;</span>
               &lt;ProductGridCard
-                deleteProduct={deleteProduct}
                 product={product}
+                deleteProduct={deleteProduct}
               /&gt;
             &lt;/div&gt;
           ))}
@@ -274,7 +306,8 @@ const ProductGridView: React.FC = () =&gt; {
         {openModalCreate &amp;&amp; (
           &lt;ModalCreate
             createProduct={createProduct}
-            hideModalCreate={toggleModalUpdate} /&gt;
+            hideModalCreate={toggleModalUpdate}
+          /&gt;
         )}
       &lt;/div&gt;
     &lt;/&gt;
@@ -289,7 +322,7 @@ export default ProductGridView;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Fri Jun 10 2022 16:50:06 GMT+0700 (Indochina Time)
+                at Mon Jun 13 2022 06:20:43 GMT+0700 (Indochina Time)
             </div>
         <script src="../../prettify.js"></script>
         <script>
