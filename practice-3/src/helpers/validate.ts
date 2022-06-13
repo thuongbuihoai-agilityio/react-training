@@ -6,10 +6,8 @@ const validateValue = (value: string, rule: string, errors: {[fieldName: string]
   if (rule === RULES.REQUIRED) {
     if (value) {
       errors[fieldName].error = "";
-      return;
     } else {
       errors[fieldName].error = ERROR_MSG.REQUIRED;
-      return;
     }
   }
 
@@ -18,7 +16,6 @@ const validateValue = (value: string, rule: string, errors: {[fieldName: string]
       errors[fieldName].error += "";
     } else {
       errors[fieldName].error += ERROR_MSG.NUMBER;
-      return;
     }
   }
 
@@ -27,7 +24,6 @@ const validateValue = (value: string, rule: string, errors: {[fieldName: string]
       errors[fieldName].error += ERROR_MSG.NUMBER;
     } else {
       errors[fieldName].error += "";
-      return;
     }
   }
 }
