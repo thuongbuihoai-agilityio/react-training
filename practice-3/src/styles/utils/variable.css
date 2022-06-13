@@ -1,0 +1,35 @@
+:root {
+  /* text color */
+  --text-primary: #ebb576;
+  --text-secondary: #696969;
+  --text-third: #000;
+  --text-master: #555;
+  --text-link: #fff;
+
+  /* background color */
+  --bg-submit: green;
+  --bg-cancel: orange;
+  --bg-delete: red;
+  --bg-modal: #fff;
+  --bg-view: #555;
+
+  /* border color */
+  --border-btn: gray;
+
+  /* box-shadow */
+  --box-shadow-first: rgba(0, 0, 0, 0.56);
+  --box-shadow-modal: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px;
+  
+  /* button color */
+  --btn-primary: #fff;
+
+  /* Display message */
+  --success: #47d864;
+  --error: #ff623d;
+  --close: rgba(0, 0, 0, 0.3);
+
+  /* Circle */
+  --first: #ebb576;
+  --secondary: orange;
+  --third: #ff623d;
+}

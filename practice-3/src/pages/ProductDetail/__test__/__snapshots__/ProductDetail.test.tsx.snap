@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProductDetail component matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="productDetails"
+    data-testid="product-detail-page"
+  >
+    <div
+      class="productDetails__img--left"
+    >
+      <img
+        class="product__image"
+      />
+    </div>
+    <div
+      class="productDetails__img--right"
+    />
+    <div
+      class="productDetails__info"
+    >
+      <div
+        class="productDetail__update"
+      >
+        <h2
+          class="productDetail__title"
+          data-testid="title-test"
+        />
+        <button
+          class="btn btn__update"
+          data-testid="open-modal-update"
+        >
+          <i
+            class="fa fa-pen"
+          />
+        </button>
+      </div>
+      <p
+        class="productDetail__price"
+        data-testid="price"
+      >
+        $
+      </p>
+      <input
+        class="productDetails__input"
+        min="0"
+        type="number"
+        value=""
+      />
+      <p
+        data-testid="text"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;

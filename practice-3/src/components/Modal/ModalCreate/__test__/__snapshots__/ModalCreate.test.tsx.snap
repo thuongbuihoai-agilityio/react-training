@@ -1,0 +1,176 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Modal create component matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="modal-create"
+    data-testid="modal-create"
+    id="bookDeleteModal"
+  >
+    <div
+      class="modal-dialog-modalUpdate"
+    >
+      <div
+        class="modal-content"
+      >
+        <div
+          class="modal-header"
+        >
+          <h4
+            class="modal-heading"
+            id="productModalLabel"
+          >
+            Add New Product Information
+          </h4>
+        </div>
+        <div
+          class="modal-body"
+        >
+          <div
+            class="form-control"
+          >
+            <label
+              for=""
+            >
+              Product name: 
+            </label>
+            <input
+              class="form__input"
+              data-testid="change-value-name"
+              name="name"
+              type="text"
+            />
+            <small
+              class="form__error"
+            >
+              Field is required
+            </small>
+          </div>
+          <div
+            class="form-control"
+          >
+            <label
+              for=""
+            >
+              Description: 
+            </label>
+            <textarea
+              class="form__text"
+              cols="30"
+              id=""
+              name="description"
+              rows="5"
+            />
+            <small
+              class="form__error"
+            >
+              Field is required
+            </small>
+          </div>
+          <div
+            class="form-control"
+          >
+            <label
+              for=""
+            >
+              Categories: 
+            </label>
+            <select
+              class="form__select"
+              name="categoryId"
+            >
+              <option
+                value=""
+              >
+                Select category
+              </option>
+            </select>
+            <small
+              class="form__error"
+            >
+              Field is required
+            </small>
+          </div>
+          <div
+            class="form-control"
+            id="form__number"
+          >
+            <div
+              class="form-control"
+            >
+              <label
+                for=""
+              >
+                Price: 
+              </label>
+              <input
+                class="modal__input"
+                min="0"
+                name="price"
+                type="number"
+              />
+              <small
+                class="form__error"
+              >
+                Field is required
+              </small>
+            </div>
+            <div
+              class="form-control"
+            >
+              <label
+                for=""
+              >
+                Quantity: 
+              </label>
+              <input
+                class="modal__input"
+                min="0"
+                name="quantity"
+                type="number"
+              />
+              <small
+                class="form__error"
+              >
+                Field is required
+              </small>
+            </div>
+          </div>
+          <div
+            class="form-control"
+          >
+            <div
+              class="form__img--list"
+            >
+              <input
+                class="form__input--img"
+                data-testid="change-file"
+                id="file"
+                multiple=""
+                name="images"
+                type="file"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="modal-footer-modalUpdate"
+        >
+          <button
+            class="btn btn__no"
+            data-testid="hide-modal-btn"
+          >
+            Cancel
+          </button>
+          <button
+            class="btn btn__yes"
+            data-testid="add-new-product"
+          >
+            Submit
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

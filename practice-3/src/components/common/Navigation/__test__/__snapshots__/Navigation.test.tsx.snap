@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Navigation component matches snapshot 1`] = `
+<DocumentFragment>
+  <nav
+    class="nav"
+    data-testid="navigation"
+  >
+    <ul
+      class="nav__list"
+    >
+      <li
+        class="nav__item"
+      >
+        <a
+          class="nav__link"
+          href=""
+        >
+          <i
+            class="fa fa-clock"
+          />
+           Mon - Sat: 8AM - 5PM
+        </a>
+      </li>
+      <li
+        class="nav__item"
+      >
+        <a
+          class="nav__link"
+          href=""
+        >
+          <i
+            class="fa fa-phone"
+          />
+           123 456 7890
+        </a>
+      </li>
+    </ul>
+    <div
+      class="search"
+      data-testid="input-search"
+    >
+      <input
+        class="search__text"
+        placeholder="Search item"
+        type="text"
+      />
+    </div>
+  </nav>
+</DocumentFragment>
+`;

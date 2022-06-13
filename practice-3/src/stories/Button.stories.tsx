@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "../components/Button/Button";
+import Button from "@/components/common/Button/Button";
 
 export default {
   /* 👇 The title prop is optional.
@@ -10,6 +10,8 @@ export default {
   component: Button,
 };
 
-export function Default() {
-  return <Button text="cancel" />;
+const Primary: React.FC = () => {
+  return <Button text="View all products" className="primary" />;
 }
+
+export { Primary };
