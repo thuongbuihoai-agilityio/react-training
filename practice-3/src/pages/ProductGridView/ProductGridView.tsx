@@ -1,7 +1,6 @@
 import useSWR, { Key } from "swr";
 import React, { useCallback, useContext, useState } from "react";
 import ModalCreate from "@/components/Modal/ModalCreate/ModalCreate";
-import Button from "@/components/common/Button/Button";
 import { Product } from "@/types/product";
 import ProductGridCard from "../ProductGridCard/ProductGridCard";
 import { SearchContext } from "@/context/SearchContext";
@@ -12,7 +11,6 @@ import { SUCCESS_MSG } from "@/constants/message";
 import "./productGridView.css";
 
 const ProductGridView: React.FC = () => {
-  const renderId = new Date();
   const [openModalCreate, setOpenModalCreate] = useState(false);
   const { searchValue } = useContext(SearchContext);
   const queryParams: URLSearchParams = new URLSearchParams(searchValue);
@@ -21,7 +19,7 @@ const ProductGridView: React.FC = () => {
   const { data, mutate } = useSWR(key, fetcher);
   const createProduct = async (productData: Product) => {
     const newProduct: Product = {
-      id: renderId.valueOf.toString(),
+      id: new Date().valueOf().toString(),
       categoryId: productData.categoryId,
       name: productData.name,
       price: +productData.price,
@@ -29,15 +27,23 @@ const ProductGridView: React.FC = () => {
       description: productData.description,
       images: productData.images,
     };
-    await create(PRODUCT_CRUD, newProduct);
-    mutate();
-    toast.success(SUCCESS_MSG.MESSAGE_ADD_PRODUCT);
+    try {
+      await create(PRODUCT_CRUD, newProduct);
+      mutate();
+      toast.success(SUCCESS_MSG.MESSAGE_ADD_PRODUCT);
+    } catch (error) {
+      toast.error((error as any).message);
+    }
   };
 
   const deleteProduct = async (id: string) => {
-    await remove(`${PRODUCT_CRUD}/${id}`);
-    mutate();
-    toast.success(SUCCESS_MSG.MESSAGE_DELETE_PRODUCT);
+    try {
+      await remove(`${PRODUCT_CRUD}/${id}`);
+      mutate();
+      toast.success(SUCCESS_MSG.MESSAGE_DELETE_PRODUCT);
+    } catch (error) {
+      toast.error((error as any).message);
+    }
   };
 
   const toggleModalUpdate = useCallback(() => {
@@ -47,15 +53,19 @@ const ProductGridView: React.FC = () => {
   return (
     <>
       <div data-testid="product-gird-view" className="product__list">
-        <button data-testid="open-modal" onClick={toggleModalUpdate} className="btn btn__add">
+        <button
+          data-testid="open-modal"
+          className="btn btn__add"
+          onClick={toggleModalUpdate}
+        >
           Add new product
         </button>
         <div data-testid="delete-product" className="product__info">
           {data?.map((product: Product) => (
             <div className="product__item" key={product.id}>
               <ProductGridCard
-                deleteProduct={deleteProduct}
                 product={product}
+                deleteProduct={deleteProduct}
               />
             </div>
           ))}
@@ -63,7 +73,8 @@ const ProductGridView: React.FC = () => {
         {openModalCreate && (
           <ModalCreate
             createProduct={createProduct}
-            hideModalCreate={toggleModalUpdate} />
+            hideModalCreate={toggleModalUpdate}
+          />
         )}
       </div>
     </>
