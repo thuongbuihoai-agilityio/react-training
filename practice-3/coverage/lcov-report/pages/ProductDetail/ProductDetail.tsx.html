@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">79.31% </span>
+                <span class="strong">80.64% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>23/29</span>
+                <span class='fraction'>25/31</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">82.14% </span>
+                <span class="strong">83.33% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>23/28</span>
+                <span class='fraction'>25/30</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -155,7 +155,8 @@
 <a name='L90'></a><a href='#L90'>90</a>
 <a name='L91'></a><a href='#L91'>91</a>
 <a name='L92'></a><a href='#L92'>92</a>
-<a name='L93'></a><a href='#L93'>93</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L93'></a><a href='#L93'>93</a>
+<a name='L94'></a><a href='#L94'>94</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -164,22 +165,22 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -246,6 +247,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import axios from "axios";
 import React, { useCallback, useContext, useState, useEffect } from "react";
@@ -257,9 +259,9 @@ import ModalUpdate from "@/components/Modal/ModalUpdate/ModalUpdate";
 import { PRODUCT_CRUD } from "@/constants/url";
 import { ProductContext } from "@/context/ProductContext";
 import "./productDetail.css";
-import { ProductDetailProps } from "@/types/product";
+import { toast } from "react-toastify";
 &nbsp;
-const ProductDetails: React.FC&lt;ProductDetailProps&gt; = () =&gt; {
+const ProductDetails: React.FC = () =&gt; {
   const { products } = useContext(ProductContext);
   const { id } = useParams();
   const [isReload, setIsReLoad] = useState(false);
@@ -271,14 +273,14 @@ const ProductDetails: React.FC&lt;ProductDetailProps&gt; = () =&gt; {
     setOpenModalUpdate(!openModalUpdate);
   }, [openModalUpdate]);
 &nbsp;
-  async function <span class="fstat-no" title="function not covered" >fetchMyAPI(</span>) {
-    const result = <span class="cstat-no" title="statement not covered" >await axios</span>
+  const fetchMyAPI = <span class="fstat-no" title="function not covered" >() =</span>&gt; {
+<span class="cstat-no" title="statement not covered" >    axios</span>
       .get(`${PRODUCT_CRUD}/${id}`)
       .then(<span class="fstat-no" title="function not covered" >(r</span>es) =&gt; {
 <span class="cstat-no" title="statement not covered" >        setProductDetailNew(res.data);</span>
       })
       .catch(<span class="fstat-no" title="function not covered" >function (e</span>rror) {
-<span class="cstat-no" title="statement not covered" >        alert(error);</span>
+<span class="cstat-no" title="statement not covered" >        toast.error(error);</span>
       });
   }
 &nbsp;
@@ -307,8 +309,8 @@ const ProductDetails: React.FC&lt;ProductDetailProps&gt; = () =&gt; {
             /&gt;
             &lt;button
               data-testid="open-modal-update"
-              onClick={toggleModalUpdate}
               className="btn btn__update"
+              onClick={toggleModalUpdate}
             &gt;
               &lt;i className="fa fa-pen"&gt;&lt;/i&gt;
             &lt;/button&gt;
@@ -331,7 +333,8 @@ const ProductDetails: React.FC&lt;ProductDetailProps&gt; = () =&gt; {
           product={productDetailNew}
           isReload={isReload}
           setIsReLoad={setIsReLoad}
-          hideModalUpdate={toggleModalUpdate} deleteImage={<span class="fstat-no" title="function not covered" >() =</span>&gt; {}}
+          hideModalUpdate={toggleModalUpdate}
+          deleteImage={<span class="fstat-no" title="function not covered" >() =</span>&gt; {}}
         /&gt;
       )}
     &lt;/&gt;
@@ -346,7 +349,7 @@ export default ProductDetails;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Mon Jun 13 2022 06:56:08 GMT+0700 (Indochina Time)
+                at Mon Jun 13 2022 14:47:11 GMT+0700 (Indochina Time)
             </div>
         <script src="../../prettify.js"></script>
         <script>

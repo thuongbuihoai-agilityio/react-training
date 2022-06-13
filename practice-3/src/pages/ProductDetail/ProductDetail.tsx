@@ -21,8 +21,8 @@ const ProductDetails: React.FC = () => {
     setOpenModalUpdate(!openModalUpdate);
   }, [openModalUpdate]);
 
-  async function fetchMyAPI() {
-    const result = await axios
+  const fetchMyAPI = async () => {
+    await axios
       .get(`${PRODUCT_CRUD}/${id}`)
       .then((res) => {
         setProductDetailNew(res.data);
