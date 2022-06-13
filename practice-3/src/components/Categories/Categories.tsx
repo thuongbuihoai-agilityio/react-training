@@ -38,7 +38,6 @@ const Categories: React.FC = () => {
     ));
   }
 
-
   return (
     <>
       <div data-testid="categories" className="categories">
