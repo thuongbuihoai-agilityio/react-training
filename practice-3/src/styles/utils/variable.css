@@ -27,4 +27,9 @@
   --success: #47d864;
   --error: #ff623d;
   --close: rgba(0, 0, 0, 0.3);
+
+  /* Circle */
+  --first: #ebb576;
+  --secondary: orange;
+  --third: #ff623d;
 }
