@@ -47,8 +47,9 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
     );
 
     if (!temp.includes(false)) {
-      handleClearValidate();
       createProduct({ images, ...newProduct } as unknown as Product);
+      setFormValues(formValues);
+      handleClearValidate();
     }
   };
 
