@@ -57,8 +57,8 @@ const ProductDetails: React.FC = () => {
             />
             <button
               data-testid="open-modal-update"
-              onClick={toggleModalUpdate}
               className="btn btn__update"
+              onClick={toggleModalUpdate}
             >
               <i className="fa fa-pen"></i>
             </button>
