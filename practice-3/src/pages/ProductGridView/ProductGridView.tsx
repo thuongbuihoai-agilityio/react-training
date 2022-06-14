@@ -1,5 +1,5 @@
 import useSWR, { Key } from "swr";
-import React, { useCallback, useContext, useState } from "react";
+import React, { useCallback, useContext, useEffect, useState } from "react";
 import ModalCreate from "@/components/Modal/ModalCreate/ModalCreate";
 import { Product } from "@/types/product";
 import ProductGridCard from "../ProductGridCard/ProductGridCard";
@@ -11,10 +11,12 @@ import { SUCCESS_MSG } from "@/constants/message";
 import "./productGridView.css";
 import { FormProps } from "@/types/form";
 import FORM_VALUES from "@/constants/form";
+import { ProductContext } from "@/context/ProductContext";
 
 const ProductGridView: React.FC = () => {
   const [openModalCreate, setOpenModalCreate] = useState(false);
   const { searchValue } = useContext(SearchContext);
+  const { setProducts } = useContext(ProductContext);
   const [formValues, setFormValues] = useState<FormProps>(FORM_VALUES);
 
   const queryParams: URLSearchParams = new URLSearchParams(searchValue);
@@ -29,6 +31,10 @@ const ProductGridView: React.FC = () => {
       }
     );
   };
+
+  useEffect (() => {
+    setProducts(data);
+  }, [data])
 
   const createProduct = async (productData: Product) => {
     const newProduct: Product = {
