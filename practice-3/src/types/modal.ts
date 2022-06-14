@@ -9,10 +9,9 @@ export interface ModalDeleteProps {
 
 export interface ModalUpdateProps {
   product: Product;
-  isReload: Boolean;
-  setIsReLoad: Function;
   hideModalUpdate: () => void;
   deleteImage: () => void;
+  updateProductDetail: Function;
 }
 
 export interface ModalCreateProps {
