@@ -1,3 +1,4 @@
+import { FormProps } from "./form";
 import { Product } from "./product";
 
 export interface ModalDeleteProps {
@@ -15,6 +16,9 @@ export interface ModalUpdateProps {
 }
 
 export interface ModalCreateProps {
+  formValues: FormProps;
+  setFormValues: Function;
   hideModalCreate: Function;
+  handleClearValidate: Function;
   createProduct: (dataProduct: Product) => void;
 }
