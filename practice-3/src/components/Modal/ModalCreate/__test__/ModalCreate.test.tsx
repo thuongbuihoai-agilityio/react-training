@@ -25,7 +25,7 @@ describe("Modal create component", () => {
         createProduct={() => {}}
         formValues={FORM_VALUES}
         setFormValues={() => {}}
-        handleClearValidate={() => {}}
+        clearValidate={() => {}}
       />
     );
     const input = utils.getByTestId("change-value-name") as HTMLInputElement;
@@ -58,7 +58,7 @@ describe("Modal create component", () => {
         createProduct={() => {}}
         formValues={FORM_VALUES}
         setFormValues={() => {}}
-        handleClearValidate={() => {}}
+        clearValidate={() => {}}
       />
     );
     const str = JSON.stringify(someValues);
@@ -88,7 +88,7 @@ describe("Modal create component", () => {
         createProduct={() => {}}
         formValues={FORM_VALUES}
         setFormValues={() => {}}
-        handleClearValidate={() => {}}
+        clearValidate={() => {}}
       />
     );
     expect(getByTestId("modal-create")).toBeInTheDocument();
@@ -101,7 +101,7 @@ describe("Modal create component", () => {
         createProduct={() => {}}
         formValues={FORM_VALUES}
         setFormValues={() => {}}
-        handleClearValidate={() => {}}
+        clearValidate={() => {}}
       />
     );
     const cancelBtn = getByTestId("hide-modal-btn");
@@ -116,7 +116,7 @@ describe("Modal create component", () => {
         createProduct={handleCreateProduct}
         formValues={FORM_VALUES}
         setFormValues={() => {}}
-        handleClearValidate={() => {}}
+        clearValidate={() => {}}
       />
     );
     const submitBtn = getByTestId("add-new-product");
@@ -131,7 +131,7 @@ describe("Modal create component", () => {
         createProduct={() => {}}
         formValues={FORM_VALUES}
         setFormValues={() => {}}
-        handleClearValidate={() => {}}
+        clearValidate={() => {}}
       />
     );
     expect(asFragment()).toMatchSnapshot();

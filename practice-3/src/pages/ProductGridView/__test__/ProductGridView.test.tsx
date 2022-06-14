@@ -34,7 +34,7 @@ describe("ViewProductItem component", () => {
         createProduct={() => {}}
         formValues={FORM_VALUES}
         setFormValues={() => {}}
-        handleClearValidate={() => {}}
+        clearValidate={() => {}}
       />
     );
     const input = utils.getByTestId("change-value-name") as HTMLInputElement;

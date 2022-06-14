@@ -7,8 +7,8 @@ import Text from "@/components/Text/Text";
 import ModalUpdate from "@/components/Modal/ModalUpdate/ModalUpdate";
 import { PRODUCT_CRUD } from "@/constants/url";
 import { ProductContext } from "@/context/ProductContext";
-import "./productDetail.css";
 import { toast } from "react-toastify";
+import "./productDetail.css";
 
 const ProductDetails: React.FC = () => {
   const { products } = useContext(ProductContext);

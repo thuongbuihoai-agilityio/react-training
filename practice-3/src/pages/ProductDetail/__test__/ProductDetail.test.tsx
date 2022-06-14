@@ -15,6 +15,7 @@ jest.mock("react", () => ({
 
 describe("ProductDetail component", () => {
   const updateProduct = jest.fn();
+  const hideModalUpdate = jest.fn();
   beforeEach(()=>{
     (useState as jest.Mock).mockImplementation(jest.requireActual("react").useState);
   });
@@ -44,6 +45,21 @@ describe("ProductDetail component", () => {
     const btnSubmit = getByTestId("btn-yes-modalUpdate");
     fireEvent.click(btnSubmit);
     expect(updateProduct).toHaveBeenCalled();
+  });
+
+  test("should update product when click Submit", () => {
+    const { getByTestId } = render(
+      <ModalUpdate
+        product={PRODUCT_MOCKING}
+        hideModalUpdate={hideModalUpdate}
+        isReload={true}
+        setIsReLoad={() => {}}
+        deleteImage={() => {}}
+      />
+    );
+    const btnSubmit = getByTestId("btn-no-modalUpdate");
+    fireEvent.click(btnSubmit);
+    expect(hideModalUpdate).toHaveBeenCalled();
   });
 
   test("should render product detail", () => {

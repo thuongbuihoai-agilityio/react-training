@@ -19,6 +19,6 @@ export interface ModalCreateProps {
   formValues: FormProps;
   setFormValues: Function;
   hideModalCreate: Function;
-  handleClearValidate: Function;
+  clearValidate: () => void;
   createProduct: (dataProduct: Product) => void;
 }
