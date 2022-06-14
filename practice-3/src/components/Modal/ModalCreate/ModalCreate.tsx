@@ -23,6 +23,7 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
   const [selectedFile, setSelectedFile] = useState([]);
   const [formValues, setFormValues] = useState<FormProps>(FORM_VALUES);
 
+  console.log("formValues1", formValues);
   const handleClearValidate = () => {
     (Object.keys(formValues) as (keyof typeof formValues)[]).map(
       (fieldName) => {
@@ -48,8 +49,8 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
 
     if (!temp.includes(false)) {
       createProduct({ images, ...newProduct } as unknown as Product);
-      setFormValues(formValues);
       handleClearValidate();
+      console.log("formValues2", formValues);
     }
   };
 
