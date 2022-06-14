@@ -12,10 +12,15 @@ import { CATEGORIES_URL, PRODUCTS_URL } from "@/constants/url";
 import { get } from "@/helpers/fetchApi";
 import { CATEGORY_MOCKING_LIST } from "@/constants/categories";
 import Button from "@/components/common/Button/Button";
+import { ProductContext } from "@/context/ProductContext";
 
 const contextValueMockSearch: Search = {
   setSearchValue: jest.fn(),
   searchValue: "",
+};
+
+const productContextMock = {
+  setProducts: jest.fn(),
 };
 
 describe("ViewProductItem component", () => {
@@ -40,9 +45,11 @@ describe("ViewProductItem component", () => {
   test("should render product list view component", () => {
     const history = createMemoryHistory();
     const { getByTestId } = render(
-      <Router location={history.location} navigator={history}>
-        <ViewProductList />
-      </Router>
+      <ProductContext.Provider value={productContextMock}>
+        <Router location={history.location} navigator={history}>
+          <ViewProductList />
+        </Router>
+      </ProductContext.Provider>
     );
     expect(getByTestId("view-product-list")).toBeInTheDocument();
   });
@@ -76,9 +83,11 @@ describe("ViewProductItem component", () => {
   test("matches snapshot", () => {
     const history = createMemoryHistory();
     const { asFragment } = render(
-      <Router location={history.location} navigator={history}>
-        <ViewProductList />
-      </Router>
+      <ProductContext.Provider value={productContextMock}>
+        <Router location={history.location} navigator={history}>
+          <ViewProductList />
+        </Router>
+      </ProductContext.Provider>
     );
     expect(asFragment()).toMatchSnapshot();
   });
