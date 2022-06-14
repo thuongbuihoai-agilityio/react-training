@@ -13,6 +13,7 @@ import Categories from "@/components/Categories/Categories";
 import { useState } from "react";
 import ModalDelete from "@/components/Modal/ModalDelete/ModalDelete";
 import ModalCreate from "@/components/Modal/ModalCreate/ModalCreate";
+import FORM_VALUES from "@/constants/form";
 
 const contextValueMockSearch: Search = {
   setSearchValue: jest.fn(),
@@ -28,7 +29,13 @@ describe("ViewProductItem component", () => {
   const deleteProduct = jest.fn();
   const setup = () => {
     const utils = render(
-      <ModalCreate hideModalCreate={() => {}} createProduct={() => {}} />
+      <ModalCreate
+        hideModalCreate={() => {}}
+        createProduct={() => {}}
+        formValues={FORM_VALUES}
+        setFormValues={() => {}}
+        handleClearValidate={() => {}}
+      />
     );
     const input = utils.getByTestId("change-value-name") as HTMLInputElement;
     return {
