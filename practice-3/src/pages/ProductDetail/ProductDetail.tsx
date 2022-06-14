@@ -1,43 +1,27 @@
-import axios from "axios";
-import React, { useCallback, useContext, useState, useEffect } from "react";
+import React, { useCallback, useContext, useState } from "react";
 import { useParams } from "react-router-dom";
 import Price from "@/components/Price/Price";
 import Title from "@/components/common/Title/Title";
 import Text from "@/components/Text/Text";
 import ModalUpdate from "@/components/Modal/ModalUpdate/ModalUpdate";
-import { PRODUCT_CRUD } from "@/constants/url";
 import { ProductContext } from "@/context/ProductContext";
-import { toast } from "react-toastify";
+import { Product } from "@/types/product";
 import "./productDetail.css";
 
 const ProductDetails: React.FC = () => {
   const { products } = useContext(ProductContext);
   const { id } = useParams();
-  const [isReload, setIsReLoad] = useState(false);
   const dataEl = products?.find((item: { id: string }) => item.id === id);
   const [productDetailNew, setProductDetailNew] = useState(dataEl);
   const [openModalUpdate, setOpenModalUpdate] = useState(false);
 
+  const updateProductDetail = (response: Product) => {
+    setProductDetailNew(response);
+  }
+
   const toggleModalUpdate = useCallback(() => {
     setOpenModalUpdate(!openModalUpdate);
   }, [openModalUpdate]);
-
-  const fetchMyAPI = () => {
-    axios
-      .get(`${PRODUCT_CRUD}/${id}`)
-      .then((res) => {
-        setProductDetailNew(res.data);
-      })
-      .catch((error) => {
-        toast.error(error);
-      });
-  };
-
-  useEffect(() => {
-    if (id) {
-      fetchMyAPI();
-    }
-  }, [isReload]);
 
   return (
     <>
@@ -80,9 +64,8 @@ const ProductDetails: React.FC = () => {
       {openModalUpdate && (
         <ModalUpdate
           product={productDetailNew}
-          isReload={isReload}
-          setIsReLoad={setIsReLoad}
           hideModalUpdate={toggleModalUpdate}
+          updateProductDetail={updateProductDetail}
           deleteImage={() => {}}
         />
       )}

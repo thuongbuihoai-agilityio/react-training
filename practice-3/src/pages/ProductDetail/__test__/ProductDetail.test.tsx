@@ -32,34 +32,32 @@ describe("ProductDetail component", () => {
     expect(result).toEqual(PRODUCT_MOCKING);
   });
 
-  test("should update product when click Submit", () => {
+  test("should hide modal update when click Cancel", () => {
     const { getByTestId } = render(
       <ModalUpdate
         product={PRODUCT_MOCKING}
-        hideModalUpdate={() => {}}
-        isReload={true}
-        setIsReLoad={updateProduct}
+        hideModalUpdate={hideModalUpdate}
         deleteImage={() => {}}
+        updateProductDetail={() => {}}
       />
     );
-    const btnSubmit = getByTestId("btn-yes-modalUpdate");
-    fireEvent.click(btnSubmit);
-    expect(updateProduct).toHaveBeenCalled();
+    const hideModal = getByTestId("btn-no-modalUpdate");
+    fireEvent.click(hideModal);
+    expect(hideModalUpdate).toHaveBeenCalled();
   });
 
   test("should update product when click Submit", () => {
     const { getByTestId } = render(
       <ModalUpdate
         product={PRODUCT_MOCKING}
-        hideModalUpdate={hideModalUpdate}
-        isReload={true}
-        setIsReLoad={() => {}}
+        hideModalUpdate={updateProduct}
         deleteImage={() => {}}
+        updateProductDetail={() => {}}
       />
     );
-    const btnSubmit = getByTestId("btn-no-modalUpdate");
+    const btnSubmit = getByTestId("btn-yes-modalUpdate");
     fireEvent.click(btnSubmit);
-    expect(hideModalUpdate).toHaveBeenCalled();
+    expect(updateProduct).toHaveBeenCalled();
   });
 
   test("should render product detail", () => {
