@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1655178084762" clover="3.2.0">
-  <project timestamp="1655178084762" name="All files">
+<coverage generated="1655183772755" clover="3.2.0">
+  <project timestamp="1655183772755" name="All files">
     <metrics statements="450" coveredstatements="407" conditionals="41" coveredconditionals="33" methods="99" coveredmethods="79" elements="590" coveredelements="519" complexity="0" loc="450" ncloc="450" packages="30" files="57" classes="57"/>
     <package name="App">
       <metrics statements="18" coveredstatements="18" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="7"/>
@@ -188,12 +188,12 @@
         <line num="10" count="3" type="stmt"/>
         <line num="11" count="3" type="stmt"/>
         <line num="13" count="3" type="stmt"/>
-        <line num="19" count="12" type="stmt"/>
-        <line num="20" count="12" type="stmt"/>
-        <line num="21" count="12" type="stmt"/>
-        <line num="22" count="12" type="stmt"/>
-        <line num="23" count="12" type="stmt"/>
-        <line num="24" count="12" type="stmt"/>
+        <line num="19" count="13" type="stmt"/>
+        <line num="20" count="13" type="stmt"/>
+        <line num="21" count="13" type="stmt"/>
+        <line num="22" count="13" type="stmt"/>
+        <line num="23" count="13" type="stmt"/>
+        <line num="24" count="13" type="stmt"/>
         <line num="25" count="2" type="stmt"/>
         <line num="34" count="2" type="stmt"/>
         <line num="35" count="2" type="stmt"/>
@@ -201,22 +201,22 @@
         <line num="37" count="2" type="stmt"/>
         <line num="38" count="2" type="stmt"/>
         <line num="40" count="0" type="stmt"/>
-        <line num="44" count="12" type="stmt"/>
+        <line num="44" count="13" type="stmt"/>
         <line num="45" count="2" type="stmt"/>
         <line num="46" count="0" type="stmt"/>
         <line num="48" count="2" type="stmt"/>
         <line num="49" count="2" type="stmt"/>
-        <line num="52" count="12" type="stmt"/>
+        <line num="52" count="13" type="stmt"/>
         <line num="53" count="1" type="stmt"/>
         <line num="54" count="1" type="stmt"/>
         <line num="55" count="1" type="stmt"/>
-        <line num="58" count="12" type="stmt"/>
+        <line num="58" count="13" type="stmt"/>
         <line num="59" count="1" type="stmt"/>
         <line num="60" count="1" type="cond" truecount="1" falsecount="0"/>
         <line num="61" count="1" type="stmt"/>
         <line num="62" count="1" type="stmt"/>
         <line num="63" count="1" type="stmt"/>
-        <line num="68" count="12" type="stmt"/>
+        <line num="68" count="13" type="stmt"/>
         <line num="69" count="1" type="stmt"/>
         <line num="70" count="1" type="stmt"/>
         <line num="71" count="1" type="stmt"/>
@@ -225,9 +225,9 @@
         <line num="76" count="1" type="stmt"/>
         <line num="77" count="1" type="stmt"/>
         <line num="78" count="1" type="stmt"/>
-        <line num="81" count="12" type="stmt"/>
+        <line num="81" count="13" type="stmt"/>
         <line num="121" count="0" type="stmt"/>
-        <line num="158" count="6" type="stmt"/>
+        <line num="158" count="7" type="stmt"/>
         <line num="169" count="1" type="stmt"/>
         <line num="201" count="2" type="stmt"/>
         <line num="212" count="3" type="stmt"/>
@@ -265,7 +265,7 @@
         <line num="1" count="4" type="stmt"/>
         <line num="3" count="4" type="stmt"/>
         <line num="5" count="4" type="stmt"/>
-        <line num="6" count="12" type="stmt"/>
+        <line num="6" count="13" type="stmt"/>
         <line num="13" count="4" type="stmt"/>
       </file>
       <file name="button.css" path="C:\Users\ht252\OneDrive\Desktop\practice-3\react-training\practice-3\src\components\common\Button\button.css">

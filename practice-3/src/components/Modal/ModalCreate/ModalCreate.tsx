@@ -16,7 +16,7 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
   createProduct,
   formValues,
   setFormValues,
-  handleClearValidate
+  clearValidate
 }) => {
   const [newProduct, setNewProduct] = useState([]);
   const key: Key = CATEGORIES_URL;
@@ -26,7 +26,7 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
 
   const handleModal = () => {
     hideModalCreate();
-    handleClearValidate();
+    clearValidate();
   }
 
   const handleCreateProduct = () => {

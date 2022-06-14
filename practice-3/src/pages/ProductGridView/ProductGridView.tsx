@@ -90,7 +90,7 @@ const ProductGridView: React.FC = () => {
             setFormValues={setFormValues}
             createProduct={createProduct}
             hideModalCreate={toggleModalUpdate}
-            handleClearValidate={handleClearValidate}
+            clearValidate={handleClearValidate}
           />
         )}
       </div>
