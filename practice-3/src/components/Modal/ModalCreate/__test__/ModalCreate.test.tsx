@@ -7,6 +7,7 @@ import mockAxios from "@/__mocks__/axios";
 import { CATEGORY_MOCKING_LIST } from "@/constants/categories";
 import { CATEGORIES_URL } from "@/constants/url";
 import { get } from "@/helpers/fetchApi";
+import FORM_VALUES from "@/constants/form";
 
 jest.mock("react", () => ({
   ...jest.requireActual("react"),
@@ -19,7 +20,13 @@ describe("Modal create component", () => {
   const someValues = [{ name: "cheese pocket" }];
   const setup = () => {
     const utils = render(
-      <ModalCreate hideModalCreate={() => {}} createProduct={() => {}} />
+      <ModalCreate
+        hideModalCreate={() => {}}
+        createProduct={() => {}}
+        formValues={FORM_VALUES}
+        setFormValues={() => {}}
+        handleClearValidate={() => {}}
+      />
     );
     const input = utils.getByTestId("change-value-name") as HTMLInputElement;
     return {
@@ -46,7 +53,13 @@ describe("Modal create component", () => {
 
   test("should change file image when onChang input", async () => {
     const { getByTestId, queryByTestId } = render(
-      <ModalCreate hideModalCreate={() => {}} createProduct={() => {}} />
+      <ModalCreate
+        hideModalCreate={() => {}}
+        createProduct={() => {}}
+        formValues={FORM_VALUES}
+        setFormValues={() => {}}
+        handleClearValidate={() => {}}
+      />
     );
     const str = JSON.stringify(someValues);
     const blob = new Blob([str]);
@@ -70,23 +83,41 @@ describe("Modal create component", () => {
 
   test("should render modal create component", () => {
     const { getByTestId } = render(
-      <ModalCreate hideModalCreate={() => {}} createProduct={() => {}} />
+      <ModalCreate
+        hideModalCreate={() => {}}
+        createProduct={() => {}}
+        formValues={FORM_VALUES}
+        setFormValues={() => {}}
+        handleClearValidate={() => {}}
+      />
     );
     expect(getByTestId("modal-create")).toBeInTheDocument();
   });
 
   test("should hide modal create when click Cancel", () => {
     const { getByTestId } = render(
-      <ModalCreate hideModalCreate={hideModalCreate} createProduct={() => {}} />
-      );
-      const cancelBtn = getByTestId("hide-modal-btn");
-      fireEvent.click(cancelBtn);
-      expect(hideModalCreate).toHaveBeenCalled();
-    });
+      <ModalCreate
+        hideModalCreate={hideModalCreate}
+        createProduct={() => {}}
+        formValues={FORM_VALUES}
+        setFormValues={() => {}}
+        handleClearValidate={() => {}}
+      />
+    );
+    const cancelBtn = getByTestId("hide-modal-btn");
+    fireEvent.click(cancelBtn);
+    expect(hideModalCreate).toHaveBeenCalled();
+  });
 
   test("should create product when click Submit", () => {
     const { getByTestId } = render(
-      <ModalCreate hideModalCreate={() => {}} createProduct={handleCreateProduct} />
+      <ModalCreate
+        hideModalCreate={() => {}}
+        createProduct={handleCreateProduct}
+        formValues={FORM_VALUES}
+        setFormValues={() => {}}
+        handleClearValidate={() => {}}
+      />
     );
     const submitBtn = getByTestId("add-new-product");
     fireEvent.click(submitBtn);
@@ -95,7 +126,13 @@ describe("Modal create component", () => {
 
   test("matches snapshot", () => {
     const { asFragment } = render(
-      <ModalCreate hideModalCreate={() => {}} createProduct={() => {}} />
+      <ModalCreate
+        hideModalCreate={() => {}}
+        createProduct={() => {}}
+        formValues={FORM_VALUES}
+        setFormValues={() => {}}
+        handleClearValidate={() => {}}
+      />
     );
     expect(asFragment()).toMatchSnapshot();
   });

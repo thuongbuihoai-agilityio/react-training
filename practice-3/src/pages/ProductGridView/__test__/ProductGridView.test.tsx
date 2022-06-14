@@ -11,6 +11,9 @@ import { Search } from "@/types/search";
 import {SearchContext} from "@/context/SearchContext";
 import Categories from "@/components/Categories/Categories";
 import { useState } from "react";
+import ModalDelete from "@/components/Modal/ModalDelete/ModalDelete";
+import ModalCreate from "@/components/Modal/ModalCreate/ModalCreate";
+import FORM_VALUES from "@/constants/form";
 
 const contextValueMockSearch: Search = {
   setSearchValue: jest.fn(),
@@ -23,12 +26,36 @@ jest.mock("react", () => ({
 }));
 
 describe("ViewProductItem component", () => {
+  const deleteProduct = jest.fn();
+  const setup = () => {
+    const utils = render(
+      <ModalCreate
+        hideModalCreate={() => {}}
+        createProduct={() => {}}
+        formValues={FORM_VALUES}
+        setFormValues={() => {}}
+        handleClearValidate={() => {}}
+      />
+    );
+    const input = utils.getByTestId("change-value-name") as HTMLInputElement;
+    return {
+      input,
+      ...utils,
+    };
+  };
+
   beforeEach(()=>{
     (useState as jest.Mock).mockImplementation(jest.requireActual("react").useState);
   })
 
   afterEach(() => {
     mockAxios.reset();
+  });
+
+  test("should change value when onChang input", () => {
+    const { input } = setup();
+    fireEvent.change(input, { target: { value: "Cheese pocket" } });
+    expect(input.value).toBe("Cheese pocket");
   });
 
   test("get categories item should call", async () => {
@@ -51,6 +78,19 @@ describe("ViewProductItem component", () => {
     const result = await remove(PRODUCT_URL_CALL);
     expect(mockAxios.delete).toHaveBeenCalledWith(PRODUCT_URL_CALL);
     expect(result).toEqual(PRODUCT_MOCKING);
+  });
+
+  test("should delete product when click Yes", () => {
+    const { getByTestId } = render(
+      <ModalDelete
+        id={""}
+        hideModalDelete={() => {}}
+        deleteProduct={deleteProduct}
+      />
+    );
+    const hideModal = getByTestId("btn-yes");
+    fireEvent.click(hideModal);
+    expect(deleteProduct).toHaveBeenCalled();
   });
 
   test("should render product grid view component", () => {

@@ -6,7 +6,6 @@ import FORM_VALUES from "@/constants/form";
 import { validate } from "@/helpers/validate";
 import { setFieldsValue } from "@/helpers/index";
 import { Product } from "@/types/product";
-import { FormProps } from "@/types/form";
 import useSWR, { Key } from "swr";
 import { CATEGORIES_URL } from "@/constants/url";
 import { get } from "@/helpers/fetchApi";
@@ -15,22 +14,20 @@ import "../modal.css";
 const ModalCreate: React.FC<ModalCreateProps> = ({
   hideModalCreate,
   createProduct,
+  formValues,
+  setFormValues,
+  handleClearValidate
 }) => {
   const [newProduct, setNewProduct] = useState([]);
   const key: Key = CATEGORIES_URL;
   const fetcher = () => get<Product[]>(CATEGORIES_URL);
   const { data } = useSWR(key, fetcher);
   const [selectedFile, setSelectedFile] = useState([]);
-  const [formValues, setFormValues] = useState<FormProps>(FORM_VALUES);
 
-  const handleClearValidate = () => {
-    (Object.keys(formValues) as (keyof typeof formValues)[]).map(
-      (fieldName) => {
-        formValues[fieldName].error = "";
-      }
-    );
+  const handleModal = () => {
     hideModalCreate();
-  };
+    handleClearValidate();
+  }
 
   const handleCreateProduct = () => {
     const images: string[] = [];
@@ -47,8 +44,9 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
     );
 
     if (!temp.includes(false)) {
-      handleClearValidate();
       createProduct({ images, ...newProduct } as unknown as Product);
+      setFormValues(FORM_VALUES);
+      handleModal();
     }
   };
 
@@ -136,7 +134,9 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
                 ))}
               </select>
               <small className="form__error">
-                {formValues.categoryId.error ? formValues.categoryId.error : ""}
+                {formValues.categoryId.error
+                  ? formValues.categoryId.error
+                  : ""}
               </small>
             </div>
             <div id="form__number" className="form-control">
@@ -196,7 +196,7 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
             <button
               data-testid="hide-modal-btn"
               className="btn btn__no"
-              onClick={handleClearValidate}
+              onClick={handleModal}
             >
               Cancel
             </button>

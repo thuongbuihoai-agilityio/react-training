@@ -9,14 +9,27 @@ import { create, get, remove } from "@/helpers/fetchApi";
 import { toast } from "react-toastify";
 import { SUCCESS_MSG } from "@/constants/message";
 import "./productGridView.css";
+import { FormProps } from "@/types/form";
+import FORM_VALUES from "@/constants/form";
 
 const ProductGridView: React.FC = () => {
   const [openModalCreate, setOpenModalCreate] = useState(false);
   const { searchValue } = useContext(SearchContext);
+  const [formValues, setFormValues] = useState<FormProps>(FORM_VALUES);
+
   const queryParams: URLSearchParams = new URLSearchParams(searchValue);
   const key: Key = PRODUCTS_URL + queryParams.toString();
   const fetcher = () => get<Product[]>(key);
   const { data, mutate } = useSWR(key, fetcher);
+
+  const handleClearValidate = () => {
+    (Object.keys(formValues) as (keyof typeof formValues)[]).map(
+      (fieldName) => {
+        formValues[fieldName].error = "";
+      }
+    );
+  };
+
   const createProduct = async (productData: Product) => {
     const newProduct: Product = {
       id: new Date().valueOf().toString(),
@@ -48,6 +61,7 @@ const ProductGridView: React.FC = () => {
 
   const toggleModalUpdate = useCallback(() => {
     setOpenModalCreate(!openModalCreate);
+    handleClearValidate();
   }, [openModalCreate]);
 
   return (
@@ -72,8 +86,11 @@ const ProductGridView: React.FC = () => {
         </div>
         {openModalCreate && (
           <ModalCreate
+            formValues={formValues}
+            setFormValues={setFormValues}
             createProduct={createProduct}
             hideModalCreate={toggleModalUpdate}
+            handleClearValidate={handleClearValidate}
           />
         )}
       </div>

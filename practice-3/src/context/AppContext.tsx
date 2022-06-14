@@ -1,7 +1,9 @@
 import ProductProvider from "./ProductContext";
 import SearchProvider from "./SearchContext";
 
-const AppProvider: React.FC<{children: JSX.Element[] | JSX.Element}> = ({ children }) => {
+const AppProvider: React.FC<{ children: JSX.Element[] | JSX.Element }> = ({
+  children,
+}) => {
   return (
     <ProductProvider>
       <SearchProvider>
@@ -9,6 +11,6 @@ const AppProvider: React.FC<{children: JSX.Element[] | JSX.Element}> = ({ childr
       </SearchProvider>
     </ProductProvider>
   );
-}
+};
 
 export default AppProvider;

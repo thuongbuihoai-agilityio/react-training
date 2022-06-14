@@ -8,6 +8,7 @@ import ModalUpdate from "@/components/Modal/ModalUpdate/ModalUpdate";
 import { PRODUCT_CRUD } from "@/constants/url";
 import { ProductContext } from "@/context/ProductContext";
 import "./productDetail.css";
+import { toast } from "react-toastify";
 
 const ProductDetails: React.FC = () => {
   const { products } = useContext(ProductContext);
@@ -21,16 +22,16 @@ const ProductDetails: React.FC = () => {
     setOpenModalUpdate(!openModalUpdate);
   }, [openModalUpdate]);
 
-  async function fetchMyAPI() {
-    const result = await axios
+  const fetchMyAPI = () => {
+    axios
       .get(`${PRODUCT_CRUD}/${id}`)
       .then((res) => {
         setProductDetailNew(res.data);
       })
-      .catch(function (error) {
-        alert(error);
+      .catch((error) => {
+        toast.error(error);
       });
-  }
+  };
 
   useEffect(() => {
     if (id) {
@@ -81,7 +82,8 @@ const ProductDetails: React.FC = () => {
           product={productDetailNew}
           isReload={isReload}
           setIsReLoad={setIsReLoad}
-          hideModalUpdate={toggleModalUpdate} deleteImage={() => {}}
+          hideModalUpdate={toggleModalUpdate}
+          deleteImage={() => {}}
         />
       )}
     </>

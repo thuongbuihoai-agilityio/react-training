@@ -6,6 +6,7 @@ import mockAxios from "@/__mocks__/axios";
 import { PRODUCT_CRUD } from "@/constants/url";
 import { PRODUCT_MOCKING } from "@/constants/product";
 import { update } from "@/helpers/fetchApi";
+import ModalUpdate from "@/components/Modal/ModalUpdate/ModalUpdate";
 
 jest.mock("react", () => ({
   ...jest.requireActual("react"),
@@ -13,9 +14,10 @@ jest.mock("react", () => ({
 }));
 
 describe("ProductDetail component", () => {
+  const updateProduct = jest.fn();
   beforeEach(()=>{
     (useState as jest.Mock).mockImplementation(jest.requireActual("react").useState);
-  })
+  });
 
   afterEach(() => {
     mockAxios.reset();
@@ -27,6 +29,21 @@ describe("ProductDetail component", () => {
     const result = await update(PRODUCT_URL_CALL, PRODUCT_MOCKING);
     expect(mockAxios.put).toHaveBeenCalledWith(PRODUCT_URL_CALL, PRODUCT_MOCKING);
     expect(result).toEqual(PRODUCT_MOCKING);
+  });
+
+  test("should update product when click Submit", () => {
+    const { getByTestId } = render(
+      <ModalUpdate
+        product={PRODUCT_MOCKING}
+        hideModalUpdate={() => {}}
+        isReload={true}
+        setIsReLoad={updateProduct}
+        deleteImage={() => {}}
+      />
+    );
+    const btnSubmit = getByTestId("btn-yes-modalUpdate");
+    fireEvent.click(btnSubmit);
+    expect(updateProduct).toHaveBeenCalled();
   });
 
   test("should render product detail", () => {

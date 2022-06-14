@@ -8,8 +8,9 @@ import {SearchContext} from "@/context/SearchContext";
 import Categories from "@/components/Categories/Categories";
 import mockAxios from "@/__mocks__/axios";
 import { PRODUCT_MOCKING_LIST } from "@/constants/product";
-import { PRODUCTS_URL } from "@/constants/url";
+import { CATEGORIES_URL, PRODUCTS_URL } from "@/constants/url";
 import { get } from "@/helpers/fetchApi";
+import { CATEGORY_MOCKING_LIST } from "@/constants/categories";
 
 const contextValueMockSearch: Search = {
   setSearchValue: jest.fn(),
@@ -21,11 +22,18 @@ describe("ViewProductItem component", () => {
     mockAxios.reset();
   });
 
-  test("get categories item should call", async () => {
+  test("get product list should call", async () => {
     mockAxios.get.mockResolvedValueOnce({data: PRODUCT_MOCKING_LIST});
     const result = await get(PRODUCTS_URL);
     expect(mockAxios.get).toHaveBeenCalledWith(PRODUCTS_URL);
     expect(result).toEqual(PRODUCT_MOCKING_LIST);
+  });
+
+  test("get categories should call", async () => {
+    mockAxios.get.mockResolvedValueOnce({data: CATEGORY_MOCKING_LIST});
+    const result = await get(CATEGORIES_URL);
+    expect(mockAxios.get).toHaveBeenCalledWith(CATEGORIES_URL);
+    expect(result).toEqual(CATEGORY_MOCKING_LIST);
   });
 
   test("should render product list view component", () => {
