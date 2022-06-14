@@ -100,7 +100,7 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
                 onChange={handleChange}
               />
               <small className="form__error">
-                {formValues?.name?.error ? formValues.name.error : ""}
+                {formValues.name.error ? formValues.name.error : ""}
               </small>
             </div>
             <div className="form-control">
@@ -114,7 +114,7 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
                 onChange={handleChange}
               ></textarea>
               <small className="form__error">
-                {formValues?.description?.error
+                {formValues.description.error
                   ? formValues.description.error
                   : ""}
               </small>
@@ -134,7 +134,7 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
                 ))}
               </select>
               <small className="form__error">
-                {formValues?.categoryId?.error
+                {formValues.categoryId.error
                   ? formValues.categoryId.error
                   : ""}
               </small>
@@ -150,7 +150,7 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
                   onChange={handleChange}
                 />
                 <small className="form__error">
-                  {formValues?.price?.error ? formValues.price.error : ""}
+                  {formValues.price.error ? formValues.price.error : ""}
                 </small>
               </div>
               <div className="form-control">
@@ -163,7 +163,7 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
                   onChange={handleChange}
                 />
                 <small className="form__error">
-                  {formValues?.quantity?.error ? formValues.quantity.error : ""}
+                  {formValues.quantity.error ? formValues.quantity.error : ""}
                 </small>
               </div>
             </div>

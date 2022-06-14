@@ -23,7 +23,7 @@ const ProductGridView: React.FC = () => {
   const { data, mutate } = useSWR(key, fetcher);
 
   const handleClearValidate = () => {
-    (Object?.keys(formValues) as (keyof typeof formValues)[])?.map(
+    (Object.keys(formValues) as (keyof typeof formValues)[]).map(
       (fieldName) => {
         formValues[fieldName].error = "";
       }
