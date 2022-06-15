@@ -17,10 +17,10 @@ const ProductDetails: React.FC = () => {
   const [openModalUpdate, setOpenModalUpdate] = useState(false);
 
   const updateProductDetail = (response: Product) => {
-    if(response) {
+    try {
       setProductDetailNew(response);
-    } else {
-      toast.error(response);
+    } catch (error) {
+      toast.error(error as string);
     }
   }
 
