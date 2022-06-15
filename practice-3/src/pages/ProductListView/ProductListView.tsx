@@ -19,9 +19,9 @@ const ProductListView: React.FC = () => {
   const fetcher = () => get<Product[]>(key);
   const { data } = useSWR(key, fetcher);
 
-  useEffect (() => {
+  useEffect(() => {
     setProducts(data);
-  }, [data])
+  }, [data]);
 
   return (
     <>

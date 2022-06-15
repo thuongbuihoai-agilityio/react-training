@@ -7,6 +7,7 @@ import ModalUpdate from "@/components/Modal/ModalUpdate/ModalUpdate";
 import { ProductContext } from "@/context/ProductContext";
 import { Product } from "@/types/product";
 import "./productDetail.css";
+import { toast } from "react-toastify";
 
 const ProductDetails: React.FC = () => {
   const { products } = useContext(ProductContext);
@@ -16,7 +17,11 @@ const ProductDetails: React.FC = () => {
   const [openModalUpdate, setOpenModalUpdate] = useState(false);
 
   const updateProductDetail = (response: Product) => {
-    setProductDetailNew(response);
+    if(response) {
+      setProductDetailNew(response);
+    } else {
+      toast.error(response);
+    }
   }
 
   const toggleModalUpdate = useCallback(() => {
