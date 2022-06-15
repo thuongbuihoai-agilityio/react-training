@@ -11,13 +11,13 @@ export interface ModalUpdateProps {
   product: Product;
   hideModalUpdate: () => void;
   deleteImage: () => void;
-  updateProductDetail: Function;
+  updateProductDetail: (product: Product) => void;
 }
 
 export interface ModalCreateProps {
   formValues: FormProps;
   setFormValues: Function;
-  hideModalCreate: Function;
+  hideModalCreate: () => void;
   clearValidate: () => void;
   createProduct: (dataProduct: Product) => void;
 }

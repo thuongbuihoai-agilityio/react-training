@@ -1,7 +1,7 @@
+import useSWR from "swr";
 import React, { useContext, useState } from "react";
 import { CategoryProps } from "@/types/category";
 import { SearchContext } from "@/context/SearchContext";
-import useSWR from "swr";
 import { CATEGORIES_URL } from "@/constants/url";
 import { get } from "@/helpers/fetchApi";
 import "./categories.css";
@@ -38,23 +38,21 @@ const Categories: React.FC = () => {
   }
 
   return (
-    <>
-      <div data-testid="categories" className="categories">
-        <p className="categories__title">What are you looking for here?</p>
-        <ul className="categories__list">
-          <li
-            data-testid="category-item"
-            className={`categories__item ${
-              activeId === "" ? "active" : "inactive"
-            }`}
-            onClick={handleDefaultCategory}
-          >
-            All
-          </li>
-          {renderCategoryList(data as [])}
-        </ul>
-      </div>
-    </>
+    <div data-testid="categories" className="categories">
+      <p className="categories__title">What are you looking for here?</p>
+      <ul className="categories__list">
+        <li
+          data-testid="category-item"
+          className={`categories__item ${
+            activeId === "" ? "active" : "inactive"
+          }`}
+          onClick={handleDefaultCategory}
+        >
+          All
+        </li>
+        {renderCategoryList(data as [])}
+      </ul>
+    </div>
   );
 };
 

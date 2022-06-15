@@ -17,12 +17,3 @@ export interface ProductItemProps {
 export interface ProductCardProps {
   product: Product;
 }
-
-export interface ProductUpdateProps {
-  product: Product;
-  setIsReset: Function;
-}
-
-export interface ProductListProps {
-  products: Product[];
-}

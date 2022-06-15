@@ -8,10 +8,10 @@ import { PRODUCTS_URL, PRODUCT_CRUD } from "@/constants/url";
 import { create, get, remove } from "@/helpers/fetchApi";
 import { toast } from "react-toastify";
 import { SUCCESS_MSG } from "@/constants/message";
-import "./productGridView.css";
 import { FormProps } from "@/types/form";
 import FORM_VALUES from "@/constants/form";
 import { ProductContext } from "@/context/ProductContext";
+import "./productGridView.css";
 
 const ProductGridView: React.FC = () => {
   const [openModalCreate, setOpenModalCreate] = useState(false);
