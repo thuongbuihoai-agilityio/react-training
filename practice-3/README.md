@@ -40,7 +40,7 @@
 - Filter Component
 
 # TIMELINE
-- 8 days (May 27, 2022 to July 8, 2022) [Estimation time](https://docs.google.com/document/u/2/d/1h0r3CQPYJ5bXPt9s8JliVdfHOPam_uq-JWzGUM2DVPM/edit?urp=gmail_link#heading=h.qtb0qbofjj5j)
+- 10 days (May 27, 2022 to July 10, 2022) [Estimation time](https://docs.google.com/document/u/2/d/1h0r3CQPYJ5bXPt9s8JliVdfHOPam_uq-JWzGUM2DVPM/edit?urp=gmail_link#heading=h.qtb0qbofjj5j)
 
 # RUN
 ```
