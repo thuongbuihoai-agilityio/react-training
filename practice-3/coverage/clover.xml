@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <coverage generated="1655267086275" clover="3.2.0">
   <project timestamp="1655267086276" name="All files">
+=======
+<coverage generated="1655260690718" clover="3.2.0">
+  <project timestamp="1655260690719" name="All files">
+>>>>>>> 573bb560e2bc75248d51c0965b36eb4efb44d5c8
     <metrics statements="453" coveredstatements="406" conditionals="40" coveredconditionals="32" methods="98" coveredmethods="79" elements="591" coveredelements="517" complexity="0" loc="453" ncloc="453" packages="30" files="57" classes="57"/>
     <package name="App">
       <metrics statements="18" coveredstatements="18" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="7"/>
