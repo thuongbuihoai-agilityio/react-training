@@ -1,3 +1,4 @@
+import useSWR, { Key } from "swr";
 import React, { ChangeEvent, useState } from "react";
 import { ModalCreateProps } from "@/types/modal";
 import { CategoryProps } from "@/types/category";
@@ -6,7 +7,6 @@ import FORM_VALUES from "@/constants/form";
 import { validate } from "@/helpers/validate";
 import { setFieldsValue } from "@/helpers/index";
 import { Product } from "@/types/product";
-import useSWR, { Key } from "swr";
 import { CATEGORIES_URL } from "@/constants/url";
 import { get } from "@/helpers/fetchApi";
 import "../modal.css";
@@ -16,7 +16,7 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
   createProduct,
   formValues,
   setFormValues,
-  handleClearValidate
+  clearValidate
 }) => {
   const [newProduct, setNewProduct] = useState([]);
   const key: Key = CATEGORIES_URL;
@@ -26,7 +26,7 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
 
   const handleModal = () => {
     hideModalCreate();
-    handleClearValidate();
+    clearValidate();
   }
 
   const handleCreateProduct = () => {

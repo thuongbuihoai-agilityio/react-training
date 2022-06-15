@@ -16,7 +16,7 @@ jest.mock("react", () => ({
 
 describe("Modal create component", () => {
   const hideModalUpdate = jest.fn();
-  const updateProduct = jest.fn();
+  const updateProductDetail = jest.fn();
   const deleteImages = jest.fn();
   const someValues = [{ name: "cheese pocket" }];
   const setup = () => {
@@ -24,9 +24,8 @@ describe("Modal create component", () => {
       <ModalUpdate
         product={PRODUCT_MOCKING}
         hideModalUpdate={() => {}}
-        isReload={true}
-        setIsReLoad={() => {}}
         deleteImage={() => {}}
+        updateProductDetail={() => {}}
       />
     );
     const input = utils.getByTestId("change-value-name") as HTMLInputElement;
@@ -57,9 +56,8 @@ describe("Modal create component", () => {
       <ModalUpdate
         product={PRODUCT_MOCKING}
         hideModalUpdate={() => {}}
-        isReload={true}
-        setIsReLoad={() => {}}
         deleteImage={() => {}}
+        updateProductDetail={() => {}}
       />
     );
     const str = JSON.stringify(someValues);
@@ -80,9 +78,8 @@ describe("Modal create component", () => {
       <ModalUpdate
         product={PRODUCT_MOCKING}
         hideModalUpdate={() => {}}
-        isReload={true}
-        setIsReLoad={() => {}}
         deleteImage={deleteImages()}
+        updateProductDetail={() => {}}
       />
     );
     const deleteImage = getByTestId("delete-image");
@@ -113,8 +110,9 @@ describe("Modal create component", () => {
       <ModalUpdate
         product={PRODUCT_MOCKING}
         hideModalUpdate={() => {}}
-        isReload={true}
-        setIsReLoad={() => {}} deleteImage={() => {}} />
+        deleteImage={() => {}}
+        updateProductDetail={() => {}}
+      />
     );
     expect(getByTestId("modal-update")).toBeInTheDocument();
   });
@@ -124,9 +122,8 @@ describe("Modal create component", () => {
       <ModalUpdate
         product={PRODUCT_MOCKING}
         hideModalUpdate={hideModalUpdate}
-        isReload={true}
-        setIsReLoad={() => {}}
         deleteImage={() => {}}
+        updateProductDetail={() => {}}
       />
     );
     const hideModal = getByTestId("btn-no-modalUpdate");
@@ -138,20 +135,25 @@ describe("Modal create component", () => {
     const { getByTestId } = render(
       <ModalUpdate
         product={PRODUCT_MOCKING}
-        hideModalUpdate={() => {}}
-        isReload={true}
-        setIsReLoad={updateProduct}
+        hideModalUpdate={updateProductDetail}
         deleteImage={() => {}}
+        updateProductDetail={() => {}}
       />
     );
     const btnSubmit = getByTestId("btn-yes-modalUpdate");
     fireEvent.click(btnSubmit);
-    expect(updateProduct).toHaveBeenCalled();
+    expect(updateProductDetail).toHaveBeenCalled();
   });
 
   test("matches snapshot", () => {
-    const { asFragment } = render(<ModalUpdate product={PRODUCT_MOCKING}
-    hideModalUpdate={() => { } } isReload={true} setIsReLoad={() => { } } deleteImage={() => {}} />);
+    const { asFragment } = render(
+      <ModalUpdate
+        product={PRODUCT_MOCKING}
+        hideModalUpdate={() => {}}
+        deleteImage={() => {}}
+        updateProductDetail={() => {}}
+      />
+    );
     expect(asFragment()).toMatchSnapshot();
   });
 });

@@ -9,16 +9,15 @@ export interface ModalDeleteProps {
 
 export interface ModalUpdateProps {
   product: Product;
-  isReload: Boolean;
-  setIsReLoad: Function;
   hideModalUpdate: () => void;
   deleteImage: () => void;
+  updateProductDetail: (product: Product) => void;
 }
 
 export interface ModalCreateProps {
   formValues: FormProps;
   setFormValues: Function;
-  hideModalCreate: Function;
-  handleClearValidate: Function;
+  hideModalCreate: () => void;
+  clearValidate: () => void;
   createProduct: (dataProduct: Product) => void;
 }

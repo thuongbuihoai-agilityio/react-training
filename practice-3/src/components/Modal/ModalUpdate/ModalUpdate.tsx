@@ -12,9 +12,8 @@ import "../modal.css";
 
 const ModalUpdate: React.FC<ModalUpdateProps> = ({
   product,
-  isReload,
-  setIsReLoad,
   hideModalUpdate,
+  updateProductDetail,
 }) => {
   const key: Key = CATEGORIES_URL;
   const fetcher = () => get<Product[]>(CATEGORIES_URL);
@@ -32,9 +31,9 @@ const ModalUpdate: React.FC<ModalUpdateProps> = ({
       images: productData.images,
     };
     try {
-      update(`${PRODUCT_CRUD}/${id}`, productEdit);
+      const response = await update(`${PRODUCT_CRUD}/${id}`, productEdit);
       mutate();
-      setIsReLoad(!isReload);
+      updateProductDetail(response.data);
       toast.success(SUCCESS_MSG.MESSAGE_UPDATE_PRODUCT);
     } catch (error) {
       toast.error((error as any).message);

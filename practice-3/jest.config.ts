@@ -18,7 +18,6 @@ const config: Config.InitialOptions = {
     "shared",
     "src",
   ],
-  // setupFilesAfterEnv: ["./test/setupTest.js", "./test/matchMedia.js", "jest-canvas-mock"],
   moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
   modulePaths: ["node_modules", "<rootDir>/src", "/shared/vendor/modules"],
   transformIgnorePatterns: [
