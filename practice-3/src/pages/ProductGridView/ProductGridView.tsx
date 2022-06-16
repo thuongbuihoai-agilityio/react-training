@@ -15,12 +15,15 @@ import "./productGridView.css";
 const ProductGridView: React.FC = () => {
   const [openModalCreate, setOpenModalCreate] = useState(false);
   const { searchValue } = useContext(SearchContext);
+  // create state to set form values
   const [formValues, setFormValues] = useState<FormProps>(FORM_VALUES);
 
+  // URLSearchParams: convert searchValue to string => handle search
   const queryParams: URLSearchParams = new URLSearchParams(searchValue);
   const key: Key = PRODUCTS_URL + queryParams.toString();
   const { data, mutate } = useSWR(key, getData<Product[]>);
 
+  // handle clear validate
   const handleClearValidate = () => {
     (Object.keys(formValues) as (keyof typeof formValues)[]).map(
       (fieldName) => {
@@ -29,6 +32,7 @@ const ProductGridView: React.FC = () => {
     );
   };
 
+  // create product
   const createProduct = async (productData: Product) => {
     const newProduct: Product = {
       id: new Date().valueOf().toString(),
@@ -48,6 +52,7 @@ const ProductGridView: React.FC = () => {
     }
   };
 
+  // delete product
   const deleteProduct = async (id: string) => {
     try {
       await remove(`${PRODUCT_CRUD}/${id}`);
@@ -58,7 +63,8 @@ const ProductGridView: React.FC = () => {
     }
   };
 
-  const toggleModalUpdate = useCallback(() => {
+  // handle toggle modal create
+  const toggleModalCreate = useCallback(() => {
     setOpenModalCreate(!openModalCreate);
     handleClearValidate();
   }, [openModalCreate]);
@@ -69,7 +75,7 @@ const ProductGridView: React.FC = () => {
         <button
           data-testid="open-modal"
           className="btn btn__add"
-          onClick={toggleModalUpdate}
+          onClick={toggleModalCreate}
         >
           Add new product
         </button>
@@ -88,7 +94,7 @@ const ProductGridView: React.FC = () => {
             formValues={formValues}
             setFormValues={setFormValues}
             createProduct={createProduct}
-            hideModalCreate={toggleModalUpdate}
+            hideModalCreate={toggleModalCreate}
             clearValidate={handleClearValidate}
           />
         )}
