@@ -9,18 +9,13 @@ import Categories from "@/components/Categories/Categories";
 import mockAxios from "@/__mocks__/axios";
 import { PRODUCT_MOCKING_LIST } from "@/constants/product";
 import { CATEGORIES_URL, PRODUCTS_URL } from "@/constants/url";
-import { get } from "@/helpers/fetchApi";
+import { getData } from "@/helpers/fetchApi";
 import { CATEGORY_MOCKING_LIST } from "@/constants/categories";
 import Button from "@/components/common/Button/Button";
-import { ProductContext } from "@/context/ProductContext";
 
 const contextValueMockSearch: Search = {
   setSearchValue: jest.fn(),
   searchValue: "",
-};
-
-const productContextMock = {
-  setProducts: jest.fn(),
 };
 
 describe("Product list view component", () => {
@@ -30,14 +25,14 @@ describe("Product list view component", () => {
 
   test("get product list should call", async () => {
     mockAxios.get.mockResolvedValueOnce({ data: PRODUCT_MOCKING_LIST });
-    const result = await get(PRODUCTS_URL);
+    const result = await getData(PRODUCTS_URL);
     expect(mockAxios.get).toHaveBeenCalledWith(PRODUCTS_URL);
     expect(result).toEqual(PRODUCT_MOCKING_LIST);
   });
 
   test("get categories should call", async () => {
     mockAxios.get.mockResolvedValueOnce({ data: CATEGORY_MOCKING_LIST });
-    const result = await get(CATEGORIES_URL);
+    const result = await getData(CATEGORIES_URL);
     expect(mockAxios.get).toHaveBeenCalledWith(CATEGORIES_URL);
     expect(result).toEqual(CATEGORY_MOCKING_LIST);
   });
@@ -45,11 +40,9 @@ describe("Product list view component", () => {
   test("should render product list view component", () => {
     const history = createMemoryHistory();
     const { getByTestId } = render(
-      <ProductContext.Provider value={productContextMock}>
         <Router location={history.location} navigator={history}>
           <ViewProductList />
         </Router>
-      </ProductContext.Provider>
     );
     expect(getByTestId("view-product-list")).toBeInTheDocument();
   });
@@ -83,11 +76,9 @@ describe("Product list view component", () => {
   test("matches snapshot", () => {
     const history = createMemoryHistory();
     const { asFragment } = render(
-      <ProductContext.Provider value={productContextMock}>
         <Router location={history.location} navigator={history}>
           <ViewProductList />
         </Router>
-      </ProductContext.Provider>
     );
     expect(asFragment()).toMatchSnapshot();
   });
