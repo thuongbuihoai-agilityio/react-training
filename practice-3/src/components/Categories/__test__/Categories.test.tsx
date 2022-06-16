@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import { fireEvent, render } from "@testing-library/react";
 import { SearchContext } from "@/context/SearchContext";
 import Categories from "../Categories";
 import "@testing-library/jest-dom";
@@ -7,7 +7,7 @@ import mockAxios from "@/__mocks__/axios";
 import { CATEGORY_MOCKING_LIST } from "@/constants/categories";
 import { get } from "@/helpers/fetchApi";
 import { CATEGORIES_URL } from "@/constants/url";
-import { Action, Search, SearchAction, SearchState } from "@/types/search";
+import { Action, Search, SearchState } from "@/types/search";
 import { searchReducer } from "@/reducer/searchReducer";
 
 const contextValueMock: Search = {
