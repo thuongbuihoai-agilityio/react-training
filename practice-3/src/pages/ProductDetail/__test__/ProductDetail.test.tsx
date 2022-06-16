@@ -7,16 +7,11 @@ import { PRODUCT_CRUD } from "@/constants/url";
 import { PRODUCT_MOCKING } from "@/constants/product";
 import { update } from "@/helpers/fetchApi";
 import ModalUpdate from "@/components/Modal/ModalUpdate/ModalUpdate";
-import { ProductContext } from "@/context/ProductContext";
 
 jest.mock("react", () => ({
   ...jest.requireActual("react"),
   useState: jest.fn(),
 }));
-
-const productContextMock = {
-  setProducts: jest.fn(),
-};
 
 describe("Product detail component", () => {
   const updateProduct = jest.fn();
@@ -72,18 +67,14 @@ describe("Product detail component", () => {
 
   test("should render product detail", () => {
     const { getByTestId } = render(
-      <ProductContext.Provider value={productContextMock}>
         <ProductDetails />
-      </ProductContext.Provider>
     );
     expect(getByTestId("product-detail-page")).toBeInTheDocument();
   });
 
   test("should open modal when click button edit", () => {
     const { getByTestId } = render(
-      <ProductContext.Provider value={productContextMock}>
         <ProductDetails />
-      </ProductContext.Provider>
     );
     const btnOpenModal = getByTestId("open-modal-update");
     fireEvent.click(btnOpenModal);
@@ -92,9 +83,7 @@ describe("Product detail component", () => {
 
   test("matches snapshot", () => {
     const { asFragment } = render(
-      <ProductContext.Provider value={productContextMock}>
         <ProductDetails />
-      </ProductContext.Provider>
     );
     expect(asFragment()).toMatchSnapshot();
   });
