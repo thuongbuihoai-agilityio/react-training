@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const get = async <T>(url: string) => {
+const getData = async <T>(url: string) => {
   const res = await axios.get<T>(url);
   return res.data;
 };
@@ -21,7 +21,7 @@ const remove = async (id: string) => {
 }
 
 export {
-  get,
+  getData,
   create,
   update,
   remove
