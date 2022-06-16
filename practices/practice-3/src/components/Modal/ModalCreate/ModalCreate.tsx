@@ -19,20 +19,25 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
   clearValidate
 }) => {
   const [newProduct, setNewProduct] = useState([]);
+  // fetch data with useSWR
   const key: Key = CATEGORIES_URL;
   const { data } = useSWR(key, getData<Product[]>);
+  // create state to handle select file image
   const [selectedFile, setSelectedFile] = useState([]);
 
+  // handle modal
   const handleModal = () => {
     hideModalCreate();
     clearValidate();
   }
 
+  // handle create product
   const handleCreateProduct = () => {
     const images: string[] = [];
     for (let i = 0; i < selectedFile.length; i++) {
       images.push(selectedFile[i]);
     }
+    // validate form
     setFormValues(validate(formValues));
     const temp = (Object.keys(formValues) as (keyof typeof formValues)[]).map(
       (fieldName) => {
@@ -42,6 +47,7 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
       }
     );
 
+    // check validate if pass then create product
     if (!temp.includes(false)) {
       createProduct({ images, ...newProduct } as unknown as Product);
       setFormValues(FORM_VALUES);
@@ -49,6 +55,7 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
     }
   };
 
+  // handle change value
   const handleChange = (event: { target: { value: string; name: string } }) => {
     const value = event.target.value;
     const fieldName = event.target.name;
@@ -56,6 +63,7 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
     setFormValues(setFieldsValue(formValues, value, fieldName));
   };
 
+  // handle change image
   const imageChange = async (event: ChangeEvent<HTMLInputElement>) => {
     const files = event.target.files;
     if (files) {
@@ -66,6 +74,7 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
     }
   };
 
+  // handle delete image
   const handleDeleteImage = (event: { target: EventTarget }) => {
     const target = event.target as Element;
     const indexOfArr = selectedFile.findIndex(

@@ -11,7 +11,8 @@ const ProductGridCard: React.FC<ProductItemProps> = memo(({
   deleteProduct,
 }) => {
   const [openModalDelete, setOpenModalDelete] = useState(false);
-  const toggleModalUpdate = useCallback(() => {
+  // handle toggle modal delete
+  const toggleModalDelete = useCallback(() => {
     setOpenModalDelete(!openModalDelete);
   }, [openModalDelete]);
 
@@ -21,7 +22,7 @@ const ProductGridCard: React.FC<ProductItemProps> = memo(({
         <img className="product__image" src={product.images[0]} />
         <button
           data-testid="open-modal-delete"
-          onClick={toggleModalUpdate}
+          onClick={toggleModalDelete}
           className="btn btn__delete"
         >
           <i className="fa fa-trash"></i>
@@ -36,7 +37,7 @@ const ProductGridCard: React.FC<ProductItemProps> = memo(({
           <ModalDelete
             id={product.id}
             deleteProduct={deleteProduct}
-            hideModalDelete={toggleModalUpdate}
+            hideModalDelete={toggleModalDelete}
           />
         )}
       </div>

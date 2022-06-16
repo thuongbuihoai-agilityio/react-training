@@ -15,9 +15,12 @@ const ModalUpdate: React.FC<ModalUpdateProps> = ({
   hideModalUpdate,
   updateProductDetail,
 }) => {
+  // fetch data with useSWR
   const key: Key = CATEGORIES_URL;
   const { data, mutate } = useSWR(key,  getData<Product[]>);
+  // create state to handle select file image
   const [selectedFile, setSelectedFile] = useState([]);
+  // create state to update product
   const [productEdit, setProductEdit] = useState(product);
   const updateProduct = async (id: string, productData: Product) => {
     const productEdit: Product = {
@@ -39,6 +42,7 @@ const ModalUpdate: React.FC<ModalUpdateProps> = ({
     }
   };
 
+  // handle update product
   const handleUpdateProduct = async (id: string, productEdit: Product) => {
     for (let i = 0; i < selectedFile.length; i++) {
       productEdit.images.push(selectedFile[i]);
@@ -47,12 +51,14 @@ const ModalUpdate: React.FC<ModalUpdateProps> = ({
     hideModalUpdate();
   };
 
+  // handle change value
   const handleChange = (event: { target: { value: {}; name: string } }) => {
     const value = event.target.value;
     const key = event.target.name;
     setProductEdit({ ...productEdit, [key]: value });
   };
 
+  // handle change image
   const imageChange = async (event: ChangeEvent<HTMLInputElement>) => {
     const files = event.target.files;
     if (files) {
@@ -63,6 +69,7 @@ const ModalUpdate: React.FC<ModalUpdateProps> = ({
     }
   };
 
+  // handle delete image
   const handleDeleteImage = (event: { target: EventTarget }) => {
     const target = event.target as Element;
     const indexOfArr = productEdit.images.findIndex(
