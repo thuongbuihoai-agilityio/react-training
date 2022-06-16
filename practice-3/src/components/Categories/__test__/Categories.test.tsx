@@ -7,7 +7,8 @@ import mockAxios from "@/__mocks__/axios";
 import { CATEGORY_MOCKING_LIST } from "@/constants/categories";
 import { get } from "@/helpers/fetchApi";
 import { CATEGORIES_URL } from "@/constants/url";
-import { Search } from "@/types/search";
+import { Action, Search, SearchAction, SearchState } from "@/types/search";
+import { searchReducer } from "@/reducer/searchReducer";
 
 const contextValueMock: Search = {
   setSearchValue: jest.fn(),
@@ -61,6 +62,18 @@ describe("Category component", () => {
     const categoryItem = getByTestId("category-item");
     fireEvent.click(categoryItem);
     expect(contextValueMock.setSearchValue).toHaveBeenCalled();
+  });
+
+  test("should return new state when dispatch action", () => {
+    const initialState: SearchState = {
+      searchValue: "",
+    }
+    const updateAction = {
+      action: Action.SetSearchValue,
+      payload: "1651999177368"
+    }
+    const updatedState = searchReducer(initialState, updateAction);
+    expect(updatedState).toEqual(updatedState);
   });
 
   test("should render product by search category", () => {

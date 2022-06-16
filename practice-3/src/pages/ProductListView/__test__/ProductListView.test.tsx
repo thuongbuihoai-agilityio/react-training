@@ -23,7 +23,7 @@ const productContextMock = {
   setProducts: jest.fn(),
 };
 
-describe("ViewProductItem component", () => {
+describe("Product list view component", () => {
   afterEach(() => {
     mockAxios.reset();
   });

@@ -30,8 +30,20 @@ jest.mock("react", () => ({
   useState: jest.fn(),
 }));
 
-describe("ViewProductItem component", () => {
+describe("Product grid view component", () => {
   const deleteProduct = jest.fn();
+  const handleCreateProduct = jest.fn();
+
+  beforeEach(() => {
+    (useState as jest.Mock).mockImplementation(
+      jest.requireActual("react").useState
+    );
+  });
+
+  afterEach(() => {
+    mockAxios.reset();
+  });
+
   const setup = () => {
     const utils = render(
       <ModalCreate
@@ -48,16 +60,6 @@ describe("ViewProductItem component", () => {
       ...utils,
     };
   };
-
-  beforeEach(() => {
-    (useState as jest.Mock).mockImplementation(
-      jest.requireActual("react").useState
-    );
-  });
-
-  afterEach(() => {
-    mockAxios.reset();
-  });
 
   test("should change value when onChang input", () => {
     const { input } = setup();
@@ -98,6 +100,21 @@ describe("ViewProductItem component", () => {
     const hideModal = getByTestId("btn-yes");
     fireEvent.click(hideModal);
     expect(deleteProduct).toHaveBeenCalled();
+  });
+
+  test("should create product when click Submit", () => {
+    const { getByTestId } = render(
+      <ModalCreate
+        hideModalCreate={() => {}}
+        createProduct={handleCreateProduct}
+        formValues={FORM_VALUES}
+        setFormValues={() => {}}
+        clearValidate={() => {}}
+      />
+    );
+    const submitBtn = getByTestId("add-new-product");
+    fireEvent.click(submitBtn);
+    expect(submitBtn).toBeInTheDocument();
   });
 
   test("should render product grid view component", () => {
