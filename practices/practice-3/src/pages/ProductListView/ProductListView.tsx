@@ -1,27 +1,20 @@
 import useSWR, { Key } from "swr";
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Product } from "@/types/product";
-import { get } from "@/helpers/fetchApi";
+import { getData } from "@/helpers/fetchApi";
 import { PRODUCTS_URL } from "@/constants/url";
 import Button from "@/components/common/Button/Button";
 import { SearchContext } from "@/context/SearchContext";
 import ProductListCard from "../ProductListCard/ProductListCard";
-import { ProductContext } from "@/context/ProductContext";
 import "./productListView.css";
 
 const ProductListView: React.FC = () => {
   const { searchValue } = useContext(SearchContext);
-  const { setProducts } = useContext(ProductContext);
-
   const queryParams: URLSearchParams = new URLSearchParams(searchValue);
   const key: Key = PRODUCTS_URL + queryParams.toString();
-  const fetcher = () => get<Product[]>(key);
-  const { data } = useSWR(key, fetcher);
-
-  useEffect(() => {
-    setProducts(data);
-  }, [data]);
+  const { data } = useSWR(key, getData<Product[]>);
+  console.log("key cate", key, queryParams.toString());
 
   return (
     <>
