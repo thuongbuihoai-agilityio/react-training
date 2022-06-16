@@ -1,41 +1,52 @@
-import React, { useCallback, useContext, useState } from "react";
+import axios from "axios";
+import React, { useCallback, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Price from "@/components/Price/Price";
 import Title from "@/components/common/Title/Title";
 import Text from "@/components/Text/Text";
 import ModalUpdate from "@/components/Modal/ModalUpdate/ModalUpdate";
-import { ProductContext } from "@/context/ProductContext";
 import { Product } from "@/types/product";
 import { toast } from "react-toastify";
+import { PRODUCT_CRUD } from "@/constants/url";
 import "./productDetail.css";
 
 const ProductDetails: React.FC = () => {
-  const { products } = useContext(ProductContext);
   const { id } = useParams();
-  const dataEl = products?.find((item: { id: string }) => item.id === id);
-  const [productDetailNew, setProductDetailNew] = useState(dataEl);
+  const [product, setProduct] = useState<Product>();
   const [openModalUpdate, setOpenModalUpdate] = useState(false);
 
   const updateProductDetail = (response: Product) => {
     try {
-      setProductDetailNew(response);
+      setProduct(response);
     } catch (error) {
       toast.error(error as string);
     }
-  }
+  };
 
   const toggleModalUpdate = useCallback(() => {
     setOpenModalUpdate(!openModalUpdate);
   }, [openModalUpdate]);
 
+  const fetchDataById = async () => {
+    try {
+      const response = await axios.get(PRODUCT_CRUD + `${id}`);
+      setProduct(response.data);
+    } catch (error) {
+      toast.error(error as string);
+    }
+  };
+  useEffect(() => {
+    fetchDataById();
+  }, []);
+
   return (
     <>
       <div data-testid="product-detail-page" className="productDetails">
         <div className="productDetails__img--left">
-          <img className="product__image" src={productDetailNew?.images[0]} />
+          <img className="product__image" src={product?.images[0]} />
         </div>
         <div className="productDetails__img--right">
-          {productDetailNew?.images.map((img: string, key: number) => (
+          {product?.images.map((img: string, key: number) => (
             <img key={key} src={img} alt="This is image" />
           ))}
         </div>
@@ -43,7 +54,7 @@ const ProductDetails: React.FC = () => {
           <div className="productDetail__update">
             <Title
               className="productDetail__title"
-              text={productDetailNew?.name}
+              text={product?.name ?? ""}
             />
             <button
               data-testid="open-modal-update"
@@ -55,20 +66,20 @@ const ProductDetails: React.FC = () => {
           </div>
           <Price
             className="productDetail__price"
-            value={productDetailNew?.price}
+            value={product?.price ?? +""}
           />
           <input
             className="productDetails__input"
             min={0}
             type="number"
-            value={productDetailNew?.quantity}
+            value={product?.quantity}
           />
-          <Text text={productDetailNew?.description} />
+          <Text text={product?.description ?? ""} />
         </div>
       </div>
       {openModalUpdate && (
         <ModalUpdate
-          product={productDetailNew}
+          product={product!}
           hideModalUpdate={toggleModalUpdate}
           updateProductDetail={updateProductDetail}
           deleteImage={() => {}}
