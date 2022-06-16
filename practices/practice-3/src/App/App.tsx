@@ -18,7 +18,6 @@ const ProductDetails = lazy(() => import("@/pages/ProductDetail/ProductDetail"))
 const App: React.FC = memo(() => {
   return (
     <SWRConfig value={{ revalidateOnFocus: false }}>
-      <ToastContainer />
       <Header />
       <AppProvider>
         <Navigation />
@@ -32,6 +31,7 @@ const App: React.FC = memo(() => {
         </Suspense>
       </AppProvider>
       <Footer />
+      <ToastContainer />
     </SWRConfig>
   );
 });
