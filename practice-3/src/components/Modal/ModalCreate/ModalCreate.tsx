@@ -8,7 +8,7 @@ import { validate } from "@/helpers/validate";
 import { setFieldsValue } from "@/helpers/index";
 import { Product } from "@/types/product";
 import { CATEGORIES_URL } from "@/constants/url";
-import { get } from "@/helpers/fetchApi";
+import { getData } from "@/helpers/fetchApi";
 import "../modal.css";
 
 const ModalCreate: React.FC<ModalCreateProps> = ({
@@ -20,8 +20,7 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
 }) => {
   const [newProduct, setNewProduct] = useState([]);
   const key: Key = CATEGORIES_URL;
-  const fetcher = () => get<Product[]>(CATEGORIES_URL);
-  const { data } = useSWR(key, fetcher);
+  const { data } = useSWR(key, getData<Product[]>);
   const [selectedFile, setSelectedFile] = useState([]);
 
   const handleModal = () => {

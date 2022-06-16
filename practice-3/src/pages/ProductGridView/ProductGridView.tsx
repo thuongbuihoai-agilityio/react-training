@@ -1,28 +1,25 @@
 import useSWR, { Key } from "swr";
-import React, { useCallback, useContext, useEffect, useState } from "react";
+import React, { useCallback, useContext, useState } from "react";
 import ModalCreate from "@/components/Modal/ModalCreate/ModalCreate";
 import { Product } from "@/types/product";
 import ProductGridCard from "../ProductGridCard/ProductGridCard";
 import { SearchContext } from "@/context/SearchContext";
 import { PRODUCTS_URL, PRODUCT_CRUD } from "@/constants/url";
-import { create, get, remove } from "@/helpers/fetchApi";
+import { create, getData, remove } from "@/helpers/fetchApi";
 import { toast } from "react-toastify";
 import { SUCCESS_MSG } from "@/constants/message";
 import { FormProps } from "@/types/form";
 import FORM_VALUES from "@/constants/form";
-import { ProductContext } from "@/context/ProductContext";
 import "./productGridView.css";
 
 const ProductGridView: React.FC = () => {
   const [openModalCreate, setOpenModalCreate] = useState(false);
   const { searchValue } = useContext(SearchContext);
-  const { setProducts } = useContext(ProductContext);
   const [formValues, setFormValues] = useState<FormProps>(FORM_VALUES);
 
   const queryParams: URLSearchParams = new URLSearchParams(searchValue);
   const key: Key = PRODUCTS_URL + queryParams.toString();
-  const fetcher = () => get<Product[]>(key);
-  const { data, mutate } = useSWR(key, fetcher);
+  const { data, mutate } = useSWR(key, getData<Product[]>);
 
   const handleClearValidate = () => {
     (Object.keys(formValues) as (keyof typeof formValues)[]).map(
@@ -31,10 +28,6 @@ const ProductGridView: React.FC = () => {
       }
     );
   };
-
-  useEffect (() => {
-    setProducts(data);
-  }, [data])
 
   const createProduct = async (productData: Product) => {
     const newProduct: Product = {

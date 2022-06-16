@@ -4,7 +4,7 @@ import { ModalUpdateProps } from "@/types/modal";
 import { CategoryProps } from "@/types/category";
 import { Product } from "@/types/product";
 import getBase64 from "@/helpers/getBase64";
-import { get, update } from "@/helpers/fetchApi";
+import { getData, update } from "@/helpers/fetchApi";
 import { CATEGORIES_URL, PRODUCT_CRUD } from "@/constants/url";
 import { SUCCESS_MSG } from "@/constants/message";
 import { toast } from "react-toastify";
@@ -16,8 +16,7 @@ const ModalUpdate: React.FC<ModalUpdateProps> = ({
   updateProductDetail,
 }) => {
   const key: Key = CATEGORIES_URL;
-  const fetcher = () => get<Product[]>(CATEGORIES_URL);
-  const { data, mutate } = useSWR(key, fetcher);
+  const { data, mutate } = useSWR(key,  getData<Product[]>);
   const [selectedFile, setSelectedFile] = useState([]);
   const [productEdit, setProductEdit] = useState(product);
   const updateProduct = async (id: string, productData: Product) => {

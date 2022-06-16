@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { memo, useCallback, useState } from "react";
 import { Link } from "react-router-dom";
 import Title from "@/components/common/Title/Title";
 import Price from "@/components/Price/Price";
@@ -6,7 +6,7 @@ import { ProductItemProps } from "@/types/product";
 import ModalDelete from "@/components/Modal/ModalDelete/ModalDelete";
 import "./productGridCard.css";
 
-const ProductGridCard: React.FC<ProductItemProps> = ({
+const ProductGridCard: React.FC<ProductItemProps> = memo(({
   product,
   deleteProduct,
 }) => {
@@ -42,6 +42,6 @@ const ProductGridCard: React.FC<ProductItemProps> = ({
       </div>
     </>
   );
-};
+});
 
 export default ProductGridCard;

@@ -12,7 +12,7 @@ jest.mock("react", () => ({
   useState: jest.fn(),
 }));
 
-describe("ViewProductItem component", () => {
+describe("Product grid card component", () => {
   const deleteProduct = jest.fn();
   beforeEach(()=>{
     (useState as jest.Mock).mockImplementation(jest.requireActual("react").useState);

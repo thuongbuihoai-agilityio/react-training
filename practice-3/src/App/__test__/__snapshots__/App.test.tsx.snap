@@ -2,9 +2,6 @@
 
 exports[`App component matches snapshot 1`] = `
 <DocumentFragment>
-  <div
-    class="Toastify"
-  />
   <header
     class="header"
     data-testid="header"
@@ -189,5 +186,8 @@ exports[`App component matches snapshot 1`] = `
       Copyright © 2022 — Bakery WordPress Theme by Milingona.
     </p>
   </footer>
+  <div
+    class="Toastify"
+  />
 </DocumentFragment>
 `;

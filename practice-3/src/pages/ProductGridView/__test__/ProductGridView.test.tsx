@@ -5,7 +5,7 @@ import { createMemoryHistory } from "history";
 import { Router } from "react-router-dom";
 import { PRODUCT_MOCKING, PRODUCT_MOCKING_LIST } from "@/constants/product";
 import { PRODUCTS_URL, PRODUCT_CRUD } from "@/constants/url";
-import { create, get, remove } from "@/helpers/fetchApi";
+import { create, getData, remove } from "@/helpers/fetchApi";
 import mockAxios from "@/__mocks__/axios";
 import { Search } from "@/types/search";
 import { SearchContext } from "@/context/SearchContext";
@@ -14,15 +14,10 @@ import { useState } from "react";
 import ModalDelete from "@/components/Modal/ModalDelete/ModalDelete";
 import ModalCreate from "@/components/Modal/ModalCreate/ModalCreate";
 import FORM_VALUES from "@/constants/form";
-import { ProductContext } from "@/context/ProductContext";
 
 const contextValueMockSearch: Search = {
   setSearchValue: jest.fn(),
   searchValue: "",
-};
-
-const productContextMock = {
-  setProducts: jest.fn(),
 };
 
 jest.mock("react", () => ({
@@ -30,8 +25,20 @@ jest.mock("react", () => ({
   useState: jest.fn(),
 }));
 
-describe("ViewProductItem component", () => {
+describe("Product grid view component", () => {
   const deleteProduct = jest.fn();
+  const handleCreateProduct = jest.fn();
+
+  beforeEach(() => {
+    (useState as jest.Mock).mockImplementation(
+      jest.requireActual("react").useState
+    );
+  });
+
+  afterEach(() => {
+    mockAxios.reset();
+  });
+
   const setup = () => {
     const utils = render(
       <ModalCreate
@@ -49,16 +56,6 @@ describe("ViewProductItem component", () => {
     };
   };
 
-  beforeEach(() => {
-    (useState as jest.Mock).mockImplementation(
-      jest.requireActual("react").useState
-    );
-  });
-
-  afterEach(() => {
-    mockAxios.reset();
-  });
-
   test("should change value when onChang input", () => {
     const { input } = setup();
     fireEvent.change(input, { target: { value: "Cheese pocket" } });
@@ -67,7 +64,7 @@ describe("ViewProductItem component", () => {
 
   test("get categories item should call", async () => {
     mockAxios.get.mockResolvedValueOnce({ data: PRODUCT_MOCKING_LIST });
-    const result = await get(PRODUCTS_URL);
+    const result = await getData(PRODUCTS_URL);
     expect(mockAxios.get).toHaveBeenCalledWith(PRODUCTS_URL);
     expect(result).toEqual(PRODUCT_MOCKING_LIST);
   });
@@ -100,14 +97,27 @@ describe("ViewProductItem component", () => {
     expect(deleteProduct).toHaveBeenCalled();
   });
 
+  test("should create product when click Submit", () => {
+    const { getByTestId } = render(
+      <ModalCreate
+        hideModalCreate={() => {}}
+        createProduct={handleCreateProduct}
+        formValues={FORM_VALUES}
+        setFormValues={() => {}}
+        clearValidate={() => {}}
+      />
+    );
+    const submitBtn = getByTestId("add-new-product");
+    fireEvent.click(submitBtn);
+    expect(submitBtn).toBeInTheDocument();
+  });
+
   test("should render product grid view component", () => {
     const history = createMemoryHistory();
     const { getByTestId } = render(
-      <ProductContext.Provider value={productContextMock}>
         <Router location={history.location} navigator={history}>
           <ProductGridView />
         </Router>
-      </ProductContext.Provider>
     );
     expect(getByTestId("product-gird-view")).toBeInTheDocument();
   });
@@ -115,11 +125,9 @@ describe("ViewProductItem component", () => {
   test("should open modal when click button 'Add new product'", () => {
     const history = createMemoryHistory();
     const { getByTestId } = render(
-      <ProductContext.Provider value={productContextMock}>
         <Router location={history.location} navigator={history}>
           <ProductGridView />
         </Router>
-      </ProductContext.Provider>
     );
     const btnOpenModal = getByTestId("open-modal");
     fireEvent.click(btnOpenModal);
@@ -129,11 +137,9 @@ describe("ViewProductItem component", () => {
   test("should create product when pass data", () => {
     const history = createMemoryHistory();
     render(
-      <ProductContext.Provider value={productContextMock}>
         <Router location={history.location} navigator={history}>
           <ProductGridView />
         </Router>
-      </ProductContext.Provider>
     );
     const data = PRODUCT_MOCKING;
     expect(data).toBe(PRODUCT_MOCKING);
@@ -153,11 +159,9 @@ describe("ViewProductItem component", () => {
   test("matches snapshot", () => {
     const history = createMemoryHistory();
     const { asFragment } = render(
-      <ProductContext.Provider value={productContextMock}>
         <Router location={history.location} navigator={history}>
           <ProductGridView />
         </Router>
-      </ProductContext.Provider>
     );
     expect(asFragment()).toMatchSnapshot();
   });

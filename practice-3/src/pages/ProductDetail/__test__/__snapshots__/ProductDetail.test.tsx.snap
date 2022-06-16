@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ProductDetail component matches snapshot 1`] = `
+exports[`Product detail component matches snapshot 1`] = `
 <DocumentFragment>
   <div
     class="productDetails"
@@ -39,7 +39,7 @@ exports[`ProductDetail component matches snapshot 1`] = `
         class="productDetail__price"
         data-testid="price"
       >
-        $
+        $0
       </p>
       <input
         class="productDetails__input"

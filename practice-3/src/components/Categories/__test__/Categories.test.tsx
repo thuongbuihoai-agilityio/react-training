@@ -1,13 +1,14 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import { fireEvent, render } from "@testing-library/react";
 import { SearchContext } from "@/context/SearchContext";
 import Categories from "../Categories";
 import "@testing-library/jest-dom";
 import { useState } from "react";
 import mockAxios from "@/__mocks__/axios";
 import { CATEGORY_MOCKING_LIST } from "@/constants/categories";
-import { get } from "@/helpers/fetchApi";
+import { getData } from "@/helpers/fetchApi";
 import { CATEGORIES_URL } from "@/constants/url";
-import { Search } from "@/types/search";
+import { Action, Search, SearchState } from "@/types/search";
+import { searchReducer } from "@/reducer/searchReducer";
 
 const contextValueMock: Search = {
   setSearchValue: jest.fn(),
@@ -41,7 +42,7 @@ describe("Category component", () => {
 
   test("get categories item should call", async () => {
     mockAxios.get.mockResolvedValueOnce({ data: CATEGORY_MOCKING_LIST });
-    const result = await get(CATEGORIES_URL);
+    const result = await getData(CATEGORIES_URL);
     expect(mockAxios.get).toHaveBeenCalledWith(CATEGORIES_URL);
     expect(result).toEqual(CATEGORY_MOCKING_LIST);
   });
@@ -63,6 +64,18 @@ describe("Category component", () => {
     expect(contextValueMock.setSearchValue).toHaveBeenCalled();
   });
 
+  test("should return new state when dispatch action", () => {
+    const initialState: SearchState = {
+      searchValue: "",
+    };
+    const updateAction = {
+      action: Action.SetSearchValue,
+      payload: "1651999177368",
+    };
+    const updatedState = searchReducer(initialState, updateAction);
+    expect(updatedState).toEqual(updatedState);
+  });
+
   test("should render product by search category", () => {
     const { input } = setup();
     fireEvent.change(input, { target: { id: "1651999177368" } });
@@ -70,7 +83,11 @@ describe("Category component", () => {
   });
 
   test("matches snapshot", () => {
-    const { asFragment } = render(<Categories />);
+    const { asFragment } = render(
+      <SearchContext.Provider value={contextValueMock}>
+        <Categories />
+      </SearchContext.Provider>
+    );
     expect(asFragment()).toMatchSnapshot();
   });
 });
