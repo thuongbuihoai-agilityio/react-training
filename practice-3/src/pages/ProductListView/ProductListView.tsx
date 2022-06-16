@@ -14,7 +14,6 @@ const ProductListView: React.FC = () => {
   const queryParams: URLSearchParams = new URLSearchParams(searchValue);
   const key: Key = PRODUCTS_URL + queryParams.toString();
   const { data } = useSWR(key, getData<Product[]>);
-  console.log("key cate", key, queryParams.toString());
 
   return (
     <>
