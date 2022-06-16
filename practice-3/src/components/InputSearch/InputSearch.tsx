@@ -3,8 +3,10 @@ import { SearchContext } from "@/context/SearchContext";
 import "./inputSearch.css";
 
 const InputSearch: React.FC = memo(() => {
+  // handle search with SearchContext
   const { setSearchValue } = useContext(SearchContext);
   const handleSearch = (e: { target: { value: string } }) => {
+    // get current name
     const nameLike = { name_like: e.target.value };
     setSearchValue?.(nameLike);
   };

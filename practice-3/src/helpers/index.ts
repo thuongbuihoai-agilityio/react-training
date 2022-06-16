@@ -1,3 +1,4 @@
+// handle validate field value
 const setFieldsValue = (fieldsValue: any, value: string, fieldName: string) => {
   const fieldData = fieldsValue[fieldName];
   return {

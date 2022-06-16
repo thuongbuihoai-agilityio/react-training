@@ -11,10 +11,12 @@ import { PRODUCT_CRUD } from "@/constants/url";
 import "./productDetail.css";
 
 const ProductDetails: React.FC = () => {
+  // use useParams to get id
   const { id } = useParams();
   const [product, setProduct] = useState<Product>();
   const [openModalUpdate, setOpenModalUpdate] = useState(false);
 
+  // update product detail
   const updateProductDetail = (response: Product) => {
     try {
       setProduct(response);
@@ -23,10 +25,12 @@ const ProductDetails: React.FC = () => {
     }
   };
 
+  // handle toggle modal update
   const toggleModalUpdate = useCallback(() => {
     setOpenModalUpdate(!openModalUpdate);
   }, [openModalUpdate]);
 
+  // fetch data by id
   const fetchDataById = async () => {
     try {
       const response = await axios.get(PRODUCT_CRUD + `${id}`);

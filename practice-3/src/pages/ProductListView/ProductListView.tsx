@@ -11,6 +11,7 @@ import "./productListView.css";
 
 const ProductListView: React.FC = () => {
   const { searchValue } = useContext(SearchContext);
+  // URLSearchParams: convert searchValue to string => handle search
   const queryParams: URLSearchParams = new URLSearchParams(searchValue);
   const key: Key = PRODUCTS_URL + queryParams.toString();
   const { data } = useSWR(key, getData<Product[]>);

@@ -7,15 +7,20 @@ import { getData } from "@/helpers/fetchApi";
 import "./categories.css";
 
 const Categories: React.FC = memo(() => {
+  // fetch data with useSWR
   const { data } = useSWR(CATEGORIES_URL, getData);
+  // handle highlight when categoryId selected
   const [activeId, setActiveId] = useState("");
+  // handle search with SearchContext
   const { setSearchValue } = useContext(SearchContext);
   const handleSearch = (id: string) => (e: React.MouseEvent<HTMLElement>) => {
+    // get current categoryId
     const categoryId = { categoryId: e.currentTarget.dataset.index };
     setSearchValue?.(categoryId);
     setActiveId(id);
   };
 
+  // handle search default
   const handleDefaultCategory = () => {
     const categoryId = "";
     setSearchValue?.(categoryId);
