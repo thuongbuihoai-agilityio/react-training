@@ -6,8 +6,8 @@ import Title from "@/components/common/Title/Title";
 import Text from "@/components/Text/Text";
 import ModalUpdate from "@/components/Modal/ModalUpdate/ModalUpdate";
 import { Product } from "@/types/product";
-import { toast } from "react-toastify";
 import { PRODUCT_CRUD } from "@/constants/url";
+import toast from "react-hot-toast";
 import "./productDetail.css";
 
 const ProductDetails: React.FC = () => {

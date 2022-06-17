@@ -6,10 +6,10 @@ import ProductGridCard from "../ProductGridCard/ProductGridCard";
 import { SearchContext } from "@/context/SearchContext";
 import { PRODUCTS_URL, PRODUCT_CRUD } from "@/constants/url";
 import { create, getData, remove } from "@/helpers/fetchApi";
-import { toast } from "react-toastify";
 import { SUCCESS_MSG } from "@/constants/message";
 import { FormProps } from "@/types/form";
 import FORM_VALUES from "@/constants/form";
+import toast from "react-hot-toast";
 import "./productGridView.css";
 
 const ProductGridView: React.FC = () => {
