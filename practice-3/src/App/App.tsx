@@ -2,7 +2,6 @@ import React, { lazy, Suspense } from "react";
 import { memo } from "react";
 import { SWRConfig } from "swr";
 import { Route, Routes } from "react-router-dom";
-import "react-toastify/dist/ReactToastify.css";
 import Categories from "@/components/Categories/Categories";
 import Footer from "@/components/common/Footer/Footer";
 import Header from "@/components/common/Header/Header";
