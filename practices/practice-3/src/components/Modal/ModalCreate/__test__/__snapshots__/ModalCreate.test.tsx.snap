@@ -80,9 +80,11 @@ exports[`Modal create component matches snapshot 1`] = `
               name="categoryId"
             >
               <option
+                disabled=""
+                selected=""
                 value=""
               >
-                Select category
+                Choose a category ...
               </option>
             </select>
             <small
