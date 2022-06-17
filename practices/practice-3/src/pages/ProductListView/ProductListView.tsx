@@ -1,5 +1,5 @@
 import useSWR, { Key } from "swr";
-import React, { useContext } from "react";
+import React, { memo, useContext } from "react";
 import { Link } from "react-router-dom";
 import { Product } from "@/types/product";
 import { getData } from "@/helpers/fetchApi";
@@ -9,7 +9,7 @@ import { SearchContext } from "@/context/SearchContext";
 import ProductListCard from "../ProductListCard/ProductListCard";
 import "./productListView.css";
 
-const ProductListView: React.FC = () => {
+const ProductListView: React.FC = memo(() => {
   const { searchValue } = useContext(SearchContext);
   // URLSearchParams: convert searchValue to string => handle search
   const queryParams: URLSearchParams = new URLSearchParams(searchValue);
@@ -30,6 +30,6 @@ const ProductListView: React.FC = () => {
       </Link>
     </>
   );
-};
+});
 
 export default ProductListView;
