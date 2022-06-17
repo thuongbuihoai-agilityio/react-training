@@ -123,7 +123,7 @@ const ModalUpdate: React.FC<ModalUpdateProps> = ({
                 defaultValue={""}
                 onChange={handleChange}
               >
-                <option defaultValue="" disabled>Choose a category ...</option>
+                <option value="" disabled>Choose a category ...</option>
                 {data?.map(({ id, name }: CategoryProps, index: number) => (
                   <option
                     key={index}
