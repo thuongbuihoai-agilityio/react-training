@@ -76,7 +76,7 @@ const ProductDetails: React.FC = () => {
             className="productDetails__input"
             min={0}
             type="number"
-            value={product?.quantity}
+            defaultValue={product?.quantity}
           />
           <Text text={product?.description ?? ""} />
         </div>
