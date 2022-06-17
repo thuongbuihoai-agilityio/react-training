@@ -2,19 +2,24 @@ import React, { lazy, Suspense } from "react";
 import { memo } from "react";
 import { SWRConfig } from "swr";
 import { Route, Routes } from "react-router-dom";
-import "react-toastify/dist/ReactToastify.css";
-import { ToastContainer } from "react-toastify";
 import Categories from "@/components/Categories/Categories";
 import Footer from "@/components/common/Footer/Footer";
 import Header from "@/components/common/Header/Header";
 import Navigation from "@/components/common/Navigation/Navigation";
 import AppProvider from "@/context/AppContext";
 import Loading from "@/components/common/Loading/Loading";
+import { Toaster } from "react-hot-toast";
 
 // Lazy-loaded
-const ProductListView = lazy(() => import("@/pages/ProductListView/ProductListView"));
-const ProductGridView = lazy(() => import("@/pages/ProductGridView/ProductGridView"));
-const ProductDetails = lazy(() => import("@/pages/ProductDetail/ProductDetail"));
+const ProductListView = lazy(
+  () => import("@/pages/ProductListView/ProductListView")
+);
+const ProductGridView = lazy(
+  () => import("@/pages/ProductGridView/ProductGridView")
+);
+const ProductDetails = lazy(
+  () => import("@/pages/ProductDetail/ProductDetail")
+);
 
 const App: React.FC = memo(() => {
   return (
@@ -31,7 +36,7 @@ const App: React.FC = memo(() => {
         <Suspense fallback={<Loading />}>
           <Routes>
             {/* "/": redirect to ProductListView */}
-            <Route path="/home" element={<ProductListView />} />
+            <Route path="/" element={<ProductListView />} />
             {/* "/products": redirect to ProductGridView */}
             <Route path="/products" element={<ProductGridView />} />
             {/* "/products/:id": redirect to ProductDetails */}
@@ -40,8 +45,8 @@ const App: React.FC = memo(() => {
         </Suspense>
       </AppProvider>
       <Footer />
-      {/* ToastContainer: library show message */}
-      <ToastContainer />
+      {/* Toaster: library show message */}
+      <Toaster position="top-center" />
     </SWRConfig>
   );
 });
