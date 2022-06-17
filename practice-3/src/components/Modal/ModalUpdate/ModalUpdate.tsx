@@ -7,7 +7,7 @@ import getBase64 from "@/helpers/getBase64";
 import { getData, update } from "@/helpers/fetchApi";
 import { CATEGORIES_URL, PRODUCT_CRUD } from "@/constants/url";
 import { SUCCESS_MSG } from "@/constants/message";
-import { toast } from "react-toastify";
+import toast from "react-hot-toast";
 import "../modal.css";
 
 const ModalUpdate: React.FC<ModalUpdateProps> = ({
