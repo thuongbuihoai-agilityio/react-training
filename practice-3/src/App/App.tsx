@@ -31,7 +31,7 @@ const App: React.FC = memo(() => {
         <Suspense fallback={<Loading />}>
           <Routes>
             {/* "/": redirect to ProductListView */}
-            <Route path="/" element={<ProductListView />} />
+            <Route path="/home" element={<ProductListView />} />
             {/* "/products": redirect to ProductGridView */}
             <Route path="/products" element={<ProductGridView />} />
             {/* "/products/:id": redirect to ProductDetails */}
