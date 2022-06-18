@@ -1,8 +1,8 @@
-import { PRODUCT_MOCKING } from "@/constants/product";
 import { CATEGORIES_URL, PRODUCTS_URL } from "@/constants/url";
 import { create, remove, getData, update } from "../fetchApi";
 import mockAxios from "jest-mock-axios";
-import { CATEGORY_MOCKING_LIST } from "@/constants/categories";
+import { CATEGORY_MOCKING_LIST } from "@/__mocks__/constants/categories";
+import { PRODUCT_MOCKING } from "@/__mocks__/constants/product";
 
 describe("fetch api", () => {
   afterEach(() => {
