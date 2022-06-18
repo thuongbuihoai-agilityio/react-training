@@ -4,9 +4,9 @@ import ProductDetails from "../ProductDetail";
 import { useState } from "react";
 import mockAxios from "@/__mocks__/axios";
 import { PRODUCT_CRUD } from "@/constants/url";
-import { PRODUCT_MOCKING } from "@/constants/product";
 import { update } from "@/helpers/fetchApi";
 import ModalUpdate from "@/components/Modal/ModalUpdate/ModalUpdate";
+import { PRODUCT_MOCKING } from "@/__mocks__/constants/product";
 
 jest.mock("react", () => ({
   ...jest.requireActual("react"),
