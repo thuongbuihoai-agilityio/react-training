@@ -46,6 +46,12 @@
   display: none;
 }
 
+.btn__delete--storybook {
+  color: var(--bg-delete);
+  border: none;
+  font-size: 15px;
+}
+
 .btn__delete:hover {
   display: block;
 }
@@ -70,4 +76,17 @@
 
 .btn__add {
   margin: 20px;
+}
+
+.btn__backToTop {
+  position: fixed;
+  bottom: 100px;
+  right: 20px;
+  font-size: 25px;
+  background: var(--text-primary);
+  color: var(--text-link);
+  cursor: pointer;
+  border-radius: 50px;
+  border: none;
+  box-shadow: 0 5px 10px var(--border-btn);
 }
