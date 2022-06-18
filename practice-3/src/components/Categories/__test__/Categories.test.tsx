@@ -4,7 +4,7 @@ import Categories from "../Categories";
 import "@testing-library/jest-dom";
 import { useState } from "react";
 import mockAxios from "@/__mocks__/axios";
-import { CATEGORY_MOCKING_LIST } from "@/constants/categories";
+import { CATEGORY_MOCKING_LIST } from "@/__mocks__/constants/categories";
 import { getData } from "@/helpers/fetchApi";
 import { CATEGORIES_URL } from "@/constants/url";
 import { Action, Search, SearchState } from "@/types/search";
