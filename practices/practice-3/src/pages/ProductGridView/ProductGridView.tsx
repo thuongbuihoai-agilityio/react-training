@@ -7,30 +7,17 @@ import { SearchContext } from "@/context/SearchContext";
 import { PRODUCTS_URL, PRODUCT_CRUD } from "@/constants/url";
 import { create, getData, remove } from "@/helpers/fetchApi";
 import { SUCCESS_MSG } from "@/constants/message";
-import { FormProps } from "@/types/form";
-import FORM_VALUES from "@/constants/form";
 import toast from "react-hot-toast";
 import "./productGridView.css";
 
 const ProductGridView: React.FC = () => {
   const [openModalCreate, setOpenModalCreate] = useState(false);
   const { searchValue } = useContext(SearchContext);
-  // create state to set form values
-  const [formValues, setFormValues] = useState<FormProps>(FORM_VALUES);
 
   // URLSearchParams: convert searchValue to string => handle search
   const queryParams: URLSearchParams = new URLSearchParams(searchValue);
   const key: Key = PRODUCTS_URL + queryParams.toString();
   const { data, mutate } = useSWR(key, getData<Product[]>);
-
-  // handle clear validate
-  const handleClearValidate = () => {
-    (Object.keys(formValues) as (keyof typeof formValues)[]).map(
-      (fieldName) => {
-        formValues[fieldName].error = "";
-      }
-    );
-  };
 
   // create product
   const createProduct = async (productData: Product) => {
@@ -66,7 +53,6 @@ const ProductGridView: React.FC = () => {
   // handle toggle modal create
   const toggleModalCreate = useCallback(() => {
     setOpenModalCreate(!openModalCreate);
-    handleClearValidate();
   }, [openModalCreate]);
 
   return (
@@ -91,11 +77,8 @@ const ProductGridView: React.FC = () => {
         </div>
         {openModalCreate && (
           <ModalCreate
-            formValues={formValues}
-            setFormValues={setFormValues}
             createProduct={createProduct}
             hideModalCreate={toggleModalCreate}
-            clearValidate={handleClearValidate}
           />
         )}
       </div>

@@ -3,7 +3,6 @@ import "@testing-library/jest-dom";
 import ProductGridView from "../ProductGridView";
 import { createMemoryHistory } from "history";
 import { Router } from "react-router-dom";
-import { PRODUCT_MOCKING, PRODUCT_MOCKING_LIST } from "@/constants/product";
 import { PRODUCTS_URL, PRODUCT_CRUD } from "@/constants/url";
 import { create, getData, remove } from "@/helpers/fetchApi";
 import mockAxios from "@/__mocks__/axios";
@@ -13,7 +12,7 @@ import Categories from "@/components/Categories/Categories";
 import { useState } from "react";
 import ModalDelete from "@/components/Modal/ModalDelete/ModalDelete";
 import ModalCreate from "@/components/Modal/ModalCreate/ModalCreate";
-import FORM_VALUES from "@/constants/form";
+import { PRODUCT_MOCKING, PRODUCT_MOCKING_LIST } from "@/__mocks__/constants/product";
 
 const contextValueMockSearch: Search = {
   setSearchValue: jest.fn(),
@@ -44,12 +43,9 @@ describe("Product grid view component", () => {
       <ModalCreate
         hideModalCreate={() => {}}
         createProduct={() => {}}
-        formValues={FORM_VALUES}
-        setFormValues={() => {}}
-        clearValidate={() => {}}
       />
     );
-    const input = utils.getByTestId("change-value-name") as HTMLInputElement;
+    const input = utils.getByTestId("change-value") as HTMLInputElement;
     return {
       input,
       ...utils,
@@ -102,9 +98,6 @@ describe("Product grid view component", () => {
       <ModalCreate
         hideModalCreate={() => {}}
         createProduct={handleCreateProduct}
-        formValues={FORM_VALUES}
-        setFormValues={() => {}}
-        clearValidate={() => {}}
       />
     );
     const submitBtn = getByTestId("add-new-product");
