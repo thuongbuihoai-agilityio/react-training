@@ -1,12 +1,12 @@
 import useSWR, { Key } from "swr";
 import React, { memo, useContext } from "react";
 import { Link } from "react-router-dom";
-import { Product } from "@/types/product";
 import { getData } from "@/helpers/fetchApi";
 import { PRODUCTS_URL } from "@/constants/url";
 import Button from "@/components/common/Button/Button";
 import { SearchContext } from "@/context/SearchContext";
 import ProductListCard from "../ProductListCard/ProductListCard";
+import { Product } from "@/types/product";
 import "./productListView.css";
 
 const ProductListView: React.FC = memo(() => {
