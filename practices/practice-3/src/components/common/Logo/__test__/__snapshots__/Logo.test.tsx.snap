@@ -4,6 +4,7 @@ exports[`Logo component matches snapshot 1`] = `
 <DocumentFragment>
   <a
     data-testid="logo"
+    href="/"
   >
     <img
       class="logo"
