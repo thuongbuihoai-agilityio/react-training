@@ -2,10 +2,6 @@ import { MenuType } from "../types/menu";
 
 const MENU_LIST: MenuType[] = [
   {
-    key: "home",
-    label: "Home",
-  },
-  {
     key: "about",
     label: "About",
   },
