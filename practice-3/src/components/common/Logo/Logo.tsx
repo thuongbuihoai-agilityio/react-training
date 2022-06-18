@@ -1,12 +1,13 @@
 import React, { memo } from "react";
 import { LogoProps } from "@/types/logo";
+import { Link } from "react-router-dom";
 import "./logo.css";
 
-const Logo: React.FC<LogoProps> = memo(({ href, src, alt }) => {
+const Logo: React.FC<LogoProps> = memo(({ src, alt }) => {
   return (
-    <a data-testid="logo" href={href}>
+    <Link data-testid="logo" to="/">
       <img className="logo" src={src} alt={alt} />
-    </a>
+    </Link>
   );
 });
 
