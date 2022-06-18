@@ -1,4 +1,4 @@
 export interface PriceProps {
-  value: number;
+  value?: number;
   className?: string; 
 }
