@@ -12,7 +12,7 @@ const Header: React.FC = memo(() => {
     <>
       <header data-testid="header" className="header">
         <div className="header__logo">
-          <Logo href="#Home" src={url} />
+          <Logo src={url} />
         </div>
         <div className="header__about">
           <Menu menuList={MENU_LIST} />
