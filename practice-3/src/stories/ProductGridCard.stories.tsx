@@ -1,6 +1,6 @@
 import React from "react";
+import { PRODUCT_MOCKING } from "@/__mocks__/constants/product";
 import ProductGridCard from "@/pages/ProductGridCard/ProductGridCard";
-import { PRODUCT_MOCKING } from "@/constants/product";
 import { BrowserRouter } from "react-router-dom";
 
 export default {
