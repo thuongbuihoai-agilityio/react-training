@@ -46,13 +46,9 @@
 ```
 - Install pnpm **(Node.js is preinstalled)**
   - On Linux or macOS:
-
       curl -f https://get.pnpm.io/v6.16.js | node - add --global pnpm
-
   - On Windows (PowerShell):
-
       Invoke-WebRequest 'https://get.pnpm.io/v6.16.js' -UseBasicParsing -o pnpm.js; node pnpm.js add --global pnpm; Remove-Item pnpm.js
-
   - Using npm:
       npm install -g pnpm
 ```
