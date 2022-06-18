@@ -1,9 +1,9 @@
 import { render } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import ProductListCard from "../ProductListCard";
-import { PRODUCT_MOCKING } from "@/constants/product";
 import { createMemoryHistory } from "history";
 import { Router } from "react-router-dom";
+import { PRODUCT_MOCKING } from "@/__mocks__/constants/product";
 
 describe("Product list card component", () => {
   test("should render productListCard component", () => {
