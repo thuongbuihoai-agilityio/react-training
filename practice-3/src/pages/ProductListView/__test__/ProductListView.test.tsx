@@ -1,17 +1,17 @@
 import { fireEvent, render } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import ViewProductList from "../ProductListView";
+import ProductListView from "../ProductListView";
 import { createMemoryHistory } from "history";
 import { Link, Router } from "react-router-dom";
 import { Search } from "@/types/search";
 import { SearchContext } from "@/context/SearchContext";
 import Categories from "@/components/Categories/Categories";
 import mockAxios from "@/__mocks__/axios";
-import { PRODUCT_MOCKING_LIST } from "@/constants/product";
 import { CATEGORIES_URL, PRODUCTS_URL } from "@/constants/url";
 import { getData } from "@/helpers/fetchApi";
-import { CATEGORY_MOCKING_LIST } from "@/constants/categories";
+import { CATEGORY_MOCKING_LIST } from "@/__mocks__/constants/categories";
 import Button from "@/components/common/Button/Button";
+import { PRODUCT_MOCKING_LIST } from "@/__mocks__/constants/product";
 
 const contextValueMockSearch: Search = {
   setSearchValue: jest.fn(),
@@ -40,9 +40,9 @@ describe("Product list view component", () => {
   test("should render product list view component", () => {
     const history = createMemoryHistory();
     const { getByTestId } = render(
-        <Router location={history.location} navigator={history}>
-          <ViewProductList />
-        </Router>
+      <Router location={history.location} navigator={history}>
+         <ProductListView />
+      </Router>
     );
     expect(getByTestId("view-product-list")).toBeInTheDocument();
   });
@@ -76,9 +76,9 @@ describe("Product list view component", () => {
   test("matches snapshot", () => {
     const history = createMemoryHistory();
     const { asFragment } = render(
-        <Router location={history.location} navigator={history}>
-          <ViewProductList />
-        </Router>
+      <Router location={history.location} navigator={history}>
+         <ProductListView />
+      </Router>
     );
     expect(asFragment()).toMatchSnapshot();
   });
