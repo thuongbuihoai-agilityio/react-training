@@ -42,6 +42,21 @@
 # TIMELINE
 - 10 days (May 27, 2022 to July 10, 2022) [Estimation time](https://docs.google.com/document/u/2/d/1h0r3CQPYJ5bXPt9s8JliVdfHOPam_uq-JWzGUM2DVPM/edit?urp=gmail_link#heading=h.qtb0qbofjj5j)
 
+# PREREQUISITES
+```
+- Install pnpm **(Node.js is preinstalled)**
+  - On Linux or macOS:
+
+      curl -f https://get.pnpm.io/v6.16.js | node - add --global pnpm
+
+  - On Windows (PowerShell):
+
+      Invoke-WebRequest 'https://get.pnpm.io/v6.16.js' -UseBasicParsing -o pnpm.js; node pnpm.js add --global pnpm; Remove-Item pnpm.js
+
+  - Using npm:
+      npm install -g pnpm
+```
+
 # RUN
 ```
 - Clone project: 
