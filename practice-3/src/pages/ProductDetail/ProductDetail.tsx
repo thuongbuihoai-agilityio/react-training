@@ -51,15 +51,12 @@ const ProductDetails: React.FC = () => {
         </div>
         <div className="productDetails__img--right">
           {product?.images.map((img: string, key: number) => (
-            <img key={key} src={img} alt="This is image" />
+            <img key={key} src={img} />
           ))}
         </div>
         <div className="productDetails__info">
           <div className="productDetail__update">
-            <Title
-              className="productDetail__title"
-              text={product?.name ?? ""}
-            />
+            <Title className="productDetail__title" text={product?.name} />
             <button
               data-testid="open-modal-update"
               className="btn btn__update"
@@ -68,17 +65,14 @@ const ProductDetails: React.FC = () => {
               <i className="fa fa-pen"></i>
             </button>
           </div>
-          <Price
-            className="productDetail__price"
-            value={product?.price ?? +""}
-          />
+          <Price className="productDetail__price" value={product?.price} />
           <input
             className="productDetails__input"
             min={0}
             type="number"
             defaultValue={product?.quantity}
           />
-          <Text text={product?.description ?? ""} />
+          <Text text={product?.description} />
         </div>
       </div>
       {openModalUpdate && (
