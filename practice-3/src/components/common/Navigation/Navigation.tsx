@@ -1,5 +1,5 @@
 import React, { memo } from "react";
-import InputSearch from "@/components/InputSearch/InputSearch";
+import InputSearch from "@/components/Input/InputSearch/InputSearch";
 import "./navigation.css";
 
 const Navigation: React.FC = memo(() => {
