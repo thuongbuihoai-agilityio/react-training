@@ -35,7 +35,6 @@ exports[`Modal create component matches snapshot 1`] = `
             </label>
             <input
               class="form__input"
-              data-testid="change-value-name"
               name="name"
               type="text"
               value="Cheese cake"
@@ -52,6 +51,7 @@ exports[`Modal create component matches snapshot 1`] = `
             <textarea
               class="form__text"
               cols="30"
+              data-testid="change-value"
               name="description"
               rows="5"
             >
@@ -69,13 +69,7 @@ exports[`Modal create component matches snapshot 1`] = `
             <select
               class="form__select"
               name="categoryId"
-            >
-              <option
-                disabled=""
-              >
-                Choose a category ...
-              </option>
-            </select>
+            />
           </div>
           <div
             class="form-control"

@@ -9,6 +9,7 @@ import { CATEGORIES_URL, PRODUCT_CRUD } from "@/constants/url";
 import { SUCCESS_MSG } from "@/constants/message";
 import toast from "react-hot-toast";
 import "../modal.css";
+import InputValue from "@/components/Input/InputValue/InputValue";
 
 const ModalUpdate: React.FC<ModalUpdateProps> = ({
   product,
@@ -95,8 +96,7 @@ const ModalUpdate: React.FC<ModalUpdateProps> = ({
           <div className="modal-body">
             <div className="form-control">
               <label htmlFor="">Product name: </label>
-              <input
-                data-testid="change-value-name"
+              <InputValue
                 className="form__input"
                 type="text"
                 name="name"
@@ -107,6 +107,7 @@ const ModalUpdate: React.FC<ModalUpdateProps> = ({
             <div className="form-control">
               <label htmlFor="">Description: </label>
               <textarea
+                data-testid="change-value"
                 className="form__text"
                 cols={30}
                 rows={5}
@@ -135,7 +136,7 @@ const ModalUpdate: React.FC<ModalUpdateProps> = ({
             <div id="form__number" className="form-control">
               <div className="form-control">
                 <label htmlFor="">Price: </label>
-                <input
+                <InputValue
                   className="modal__input"
                   type="number"
                   min={0}
@@ -146,7 +147,7 @@ const ModalUpdate: React.FC<ModalUpdateProps> = ({
               </div>
               <div className="form-control">
                 <label htmlFor="">Quantity: </label>
-                <input
+                <InputValue
                   className="modal__input"
                   type="number"
                   min={0}

@@ -5,18 +5,17 @@ import { CategoryProps } from "@/types/category";
 import getBase64 from "@/helpers/getBase64";
 import FORM_VALUES from "@/constants/form";
 import { validate } from "@/helpers/validate";
-import { setFieldsValue } from "@/helpers/index";
+import { setFieldsValue } from "@/helpers/fieldHandle";
 import { Product } from "@/types/product";
 import { CATEGORIES_URL } from "@/constants/url";
 import { getData } from "@/helpers/fetchApi";
+import { FormProps } from "@/types/form";
 import "../modal.css";
+import InputValue from "@/components/Input/InputValue/InputValue";
 
 const ModalCreate: React.FC<ModalCreateProps> = ({
   hideModalCreate,
   createProduct,
-  formValues,
-  setFormValues,
-  clearValidate
 }) => {
   const [newProduct, setNewProduct] = useState([]);
   // fetch data with useSWR
@@ -24,13 +23,20 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
   const { data } = useSWR(key, getData<Product[]>);
   // create state to handle select file image
   const [selectedFile, setSelectedFile] = useState([]);
+  // create state to set form values
+  const [formValues, setFormValues] = useState<FormProps>(FORM_VALUES);
+  console.log("formValue 1", formValues);
 
-  // handle modal
-  const handleModal = () => {
+  // handle clear validate
+  const handleClearValidate = () => {
+    (Object.keys(formValues) as (keyof typeof formValues)[]).map(
+      (fieldName) => {
+        formValues[fieldName].error = "";
+      }
+    )
     hideModalCreate();
-    clearValidate();
-  }
-
+  };
+  
   // handle create product
   const handleCreateProduct = () => {
     const images: string[] = [];
@@ -51,7 +57,8 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
     if (!temp.includes(false)) {
       createProduct({ images, ...newProduct } as unknown as Product);
       setFormValues(FORM_VALUES);
-      handleModal();
+      handleClearValidate();
+      console.log("formValue", formValues);
     }
   };
 
@@ -100,8 +107,7 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
           <div className="modal-body">
             <div className="form-control">
               <label htmlFor="">Product name: </label>
-              <input
-                data-testid="change-value-name"
+              <InputValue
                 className="form__input"
                 type="text"
                 name="name"
@@ -114,6 +120,7 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
             <div className="form-control">
               <label htmlFor="">Description: </label>
               <textarea
+                data-testid="change-value"
                 className="form__text"
                 name="description"
                 id=""
@@ -151,7 +158,7 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
             <div id="form__number" className="form-control">
               <div className="form-control">
                 <label htmlFor="">Price: </label>
-                <input
+                <InputValue
                   className="modal__input"
                   type="number"
                   min={0}
@@ -164,7 +171,7 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
               </div>
               <div className="form-control">
                 <label htmlFor="">Quantity: </label>
-                <input
+                <InputValue
                   className="modal__input"
                   type="number"
                   min={0}
@@ -205,7 +212,7 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
             <button
               data-testid="hide-modal-btn"
               className="btn btn__no"
-              onClick={handleModal}
+              onClick={handleClearValidate}
             >
               Cancel
             </button>

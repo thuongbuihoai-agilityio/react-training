@@ -1,13 +1,13 @@
 import { fireEvent, render, waitFor } from "@testing-library/react";
 import user from "@testing-library/user-event";
-import { PRODUCT_MOCKING } from "@/constants/product";
 import ModalUpdate from "../ModalUpdate";
 import "@testing-library/jest-dom";
 import { useState } from "react";
 import mockAxios from "@/__mocks__/axios";
 import { CATEGORIES_URL, PRODUCT_CRUD } from "@/constants/url";
-import { CATEGORY_MOCKING_LIST } from "@/constants/categories";
+import { CATEGORY_MOCKING_LIST } from "@/__mocks__/constants/categories";
 import { getData, update } from "@/helpers/fetchApi";
+import { PRODUCT_MOCKING } from "@/__mocks__/constants/product";
 
 jest.mock("react", () => ({
   ...jest.requireActual("react"),
@@ -28,7 +28,7 @@ describe("Modal create component", () => {
         updateProductDetail={() => {}}
       />
     );
-    const input = utils.getByTestId("change-value-name") as HTMLInputElement;
+    const input = utils.getByTestId("change-value") as HTMLInputElement;
     return {
       input,
       ...utils,
