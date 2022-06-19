@@ -1,5 +1,5 @@
 import useSWR, { Key } from "swr";
-import React, { ChangeEvent, useState } from "react";
+import React, { ChangeEvent, SetStateAction, useState } from "react";
 import { ModalCreateProps } from "@/types/modal";
 import { CategoryProps } from "@/types/category";
 import getBase64 from "@/helpers/getBase64";
@@ -31,7 +31,7 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
   const handleClearValidate = () => {
     (Object.keys(formValues) as (keyof typeof formValues)[]).map(
       (fieldName) => {
-        formValues[fieldName].error = "";
+        setFormValues(formValues[fieldName].error = "" as any);
       }
     )
     hideModalCreate();
@@ -114,7 +114,7 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
                 onChange={handleChange}
               />
               <small className="form__error">
-                {formValues.name.error ? formValues.name.error : ""}
+                {formValues?.name?.error ? formValues.name.error : ""}
               </small>
             </div>
             <div className="form-control">
@@ -129,7 +129,7 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
                 onChange={handleChange}
               ></textarea>
               <small className="form__error">
-                {formValues.description.error
+                {formValues?.description?.error
                   ? formValues.description.error
                   : ""}
               </small>
@@ -150,7 +150,7 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
                 ))}
               </select>
               <small className="form__error">
-                {formValues.categoryId.error
+                {formValues?.categoryId?.error
                   ? formValues.categoryId.error
                   : ""}
               </small>
@@ -166,7 +166,7 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
                   onChange={handleChange}
                 />
                 <small className="form__error">
-                  {formValues.price.error ? formValues.price.error : ""}
+                  {formValues?.price?.error ? formValues.price.error : ""}
                 </small>
               </div>
               <div className="form-control">
@@ -179,7 +179,7 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
                   onChange={handleChange}
                 />
                 <small className="form__error">
-                  {formValues.quantity.error ? formValues.quantity.error : ""}
+                  {formValues?.quantity?.error ? formValues.quantity.error : ""}
                 </small>
               </div>
             </div>
