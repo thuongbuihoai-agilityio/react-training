@@ -1,5 +1,5 @@
 import useSWR, { Key } from "swr";
-import React, { ChangeEvent, SetStateAction, useState } from "react";
+import React, { ChangeEvent, useState } from "react";
 import { ModalCreateProps } from "@/types/modal";
 import { CategoryProps } from "@/types/category";
 import getBase64 from "@/helpers/getBase64";
@@ -10,8 +10,8 @@ import { Product } from "@/types/product";
 import { CATEGORIES_URL } from "@/constants/url";
 import { getData } from "@/helpers/fetchApi";
 import { FormProps } from "@/types/form";
-import "../modal.css";
 import InputValue from "@/components/Input/InputValue/InputValue";
+import "../modal.css";
 
 const ModalCreate: React.FC<ModalCreateProps> = ({
   hideModalCreate,
@@ -25,7 +25,6 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
   const [selectedFile, setSelectedFile] = useState([]);
   // create state to set form values
   const [formValues, setFormValues] = useState<FormProps>(FORM_VALUES);
-  console.log("formValue 1", formValues);
 
   // handle clear validate
   const handleClearValidate = () => {
@@ -58,7 +57,6 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
       createProduct({ images, ...newProduct } as unknown as Product);
       setFormValues(FORM_VALUES);
       handleClearValidate();
-      console.log("formValue", formValues);
     }
   };
 
@@ -108,7 +106,7 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
             <div className="form-control">
               <label htmlFor="">Product name: </label>
               <InputValue
-                className="form__input"
+                className="input__value"
                 type="text"
                 name="name"
                 onChange={handleChange}
@@ -121,7 +119,7 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
               <label htmlFor="">Description: </label>
               <textarea
                 data-testid="change-value"
-                className="form__text"
+                className="input__text"
                 name="description"
                 id=""
                 cols={30}
@@ -159,7 +157,7 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
               <div className="form-control">
                 <label htmlFor="">Price: </label>
                 <InputValue
-                  className="modal__input"
+                  className="input__number"
                   type="number"
                   min={0}
                   name="price"
@@ -172,7 +170,7 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
               <div className="form-control">
                 <label htmlFor="">Quantity: </label>
                 <InputValue
-                  className="modal__input"
+                  className="input__number"
                   type="number"
                   min={0}
                   name="quantity"
