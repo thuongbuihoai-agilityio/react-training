@@ -35,7 +35,7 @@ exports[`Modal create component matches snapshot 1`] = `
               Product name: 
             </label>
             <input
-              class="form__input"
+              class="input__value"
               name="name"
               type="text"
               value=""
@@ -55,7 +55,7 @@ exports[`Modal create component matches snapshot 1`] = `
               Description: 
             </label>
             <textarea
-              class="form__text"
+              class="input__text"
               cols="30"
               data-testid="change-value"
               id=""
@@ -107,7 +107,7 @@ exports[`Modal create component matches snapshot 1`] = `
                 Price: 
               </label>
               <input
-                class="modal__input"
+                class="input__number"
                 min="0"
                 name="price"
                 type="number"
@@ -128,7 +128,7 @@ exports[`Modal create component matches snapshot 1`] = `
                 Quantity: 
               </label>
               <input
-                class="modal__input"
+                class="input__number"
                 min="0"
                 name="quantity"
                 type="number"

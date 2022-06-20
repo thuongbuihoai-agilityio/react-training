@@ -1,12 +1,13 @@
 import useSWR, { Key } from "swr";
 import React, { memo, useContext } from "react";
 import { Link } from "react-router-dom";
+import { Product } from "@/types/product";
 import { getData } from "@/helpers/fetchApi";
 import { PRODUCTS_URL } from "@/constants/url";
-import Button from "@/components/common/Button/Button";
 import { SearchContext } from "@/context/SearchContext";
+import Button from "@/components/common/Button/Button/Button";
 import ProductListCard from "../ProductListCard/ProductListCard";
-import { Product } from "@/types/product";
+import ScrollButton from "@/components/common/Button/ScrollButton/ScrollButton";
 import "./productListView.css";
 
 const ProductListView: React.FC = memo(() => {
@@ -28,6 +29,7 @@ const ProductListView: React.FC = memo(() => {
       <Link className="viewProduct__link" to="/products">
         <Button className="btn btn__secondary" text="VIEW ALL PRODUCTS" />
       </Link>
+      <ScrollButton className="btn__backToTop" text={<i className="fa fa-arrow-alt-circle-up"></i>} />
     </>
   );
 });

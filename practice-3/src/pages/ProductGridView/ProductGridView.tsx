@@ -1,13 +1,14 @@
 import useSWR, { Key } from "swr";
+import toast from "react-hot-toast";
+import { Product } from "@/types/product";
+import { SUCCESS_MSG } from "@/constants/message";
+import { SearchContext } from "@/context/SearchContext";
+import { create, getData, remove } from "@/helpers/fetchApi";
+import { PRODUCTS_URL, PRODUCT_CRUD } from "@/constants/url";
+import ProductGridCard from "../ProductGridCard/ProductGridCard";
 import React, { useCallback, useContext, useState } from "react";
 import ModalCreate from "@/components/Modal/ModalCreate/ModalCreate";
-import { Product } from "@/types/product";
-import ProductGridCard from "../ProductGridCard/ProductGridCard";
-import { SearchContext } from "@/context/SearchContext";
-import { PRODUCTS_URL, PRODUCT_CRUD } from "@/constants/url";
-import { create, getData, remove } from "@/helpers/fetchApi";
-import { SUCCESS_MSG } from "@/constants/message";
-import toast from "react-hot-toast";
+import ScrollButton from "@/components/common/Button/ScrollButton/ScrollButton";
 import "./productGridView.css";
 
 const ProductGridView: React.FC = () => {
@@ -82,6 +83,7 @@ const ProductGridView: React.FC = () => {
           />
         )}
       </div>
+      <ScrollButton className="btn__backToTop" text={<i className="fa fa-arrow-alt-circle-up"></i>} />
     </>
   );
 };
