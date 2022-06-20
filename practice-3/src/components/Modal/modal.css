@@ -36,21 +36,10 @@
   font-size: 15px;
 }
 
-.modal__input {
-  padding: 7px 0;
-  width: 150px;
-  border: 1px solid var(--border-btn);
-  margin-right: 10px;
-}
-
 .form-control {
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
-}
-
-.form__input {
-  padding-right: 5px;
 }
 
 .form-control > label {
@@ -67,14 +56,8 @@
   border-radius: 3px;
 }
 
-.form__input,
-.form__text {
-  width: 400px;
-}
-
 .form-control > input:hover,
-.form__select:hover,
-.form__text:hover {
+.form__select:hover {
   border-color: var(--text-primary);
 }
 
