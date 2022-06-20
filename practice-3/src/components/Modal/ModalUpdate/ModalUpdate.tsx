@@ -97,7 +97,7 @@ const ModalUpdate: React.FC<ModalUpdateProps> = ({
             <div className="form-control">
               <label htmlFor="">Product name: </label>
               <InputValue
-                className="form__input"
+                className="input__value"
                 type="text"
                 name="name"
                 value={productEdit?.name}
@@ -108,7 +108,7 @@ const ModalUpdate: React.FC<ModalUpdateProps> = ({
               <label htmlFor="">Description: </label>
               <textarea
                 data-testid="change-value"
-                className="form__text"
+                className="input__text"
                 cols={30}
                 rows={5}
                 value={productEdit?.description}
@@ -137,7 +137,7 @@ const ModalUpdate: React.FC<ModalUpdateProps> = ({
               <div className="form-control">
                 <label htmlFor="">Price: </label>
                 <InputValue
-                  className="modal__input"
+                  className="input__number"
                   type="number"
                   min={0}
                   value={productEdit?.price}
@@ -148,7 +148,7 @@ const ModalUpdate: React.FC<ModalUpdateProps> = ({
               <div className="form-control">
                 <label htmlFor="">Quantity: </label>
                 <InputValue
-                  className="modal__input"
+                  className="input__number"
                   type="number"
                   min={0}
                   value={productEdit?.quantity}
