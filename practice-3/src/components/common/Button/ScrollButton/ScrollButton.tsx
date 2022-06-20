@@ -1,8 +1,8 @@
 import React, { memo, useEffect, useState } from "react";
 import { ButtonProps } from "@/types/button";
-import "../button.css";
+import "./scrollButton.css";
 
-const ScrollButton: React.FC<ButtonProps> = memo(({ text }) => {
+const ScrollButton: React.FC<ButtonProps> = memo(({ text, className }) => {
   // create state to handle back to top
   const [btnOnTop, setBtnOnTop] = useState(true);
   useEffect(() => {
@@ -27,9 +27,9 @@ const ScrollButton: React.FC<ButtonProps> = memo(({ text }) => {
     <>
       {btnOnTop && (
         <button
-        data-testid="back-to-top"
-        className="btn__backToTop"
-        onClick={scrollToTop}
+          data-testid="back-to-top"
+          className={className}
+          onClick={scrollToTop}
         >
           {text}
         </button>
