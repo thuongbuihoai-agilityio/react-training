@@ -1,15 +1,15 @@
 import useSWR, { Key } from "swr";
 import React, { ChangeEvent, useState } from "react";
-import { ModalUpdateProps } from "@/types/modal";
-import { CategoryProps } from "@/types/category";
+import toast from "react-hot-toast";
 import { Product } from "@/types/product";
 import getBase64 from "@/helpers/getBase64";
+import { ModalUpdateProps } from "@/types/modal";
+import { CategoryProps } from "@/types/category";
+import { SUCCESS_MSG } from "@/constants/message";
 import { getData, update } from "@/helpers/fetchApi";
 import { CATEGORIES_URL, PRODUCT_CRUD } from "@/constants/url";
-import { SUCCESS_MSG } from "@/constants/message";
-import toast from "react-hot-toast";
-import "../modal.css";
 import InputValue from "@/components/Input/InputValue/InputValue";
+import "../modal.css";
 
 const ModalUpdate: React.FC<ModalUpdateProps> = ({
   product,
