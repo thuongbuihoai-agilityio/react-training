@@ -1,5 +1,5 @@
 import { Product } from "types/product";
-import url from "../assets/images/products/black-forest-cake.jpg";
+import url from "../../assets/images/products/black-forest-cake.jpg";
 
 const PRODUCT_MOCKING: Product = {
   id: "1",

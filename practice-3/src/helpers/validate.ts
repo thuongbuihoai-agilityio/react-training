@@ -2,45 +2,51 @@ import { ERROR_MSG } from "@/constants/message";
 import { RULES } from "@/constants/rules";
 import { FormProps } from "@/types/form";
 
-const validateValue = (value: string, rule: string, errors: {[fieldName: string]: any}, fieldName: string) => {
-  // check required
-  if (rule === RULES.REQUIRED) {
-    if (value) {
-      errors[fieldName].error = "";
-    } else {
-      errors[fieldName].error = ERROR_MSG.REQUIRED;
-    }
+// check required
+const checkRequired = ( value: string, errors: { [fieldName: string]: any }, fieldName: string ) => {
+  if (value) {
+    errors[fieldName].error = "";
+  } else {
+    errors[fieldName].error = ERROR_MSG.REQUIRED;
   }
+};
 
-  // check value is number
-  if (rule === RULES.NUMBER) {
-    if (typeof +value == RULES.NUMBER) {
-      errors[fieldName].error += "";
-    } else {
-      errors[fieldName].error += ERROR_MSG.NUMBER;
-    }
+// check value is number
+const checkNumber = ( value: string, errors: { [fieldName: string]: any }, fieldName: string ) => {
+  if (typeof +value == RULES.NUMBER) {
+    errors[fieldName].error += "";
+  } else {
+    errors[fieldName].error += ERROR_MSG.NUMBER;
   }
+};
 
-  // check value is negative
-  if(rule === RULES.NEGATIVE) {
-    if(+value < 0) {
-      errors[fieldName].error += ERROR_MSG.NUMBER;
-    } else {
-      errors[fieldName].error += "";
-    }
+// check value is negative
+const checkNegative = ( value: string, errors: { [fieldName: string]: any }, fieldName: string ) => {
+  if (+value < 0) {
+    errors[fieldName].error += ERROR_MSG.NUMBER;
+  } else {
+    errors[fieldName].error += "";
   }
-}
+};
 
 // handle validate
 const validate = (values: FormProps) => {
-  const errors = {...values};
-  (Object.keys(errors) as (keyof FormProps)[]).map(fieldName => {
-    errors[fieldName].rules.map((rule: string)=>{
-        validateValue(errors[fieldName].value, rule, errors, fieldName)
-      });
+  const errors = { ...values };
+  (Object.keys(errors) as (keyof FormProps)[]).map((fieldName) => {
+    errors[fieldName].rules.map((rule: string) => {
+      if (rule === RULES.REQUIRED) {
+        checkRequired(errors[fieldName].value, errors, fieldName);
+      }
+      if (rule === RULES.NUMBER) {
+        checkNumber(errors[fieldName].value, errors, fieldName);
+      }
+      if (rule === RULES.NEGATIVE) {
+        checkNegative(errors[fieldName].value, errors, fieldName);
+      }
     });
+  });
 
   return errors;
-}
+};
 
-export {validate};
+export { validate };

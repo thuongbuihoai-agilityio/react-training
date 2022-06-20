@@ -1,11 +1,11 @@
 import { fireEvent, render } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import { PRODUCT_MOCKING } from "@/constants/product";
 import { createMemoryHistory } from "history";
 import { Router } from "react-router-dom";
 import ProductGridCard from "../ProductGridCard";
 import { useState } from "react";
 import ModalDelete from "@/components/Modal/ModalDelete/ModalDelete";
+import { PRODUCT_MOCKING } from "@/__mocks__/constants/product";
 
 jest.mock("react", () => ({
   ...jest.requireActual("react"),

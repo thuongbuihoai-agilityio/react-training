@@ -1,6 +1,6 @@
 import React from "react";
+import { PRODUCT_MOCKING } from "@/__mocks__/constants/product";
 import ModalUpdate from "@/components/Modal/ModalUpdate/ModalUpdate";
-import { PRODUCT_MOCKING } from "@/constants/product";
 
 export default {
   /* 👇 The title prop is optional.

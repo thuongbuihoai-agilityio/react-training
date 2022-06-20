@@ -10,8 +10,16 @@ export default {
   component: Button,
 };
 
-const Primary: React.FC = () => {
-  return <Button text="View all products" className="primary" />;
+const Default: React.FC = () => {
+  return <Button text="Order online" className="primary" />;
 }
 
-export { Primary };
+const ButtonIcon: React.FC = () => {
+  return <Button text={<i className="fa fa-trash"></i>} className="delete--storybook" />;
+}
+
+const ButtonHover: React.FC = () => {
+  return <Button text="Add new product" className="add" />;
+}
+
+export { Default, ButtonIcon, ButtonHover };

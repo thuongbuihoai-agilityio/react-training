@@ -11749,7 +11749,7 @@ packages:
     dev: false
 
   /path-type/1.1.0:
-    resolution: {integrity: sha1-WcRPfuSR2nBNpBXaWkBwuk+P5EE=}
+    resolution: {integrity: sha512-S4eENJz1pkiQn9Znv33Q+deTOKmbl+jj1Fl+qiP/vYezj+S8x+J3Uo0ISrx/QoEvIlOaDWJhPaRd1flJ9HXZqg==}
     engines: {node: '>=0.10.0'}
     dependencies:
       graceful-fs: 4.2.10
@@ -13184,7 +13184,7 @@ packages:
     dev: true
 
   /source-map/0.5.7:
-    resolution: {integrity: sha1-igOdLRAh0i0eoUyA2OpGi6LvP8w=}
+    resolution: {integrity: sha512-LbrmJOMUSdEVxIKvdcJzQC+nQhe8FUZQTXQy6+I75skNgn3OoQ0DZA8YnFa7gp8tqtL3KPf1kmo0R5DoApeSGQ==}
     engines: {node: '>=0.10.0'}
     dev: true
 

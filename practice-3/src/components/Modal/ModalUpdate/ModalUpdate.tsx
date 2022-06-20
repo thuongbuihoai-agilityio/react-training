@@ -9,6 +9,7 @@ import { CATEGORIES_URL, PRODUCT_CRUD } from "@/constants/url";
 import { SUCCESS_MSG } from "@/constants/message";
 import toast from "react-hot-toast";
 import "../modal.css";
+import InputValue from "@/components/Input/InputValue/InputValue";
 
 const ModalUpdate: React.FC<ModalUpdateProps> = ({
   product,
@@ -95,9 +96,8 @@ const ModalUpdate: React.FC<ModalUpdateProps> = ({
           <div className="modal-body">
             <div className="form-control">
               <label htmlFor="">Product name: </label>
-              <input
-                data-testid="change-value-name"
-                className="form__input"
+              <InputValue
+                className="input__value"
                 type="text"
                 name="name"
                 value={productEdit?.name}
@@ -107,7 +107,8 @@ const ModalUpdate: React.FC<ModalUpdateProps> = ({
             <div className="form-control">
               <label htmlFor="">Description: </label>
               <textarea
-                className="form__text"
+                data-testid="change-value"
+                className="input__text"
                 cols={30}
                 rows={5}
                 value={productEdit?.description}
@@ -135,8 +136,8 @@ const ModalUpdate: React.FC<ModalUpdateProps> = ({
             <div id="form__number" className="form-control">
               <div className="form-control">
                 <label htmlFor="">Price: </label>
-                <input
-                  className="modal__input"
+                <InputValue
+                  className="input__number"
                   type="number"
                   min={0}
                   value={productEdit?.price}
@@ -146,8 +147,8 @@ const ModalUpdate: React.FC<ModalUpdateProps> = ({
               </div>
               <div className="form-control">
                 <label htmlFor="">Quantity: </label>
-                <input
-                  className="modal__input"
+                <InputValue
+                  className="input__number"
                   type="number"
                   min={0}
                   value={productEdit?.quantity}

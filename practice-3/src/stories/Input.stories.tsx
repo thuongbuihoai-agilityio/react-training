@@ -1,17 +1,21 @@
 import React from "react";
-import InputSearch from "@/components/InputSearch/InputSearch";
+import InputValue from "@/components/Input/InputValue/InputValue";
 
 export default {
   /* 👇 The title prop is optional.
-  * See https://storybook.js.org/docs/react/configure/overview#configure-story-loading
-  * to learn how to generate automatic titles
-  */
-  title: "Component/InputSearch",
-  component: InputSearch,
+   * See https://storybook.js.org/docs/react/configure/overview#configure-story-loading
+   * to learn how to generate automatic titles
+   */
+  title: "Component/InputValue",
+  component: InputValue,
 };
 
-const Default: React.FC = () => {
-  return <InputSearch />;
-}
+const InputNumber: React.FC = () => {
+  return <InputValue type="number" min={0} className="input__number"/>;
+};
 
-export { Default };
+const InputName: React.FC = () => {
+  return <InputValue type="text" className="input__value"/>;
+};
+
+export { InputNumber, InputName };

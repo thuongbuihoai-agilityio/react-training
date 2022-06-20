@@ -6,9 +6,9 @@ import Categories from "@/components/Categories/Categories";
 import Footer from "@/components/common/Footer/Footer";
 import Header from "@/components/common/Header/Header";
 import Navigation from "@/components/common/Navigation/Navigation";
-import AppProvider from "@/context/AppContext";
 import Loading from "@/components/common/Loading/Loading";
 import { Toaster } from "react-hot-toast";
+import SearchProvider from "@/context/SearchContext";
 
 // Lazy-loaded
 const ProductListView = lazy(
@@ -26,13 +26,13 @@ const App: React.FC = memo(() => {
     // The context SWRConfig can provide global configurations (options) for all SWR hooks.
     <SWRConfig value={{ revalidateOnFocus: true }}>
       <Header />
-      {/* AppProvider: Handle searchContext */}
-      <AppProvider>
+      {/* SearchProvider: Handle searchContext */}
+      <SearchProvider>
         {/* Navigation: Handle search by name */}
         <Navigation />
         {/* Categories: Handle search by categoryId */}
         <Categories />
-        {/* Suspense:  Show a <Loading /> while the profile is loading */}
+        {/* Suspense: Show a <Loading /> while the product list is loading */}
         <Suspense fallback={<Loading />}>
           <Routes>
             {/* "/": redirect to ProductListView */}
@@ -43,7 +43,7 @@ const App: React.FC = memo(() => {
             <Route path={`/product/:id`} element={<ProductDetails />} />
           </Routes>
         </Suspense>
-      </AppProvider>
+      </SearchProvider>
       <Footer />
       {/* Toaster: library show message */}
       <Toaster position="top-center" />
