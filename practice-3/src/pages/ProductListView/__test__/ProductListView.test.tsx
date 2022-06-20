@@ -10,8 +10,8 @@ import mockAxios from "@/__mocks__/axios";
 import { CATEGORIES_URL, PRODUCTS_URL } from "@/constants/url";
 import { getData } from "@/helpers/fetchApi";
 import { CATEGORY_MOCKING_LIST } from "@/__mocks__/constants/categories";
-import Button from "@/components/common/Button/Button";
 import { PRODUCT_MOCKING_LIST } from "@/__mocks__/constants/product";
+import Button from "@/components/common/Button/Button/Button";
 
 const contextValueMockSearch: Search = {
   setSearchValue: jest.fn(),
