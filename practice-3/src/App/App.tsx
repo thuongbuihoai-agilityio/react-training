@@ -51,4 +51,5 @@ const App: React.FC = memo(() => {
   );
 });
 
+App.whyDidYouRender = true;
 export default App;
