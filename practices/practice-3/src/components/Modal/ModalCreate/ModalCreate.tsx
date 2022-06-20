@@ -25,6 +25,7 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
   const [selectedFile, setSelectedFile] = useState([]);
   // create state to set form values
   const [formValues, setFormValues] = useState<FormProps>(FORM_VALUES);
+  console.log("formValue", formValues);
 
   // handle clear validate
   const handleClearValidate = () => {
@@ -57,6 +58,7 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
       createProduct({ images, ...newProduct } as unknown as Product);
       setFormValues(FORM_VALUES);
       handleClearValidate();
+      console.log("formValue", formValues);
     }
   };
 

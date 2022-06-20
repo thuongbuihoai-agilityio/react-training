@@ -13,7 +13,7 @@ describe("Button component", () => {
   });
 
   test("matches snapshot", () => {
-    const { asFragment } = render(<Button text="Submit" onClick={() => {}} />);
+    const { asFragment } = render(<Button text="" onClick={() => {}} />);
     expect(asFragment()).toMatchSnapshot();
   });
 });

@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ScrollButton component matches snapshot 1`] = `
+<DocumentFragment>
+  <button
+    class="btn__backToTop"
+    data-testid="back-to-top"
+  >
+    <i
+      class="fa fa-arrow-alt-circle-up"
+    />
+  </button>
+</DocumentFragment>
+`;
