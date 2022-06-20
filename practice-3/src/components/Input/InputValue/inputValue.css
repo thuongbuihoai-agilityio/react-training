@@ -1,0 +1,20 @@
+.input__value {
+  padding: 7px 10px;
+  font-size: 13px;
+  border: 1px solid var(--border-btn);
+  border-radius: 3px;
+}
+
+.input__number {
+  padding: 7px 0;
+  width: 150px;
+  border: 1px solid var(--border-btn);
+  margin-right: 10px;
+  border-radius: 3px;
+}
+
+.input__text:hover,
+.input__number:hover,
+.input__value:hover {
+  border-color: var(--text-primary);
+}
