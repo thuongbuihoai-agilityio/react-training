@@ -4,13 +4,13 @@ import "../button.css";
 
 const ScrollButton: React.FC<ButtonProps> = memo(({ text }) => {
   // create state to handle back to top
-  const [btnOnTop, setBtnOnTop] = useState(false);
+  const [btnOnTop, setBtnOnTop] = useState(true);
   useEffect(() => {
     window.addEventListener("scroll", () => {
       if (window.pageYOffset > 500) {
-        setBtnOnTop(!btnOnTop);
-      } else {
         setBtnOnTop(btnOnTop);
+      } else {
+        setBtnOnTop(!btnOnTop);
       }
     });
   }, []);
@@ -22,14 +22,20 @@ const ScrollButton: React.FC<ButtonProps> = memo(({ text }) => {
       behavior: "smooth", // for smoothly scrolling
     });
   };
+
   return (
-    <button
-      data-testid="back-to-top"
-      className="btn__backToTop"
-      onClick={scrollToTop}
-    >
-      {text}
-    </button>
+    <>
+      {btnOnTop && (
+        <button
+        data-testid="back-to-top"
+        className="btn__backToTop"
+        onClick={scrollToTop}
+        >
+          {text}
+        </button>
+      )}
+      <div></div>
+    </>
   );
 });
 
