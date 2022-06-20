@@ -16,5 +16,13 @@ exports[`Product list view component matches snapshot 1`] = `
       VIEW ALL PRODUCTS
     </button>
   </a>
+  <button
+    class="btn__backToTop"
+    data-testid="back-to-top"
+  >
+    <i
+      class="fa fa-arrow-alt-circle-up"
+    />
+  </button>
 </DocumentFragment>
 `;
