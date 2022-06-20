@@ -17,5 +17,14 @@ exports[`Product grid view component matches snapshot 1`] = `
       data-testid="delete-product"
     />
   </div>
+  <button
+    class="btn__backToTop"
+    data-testid="back-to-top"
+  >
+    <i
+      class="fa fa-arrow-alt-circle-up"
+    />
+  </button>
+  <div />
 </DocumentFragment>
 `;

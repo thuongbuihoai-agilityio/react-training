@@ -1,4 +1,4 @@
-import { fireEvent, render } from "@testing-library/react";
+import { fireEvent, render, waitFor } from "@testing-library/react";
 import ScrollButton from "../ScrollButton";
 
 describe("ScrollButton component", () => {
@@ -13,7 +13,7 @@ describe("ScrollButton component", () => {
     const { getByTestId } = render(
       <ScrollButton
         text={<i className="fa fa-arrow-alt-circle-up"></i>}
-        onClick={() => {}}
+        onClick={spyScrollTo}
       />
     );
     const clickBtn = getByTestId("back-to-top");

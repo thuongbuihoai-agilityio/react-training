@@ -184,6 +184,7 @@ exports[`App component matches snapshot 1`] = `
       class="fa fa-arrow-alt-circle-up"
     />
   </button>
+  <div />
   <footer
     class="footer"
   >
