@@ -1,15 +1,15 @@
 import useSWR, { Key } from "swr";
 import React, { ChangeEvent, useState } from "react";
-import { ModalCreateProps } from "@/types/modal";
-import { CategoryProps } from "@/types/category";
-import getBase64 from "@/helpers/getBase64";
-import FORM_VALUES from "@/constants/form";
-import { validate } from "@/helpers/validate";
-import { setFieldsValue } from "@/helpers/fieldHandle";
-import { Product } from "@/types/product";
-import { CATEGORIES_URL } from "@/constants/url";
-import { getData } from "@/helpers/fetchApi";
 import { FormProps } from "@/types/form";
+import { Product } from "@/types/product";
+import { RULES } from "@/constants/rules";
+import getBase64 from "@/helpers/getBase64";
+import { getData } from "@/helpers/fetchApi";
+import { validate } from "@/helpers/validate";
+import { ModalCreateProps } from "@/types/modal";
+import { CATEGORIES_URL } from "@/constants/url";
+import { CategoryProps } from "@/types/category";
+import { setFieldsValue } from "@/helpers/fieldHandle";
 import InputValue from "@/components/Input/InputValue/InputValue";
 import "../modal.css";
 
@@ -24,19 +24,39 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
   // create state to handle select file image
   const [selectedFile, setSelectedFile] = useState([]);
   // create state to set form values
-  const [formValues, setFormValues] = useState<FormProps>(FORM_VALUES);
-  console.log("formValue", formValues);
+  const [formValues, setFormValues] = useState<FormProps>({
+    categoryId: {
+      value: "",
+      rules: [RULES.REQUIRED],
+      error: "",
+    },
+    name: {
+      value: "",
+      rules: [RULES.REQUIRED],
+      error: "",
+    },
+    price: {
+      value: "",
+      rules: [RULES.REQUIRED, RULES.NUMBER, RULES.NEGATIVE],
+      error: "",
+    },
+    quantity: {
+      value: "",
+      rules: [RULES.REQUIRED, RULES.NUMBER, RULES.NEGATIVE],
+      error: "",
+    },
+    description: {
+      value: "",
+      rules: [RULES.REQUIRED],
+      error: "",
+    },
+    images: {
+      value: "",
+      rules: [],
+      error: "",
+    }
+  });
 
-  // handle clear validate
-  const handleClearValidate = () => {
-    (Object.keys(formValues) as (keyof typeof formValues)[]).map(
-      (fieldName) => {
-        setFormValues(formValues[fieldName].error = "" as any);
-      }
-    )
-    hideModalCreate();
-  };
-  
   // handle create product
   const handleCreateProduct = () => {
     const images: string[] = [];
@@ -50,15 +70,15 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
         if (formValues[fieldName].error) {
           return false;
         }
+        return;
       }
     );
 
     // check validate if pass then create product
     if (!temp.includes(false)) {
+      setFormValues({...formValues});
       createProduct({ images, ...newProduct } as unknown as Product);
-      setFormValues(FORM_VALUES);
-      handleClearValidate();
-      console.log("formValue", formValues);
+      hideModalCreate();
     }
   };
 
@@ -212,7 +232,7 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
             <button
               data-testid="hide-modal-btn"
               className="btn btn__no"
-              onClick={handleClearValidate}
+              onClick={hideModalCreate}
             >
               Cancel
             </button>
