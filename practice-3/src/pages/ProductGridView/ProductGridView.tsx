@@ -1,4 +1,4 @@
-import useSWR, { Key } from "swr";
+import useSWR from "swr";
 import toast from "react-hot-toast";
 import { Product } from "@/types/product";
 import { SUCCESS_MSG } from "@/constants/message";
@@ -17,8 +17,7 @@ const ProductGridView: React.FC = () => {
 
   // URLSearchParams: convert searchValue to string => handle search
   const queryParams: URLSearchParams = new URLSearchParams(searchValue);
-  const key: Key = PRODUCTS_URL + queryParams.toString();
-  const { data, mutate } = useSWR(key, getData<Product[]>);
+  const { data, mutate } = useSWR(PRODUCTS_URL + queryParams.toString(), getData<Product[]>);
 
   // create product
   const createProduct = async (productData: Product) => {
