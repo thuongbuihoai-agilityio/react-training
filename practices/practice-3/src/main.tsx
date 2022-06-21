@@ -1,5 +1,4 @@
-import "./wdyr.ts"; 
-/// <reference types="@welldone-software/why-did-you-render" />
+import "./wdyr.ts";
 import axios from "axios";
 import React from "react";
 import ReactDOM from "react-dom/client";
