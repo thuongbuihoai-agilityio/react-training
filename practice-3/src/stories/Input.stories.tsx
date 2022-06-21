@@ -10,12 +10,12 @@ export default {
   component: InputValue,
 };
 
-const InputNumber: React.FC = () => {
+const Number: React.FC = () => {
   return <InputValue type="number" min={0} className="input__number"/>;
 };
 
-const InputName: React.FC = () => {
+const Text: React.FC = () => {
   return <InputValue type="text" className="input__value"/>;
 };
 
-export { InputNumber, InputName };
+export { Number, Text };
