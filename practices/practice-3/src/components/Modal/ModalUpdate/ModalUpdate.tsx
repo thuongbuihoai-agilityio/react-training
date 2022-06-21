@@ -1,4 +1,4 @@
-import useSWR, { Key } from "swr";
+import useSWR from "swr";
 import React, { ChangeEvent, useState } from "react";
 import toast from "react-hot-toast";
 import { Product } from "@/types/product";
@@ -17,8 +17,7 @@ const ModalUpdate: React.FC<ModalUpdateProps> = ({
   updateProductDetail,
 }) => {
   // fetch data with useSWR
-  const key: Key = CATEGORIES_URL;
-  const { data, mutate } = useSWR(key,  getData<Product[]>);
+  const { data, mutate } = useSWR(CATEGORIES_URL, getData<Product[]>);
   // create state to handle select file image
   const [selectedFile, setSelectedFile] = useState([]);
   // create state to update product

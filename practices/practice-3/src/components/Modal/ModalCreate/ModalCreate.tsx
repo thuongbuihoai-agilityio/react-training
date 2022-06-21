@@ -1,4 +1,4 @@
-import useSWR, { Key } from "swr";
+import useSWR from "swr";
 import React, { ChangeEvent, useState } from "react";
 import { FormProps } from "@/types/form";
 import { Product } from "@/types/product";
@@ -19,8 +19,7 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
 }) => {
   const [newProduct, setNewProduct] = useState([]);
   // fetch data with useSWR
-  const key: Key = CATEGORIES_URL;
-  const { data } = useSWR(key, getData<Product[]>);
+  const { data } = useSWR(CATEGORIES_URL, getData<Product[]>);
   // create state to handle select file image
   const [selectedFile, setSelectedFile] = useState([]);
   // create state to set form values
@@ -70,7 +69,6 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
         if (formValues[fieldName].error) {
           return false;
         }
-        return;
       }
     );
 
