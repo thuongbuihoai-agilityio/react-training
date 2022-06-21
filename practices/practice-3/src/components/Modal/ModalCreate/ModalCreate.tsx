@@ -1,5 +1,5 @@
 import useSWR from "swr";
-import React, { ChangeEvent, useState } from "react";
+import React, { ChangeEvent, useCallback, useState } from "react";
 import { FormProps } from "@/types/form";
 import { Product } from "@/types/product";
 import { RULES } from "@/constants/rules";
@@ -81,33 +81,35 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
   };
 
   // handle change value
-  const handleChange = (event: { target: { value: string; name: string } }) => {
+  const handleChange = useCallback((event: { target: { value: string; name: string } }) => {
     const value = event.target.value;
     const fieldName = event.target.name;
     setNewProduct({ ...newProduct, [fieldName]: value });
     setFormValues(setFieldsValue(formValues, value, fieldName));
-  };
+  }, [formValues]);
 
   // handle change image
-  const imageChange = async (event: ChangeEvent<HTMLInputElement>) => {
+  const imageChange = useCallback(async (event: ChangeEvent<HTMLInputElement>) => {
     const files = event.target.files;
+    const newFiles = [];
     if (files) {
       for (let i = 0; i < files.length; i++) {
         const imageSrc = await getBase64(files[i]);
-        setSelectedFile((selectedFile) => [...selectedFile, imageSrc] as never);
+        newFiles.push(imageSrc)
       }
     }
-  };
+    setSelectedFile([...selectedFile, ...newFiles] as never);
+  }, [selectedFile]);
 
   // handle delete image
-  const handleDeleteImage = (event: { target: EventTarget }) => {
+  const handleDeleteImage = useCallback((event: { target: EventTarget }) => {
     const target = event.target as Element;
     const indexOfArr = selectedFile.findIndex(
       (item: string) => item == (target as HTMLInputElement).dataset.id
     );
     selectedFile.splice(indexOfArr, 1);
     setSelectedFile([...selectedFile]);
-  };
+  }, [selectedFile]);
 
   return (
     <div
