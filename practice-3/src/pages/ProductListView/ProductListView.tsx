@@ -1,4 +1,4 @@
-import useSWR, { Key } from "swr";
+import useSWR from "swr";
 import React, { memo, useContext } from "react";
 import { Link } from "react-router-dom";
 import { Product } from "@/types/product";
@@ -14,8 +14,7 @@ const ProductListView: React.FC = memo(() => {
   const { searchValue } = useContext(SearchContext);
   // URLSearchParams: convert searchValue to string => handle search
   const queryParams: URLSearchParams = new URLSearchParams(searchValue);
-  const key: Key = PRODUCTS_URL + queryParams.toString();
-  const { data } = useSWR(key, getData<Product[]>);
+  const { data } = useSWR(PRODUCTS_URL + queryParams.toString(), getData<Product[]>);
 
   return (
     <>

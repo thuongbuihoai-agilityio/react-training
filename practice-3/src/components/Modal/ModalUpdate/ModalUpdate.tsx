@@ -1,5 +1,5 @@
-import useSWR, { Key } from "swr";
-import React, { ChangeEvent, useState } from "react";
+import useSWR from "swr";
+import React, { ChangeEvent, useCallback, useState } from "react";
 import toast from "react-hot-toast";
 import { Product } from "@/types/product";
 import getBase64 from "@/helpers/getBase64";
@@ -17,8 +17,7 @@ const ModalUpdate: React.FC<ModalUpdateProps> = ({
   updateProductDetail,
 }) => {
   // fetch data with useSWR
-  const key: Key = CATEGORIES_URL;
-  const { data, mutate } = useSWR(key,  getData<Product[]>);
+  const { data, mutate } = useSWR(CATEGORIES_URL, getData<Product[]>);
   // create state to handle select file image
   const [selectedFile, setSelectedFile] = useState([]);
   // create state to update product
@@ -44,34 +43,36 @@ const ModalUpdate: React.FC<ModalUpdateProps> = ({
   };
 
   // handle update product
-  const handleUpdateProduct = async (id: string, productEdit: Product) => {
+  const handleUpdateProduct = useCallback((id: string, productEdit: Product) => {
     for (let i = 0; i < selectedFile.length; i++) {
       productEdit.images.push(selectedFile[i]);
     }
     updateProduct(id, productEdit);
     hideModalUpdate();
-  };
+  }, [updateProduct]);
 
   // handle change value
-  const handleChange = (event: { target: { value: {}; name: string } }) => {
+  const handleChange = useCallback((event: { target: { value: {}; name: string } }) => {
     const value = event.target.value;
     const key = event.target.name;
     setProductEdit({ ...productEdit, [key]: value });
-  };
+  }, [productEdit]);
 
   // handle change image
-  const imageChange = async (event: ChangeEvent<HTMLInputElement>) => {
+  const imageChange = useCallback(async (event: ChangeEvent<HTMLInputElement>) => {
     const files = event.target.files;
+    const newFiles = [];
     if (files) {
       for (let i = 0; i < files.length; i++) {
         const imageSrc = await getBase64(files[i]);
-        setSelectedFile((selectedFile) => [...selectedFile, imageSrc] as never);
+        newFiles.push(imageSrc)
       }
     }
-  };
+    setSelectedFile([...selectedFile, ...newFiles] as never);
+  }, [selectedFile]);
 
   // handle delete image
-  const handleDeleteImage = (event: { target: EventTarget }) => {
+  const handleDeleteImage = useCallback((event: { target: EventTarget }) => {
     const target = event.target as Element;
     const indexOfArr = productEdit.images.findIndex(
       (item: string) => item == (target as HTMLInputElement).dataset.id
@@ -82,7 +83,7 @@ const ModalUpdate: React.FC<ModalUpdateProps> = ({
     selectedFile.splice(indexOf, 1);
     productEdit.images.splice(indexOfArr, 1);
     setSelectedFile([...selectedFile]);
-  };
+  },[selectedFile]);
 
   return (
     <div data-testid="modal-update" className="modal-update">
