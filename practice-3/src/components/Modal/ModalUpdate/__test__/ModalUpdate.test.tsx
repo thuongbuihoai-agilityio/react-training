@@ -4,7 +4,7 @@ import ModalUpdate from "../ModalUpdate";
 import "@testing-library/jest-dom";
 import { useState } from "react";
 import mockAxios from "@/__mocks__/axios";
-import { CATEGORIES_URL, PRODUCT_CRUD } from "@/constants/url";
+import { CATEGORIES_URL, PRODUCTS_URL } from "@/constants/url";
 import { CATEGORY_MOCKING_LIST } from "@/__mocks__/constants/categories";
 import { getData, update } from "@/helpers/fetchApi";
 import { PRODUCT_MOCKING } from "@/__mocks__/constants/product";
@@ -14,7 +14,7 @@ jest.mock("react", () => ({
   useState: jest.fn(),
 }));
 
-describe("Modal create component", () => {
+describe("Modal update component", () => {
   const hideModalUpdate = jest.fn();
   const updateProductDetail = jest.fn();
   const deleteImages = jest.fn();
@@ -95,7 +95,7 @@ describe("Modal create component", () => {
   });
 
   test("update product item should call", async () => {
-    const PRODUCT_URL_CALL = PRODUCT_CRUD + "/1";
+    const PRODUCT_URL_CALL = PRODUCTS_URL + "/1";
     mockAxios.put.mockResolvedValueOnce(PRODUCT_MOCKING);
     const result = await update(PRODUCT_URL_CALL, PRODUCT_MOCKING);
     expect(mockAxios.put).toHaveBeenCalledWith(

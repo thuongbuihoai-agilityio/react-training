@@ -14,7 +14,7 @@ const ProductListView: React.FC = memo(() => {
   const { searchValue } = useContext(SearchContext);
   // URLSearchParams: convert searchValue to string => handle search
   const queryParams: URLSearchParams = new URLSearchParams(searchValue);
-  const { data } = useSWR(PRODUCTS_URL + queryParams.toString(), getData<Product[]>);
+  const { data } = useSWR(PRODUCTS_URL + "?" + queryParams.toString(), getData<Product[]>);
 
   return (
     <>
