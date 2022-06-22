@@ -3,7 +3,7 @@ import "@testing-library/jest-dom";
 import ProductDetails from "../ProductDetail";
 import { useState } from "react";
 import mockAxios from "@/__mocks__/axios";
-import { PRODUCT_CRUD } from "@/constants/url";
+import { PRODUCTS_URL } from "@/constants/url";
 import { update } from "@/helpers/fetchApi";
 import ModalUpdate from "@/components/Modal/ModalUpdate/ModalUpdate";
 import { PRODUCT_MOCKING } from "@/__mocks__/constants/product";
@@ -27,7 +27,7 @@ describe("Product detail component", () => {
   });
 
   test("update product item should call", async () => {
-    const PRODUCT_URL_CALL = PRODUCT_CRUD + "/1";
+    const PRODUCT_URL_CALL = PRODUCTS_URL + "/1";
     mockAxios.put.mockResolvedValueOnce(PRODUCT_MOCKING);
     const result = await update(PRODUCT_URL_CALL, PRODUCT_MOCKING);
     expect(mockAxios.put).toHaveBeenCalledWith(
