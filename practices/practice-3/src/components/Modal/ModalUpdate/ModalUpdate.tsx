@@ -1,13 +1,17 @@
 import useSWR from "swr";
 import React, { ChangeEvent, useCallback, useState } from "react";
 import toast from "react-hot-toast";
+import { FormProps } from "@/types/form";
 import { Product } from "@/types/product";
+import { RULES } from "@/constants/rules";
 import getBase64 from "@/helpers/getBase64";
+import { validate } from "@/helpers/validate";
 import { ModalUpdateProps } from "@/types/modal";
 import { CategoryProps } from "@/types/category";
 import { SUCCESS_MSG } from "@/constants/message";
 import { getData, update } from "@/helpers/fetchApi";
-import { CATEGORIES_URL, PRODUCT_CRUD } from "@/constants/url";
+import { setFieldsValue } from "@/helpers/fieldHandle";
+import { CATEGORIES_URL, PRODUCTS_URL } from "@/constants/url";
 import InputValue from "@/components/Input/InputValue/InputValue";
 import "../modal.css";
 
@@ -33,7 +37,7 @@ const ModalUpdate: React.FC<ModalUpdateProps> = ({
       images: productData.images,
     };
     try {
-      const response = await update(`${PRODUCT_CRUD}/${id}`, productEdit);
+      const response = await update(`${PRODUCTS_URL}/${id}`, productEdit);
       mutate();
       updateProductDetail(response.data);
       toast.success(SUCCESS_MSG.MESSAGE_UPDATE_PRODUCT);
@@ -42,20 +46,68 @@ const ModalUpdate: React.FC<ModalUpdateProps> = ({
     }
   };
 
+  const [formValues, setFormValues] = useState<FormProps>({
+    categoryId: {
+      value: productEdit?.categoryId,
+      rules: [RULES.REQUIRED],
+      error: "",
+    },
+    name: {
+      value: productEdit?.name,
+      rules: [RULES.REQUIRED],
+      error: "",
+    },
+    price: {
+      value: productEdit?.price.toString(),
+      rules: [RULES.REQUIRED, RULES.NUMBER, RULES.NEGATIVE],
+      error: "",
+    },
+    quantity: {
+      value: productEdit?.quantity.toString(),
+      rules: [RULES.REQUIRED, RULES.NUMBER, RULES.NEGATIVE],
+      error: "",
+    },
+    description: {
+      value: productEdit?.description,
+      rules: [RULES.REQUIRED],
+      error: "",
+    },
+    images: {
+      value: productEdit?.images.toString(),
+      rules: [],
+      error: "",
+    }
+  });
+
   // handle update product
-  const handleUpdateProduct = useCallback((id: string, productEdit: Product) => {
+  const handleUpdateProduct = (id: string, productEdit: Product) => {
     for (let i = 0; i < selectedFile.length; i++) {
       productEdit.images.push(selectedFile[i]);
     }
-    updateProduct(id, productEdit);
-    hideModalUpdate();
-  }, [updateProduct]);
+
+    // validate form
+    setFormValues(validate(formValues));
+    const temp = (Object.keys(formValues) as (keyof typeof formValues)[]).map(
+      (fieldName) => {
+        if (formValues[fieldName].error) {
+          return false;
+        }
+      }
+    );
+
+    if (!temp.includes(false)) {
+      setFormValues({...formValues});
+      updateProduct(id, productEdit);
+      hideModalUpdate();
+    }
+  };
 
   // handle change value
-  const handleChange = useCallback((event: { target: { value: {}; name: string } }) => {
+  const handleChange = useCallback((event: { target: { value: string; name: string } }) => {
     const value = event.target.value;
-    const key = event.target.name;
-    setProductEdit({ ...productEdit, [key]: value });
+    const fieldName = event.target.name;
+    setProductEdit({ ...productEdit, [fieldName]: value });
+    setFormValues(setFieldsValue(formValues, value, fieldName));
   }, [productEdit]);
 
   // handle change image
@@ -104,6 +156,9 @@ const ModalUpdate: React.FC<ModalUpdateProps> = ({
                 value={productEdit?.name}
                 onChange={handleChange}
               />
+              <small className="form__error">
+                {formValues.name.error}
+              </small>
             </div>
             <div className="form-control">
               <label htmlFor="">Description: </label>
@@ -116,6 +171,9 @@ const ModalUpdate: React.FC<ModalUpdateProps> = ({
                 name="description"
                 onChange={handleChange}
               ></textarea>
+              <small className="form__error">
+                {formValues.description.error}
+              </small>
             </div>
             <div className="form-control">
               <label htmlFor="">Categories: </label>
@@ -133,6 +191,9 @@ const ModalUpdate: React.FC<ModalUpdateProps> = ({
                   </option>
                 ))}
               </select>
+              <small className="form__error">
+                {formValues.categoryId.error}
+              </small>
             </div>
             <div id="form__number" className="form-control">
               <div className="form-control">
@@ -145,6 +206,9 @@ const ModalUpdate: React.FC<ModalUpdateProps> = ({
                   name="price"
                   onChange={handleChange}
                 />
+                <small className="form__error">
+                  {formValues.price.error}
+                </small>
               </div>
               <div className="form-control">
                 <label htmlFor="">Quantity: </label>
@@ -156,6 +220,9 @@ const ModalUpdate: React.FC<ModalUpdateProps> = ({
                   name="quantity"
                   onChange={handleChange}
                 />
+                <small className="form__error">
+                  {formValues.quantity.error}
+                </small>
               </div>
             </div>
             <div className="form-control">
