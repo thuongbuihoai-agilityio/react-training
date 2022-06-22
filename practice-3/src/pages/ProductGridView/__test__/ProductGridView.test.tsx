@@ -3,7 +3,7 @@ import "@testing-library/jest-dom";
 import ProductGridView from "../ProductGridView";
 import { createMemoryHistory } from "history";
 import { Router } from "react-router-dom";
-import { PRODUCTS_URL, PRODUCT_CRUD } from "@/constants/url";
+import { PRODUCTS_URL } from "@/constants/url";
 import { create, getData, remove } from "@/helpers/fetchApi";
 import mockAxios from "@/__mocks__/axios";
 import { Search } from "@/types/search";
@@ -67,13 +67,13 @@ describe("Product grid view component", () => {
 
   test("add new product item should call", async () => {
     mockAxios.post.mockResolvedValueOnce(PRODUCT_MOCKING);
-    const result = await create(PRODUCT_CRUD, PRODUCT_MOCKING);
-    expect(mockAxios.post).toHaveBeenCalledWith(PRODUCT_CRUD, PRODUCT_MOCKING);
+    const result = await create(PRODUCTS_URL, PRODUCT_MOCKING);
+    expect(mockAxios.post).toHaveBeenCalledWith(PRODUCTS_URL, PRODUCT_MOCKING);
     expect(result).toEqual(PRODUCT_MOCKING);
   });
 
   test("delete product item should call", async () => {
-    const PRODUCT_URL_CALL = PRODUCT_CRUD + "/1";
+    const PRODUCT_URL_CALL = PRODUCTS_URL + "/1";
     mockAxios.delete.mockResolvedValueOnce(PRODUCT_MOCKING);
     const result = await remove(PRODUCT_URL_CALL);
     expect(mockAxios.delete).toHaveBeenCalledWith(PRODUCT_URL_CALL);

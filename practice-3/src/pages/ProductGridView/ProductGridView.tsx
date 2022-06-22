@@ -4,7 +4,7 @@ import { Product } from "@/types/product";
 import { SUCCESS_MSG } from "@/constants/message";
 import { SearchContext } from "@/context/SearchContext";
 import { create, getData, remove } from "@/helpers/fetchApi";
-import { PRODUCTS_URL, PRODUCT_CRUD } from "@/constants/url";
+import { PRODUCTS_URL } from "@/constants/url";
 import ProductGridCard from "../ProductGridCard/ProductGridCard";
 import React, { useCallback, useContext, useState } from "react";
 import ModalCreate from "@/components/Modal/ModalCreate/ModalCreate";
@@ -17,7 +17,7 @@ const ProductGridView: React.FC = () => {
 
   // URLSearchParams: convert searchValue to string => handle search
   const queryParams: URLSearchParams = new URLSearchParams(searchValue);
-  const { data, mutate } = useSWR(PRODUCTS_URL + queryParams.toString(), getData<Product[]>);
+  const { data, mutate } = useSWR(PRODUCTS_URL + "?" + queryParams.toString(), getData<Product[]>);
 
   // create product
   const createProduct = async (productData: Product) => {
@@ -31,7 +31,7 @@ const ProductGridView: React.FC = () => {
       images: productData.images,
     };
     try {
-      await create(PRODUCT_CRUD, newProduct);
+      await create(PRODUCTS_URL, newProduct);
       mutate();
       toast.success(SUCCESS_MSG.MESSAGE_ADD_PRODUCT);
     } catch (error) {
@@ -42,7 +42,7 @@ const ProductGridView: React.FC = () => {
   // delete product
   const deleteProduct = async (id: string) => {
     try {
-      await remove(`${PRODUCT_CRUD}/${id}`);
+      await remove(`${PRODUCTS_URL}/${id}`);
       mutate();
       toast.success(SUCCESS_MSG.MESSAGE_DELETE_PRODUCT);
     } catch (error) {

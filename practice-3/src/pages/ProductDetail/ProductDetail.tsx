@@ -6,7 +6,7 @@ import Title from "@/components/common/Title/Title";
 import Text from "@/components/Text/Text";
 import ModalUpdate from "@/components/Modal/ModalUpdate/ModalUpdate";
 import { Product } from "@/types/product";
-import { PRODUCT_CRUD } from "@/constants/url";
+import { PRODUCTS_URL } from "@/constants/url";
 import toast from "react-hot-toast";
 import "./productDetail.css";
 
@@ -33,7 +33,7 @@ const ProductDetails: React.FC = () => {
   // fetch data by id
   const fetchDataById = async () => {
     try {
-      const response = await axios.get(PRODUCT_CRUD + `${id}`);
+      const response = await axios.get(PRODUCTS_URL + `${id}`);
       setProduct(response.data);
     } catch (error) {
       toast.error(error as string);
