@@ -1,8 +1,8 @@
-import React, { memo } from "react";
+import React from "react";
 import InputSearch from "@/components/Input/InputSearch/InputSearch";
 import "./navigation.css";
 
-const Navigation: React.FC = memo(() => {
+const Navigation: React.FC = () => {
   return (
     <nav data-testid="navigation" className="nav">
       <ul className="nav__list">
@@ -20,6 +20,6 @@ const Navigation: React.FC = memo(() => {
       <InputSearch />
     </nav>
   );
-});
+};
 
 export default Navigation;

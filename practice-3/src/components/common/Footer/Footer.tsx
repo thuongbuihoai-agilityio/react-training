@@ -1,7 +1,7 @@
-import React, { memo } from "react";
+import React from "react";
 import "./footer.css";
 
-const Footer: React.FC = memo(() => {
+const Footer: React.FC = () => {
   return (
     <footer className="footer">
       <p data-testid="footer" className="footer__contact">
@@ -9,6 +9,6 @@ const Footer: React.FC = memo(() => {
       </p>
     </footer>
   );
-});
+};
 
 export default Footer;
