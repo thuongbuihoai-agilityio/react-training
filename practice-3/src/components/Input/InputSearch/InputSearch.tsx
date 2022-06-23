@@ -1,8 +1,8 @@
-import React, { memo, useContext } from "react";
+import React, { useContext } from "react";
 import { SearchContext } from "@/context/SearchContext";
 import "./inputSearch.css";
 
-const InputSearch: React.FC = memo(() => {
+const InputSearch: React.FC = () => {
   // handle search with SearchContext
   const { setSearchValue } = useContext(SearchContext);
   const handleSearch = (e: { target: { value: string } }) => {
@@ -21,6 +21,6 @@ const InputSearch: React.FC = memo(() => {
       />
     </div>
   );
-});
+};
 
 export default InputSearch;

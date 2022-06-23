@@ -21,25 +21,20 @@ const ProductDetails = lazy(
   () => import("@/pages/ProductDetail/ProductDetail")
 );
 
-const App: React.FC = memo(() => {
+const App: React.FC = () => {
   return (
     // The context SWRConfig can provide global configurations (options) for all SWR hooks.
     <SWRConfig value={{ revalidateOnFocus: true }}>
       <Header />
       {/* SearchProvider: Handle searchContext */}
       <SearchProvider>
-        {/* Navigation: Handle search by name */}
         <Navigation />
-        {/* Categories: Handle search by categoryId */}
         <Categories />
         {/* Suspense: Show a <Loading /> while the product list is loading */}
         <Suspense fallback={<Loading />}>
           <Routes>
-            {/* "/": redirect to ProductListView */}
             <Route path="/" element={<ProductListView />} />
-            {/* "/products": redirect to ProductGridView */}
             <Route path="/products" element={<ProductGridView />} />
-            {/* "/products/:id": redirect to ProductDetails */}
             <Route path={`/product/:id`} element={<ProductDetails />} />
           </Routes>
         </Suspense>
@@ -49,7 +44,6 @@ const App: React.FC = memo(() => {
       <Toaster position="top-center" />
     </SWRConfig>
   );
-});
+};
 
-App.whyDidYouRender = true;
 export default App;

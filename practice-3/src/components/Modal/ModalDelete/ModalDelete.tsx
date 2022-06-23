@@ -1,8 +1,8 @@
-import React, { memo } from "react";
+import React from "react";
 import { ModalDeleteProps } from "@/types/modal";
 import "../modal.css";
 
-const ModalDelete: React.FC<ModalDeleteProps> = memo(({ id, hideModalDelete, deleteProduct }) => {
+const ModalDelete: React.FC<ModalDeleteProps> = ({ id, hideModalDelete, deleteProduct }) => {
   return (
     <div data-testid="modal-delete" className="modal-delete" id="showModal">
       <div className="modal-dialog">
@@ -18,6 +18,6 @@ const ModalDelete: React.FC<ModalDeleteProps> = memo(({ id, hideModalDelete, del
       </div>
     </div>
   );
-});
+};
 
 export default ModalDelete;

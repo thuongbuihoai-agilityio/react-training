@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import Price from "@/components/Price/Price";
 import Text from "@/components/Text/Text";
@@ -6,7 +6,7 @@ import { ProductCardProps } from "@/types/product";
 import Title from "@/components/common/Title/Title";
 import "./productListCard.css";
 
-const ProductListCard: React.FC<ProductCardProps> = memo(({ product }) => {
+const ProductListCard: React.FC<ProductCardProps> = ({ product }) => {
   return (
     <div data-testid="product-list-card" className="productViewPage">
       <img className="productViewPage__image" src={product?.images[0]} />
@@ -22,6 +22,6 @@ const ProductListCard: React.FC<ProductCardProps> = memo(({ product }) => {
       </div>
     </div>
   );
-});
+};
 
 export default ProductListCard;
