@@ -6,7 +6,7 @@ import { ProductItemProps } from "@/types/product";
 import ModalDelete from "@/components/Modal/ModalDelete/ModalDelete";
 import "./productGridCard.css";
 
-const ProductGridCard: React.FC<ProductItemProps> = memo(({
+const ProductGridCard: React.FC<ProductItemProps> = ({
   product,
   deleteProduct,
 }) => {
@@ -43,6 +43,6 @@ const ProductGridCard: React.FC<ProductItemProps> = memo(({
       </div>
     </>
   );
-});
+};
 
 export default ProductGridCard;

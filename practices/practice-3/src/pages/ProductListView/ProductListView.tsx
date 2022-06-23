@@ -1,5 +1,5 @@
 import useSWR from "swr";
-import React, { memo, useContext } from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Product } from "@/types/product";
 import { getData } from "@/helpers/fetchApi";
@@ -10,7 +10,7 @@ import ProductListCard from "../ProductListCard/ProductListCard";
 import ScrollButton from "@/components/common/Button/ScrollButton/ScrollButton";
 import "./productListView.css";
 
-const ProductListView: React.FC = memo(() => {
+const ProductListView: React.FC = () => {
   const { searchValue } = useContext(SearchContext);
   // URLSearchParams: convert searchValue to string => handle search
   const queryParams: URLSearchParams = new URLSearchParams(searchValue);
@@ -31,6 +31,6 @@ const ProductListView: React.FC = memo(() => {
       <ScrollButton className="btn__backToTop" text={<i className="fa fa-arrow-alt-circle-up"></i>} />
     </>
   );
-});
+};
 
 export default ProductListView;
