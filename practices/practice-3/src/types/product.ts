@@ -1,3 +1,5 @@
+import { KeyedMutator } from "swr";
+
 export interface Product {
   id: string;
   name: string;
@@ -16,4 +18,14 @@ export interface ProductItemProps {
 
 export interface ProductCardProps {
   product: Product;
+}
+
+export interface ProductContext {
+  data: Product[] | undefined;
+  mutate: KeyedMutator<Product[]>;
+  getProduct?: (data: Product) => void;
+}
+
+export interface ProductContextProps extends ProductContext{
+  setProducts?: Function;
 }

@@ -9,15 +9,12 @@ import ProductGridCard from "../ProductGridCard/ProductGridCard";
 import React, { useCallback, useContext, useState } from "react";
 import ModalCreate from "@/components/Modal/ModalCreate/ModalCreate";
 import ScrollButton from "@/components/common/Button/ScrollButton/ScrollButton";
+import { DataContext } from "@/context/DataContext";
 import "./productGridView.css";
 
 const ProductGridView: React.FC = () => {
   const [openModalCreate, setOpenModalCreate] = useState(false);
-  const { searchValue } = useContext(SearchContext);
-
-  // URLSearchParams: convert searchValue to string => handle search
-  const queryParams: URLSearchParams = new URLSearchParams(searchValue);
-  const { data, mutate } = useSWR(PRODUCTS_URL + "?" + queryParams.toString(), getData<Product[]>);
+  const { data, mutate } = useContext(DataContext);
 
   // create product
   const createProduct = async (productData: Product) => {
