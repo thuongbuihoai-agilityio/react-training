@@ -2,20 +2,14 @@ import useSWR from "swr";
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Product } from "@/types/product";
-import { getData } from "@/helpers/fetchApi";
-import { PRODUCTS_URL } from "@/constants/url";
-import { SearchContext } from "@/context/SearchContext";
 import Button from "@/components/common/Button/Button/Button";
 import ProductListCard from "../ProductListCard/ProductListCard";
 import ScrollButton from "@/components/common/Button/ScrollButton/ScrollButton";
 import "./productListView.css";
+import { DataContext } from "@/context/DataContext";
 
 const ProductListView: React.FC = () => {
-  const { searchValue } = useContext(SearchContext);
-  // URLSearchParams: convert searchValue to string => handle search
-  const queryParams: URLSearchParams = new URLSearchParams(searchValue);
-  const { data } = useSWR(PRODUCTS_URL + "?" + queryParams.toString(), getData<Product[]>);
-
+  const { data } = useContext(DataContext);
   return (
     <>
       <div data-testid="view-product-list" className="viewProduct__list">

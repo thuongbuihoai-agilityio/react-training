@@ -10,13 +10,24 @@ import mockAxios from "@/__mocks__/axios";
 import { CATEGORIES_URL, PRODUCTS_URL } from "@/constants/url";
 import { getData } from "@/helpers/fetchApi";
 import { CATEGORY_MOCKING_LIST } from "@/__mocks__/constants/categories";
-import { PRODUCT_MOCKING_LIST } from "@/__mocks__/constants/product";
+import { PRODUCT_MOCKING, PRODUCT_MOCKING_LIST } from "@/__mocks__/constants/product";
 import Button from "@/components/common/Button/Button/Button";
+import { ProductContext, ProductContextProps } from "@/types/product";
+import { mutate } from "swr";
+import { ACTION } from "@/constants/message";
+import { reducer } from "@/reducer/dataReducer";
+import { DataContext } from "@/context/DataContext";
 
 const contextValueMockSearch: Search = {
   setSearchValue: jest.fn(),
   searchValue: "",
 };
+
+const contextProductMock: ProductContextProps = {
+  setProducts: jest.fn(),
+  data: PRODUCT_MOCKING_LIST,
+  mutate
+}
 
 describe("Product list view component", () => {
   afterEach(() => {
@@ -47,6 +58,20 @@ describe("Product list view component", () => {
     expect(getByTestId("view-product-list")).toBeInTheDocument();
   });
 
+  test("should get product when run app", () => {
+    const history = createMemoryHistory();
+    const { getByTestId } = render(
+      <DataContext.Provider value={contextProductMock}>
+        <Router location={history.location} navigator={history}>
+          <ProductListView />
+        </Router>
+      </DataContext.Provider>
+    );
+    const getProducts = getByTestId("view-product-list");
+    fireEvent.click(getProducts);
+    expect(contextProductMock.setProducts).not.toHaveBeenCalled();
+  });
+
   test("should filter when click category", () => {
     const { getByTestId } = render(
       <SearchContext.Provider value={contextValueMockSearch}>
@@ -71,6 +96,19 @@ describe("Product list view component", () => {
 
     fireEvent.click(getByText("VIEW ALL PRODUCTS"));
     expect(history.push).toHaveBeenCalled();
+  });
+
+  test("should return new state when dispatch action", () => {
+    const initialState: ProductContext = {
+      data: [],
+      mutate
+    };
+    const updateAction = {
+      action: ACTION.GET_DATA,
+      payload: PRODUCT_MOCKING,
+    };
+    const updatedState = reducer(initialState, updateAction);
+    expect(updatedState).toEqual(updatedState);
   });
 
   test("matches snapshot", () => {

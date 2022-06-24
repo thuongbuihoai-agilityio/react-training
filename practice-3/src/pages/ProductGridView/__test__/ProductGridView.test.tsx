@@ -1,5 +1,5 @@
-import { fireEvent, render } from "@testing-library/react";
 import "@testing-library/jest-dom";
+import { fireEvent, render } from "@testing-library/react";
 import ProductGridView from "../ProductGridView";
 import { createMemoryHistory } from "history";
 import { Router } from "react-router-dom";
@@ -13,11 +13,22 @@ import { useState } from "react";
 import ModalDelete from "@/components/Modal/ModalDelete/ModalDelete";
 import ModalCreate from "@/components/Modal/ModalCreate/ModalCreate";
 import { PRODUCT_MOCKING, PRODUCT_MOCKING_LIST } from "@/__mocks__/constants/product";
+import { ProductContext, ProductContextProps } from "@/types/product";
+import { mutate } from "swr";
+import { reducer } from "@/reducer/dataReducer";
+import { ACTION } from "@/constants/message";
+import { DataContext } from "@/context/DataContext";
 
 const contextValueMockSearch: Search = {
   setSearchValue: jest.fn(),
   searchValue: "",
 };
+
+const contextProductMock: ProductContextProps = {
+  setProducts: jest.fn(),
+  data: PRODUCT_MOCKING_LIST,
+  mutate
+}
 
 jest.mock("react", () => ({
   ...jest.requireActual("react"),
@@ -115,6 +126,20 @@ describe("Product grid view component", () => {
     expect(getByTestId("product-gird-view")).toBeInTheDocument();
   });
 
+  test("should get product when run app", () => {
+    const history = createMemoryHistory();
+    const { getByTestId } = render(
+      <DataContext.Provider value={contextProductMock}>
+        <Router location={history.location} navigator={history}>
+        <ProductGridView />
+        </Router>
+      </DataContext.Provider>
+    );
+    const getProducts = getByTestId("product-gird-view");
+    fireEvent.click(getProducts);
+    expect(contextProductMock.setProducts).not.toHaveBeenCalled();
+  });
+
   test("should open modal when click button 'Add new product'", () => {
     const history = createMemoryHistory();
     const { getByTestId } = render(
@@ -147,6 +172,19 @@ describe("Product grid view component", () => {
     const categoryItem = getByTestId("category-item");
     fireEvent.click(categoryItem);
     expect(contextValueMockSearch.setSearchValue).toHaveBeenCalled();
+  });
+
+  test("should return new state when dispatch action", () => {
+    const initialState: ProductContext = {
+      data: [],
+      mutate
+    };
+    const updateAction = {
+      action: ACTION.GET_DATA,
+      payload: PRODUCT_MOCKING,
+    };
+    const updatedState = reducer(initialState, updateAction);
+    expect(updatedState).toEqual(updatedState);
   });
 
   test("matches snapshot", () => {
