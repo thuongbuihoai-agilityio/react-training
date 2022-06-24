@@ -1,9 +1,9 @@
+import "@testing-library/jest-dom";
+import Categories from "../Categories";
+import mockAxios from "@/__mocks__/axios";
+import { useState } from "react";
 import { fireEvent, render } from "@testing-library/react";
 import { SearchContext } from "@/context/SearchContext";
-import Categories from "../Categories";
-import "@testing-library/jest-dom";
-import { useState } from "react";
-import mockAxios from "@/__mocks__/axios";
 import { CATEGORY_MOCKING_LIST } from "@/__mocks__/constants/categories";
 import { getData } from "@/helpers/fetchApi";
 import { CATEGORIES_URL } from "@/constants/url";
