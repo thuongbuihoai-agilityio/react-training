@@ -21,11 +21,7 @@ export interface ProductCardProps {
 }
 
 export interface ProductContext {
-  data: Product[] | undefined;
+  products: Product[];
   mutate: KeyedMutator<Product[]>;
-  getProduct?: (data: Product) => void;
-}
-
-export interface ProductContextProps extends ProductContext{
-  setProducts?: Function;
+  setProducts: (data: Product[]) => void;
 }
