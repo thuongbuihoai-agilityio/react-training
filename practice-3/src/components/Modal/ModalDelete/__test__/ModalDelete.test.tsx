@@ -1,4 +1,4 @@
-import { fireEvent, render } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import ModalDelete from "../ModalDelete";
 
@@ -18,27 +18,27 @@ describe("Modal create component", () => {
   });
 
   test("should hide modal delete when click No", () => {
-    const { getByTestId } = render(
+    render(
       <ModalDelete
         id={""}
         hideModalDelete={hideModalDelete}
         deleteProduct={() => {}}
       />
     );
-    const hideModal = getByTestId("btn-no");
+    const hideModal = screen.getByText("No");
     fireEvent.click(hideModal);
     expect(hideModalDelete).toHaveBeenCalled();
   });
 
   test("should delete product when click Yes", () => {
-    const { getByTestId } = render(
+    render(
       <ModalDelete
         id={""}
         hideModalDelete={() => {}}
         deleteProduct={deleteProduct}
       />
     );
-    const hideModal = getByTestId("btn-yes");
+    const hideModal = screen.getByText("Yes");
     fireEvent.click(hideModal);
     expect(deleteProduct).toHaveBeenCalled();
   });
