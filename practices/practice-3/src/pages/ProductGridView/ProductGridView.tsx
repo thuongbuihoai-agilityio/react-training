@@ -1,9 +1,7 @@
-import useSWR from "swr";
 import toast from "react-hot-toast";
 import { Product } from "@/types/product";
 import { SUCCESS_MSG } from "@/constants/message";
-import { SearchContext } from "@/context/SearchContext";
-import { create, getData, remove } from "@/helpers/fetchApi";
+import { create, remove } from "@/helpers/fetchApi";
 import { PRODUCTS_URL } from "@/constants/url";
 import ProductGridCard from "../ProductGridCard/ProductGridCard";
 import React, { useCallback, useContext, useState } from "react";
@@ -14,7 +12,7 @@ import "./productGridView.css";
 
 const ProductGridView: React.FC = () => {
   const [openModalCreate, setOpenModalCreate] = useState(false);
-  const { data, mutate } = useContext(DataContext);
+  const { products, mutate } = useContext(DataContext);
 
   // create product
   const createProduct = async (productData: Product) => {
@@ -63,7 +61,7 @@ const ProductGridView: React.FC = () => {
           Add new product
         </button>
         <div data-testid="delete-product" className="product__info">
-          {data?.map((product: Product) => (
+          {products?.map((product: Product) => (
             <div className="product__item" key={product.id}>
               <ProductGridCard
                 product={product}
