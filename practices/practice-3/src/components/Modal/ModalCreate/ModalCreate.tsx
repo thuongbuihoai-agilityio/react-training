@@ -3,20 +3,23 @@ import React, { ChangeEvent, useCallback, useState } from "react";
 import { FormProps } from "@/types/form";
 import { Product } from "@/types/product";
 import { RULES } from "@/constants/rules";
-import getBase64 from "@/helpers/getBase64";
 import { getData } from "@/helpers/fetchApi";
 import { validate } from "@/helpers/validate";
 import { ModalCreateProps } from "@/types/modal";
 import { CATEGORIES_URL } from "@/constants/url";
 import { CategoryProps } from "@/types/category";
 import { setFieldsValue } from "@/helpers/fieldHandle";
+import getBase64 from "@/helpers/getBase64";
 import InputValue from "@/components/Input/InputValue/InputValue";
+import Button from "@/components/common/Button/Button/Button";
 import "../modal.css";
 
 const ModalCreate: React.FC<ModalCreateProps> = ({
   hideModalCreate,
   createProduct,
 }) => {
+  // handle highlight when categoryId selected
+  const [isDisable, setIsDisable] = useState(false);
   const [newProduct, setNewProduct] = useState([]);
   // fetch data with useSWR
   const { data } = useSWR(CATEGORIES_URL, getData<Product[]>);
@@ -75,6 +78,7 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
     // check validate if pass then create product
     if (!temp.includes(false)) {
       setFormValues({...formValues});
+      setIsDisable(!isDisable);
       createProduct({ images, ...newProduct } as unknown as Product);
       hideModalCreate();
     }
@@ -128,7 +132,6 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
             <div className="form-control">
               <label htmlFor="">Product name: </label>
               <InputValue
-                className="input__value"
                 type="text"
                 name="name"
                 onChange={handleChange}
@@ -229,20 +232,17 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
             </div>
           </div>
           <div className="modal-footer-modalUpdate">
-            <button
-              data-testid="hide-modal-btn"
+            <Button
               className="btn btn__no"
               onClick={hideModalCreate}
-            >
-              Cancel
-            </button>
-            <button
-              data-testid="add-new-product"
+              text="Cancel"
+            />
+            <Button
               className="btn btn__yes"
+              disabled = {isDisable}
               onClick={() => handleCreateProduct()}
-            >
-              Submit
-            </button>
+              text="Submit"
+            />
           </div>
         </div>
       </div>

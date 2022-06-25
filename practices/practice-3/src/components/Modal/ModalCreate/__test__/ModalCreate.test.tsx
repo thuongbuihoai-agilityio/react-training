@@ -1,4 +1,4 @@
-import { fireEvent, render, waitFor } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import user from "@testing-library/user-event";
 import ModalCreate from "../ModalCreate";
@@ -86,27 +86,25 @@ describe("Modal create component", () => {
   });
 
   test("should hide modal create when click Cancel", () => {
-    const { getByTestId } = render(
+    render(
       <ModalCreate
         hideModalCreate={hideModalCreate}
         createProduct={() => {}}
-
       />
     );
-    const cancelBtn = getByTestId("hide-modal-btn");
+    const cancelBtn = screen.getByText("Cancel");
     fireEvent.click(cancelBtn);
     expect(hideModalCreate).toHaveBeenCalled();
   });
 
   test("should create product when click Submit", () => {
-    const { getByTestId } = render(
+    render(
       <ModalCreate
         hideModalCreate={() => {}}
         createProduct={handleCreateProduct}
-
       />
     );
-    const submitBtn = getByTestId("add-new-product");
+    const submitBtn = screen.getByText("Submit");
     fireEvent.click(submitBtn);
     expect(submitBtn).toBeInTheDocument();
   });
@@ -116,7 +114,6 @@ describe("Modal create component", () => {
       <ModalCreate
         hideModalCreate={() => {}}
         createProduct={() => {}}
-
       />
     );
     expect(asFragment()).toMatchSnapshot();
