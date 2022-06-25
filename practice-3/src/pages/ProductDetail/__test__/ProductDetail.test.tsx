@@ -1,4 +1,4 @@
-import { fireEvent, render } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import ProductDetails from "../ProductDetail";
 import { useState } from "react";
@@ -38,7 +38,7 @@ describe("Product detail component", () => {
   });
 
   test("should hide modal update when click Cancel", () => {
-    const { getByTestId } = render(
+    render(
       <ModalUpdate
         product={PRODUCT_MOCKING}
         hideModalUpdate={hideModalUpdate}
@@ -46,13 +46,13 @@ describe("Product detail component", () => {
         updateProductDetail={() => {}}
       />
     );
-    const hideModal = getByTestId("btn-no-modalUpdate");
+    const hideModal = screen.getByText("Cancel");
     fireEvent.click(hideModal);
     expect(hideModalUpdate).toHaveBeenCalled();
   });
 
   test("should update product when click Submit", () => {
-    const { getByTestId } = render(
+    render(
       <ModalUpdate
         product={PRODUCT_MOCKING}
         hideModalUpdate={updateProduct}
@@ -60,7 +60,7 @@ describe("Product detail component", () => {
         updateProductDetail={() => {}}
       />
     );
-    const btnSubmit = getByTestId("btn-yes-modalUpdate");
+    const btnSubmit = screen.getByText("Submit");
     fireEvent.click(btnSubmit);
     expect(updateProduct).toHaveBeenCalled();
   });
@@ -74,7 +74,7 @@ describe("Product detail component", () => {
 
   test("should open modal when click button edit", () => {
     const { getByTestId } = render(
-        <ProductDetails />
+      <ProductDetails />
     );
     const btnOpenModal = getByTestId("open-modal-update");
     fireEvent.click(btnOpenModal);
@@ -83,7 +83,7 @@ describe("Product detail component", () => {
 
   test("matches snapshot", () => {
     const { asFragment } = render(
-        <ProductDetails />
+      <ProductDetails />
     );
     expect(asFragment()).toMatchSnapshot();
   });
