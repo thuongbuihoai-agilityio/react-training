@@ -4,7 +4,6 @@ import toast from "react-hot-toast";
 import { FormProps } from "@/types/form";
 import { Product } from "@/types/product";
 import { RULES } from "@/constants/rules";
-import getBase64 from "@/helpers/getBase64";
 import { validate } from "@/helpers/validate";
 import { ModalUpdateProps } from "@/types/modal";
 import { CategoryProps } from "@/types/category";
@@ -12,7 +11,9 @@ import { SUCCESS_MSG } from "@/constants/message";
 import { getData, update } from "@/helpers/fetchApi";
 import { setFieldsValue } from "@/helpers/fieldHandle";
 import { CATEGORIES_URL, PRODUCTS_URL } from "@/constants/url";
+import getBase64 from "@/helpers/getBase64";
 import InputValue from "@/components/Input/InputValue/InputValue";
+import Button from "@/components/common/Button/Button/Button";
 import "../modal.css";
 
 const ModalUpdate: React.FC<ModalUpdateProps> = ({
@@ -150,7 +151,6 @@ const ModalUpdate: React.FC<ModalUpdateProps> = ({
             <div className="form-control">
               <label htmlFor="">Product name: </label>
               <InputValue
-                className="input__value"
                 type="text"
                 name="name"
                 value={productEdit?.name}
@@ -261,20 +261,16 @@ const ModalUpdate: React.FC<ModalUpdateProps> = ({
             </div>
           </div>
           <div className="modal-footer-modalUpdate">
-            <button
-              data-testid="btn-no-modalUpdate"
+            <Button
               className="btn btn__no"
               onClick={hideModalUpdate}
-            >
-              Cancel
-            </button>
-            <button
-              data-testid="btn-yes-modalUpdate"
+              text="Cancel"
+            />
+            <Button
+              text="Submit"
               className="btn btn__yes"
               onClick={() => handleUpdateProduct(product.id, productEdit)}
-            >
-              Submit
-            </button>
+            />
           </div>
         </div>
       </div>

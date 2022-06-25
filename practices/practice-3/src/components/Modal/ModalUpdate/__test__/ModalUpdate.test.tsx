@@ -1,4 +1,4 @@
-import { fireEvent, render, waitFor } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import user from "@testing-library/user-event";
 import ModalUpdate from "../ModalUpdate";
 import "@testing-library/jest-dom";
@@ -118,7 +118,7 @@ describe("Modal update component", () => {
   });
 
   test("should hide modal update when click Cancel", () => {
-    const { getByTestId } = render(
+    render(
       <ModalUpdate
         product={PRODUCT_MOCKING}
         hideModalUpdate={hideModalUpdate}
@@ -126,13 +126,13 @@ describe("Modal update component", () => {
         updateProductDetail={() => {}}
       />
     );
-    const hideModal = getByTestId("btn-no-modalUpdate");
+    const hideModal = screen.getByText("Cancel");
     fireEvent.click(hideModal);
     expect(hideModalUpdate).toHaveBeenCalled();
   });
 
   test("should update product when click Submit", () => {
-    const { getByTestId } = render(
+    render(
       <ModalUpdate
         product={PRODUCT_MOCKING}
         hideModalUpdate={updateProductDetail}
@@ -140,7 +140,7 @@ describe("Modal update component", () => {
         updateProductDetail={() => {}}
       />
     );
-    const btnSubmit = getByTestId("btn-yes-modalUpdate");
+    const btnSubmit = screen.getByText("Submit");
     fireEvent.click(btnSubmit);
     expect(updateProductDetail).toHaveBeenCalled();
   });
