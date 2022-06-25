@@ -10,12 +10,10 @@ import mockAxios from "@/__mocks__/axios";
 import { CATEGORIES_URL, PRODUCTS_URL } from "@/constants/url";
 import { getData } from "@/helpers/fetchApi";
 import { CATEGORY_MOCKING_LIST } from "@/__mocks__/constants/categories";
-import { PRODUCT_MOCKING, PRODUCT_MOCKING_LIST } from "@/__mocks__/constants/product";
+import { PRODUCT_MOCKING_LIST } from "@/__mocks__/constants/product";
 import Button from "@/components/common/Button/Button/Button";
-import { ProductContext, ProductContextProps } from "@/types/product";
+import { ProductContext } from "@/types/product";
 import { mutate } from "swr";
-import { ACTION } from "@/constants/message";
-import { reducer } from "@/reducer/dataReducer";
 import { DataContext } from "@/context/DataContext";
 
 const contextValueMockSearch: Search = {
@@ -23,9 +21,9 @@ const contextValueMockSearch: Search = {
   searchValue: "",
 };
 
-const contextProductMock: ProductContextProps = {
+const contextProductMock: ProductContext = {
   setProducts: jest.fn(),
-  data: PRODUCT_MOCKING_LIST,
+  products: PRODUCT_MOCKING_LIST,
   mutate
 }
 
@@ -98,24 +96,11 @@ describe("Product list view component", () => {
     expect(history.push).toHaveBeenCalled();
   });
 
-  test("should return new state when dispatch action", () => {
-    const initialState: ProductContext = {
-      data: [],
-      mutate
-    };
-    const updateAction = {
-      action: ACTION.GET_DATA,
-      payload: PRODUCT_MOCKING,
-    };
-    const updatedState = reducer(initialState, updateAction);
-    expect(updatedState).toEqual(updatedState);
-  });
-
   test("matches snapshot", () => {
     const history = createMemoryHistory();
     const { asFragment } = render(
       <Router location={history.location} navigator={history}>
-         <ProductListView />
+        <ProductListView />
       </Router>
     );
     expect(asFragment()).toMatchSnapshot();
