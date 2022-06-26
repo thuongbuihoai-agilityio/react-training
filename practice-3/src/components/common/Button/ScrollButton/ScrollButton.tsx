@@ -1,5 +1,5 @@
 import React, { memo, useEffect, useState } from "react";
-import { ButtonProps } from "@/types/button";
+import { ButtonProps } from "@common-types/button";
 import "./scrollButton.css";
 
 const ScrollButton: React.FC<ButtonProps> = memo(({ text, className }) => {
