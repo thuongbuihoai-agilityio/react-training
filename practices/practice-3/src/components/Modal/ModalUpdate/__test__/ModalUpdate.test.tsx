@@ -3,11 +3,11 @@ import user from "@testing-library/user-event";
 import ModalUpdate from "../ModalUpdate";
 import "@testing-library/jest-dom";
 import { useState } from "react";
-import mockAxios from "@/__mocks__/axios";
-import { CATEGORIES_URL, PRODUCTS_URL } from "@/constants/url";
-import { CATEGORY_MOCKING_LIST } from "@/__mocks__/constants/categories";
-import { getData, update } from "@/helpers/fetchApi";
-import { PRODUCT_MOCKING } from "@/__mocks__/constants/product";
+import mockAxios from "@__mocks__/axios";
+import { CATEGORIES_URL, PRODUCTS_URL } from "@constants/url";
+import { CATEGORY_MOCKING_LIST } from "@__mocks__/constants/categories";
+import { getData, update } from "@helpers/fetchApi";
+import { PRODUCT_MOCKING } from "@__mocks__/constants/product";
 
 jest.mock("react", () => ({
   ...jest.requireActual("react"),
