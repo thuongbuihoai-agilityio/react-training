@@ -1,6 +1,6 @@
-import { ERROR_MSG } from "@/constants/message";
-import { RULES } from "@/constants/rules";
-import { FormProps } from "@/types/form";
+import { ERROR_MSG } from "@constants/message";
+import { RULES } from "@constants/rules";
+import { FormProps } from "@common-types/form";
 
 // check required
 const checkRequired = ( value: string, errors: { [fieldName: string]: any }, fieldName: string ) => {
