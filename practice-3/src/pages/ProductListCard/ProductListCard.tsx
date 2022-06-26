@@ -11,7 +11,7 @@ const ProductListCard: React.FC<ProductCardProps> = ({ product }) => {
     <div data-testid="product-list-card" className="productViewPage">
       <img className="productViewPage__image" src={product?.images[0]} />
       <div className="productViewPage__content">
-        <Link className="productViewPage__link" to={`/product/${product.id}`}>
+        <Link className="productViewPage__link" to={`/products/${product.id}`}>
           <Title className="productViewPage__title" text={product.name} />
         </Link>
         <Text
