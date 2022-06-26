@@ -31,7 +31,7 @@ describe("App component", () => {
 
   test("rendering a product detail component that uses useLocation", () => {
     const history = createMemoryHistory();
-    const route = "/product/:id";
+    const route = "/products/:id";
     history.push(route);
     render(
       <Router location={history.location} navigator={history}>
