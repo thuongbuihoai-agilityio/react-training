@@ -22,7 +22,7 @@ exports[`Product grid card component matches snapshot 1`] = `
     >
       <a
         class="productViewPage__link"
-        href="/product/1"
+        href="/products/1"
       >
         <h2
           class="productViewPage__title"
