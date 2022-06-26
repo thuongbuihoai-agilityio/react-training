@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Price from "@/components/Price/Price";
-import Text from "@/components/Text/Text";
-import { ProductCardProps } from "@/types/product";
-import Title from "@/components/common/Title/Title";
+import { ProductCardProps } from "@common-types/product";
+import Price from "@components/Price/Price";
+import Text from "@components/Text/Text";
+import Title from "@components/common/Title/Title";
 import "./productListCard.css";
 
 const ProductListCard: React.FC<ProductCardProps> = ({ product }) => {
