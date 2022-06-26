@@ -1,13 +1,13 @@
 import toast from "react-hot-toast";
-import { Product } from "@/types/product";
-import { SUCCESS_MSG } from "@/constants/message";
-import { create, remove } from "@/helpers/fetchApi";
-import { PRODUCTS_URL } from "@/constants/url";
 import ProductGridCard from "../ProductGridCard/ProductGridCard";
 import React, { useCallback, useContext, useState } from "react";
-import ModalCreate from "@/components/Modal/ModalCreate/ModalCreate";
-import ScrollButton from "@/components/common/Button/ScrollButton/ScrollButton";
-import { DataContext } from "@/context/DataContext";
+import ModalCreate from "@components/Modal/ModalCreate/ModalCreate";
+import ScrollButton from "@components/common/Button/ScrollButton/ScrollButton";
+import { Product } from "@common-types/product";
+import { SUCCESS_MSG } from "@constants/message";
+import { create, remove } from "@helpers/fetchApi";
+import { PRODUCTS_URL } from "@constants/url";
+import { DataContext } from "@context/DataContext";
 import "./productGridView.css";
 
 const ProductGridView: React.FC = () => {
