@@ -19,8 +19,18 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
   createProduct,
 }) => {
   // handle highlight when categoryId selected
+  const initProduct: Product = {
+    id: "",
+    name: "",
+    price: 0,
+    images: [],
+    quantity: 0,
+    categoryId: "",
+    description: ""
+  }
+
   const [isDisable, setIsDisable] = useState(false);
-  const [newProduct, setNewProduct] = useState([]);
+  const [newProduct, setNewProduct] = useState<Product>(initProduct);
   // fetch data with useSWR
   const { data } = useSWR(CATEGORIES_URL, getData<Product[]>);
   // create state to handle select file image
@@ -77,9 +87,10 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
 
     // check validate if pass then create product
     if (!temp.includes(false)) {
-      setFormValues({...formValues});
+      setFormValues({...formValues}); 
       setIsDisable(!isDisable);
-      createProduct({ images, ...newProduct } as unknown as Product);
+      const product: Product = { ...newProduct, images: images }
+      createProduct(product);
       hideModalCreate();
     }
   };
