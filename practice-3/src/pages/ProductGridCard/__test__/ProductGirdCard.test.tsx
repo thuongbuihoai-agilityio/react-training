@@ -4,8 +4,8 @@ import { createMemoryHistory } from "history";
 import { Router } from "react-router-dom";
 import ProductGridCard from "../ProductGridCard";
 import { useState } from "react";
-import ModalDelete from "@/components/Modal/ModalDelete/ModalDelete";
-import { PRODUCT_MOCKING } from "@/__mocks__/constants/product";
+import ModalDelete from "@components/Modal/ModalDelete/ModalDelete";
+import { PRODUCT_MOCKING } from "@__mocks__/constants/product";
 
 jest.mock("react", () => ({
   ...jest.requireActual("react"),
