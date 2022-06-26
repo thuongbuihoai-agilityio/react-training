@@ -1,5 +1,5 @@
 import React from "react";
-import Price from "@/components/Price/Price";
+import Price from "@components/Price/Price";
 
 export default {
   /* 👇 The title prop is optional.

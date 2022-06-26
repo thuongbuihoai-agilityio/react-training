@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
-import { PRODUCT_MOCKING } from "@/__mocks__/constants/product";
-import ProductListCard from "@/pages/ProductListCard/ProductListCard";
+import { PRODUCT_MOCKING } from "@__mocks__/constants/product";
+import ProductListCard from "@pages/ProductListCard/ProductListCard";
 
 
 export default {
