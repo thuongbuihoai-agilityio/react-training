@@ -1,5 +1,5 @@
-import { initialState, searchReducer } from "@/reducer/searchReducer";
-import { Action, Search } from "@/types/search";
+import { initialState, searchReducer } from "@reducer/searchReducer";
+import { Action, Search } from "@common-types/search";
 import { createContext, useMemo, useReducer } from "react";
 
 const DEFAULT_STATE: Search = {

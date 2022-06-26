@@ -1,10 +1,10 @@
 import useSWR from "swr";
 import toast from "react-hot-toast";
-import { getData } from "@/helpers/fetchApi";
-import { PRODUCTS_URL } from "@/constants/url";
-import { createContext, useContext, useEffect, useMemo, useState } from "react";
-import { Product, ProductContext } from "@/types/product";
+import { getData } from "@helpers/fetchApi";
+import { PRODUCTS_URL } from "@constants/url";
 import { SearchContext } from "./SearchContext";
+import { Product, ProductContext } from "@common-types/product";
+import { createContext, useContext, useEffect, useMemo, useState } from "react";
 
 export const DataContext = createContext<ProductContext>({} as ProductContext);
 const DataProvider: React.FC<{children: JSX.Element[] | JSX.Element}> = ({ children }) => {
