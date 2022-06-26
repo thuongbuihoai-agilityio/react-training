@@ -1,4 +1,4 @@
-import { Product } from "types/product";
+import { Product } from "@common-types/product";
 import url from "../../assets/images/products/black-forest-cake.jpg";
 
 const PRODUCT_MOCKING: Product = {

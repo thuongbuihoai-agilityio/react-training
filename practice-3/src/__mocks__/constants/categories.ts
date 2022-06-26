@@ -1,4 +1,4 @@
-import { CategoryProps } from "@/types/category";
+import { CategoryProps } from "@common-types/category";
 
 const CATEGORY_MOCKING_LIST: CategoryProps[] = [
   {
