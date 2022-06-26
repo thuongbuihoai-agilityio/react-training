@@ -1,5 +1,5 @@
-import ModalUpdate from "@/components/Modal/ModalUpdate/ModalUpdate";
-import { PRODUCT_MOCKING } from "@/__mocks__/constants/product";
+import ModalUpdate from "@components/Modal/ModalUpdate/ModalUpdate";
+import { PRODUCT_MOCKING } from "@__mocks__/constants/product";
 import { fireEvent, render } from "@testing-library/react";
 import InputValue from "../InputValue";
 
