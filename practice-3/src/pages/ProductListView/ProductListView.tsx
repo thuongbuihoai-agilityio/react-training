@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { Product } from "@/types/product";
-import Button from "@/components/common/Button/Button/Button";
+import { Product } from "@common-types/product";
+import { DataContext } from "@context/DataContext";
+import Button from "@components/common/Button/Button/Button";
 import ProductListCard from "../ProductListCard/ProductListCard";
-import ScrollButton from "@/components/common/Button/ScrollButton/ScrollButton";
+import ScrollButton from "@components/common/Button/ScrollButton/ScrollButton";
 import "./productListView.css";
-import { DataContext } from "@/context/DataContext";
 
 const ProductListView: React.FC = () => {
   const { products } = useContext(DataContext);

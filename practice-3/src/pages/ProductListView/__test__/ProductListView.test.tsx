@@ -3,18 +3,18 @@ import "@testing-library/jest-dom";
 import ProductListView from "../ProductListView";
 import { createMemoryHistory } from "history";
 import { Link, Router } from "react-router-dom";
-import { Search } from "@/types/search";
-import { SearchContext } from "@/context/SearchContext";
-import Categories from "@/components/Categories/Categories";
-import mockAxios from "@/__mocks__/axios";
-import { CATEGORIES_URL, PRODUCTS_URL } from "@/constants/url";
-import { getData } from "@/helpers/fetchApi";
-import { CATEGORY_MOCKING_LIST } from "@/__mocks__/constants/categories";
-import { PRODUCT_MOCKING_LIST } from "@/__mocks__/constants/product";
-import Button from "@/components/common/Button/Button/Button";
-import { ProductContext } from "@/types/product";
+import { Search } from "@common-types/search";
+import { SearchContext } from "@context/SearchContext";
+import Categories from "@components/Categories/Categories";
+import mockAxios from "@__mocks__/axios";
+import { CATEGORIES_URL, PRODUCTS_URL } from "@constants/url";
+import { getData } from "@helpers/fetchApi";
+import { CATEGORY_MOCKING_LIST } from "@__mocks__/constants/categories";
+import { PRODUCT_MOCKING_LIST } from "@__mocks__/constants/product";
+import Button from "@components/common/Button/Button/Button";
+import { ProductContext } from "@common-types/product";
 import { mutate } from "swr";
-import { DataContext } from "@/context/DataContext";
+import { DataContext } from "@context/DataContext";
 
 const contextValueMockSearch: Search = {
   setSearchValue: jest.fn(),
