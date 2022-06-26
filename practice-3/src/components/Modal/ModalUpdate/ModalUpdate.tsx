@@ -42,8 +42,8 @@ const ModalUpdate: React.FC<ModalUpdateProps> = ({
       mutate();
       updateProductDetail(response.data);
       toast.success(SUCCESS_MSG.MESSAGE_UPDATE_PRODUCT);
-    } catch (error) {
-      toast.error((error as any).message);
+    } catch (error: any) {
+      toast.error(error.message);
     }
   };
 
