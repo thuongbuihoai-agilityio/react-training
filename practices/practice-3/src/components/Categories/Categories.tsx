@@ -1,9 +1,9 @@
 import useSWR from "swr";
 import React, { memo, useContext, useState } from "react";
-import { CategoryProps } from "@/types/category";
-import { SearchContext } from "@/context/SearchContext";
-import { CATEGORIES_URL } from "@/constants/url";
-import { getData } from "@/helpers/fetchApi";
+import { CategoryProps } from "@common-types/category";
+import { SearchContext } from "@context/SearchContext";
+import { CATEGORIES_URL } from "@constants/url";
+import { getData } from "@helpers/fetchApi";
 import "./categories.css";
 
 const Categories: React.FC = memo(() => {

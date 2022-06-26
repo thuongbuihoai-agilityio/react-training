@@ -1,14 +1,14 @@
 import "@testing-library/jest-dom";
 import Categories from "../Categories";
-import mockAxios from "@/__mocks__/axios";
+import mockAxios from "@__mocks__/axios";
 import { useState } from "react";
 import { fireEvent, render } from "@testing-library/react";
-import { SearchContext } from "@/context/SearchContext";
-import { CATEGORY_MOCKING_LIST } from "@/__mocks__/constants/categories";
-import { getData } from "@/helpers/fetchApi";
-import { CATEGORIES_URL } from "@/constants/url";
-import { Action, Search, SearchState } from "@/types/search";
-import { searchReducer } from "@/reducer/searchReducer";
+import { SearchContext } from "@context/SearchContext";
+import { CATEGORY_MOCKING_LIST } from "@__mocks__/constants/categories";
+import { getData } from "@helpers/fetchApi";
+import { CATEGORIES_URL } from "@constants/url";
+import { Action, Search, SearchState } from "@common-types/search";
+import { searchReducer } from "@reducer/searchReducer";
 
 const contextValueMock: Search = {
   setSearchValue: jest.fn(),
