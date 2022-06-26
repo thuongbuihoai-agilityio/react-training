@@ -1,4 +1,4 @@
-import { Action, SearchAction, SearchState } from "@/types/search";
+import { Action, SearchAction, SearchState } from "@common-types/search";
 
 const initialState: SearchState = {
   searchValue: "",
