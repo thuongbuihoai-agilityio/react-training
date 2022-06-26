@@ -1,4 +1,4 @@
-import React, { memo, useCallback, useState } from "react";
+import React, { useCallback, useState } from "react";
 import { Link } from "react-router-dom";
 import Title from "@/components/common/Title/Title";
 import Price from "@/components/Price/Price";
@@ -28,7 +28,7 @@ const ProductGridCard: React.FC<ProductItemProps> = ({
           <i className="fa fa-trash"></i>
         </button>
         <div className="product__content">
-          <Link className="productViewPage__link" to={`/product/${product.id}`}>
+          <Link className="productViewPage__link" to={`/products/${product.id}`}>
             <Title className="productViewPage__title" text={product.name} />
           </Link>
           <Price className="productViewPage__price" value={product.price} />
