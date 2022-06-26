@@ -1,5 +1,5 @@
 import React from "react";
-import ScrollButton from "@/components/common/Button/ScrollButton/ScrollButton";
+import ScrollButton from "@components/common/Button/ScrollButton/ScrollButton";
 
 export default {
   /* 👇 The title prop is optional.

@@ -1,5 +1,5 @@
 import React from "react";
-import Loading from "@/components/common/Loading/Loading";
+import Loading from "@components/common/Loading/Loading";
 
 export default {
   /* 👇 The title prop is optional.

@@ -1,5 +1,5 @@
 import React from "react";
-import InputValue from "@/components/Input/InputValue/InputValue";
+import InputValue from "@components/Input/InputValue/InputValue";
 
 export default {
   /* 👇 The title prop is optional.
