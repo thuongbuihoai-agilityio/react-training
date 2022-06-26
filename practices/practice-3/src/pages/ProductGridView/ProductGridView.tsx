@@ -29,8 +29,8 @@ const ProductGridView: React.FC = () => {
       await create(PRODUCTS_URL, newProduct);
       mutate();
       toast.success(SUCCESS_MSG.MESSAGE_ADD_PRODUCT);
-    } catch (error) {
-      toast.error((error as any).message);
+    } catch (error: any) {
+      toast.error(error.message);
     }
   };
 
@@ -40,8 +40,8 @@ const ProductGridView: React.FC = () => {
       await remove(`${PRODUCTS_URL}/${id}`);
       mutate();
       toast.success(SUCCESS_MSG.MESSAGE_DELETE_PRODUCT);
-    } catch (error) {
-      toast.error((error as any).message);
+    } catch (error: any) {
+      toast.error(error.message);
     }
   };
 
