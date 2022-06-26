@@ -1,5 +1,5 @@
 import React, { memo } from "react";
-import { LogoProps } from "@/types/logo";
+import { LogoProps } from "@common-types/logo";
 import { Link } from "react-router-dom";
 import "./logo.css";
 
