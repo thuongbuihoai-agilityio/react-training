@@ -1,19 +1,19 @@
 import useSWR from "swr";
 import React, { ChangeEvent, useCallback, useState } from "react";
 import toast from "react-hot-toast";
-import { FormProps } from "@/types/form";
-import { Product } from "@/types/product";
-import { RULES } from "@/constants/rules";
-import { validate } from "@/helpers/validate";
-import { ModalUpdateProps } from "@/types/modal";
-import { CategoryProps } from "@/types/category";
-import { SUCCESS_MSG } from "@/constants/message";
-import { getData, update } from "@/helpers/fetchApi";
-import { setFieldsValue } from "@/helpers/fieldHandle";
-import { CATEGORIES_URL, PRODUCTS_URL } from "@/constants/url";
-import getBase64 from "@/helpers/getBase64";
-import InputValue from "@/components/Input/InputValue/InputValue";
-import Button from "@/components/common/Button/Button/Button";
+import { FormProps } from "@common-types/form";
+import { Product } from "@common-types/product";
+import { RULES } from "@constants/rules";
+import { validate } from "@helpers/validate";
+import { ModalUpdateProps } from "@common-types/modal";
+import { CategoryProps } from "@common-types/category";
+import { SUCCESS_MSG } from "@constants/message";
+import { getData, update } from "@helpers/fetchApi";
+import { setFieldsValue } from "@helpers/fieldHandle";
+import { CATEGORIES_URL, PRODUCTS_URL } from "@constants/url";
+import getBase64 from "@helpers/getBase64";
+import InputValue from "@components/Input/InputValue/InputValue";
+import Button from "@components/common/Button/Button/Button";
 import "../modal.css";
 
 const ModalUpdate: React.FC<ModalUpdateProps> = ({
