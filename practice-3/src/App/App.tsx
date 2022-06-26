@@ -25,7 +25,7 @@ const ProductDetails = lazy(
 const App: React.FC = memo(() => {
   return (
     // The context SWRConfig can provide global configurations (options) for all SWR hooks.
-    <SWRConfig value={{ revalidateOnFocus: true }}>
+    <SWRConfig value={{ revalidateOnFocus: false }}>
       <Header />
       {/* SearchProvider: Handle searchContext */}
       <SearchProvider>
@@ -37,7 +37,7 @@ const App: React.FC = memo(() => {
           <Routes>
             <Route path="/" element={<ProductListView />} />
             <Route path="/products" element={<ProductGridView />} />
-            <Route path={`/product/:id`} element={<ProductDetails />} />
+            <Route path={`/products/:id`} element={<ProductDetails />} />
           </Routes>
         </Suspense>
       </DataProvider>
