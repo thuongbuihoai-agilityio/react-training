@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { SearchContext } from "@/context/SearchContext";
+import { SearchContext } from "@context/SearchContext";
 import "./inputSearch.css";
 
 const InputSearch: React.FC = () => {

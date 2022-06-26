@@ -1,9 +1,9 @@
 import { act, fireEvent, render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import InputSearch from "../InputSearch";
-import { Action, Search, SearchState } from "@/types/search";
-import { searchReducer } from "@/reducer/searchReducer";
-import { SearchContext } from "@/context/SearchContext";
+import { Action, Search, SearchState } from "@common-types/search";
+import { searchReducer } from "@reducer/searchReducer";
+import { SearchContext } from "@context/SearchContext";
 
 const contextValueMock: Search = {
   setSearchValue: jest.fn(),

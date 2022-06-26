@@ -1,5 +1,5 @@
 import React, { memo } from "react";
-import { InputProps } from "@/types/input";
+import { InputProps } from "@common-types/input";
 import "./inputValue.css"
 
 const InputValue: React.FC<InputProps> = memo(({
