@@ -2,11 +2,11 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import ProductDetails from "../ProductDetail";
 import { useState } from "react";
-import mockAxios from "@/__mocks__/axios";
-import { PRODUCTS_URL } from "@/constants/url";
-import { update } from "@/helpers/fetchApi";
-import ModalUpdate from "@/components/Modal/ModalUpdate/ModalUpdate";
-import { PRODUCT_MOCKING } from "@/__mocks__/constants/product";
+import { PRODUCTS_URL } from "@constants/url";
+import { update } from "@helpers/fetchApi";
+import ModalUpdate from "@components/Modal/ModalUpdate/ModalUpdate";
+import { PRODUCT_MOCKING } from "@__mocks__/constants/product";
+import mockAxios from "@__mocks__/axios";
 
 jest.mock("react", () => ({
   ...jest.requireActual("react"),
