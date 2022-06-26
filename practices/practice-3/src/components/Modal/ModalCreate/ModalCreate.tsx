@@ -1,17 +1,17 @@
 import useSWR from "swr";
 import React, { ChangeEvent, useCallback, useState } from "react";
-import { FormProps } from "@/types/form";
-import { Product } from "@/types/product";
-import { RULES } from "@/constants/rules";
-import { getData } from "@/helpers/fetchApi";
-import { validate } from "@/helpers/validate";
-import { ModalCreateProps } from "@/types/modal";
-import { CATEGORIES_URL } from "@/constants/url";
-import { CategoryProps } from "@/types/category";
-import { setFieldsValue } from "@/helpers/fieldHandle";
-import getBase64 from "@/helpers/getBase64";
-import InputValue from "@/components/Input/InputValue/InputValue";
-import Button from "@/components/common/Button/Button/Button";
+import getBase64 from "@helpers/getBase64";
+import InputValue from "@components/Input/InputValue/InputValue";
+import Button from "@components/common/Button/Button/Button";
+import { FormProps } from "@common-types/form";
+import { Product } from "@common-types/product";
+import { CategoryProps } from "@common-types/category";
+import { ModalCreateProps } from "@common-types/modal";
+import { RULES } from "@constants/rules";
+import { CATEGORIES_URL } from "@constants/url";
+import { getData } from "@helpers/fetchApi";
+import { validate } from "@helpers/validate";
+import { setFieldsValue } from "@helpers/fieldHandle";
 import "../modal.css";
 
 const ModalCreate: React.FC<ModalCreateProps> = ({
