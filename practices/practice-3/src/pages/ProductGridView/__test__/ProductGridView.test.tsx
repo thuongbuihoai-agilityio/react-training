@@ -3,19 +3,19 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import ProductGridView from "../ProductGridView";
 import { createMemoryHistory } from "history";
 import { Router } from "react-router-dom";
-import { PRODUCTS_URL } from "@/constants/url";
-import { create, getData, remove } from "@/helpers/fetchApi";
-import mockAxios from "@/__mocks__/axios";
-import { Search } from "@/types/search";
-import { SearchContext } from "@/context/SearchContext";
-import Categories from "@/components/Categories/Categories";
+import { PRODUCTS_URL } from "@constants/url";
+import { create, getData, remove } from "@helpers/fetchApi";
+import mockAxios from "@__mocks__/axios";
+import { Search } from "@common-types/search";
+import { SearchContext } from "@context/SearchContext";
+import Categories from "@components/Categories/Categories";
 import { useState } from "react";
-import ModalDelete from "@/components/Modal/ModalDelete/ModalDelete";
-import ModalCreate from "@/components/Modal/ModalCreate/ModalCreate";
-import { PRODUCT_MOCKING, PRODUCT_MOCKING_LIST } from "@/__mocks__/constants/product";
-import { ProductContext } from "@/types/product";
+import ModalDelete from "@components/Modal/ModalDelete/ModalDelete";
+import ModalCreate from "@components/Modal/ModalCreate/ModalCreate";
+import { PRODUCT_MOCKING, PRODUCT_MOCKING_LIST } from "@__mocks__/constants/product";
+import { ProductContext } from "@common-types/product";
 import { mutate } from "swr";
-import { DataContext } from "@/context/DataContext";
+import { DataContext } from "@context/DataContext";
 
 const contextValueMockSearch: Search = {
   setSearchValue: jest.fn(),
