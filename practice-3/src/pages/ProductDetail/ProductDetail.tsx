@@ -1,27 +1,28 @@
 import React, { useCallback, useContext, useState } from "react";
 import { useParams } from "react-router-dom";
+import { DataContext } from "@/context/DataContext";
+import { Product } from "@/types/product";
 import Price from "@/components/Price/Price";
 import Title from "@/components/common/Title/Title";
 import Text from "@/components/Text/Text";
 import ModalUpdate from "@/components/Modal/ModalUpdate/ModalUpdate";
-import { DataContext } from "@/context/DataContext";
-import { Product } from "@/types/product";
 import toast from "react-hot-toast";
 import "./productDetail.css";
 
 const ProductDetails: React.FC = () => {
   // use useParams to get id
   const { id } = useParams();
-  const { products, setProducts } = useContext(DataContext);
+  const { products } = useContext(DataContext);
   const dataElement = products?.find((item) => item.id === id);
   const [openModalUpdate, setOpenModalUpdate] = useState(false);
+  const [product, setProduct] = useState<Product | undefined>(dataElement);
 
   // update product detail
   const updateProductDetail = (response: Product) => {
     try {
-      setProducts(response as any);
-    } catch (error) {
-      toast.error(error as string);
+      setProduct(response);
+    } catch (error: any) {
+      toast.error(error);
     }
   };
 
@@ -34,16 +35,16 @@ const ProductDetails: React.FC = () => {
     <>
       <div data-testid="product-detail-page" className="productDetails">
         <div className="productDetails__img--left">
-          <img className="product__image" src={dataElement?.images[0]} />
+          <img className="product__image" src={product?.images[0]} />
         </div>
         <div className="productDetails__img--right">
-          {dataElement?.images.map((img: string, key: number) => (
+          {product?.images.map((img: string, key: number) => (
             <img key={key} src={img} />
           ))}
         </div>
         <div className="productDetails__info">
           <div className="productDetail__update">
-            <Title className="productDetail__title" text={dataElement?.name} />
+            <Title className="productDetail__title" text={product?.name} />
             <button
               data-testid="open-modal-update"
               className="btn btn__update"
@@ -52,19 +53,19 @@ const ProductDetails: React.FC = () => {
               <i className="fa fa-pen"></i>
             </button>
           </div>
-          <Price className="productDetail__price" value={dataElement?.price} />
+          <Price className="productDetail__price" value={product?.price} />
           <input
             className="productDetails__input"
             min={0}
             type="number"
-            defaultValue={dataElement?.quantity}
+            defaultValue={product?.quantity}
           />
-          <Text text={dataElement?.description} />
+          <Text text={product?.description} />
         </div>
       </div>
       {openModalUpdate && (
         <ModalUpdate
-          product={dataElement!}
+          product={product!}
           hideModalUpdate={toggleModalUpdate}
           updateProductDetail={updateProductDetail}
           deleteImage={() => {}}
