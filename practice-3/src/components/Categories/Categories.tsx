@@ -1,9 +1,9 @@
 import useSWR from "swr";
 import React, { memo, useContext, useState } from "react";
 import { CategoryProps } from "@common-types/category";
-import { SearchContext } from "@context/SearchContext";
 import { CATEGORIES_URL } from "@constants/url";
 import { getData } from "@helpers/fetchApi";
+import { DataContext } from "@context/DataContext";
 import "./categories.css";
 
 const Categories: React.FC = memo(() => {
@@ -11,8 +11,7 @@ const Categories: React.FC = memo(() => {
   const { data } = useSWR(CATEGORIES_URL, getData);
   // handle highlight when categoryId selected
   const [activeId, setActiveId] = useState("");
-  // handle search with SearchContext
-  const { setSearchValue } = useContext(SearchContext);
+  const { setSearchValue } = useContext(DataContext);
   const handleSearch = (id: string) => (e: React.MouseEvent<HTMLElement>) => {
     // get current categoryId
     const categoryId = { categoryId: e.currentTarget.dataset.index };

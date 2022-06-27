@@ -1,19 +1,30 @@
 import toast from "react-hot-toast";
 import ProductGridCard from "../ProductGridCard/ProductGridCard";
-import React, { useCallback, useContext, useState } from "react";
+import React, { useCallback, useContext, useEffect, useState } from "react";
 import ModalCreate from "@components/Modal/ModalCreate/ModalCreate";
 import ScrollButton from "@components/common/Button/ScrollButton/ScrollButton";
 import { Product } from "@common-types/product";
 import { SUCCESS_MSG } from "@constants/message";
-import { create, remove } from "@helpers/fetchApi";
+import { create, getData, remove } from "@helpers/fetchApi";
 import { PRODUCTS_URL } from "@constants/url";
 import { DataContext } from "@context/DataContext";
 import "./productGridView.css";
+import useSWR from "swr";
+import { Action } from "@reducer/dataReducer";
 
 const ProductGridView: React.FC = () => {
   const [openModalCreate, setOpenModalCreate] = useState(false);
-  const { products, mutate } = useContext(DataContext);
-
+  const { products, searchValue, dispatch } = useContext(DataContext);
+  const queryParams: URLSearchParams = new URLSearchParams(searchValue);
+  const { data } = useSWR(PRODUCTS_URL + "?" + queryParams.toString(), getData<Product[]>);
+  useEffect(() => {
+    if(data) {
+      dispatch({
+        action: Action.GetProductsSuccess,
+        payload: data
+      });
+    }
+  }, [data]);
   // create product
   const createProduct = async (productData: Product) => {
     const newProduct: Product = {
@@ -26,9 +37,15 @@ const ProductGridView: React.FC = () => {
       images: productData.images,
     };
     try {
-      await create(PRODUCTS_URL, newProduct);
-      mutate();
-      toast.success(SUCCESS_MSG.MESSAGE_ADD_PRODUCT);
+      const res = await create(PRODUCTS_URL, newProduct);
+      if(res) {
+        dispatch({
+          action: Action.CreateProductsSuccess,
+          payload: data?.push(...res.data)
+        });
+        console.log("res", {...res.data});
+        toast.success(SUCCESS_MSG.MESSAGE_ADD_PRODUCT);
+      }
     } catch (error: any) {
       toast.error(error.message);
     }
@@ -38,7 +55,6 @@ const ProductGridView: React.FC = () => {
   const deleteProduct = async (id: string) => {
     try {
       await remove(`${PRODUCTS_URL}/${id}`);
-      mutate();
       toast.success(SUCCESS_MSG.MESSAGE_DELETE_PRODUCT);
     } catch (error: any) {
       toast.error(error.message);

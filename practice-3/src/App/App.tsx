@@ -8,7 +8,6 @@ import Footer from "@components/common/Footer/Footer";
 import Header from "@components/common/Header/Header";
 import Navigation from "@components/common/Navigation/Navigation";
 import Loading from "@components/common/Loading/Loading";
-import SearchProvider from "@context/SearchContext";
 import DataProvider from "@context/DataContext";
 
 // Lazy-loaded
@@ -27,8 +26,6 @@ const App: React.FC = memo(() => {
     // The context SWRConfig can provide global configurations (options) for all SWR hooks.
     <SWRConfig value={{ revalidateOnFocus: false }}>
       <Header />
-      {/* SearchProvider: Handle searchContext */}
-      <SearchProvider>
       <DataProvider>
         <Navigation />
         <Categories />
@@ -41,7 +38,6 @@ const App: React.FC = memo(() => {
           </Routes>
         </Suspense>
       </DataProvider>
-      </SearchProvider>
       <Footer />
       {/* Toaster: library show message */}
       <Toaster position="top-center" />
