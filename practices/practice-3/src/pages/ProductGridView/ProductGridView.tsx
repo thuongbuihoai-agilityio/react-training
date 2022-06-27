@@ -41,9 +41,8 @@ const ProductGridView: React.FC = () => {
       if(res) {
         dispatch({
           action: Action.CreateProductsSuccess,
-          payload: data?.push(...res.data)
+          payload: {...data}
         });
-        console.log("res", {...res.data});
         toast.success(SUCCESS_MSG.MESSAGE_ADD_PRODUCT);
       }
     } catch (error: any) {
