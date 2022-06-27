@@ -18,7 +18,6 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
   hideModalCreate,
   createProduct,
 }) => {
-  // handle highlight when categoryId selected
   const initProduct: Product = {
     id: "",
     name: "",
@@ -28,7 +27,6 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
     categoryId: "",
     description: ""
   }
-
   const [isDisable, setIsDisable] = useState(false);
   const [newProduct, setNewProduct] = useState<Product>(initProduct);
   // fetch data with useSWR
@@ -87,7 +85,7 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
 
     // check validate if pass then create product
     if (!temp.includes(false)) {
-      setFormValues({...formValues}); 
+      setFormValues({...formValues});
       setIsDisable(!isDisable);
       const product: Product = { ...newProduct, images: images }
       createProduct(product);
