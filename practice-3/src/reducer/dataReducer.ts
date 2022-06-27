@@ -23,14 +23,14 @@ export interface ActionGetData {
   payload: Product[];
 }
 
-const dataReduce = (state: DataState, actions: ActionGetData): DataState => {
+const dataReduce = (state: DataState, actions): DataState => {
   const { action, payload } = actions;
   switch (action) {
     case (Action.GetProductsSuccess): {
       return {...state, products: payload}
     }
     case (Action.CreateProductsSuccess): {
-      return {...state, products: payload}
+      return {...state.products, products: payload}
     }
     default: {
       return {...state}
