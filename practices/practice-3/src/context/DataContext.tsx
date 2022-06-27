@@ -9,7 +9,7 @@ const DataProvider: React.FC<{children: JSX.Element[] | JSX.Element}> = ({ child
   const [state, dispatch] = useReducer(dataReduce, initialState);
   const { products } = state;
   console.log("products", products);
-  
+
   const value = useMemo(() => ({
     products,
     dispatch,

@@ -11,19 +11,20 @@ const initialState: DataState = {
 export enum Action {
   SetProducts = "SET_PRODUCTS",
   GetProductsSuccess = "GET_PRODUCT_SUCCESS",
-  CreateProductsSuccess = "CREATE_PRODUCT_SUCCESS"
+  CreateProductsSuccess = "CREATE_PRODUCT_SUCCESS",
+  DeleteProductSuccess = "DELETE_PRODUCT_SUCCESS"
 }
 
 export interface DataState {
   products: Product[];
 }
 
-export interface ActionGetData {
+export interface DataAction {
   action: Action;
   payload: Product[];
 }
 
-const dataReduce = (state: DataState, actions): DataState => {
+const dataReduce = (state: DataState, actions: DataAction): DataState => {
   const { action, payload } = actions;
   switch (action) {
     case (Action.GetProductsSuccess): {
@@ -31,6 +32,9 @@ const dataReduce = (state: DataState, actions): DataState => {
     }
     case (Action.CreateProductsSuccess): {
       return {...state.products, products: payload}
+    }
+    case (Action.DeleteProductSuccess): {
+      return {...state, products: []}
     }
     default: {
       return {...state}
