@@ -3,17 +3,9 @@ import Categories from "../Categories";
 import mockAxios from "@__mocks__/axios";
 import { useState } from "react";
 import { fireEvent, render } from "@testing-library/react";
-import { SearchContext } from "@context/SearchContext";
 import { CATEGORY_MOCKING_LIST } from "@__mocks__/constants/categories";
 import { getData } from "@helpers/fetchApi";
 import { CATEGORIES_URL } from "@constants/url";
-import { Action, Search, SearchState } from "@common-types/search";
-import { searchReducer } from "@reducer/searchReducer";
-
-const contextValueMock: Search = {
-  setSearchValue: jest.fn(),
-  searchValue: "",
-};
 
 jest.mock("react", () => ({
   ...jest.requireActual("react"),
@@ -53,29 +45,6 @@ describe("Category component", () => {
     expect(categories).toBeInTheDocument();
   });
 
-  test("should filter when click category", () => {
-    const { getByTestId } = render(
-      <SearchContext.Provider value={contextValueMock}>
-        <Categories />
-      </SearchContext.Provider>
-    );
-    const categoryItem = getByTestId("category-item");
-    fireEvent.click(categoryItem);
-    expect(contextValueMock.setSearchValue).toHaveBeenCalled();
-  });
-
-  test("should return new state when dispatch action", () => {
-    const initialState: SearchState = {
-      searchValue: "",
-    };
-    const updateAction = {
-      action: Action.SetSearchValue,
-      payload: "1651999177368",
-    };
-    const updatedState = searchReducer(initialState, updateAction);
-    expect(updatedState).toEqual(updatedState);
-  });
-
   test("should render product by search category", () => {
     const { input } = setup();
     fireEvent.change(input, { target: { id: "1651999177368" } });
@@ -83,11 +52,7 @@ describe("Category component", () => {
   });
 
   test("matches snapshot", () => {
-    const { asFragment } = render(
-      <SearchContext.Provider value={contextValueMock}>
-        <Categories />
-      </SearchContext.Provider>
-    );
+    const { asFragment } = render(<Categories />);
     expect(asFragment()).toMatchSnapshot();
   });
 });
