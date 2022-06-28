@@ -1,15 +1,15 @@
-import React, { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { Product } from "@common-types/product";
-import { DataContext } from "@context/DataContext";
+import useSWR from "swr";
+import React, { useContext, useEffect } from "react";
 import Button from "@components/common/Button/Button/Button";
 import ProductListCard from "../ProductListCard/ProductListCard";
 import ScrollButton from "@components/common/Button/ScrollButton/ScrollButton";
-import "./productListView.css";
-import useSWR from "swr";
+import { Link } from "react-router-dom";
+import { Product } from "@common-types/product";
+import { DataContext } from "@context/DataContext";
+import { Action } from "@common-types/data";
 import { PRODUCTS_URL } from "@constants/url";
 import { getData } from "@helpers/fetchApi";
-import { Action } from "@reducer/dataReducer";
+import "./productListView.css";
 
 const ProductListView: React.FC = () => {
   // URLSearchParams: convert searchValue to string => handle search
@@ -19,7 +19,7 @@ const ProductListView: React.FC = () => {
   useEffect(() => {
     if(data) {
       dispatch({
-        action: Action.GetProductsSuccess,
+        action: Action.GetProductSuccess,
         payload: data
       });
     }

@@ -1,31 +1,30 @@
-import { fireEvent, render } from "@testing-library/react";
 import "@testing-library/jest-dom";
+import mockAxios from "@__mocks__/axios";
 import ProductListView from "../ProductListView";
+import Categories from "@components/Categories/Categories";
+import Button from "@components/common/Button/Button/Button";
+import { act, fireEvent, render, screen } from "@testing-library/react";
 import { createMemoryHistory } from "history";
 import { Link, Router } from "react-router-dom";
-import { Search } from "@common-types/search";
-import { SearchContext } from "@context/SearchContext";
-import Categories from "@components/Categories/Categories";
-import mockAxios from "@__mocks__/axios";
 import { CATEGORIES_URL, PRODUCTS_URL } from "@constants/url";
 import { getData } from "@helpers/fetchApi";
 import { CATEGORY_MOCKING_LIST } from "@__mocks__/constants/categories";
-import { PRODUCT_MOCKING_LIST } from "@__mocks__/constants/product";
-import Button from "@components/common/Button/Button/Button";
+import {
+  PRODUCT_MOCKING,
+  PRODUCT_MOCKING_LIST,
+} from "@__mocks__/constants/product";
 import { ProductContext } from "@common-types/product";
-import { mutate } from "swr";
 import { DataContext } from "@context/DataContext";
-
-const contextValueMockSearch: Search = {
-  setSearchValue: jest.fn(),
-  searchValue: "",
-};
+import { Action, DataState } from "@common-types/data";
+import { dataReducer } from "@reducer/dataReducer";
+import InputSearch from "@components/Input/InputSearch/InputSearch";
 
 const contextProductMock: ProductContext = {
-  setProducts: jest.fn(),
   products: PRODUCT_MOCKING_LIST,
-  mutate
-}
+  dispatch: jest.fn(),
+  searchValue: "",
+  setSearchValue: jest.fn(),
+};
 
 describe("Product list view component", () => {
   afterEach(() => {
@@ -50,7 +49,7 @@ describe("Product list view component", () => {
     const history = createMemoryHistory();
     const { getByTestId } = render(
       <Router location={history.location} navigator={history}>
-         <ProductListView />
+        <ProductListView />
       </Router>
     );
     expect(getByTestId("view-product-list")).toBeInTheDocument();
@@ -67,18 +66,45 @@ describe("Product list view component", () => {
     );
     const getProducts = getByTestId("view-product-list");
     fireEvent.click(getProducts);
-    expect(contextProductMock.setProducts).not.toHaveBeenCalled();
+    expect(contextProductMock.dispatch).not.toHaveBeenCalled();
+  });
+
+  test("display product after inputSearch", async () => {
+    act(() => {
+      render(
+        <DataContext.Provider value={contextProductMock}>
+          <InputSearch />
+        </DataContext.Provider>
+      );
+      const inputElement = screen.getByPlaceholderText(
+        /Search item/i
+      ) as HTMLInputElement;
+      fireEvent.change(inputElement, { target: { value: "Cheese pocket" } });
+      expect(inputElement.value).toBe("Cheese pocket");
+    });
+  });
+
+  test("should get data when dispatch action GetProductSuccess", () => {
+    const initialState: DataState = {
+      products: PRODUCT_MOCKING_LIST,
+    };
+    const createProduct = {
+      action: Action.GetProductSuccess,
+      payload: PRODUCT_MOCKING_LIST,
+    };
+    const updatedState = dataReducer(initialState, createProduct);
+    expect(updatedState).toEqual(updatedState);
   });
 
   test("should filter when click category", () => {
     const { getByTestId } = render(
-      <SearchContext.Provider value={contextValueMockSearch}>
+      <DataContext.Provider value={contextProductMock}>
         <Categories />
-      </SearchContext.Provider>
+      </DataContext.Provider>
     );
     const categoryItem = getByTestId("category-item");
     fireEvent.click(categoryItem);
-    expect(contextValueMockSearch.setSearchValue).toHaveBeenCalled();
+    expect(contextProductMock.setSearchValue).toHaveBeenCalled();
   });
 
   test("Redirect to product page when click button 'View all products'", async () => {
