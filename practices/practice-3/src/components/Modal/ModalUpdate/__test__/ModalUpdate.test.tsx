@@ -7,7 +7,10 @@ import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { CATEGORIES_URL, PRODUCTS_URL } from "@constants/url";
 import { CATEGORY_MOCKING_LIST } from "@__mocks__/constants/categories";
 import { getData, update } from "@helpers/fetchApi";
-import { PRODUCT_MOCKING, PRODUCT_MOCKING_LIST } from "@__mocks__/constants/product";
+import {
+  PRODUCT_MOCKING,
+  PRODUCT_MOCKING_LIST,
+} from "@__mocks__/constants/product";
 import { Action, DataState } from "@common-types/data";
 import { dataReducer } from "@reducer/dataReducer";
 
@@ -151,11 +154,11 @@ describe("Modal update component", () => {
     const initialState: DataState = {
       products: PRODUCT_MOCKING_LIST,
     };
-    const createProduct = {
+    const updateProduct = {
       action: Action.UpdateProductSuccess,
       payload: PRODUCT_MOCKING_LIST,
     };
-    const updatedState = dataReducer(initialState, createProduct);
+    const updatedState = dataReducer(initialState, updateProduct);
     expect(updatedState).toEqual(updatedState);
   });
 

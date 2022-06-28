@@ -73,7 +73,11 @@ describe("Category component", () => {
   });
 
   test("matches snapshot", () => {
-    const { asFragment } = render(<Categories />);
+    const { asFragment } = render(
+      <DataContext.Provider value={contextProductMock}>
+        <Categories />
+      </DataContext.Provider>
+    );
     expect(asFragment()).toMatchSnapshot();
   });
 });

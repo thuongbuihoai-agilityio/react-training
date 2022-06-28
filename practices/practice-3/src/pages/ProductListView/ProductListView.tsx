@@ -16,6 +16,7 @@ const ProductListView: React.FC = () => {
   const { products, searchValue, dispatch } = useContext(DataContext);
   const queryParams: URLSearchParams = new URLSearchParams(searchValue);
   const { data } = useSWR(PRODUCTS_URL + "?" + queryParams.toString(), getData<Product[]>);
+
   useEffect(() => {
     if(data) {
       dispatch({
