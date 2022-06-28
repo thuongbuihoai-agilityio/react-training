@@ -139,7 +139,7 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
           </div>
           <div className="modal-body">
             <div className="form-control">
-              <label htmlFor="">Product name: </label>
+              <label htmlFor="">Product name <span className="star">*</span></label>
               <InputValue
                 type="text"
                 name="name"
@@ -150,7 +150,7 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
               </small>
             </div>
             <div className="form-control">
-              <label htmlFor="">Description: </label>
+              <label htmlFor="">Description <span className="star">*</span></label>
               <textarea
                 data-testid="change-value"
                 className="input__text"
@@ -167,7 +167,7 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
               </small>
             </div>
             <div className="form-control">
-              <label htmlFor="">Categories: </label>
+              <label htmlFor="">Categories <span className="star">*</span></label>
               <select
                 className="form__select"
                 name="categoryId"
@@ -189,7 +189,7 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
             </div>
             <div id="form__number" className="form-control">
               <div className="form-control">
-                <label htmlFor="">Price: </label>
+                <label htmlFor="">Price <span className="star">*</span></label>
                 <InputValue
                   className="input__number"
                   type="number"
@@ -202,7 +202,7 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
                 </small>
               </div>
               <div className="form-control">
-                <label htmlFor="">Quantity: </label>
+                <label htmlFor="">Quantity <span className="star">*</span></label>
                 <InputValue
                   className="input__number"
                   type="number"

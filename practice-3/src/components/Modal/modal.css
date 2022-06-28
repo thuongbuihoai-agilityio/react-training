@@ -105,3 +105,7 @@ input[type='file'] {
   font-size: 11px;
   color: var(--bg-delete);
 }
+
+.star {
+  color: var(--bg-delete);
+}

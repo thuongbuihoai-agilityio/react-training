@@ -13,8 +13,6 @@ import {
   PRODUCT_MOCKING,
   PRODUCT_MOCKING_LIST,
 } from "@__mocks__/constants/product";
-import { ProductContext } from "@common-types/product";
-import { DataContext } from "@context/DataContext";
 import { Action, DataState } from "@common-types/data";
 import { dataReducer } from "@reducer/dataReducer";
 
@@ -22,13 +20,6 @@ jest.mock("react", () => ({
   ...jest.requireActual("react"),
   useState: jest.fn(),
 }));
-
-const contextProductMock: ProductContext = {
-  products: PRODUCT_MOCKING_LIST,
-  dispatch: jest.fn(),
-  searchValue: "",
-  setSearchValue: jest.fn(),
-};
 
 describe("Product grid view component", () => {
   const deleteProduct = jest.fn();
