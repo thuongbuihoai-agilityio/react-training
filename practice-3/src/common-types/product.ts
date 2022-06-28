@@ -1,5 +1,3 @@
-import { KeyedMutator } from "swr";
-
 export interface Product {
   id: string;
   name: string;

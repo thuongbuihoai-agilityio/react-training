@@ -1,4 +1,3 @@
-import { FormProps } from "./form";
 import { Product } from "./product";
 
 export interface ModalDeleteProps {
