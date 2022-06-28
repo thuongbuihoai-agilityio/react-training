@@ -37,11 +37,11 @@ const ProductGridView: React.FC = () => {
       images: productData.images,
     };
     try {
-      const res = await create(PRODUCTS_URL, newProduct);
-      if(res) {
+      const response = await create(PRODUCTS_URL, newProduct);
+      if(response) {
         dispatch({
           action: Action.CreateProductsSuccess,
-          payload: data?.concat({...res.data})
+          payload: data?.concat({...response.data})
         });
         toast.success(SUCCESS_MSG.MESSAGE_ADD_PRODUCT);
       }
@@ -53,8 +53,8 @@ const ProductGridView: React.FC = () => {
   // delete product
   const deleteProduct = async (id: string) => {
     try {
-      const res = await remove(`${PRODUCTS_URL}/${id}`);
-      if(res) {
+      const response = await remove(`${PRODUCTS_URL}/${id}`);
+      if(response) {
         dispatch({
           action: Action.DeleteProductSuccess,
           payload: id

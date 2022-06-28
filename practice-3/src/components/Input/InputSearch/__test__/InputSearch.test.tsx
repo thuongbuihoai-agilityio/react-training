@@ -20,17 +20,6 @@ describe("InputSearch component", () => {
 
   test("display product after inputSearch", async () => {
     act(() => {
-      render(<InputSearch />);
-      const inputElement = screen.getByPlaceholderText(
-        /Search item/i
-      ) as HTMLInputElement;
-      fireEvent.change(inputElement, { target: { value: "Cheese pocket" } });
-      expect(inputElement.value).toBe("Cheese pocket");
-    });
-  });
-
-  test("display product after inputSearch", async () => {
-    act(() => {
       render(
         <DataContext.Provider value={contextProductMock}>
           <InputSearch />

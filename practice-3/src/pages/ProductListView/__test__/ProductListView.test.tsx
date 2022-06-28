@@ -3,21 +3,18 @@ import mockAxios from "@__mocks__/axios";
 import ProductListView from "../ProductListView";
 import Categories from "@components/Categories/Categories";
 import Button from "@components/common/Button/Button/Button";
-import { act, fireEvent, render, screen } from "@testing-library/react";
+import { act, fireEvent, render } from "@testing-library/react";
 import { createMemoryHistory } from "history";
 import { Link, Router } from "react-router-dom";
 import { CATEGORIES_URL, PRODUCTS_URL } from "@constants/url";
 import { getData } from "@helpers/fetchApi";
 import { CATEGORY_MOCKING_LIST } from "@__mocks__/constants/categories";
-import {
-  PRODUCT_MOCKING,
-  PRODUCT_MOCKING_LIST,
-} from "@__mocks__/constants/product";
+import { PRODUCT_MOCKING_LIST } from "@__mocks__/constants/product";
 import { ProductContext } from "@common-types/product";
 import { DataContext } from "@context/DataContext";
 import { Action, DataState } from "@common-types/data";
 import { dataReducer } from "@reducer/dataReducer";
-import InputSearch from "@components/Input/InputSearch/InputSearch";
+import { useReducer } from "react";
 
 const contextProductMock: ProductContext = {
   products: PRODUCT_MOCKING_LIST,
@@ -67,21 +64,6 @@ describe("Product list view component", () => {
     const getProducts = getByTestId("view-product-list");
     fireEvent.click(getProducts);
     expect(contextProductMock.dispatch).not.toHaveBeenCalled();
-  });
-
-  test("display product after inputSearch", async () => {
-    act(() => {
-      render(
-        <DataContext.Provider value={contextProductMock}>
-          <InputSearch />
-        </DataContext.Provider>
-      );
-      const inputElement = screen.getByPlaceholderText(
-        /Search item/i
-      ) as HTMLInputElement;
-      fireEvent.change(inputElement, { target: { value: "Cheese pocket" } });
-      expect(inputElement.value).toBe("Cheese pocket");
-    });
   });
 
   test("should get data when dispatch action GetProductSuccess", () => {
