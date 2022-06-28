@@ -1,45 +1,32 @@
-import { Product } from "@common-types/product";
+import { Action, DataAction, DataState } from "@common-types/data";
 
-export interface Data extends DataState{
-  setProducts?: Function;
-}
-
-const initialState: DataState = {
-  products: [],
-};
-
-export enum Action {
-  SetProducts = "SET_PRODUCTS",
-  GetProductsSuccess = "GET_PRODUCT_SUCCESS",
-  CreateProductsSuccess = "CREATE_PRODUCT_SUCCESS",
-  DeleteProductSuccess = "DELETE_PRODUCT_SUCCESS"
-}
-
-export interface DataState {
-  products: Product[];
-}
-
-export interface DataAction {
-  action: Action;
-  payload: Product[];
-}
-
-const dataReduce = (state: DataState, actions: DataAction): DataState => {
+const dataReducer = (state: DataState, actions: DataAction): DataState => {
   const { action, payload } = actions;
   switch (action) {
-    case (Action.GetProductsSuccess): {
-      return {...state, products: payload}
+    case Action.GetProductSuccess: {
+      return { ...state, products: payload };
     }
-    case (Action.CreateProductsSuccess): {
-      return {...state.products, products: payload}
+    case Action.CreateProductsSuccess: {
+      return { ...state.products, products: payload };
     }
-    case (Action.DeleteProductSuccess): {
-      return {...state, products: []}
+    case Action.DeleteProductSuccess: {
+      const index = state.products.findIndex(
+        (item) => item.id == payload.toString()
+      );
+      const newProduct = [...state.products];
+      if (index >= 0) {
+        newProduct.splice(index, 1);
+      }
+      return { ...state, products: newProduct };
+    }
+    case Action.UpdateProductSuccess: {
+      const newProduct = [...state.products];
+      return { ...state.products, products: newProduct };
     }
     default: {
-      return {...state}
+      return { ...state };
     }
   }
-}
+};
 
-export {dataReduce, initialState}
+export { dataReducer };
