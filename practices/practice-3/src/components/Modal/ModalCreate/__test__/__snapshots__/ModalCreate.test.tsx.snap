@@ -32,7 +32,12 @@ exports[`Modal create component matches snapshot 1`] = `
             <label
               for=""
             >
-              Product name: 
+              Product name 
+              <span
+                class="star"
+              >
+                *
+              </span>
             </label>
             <input
               name="name"
@@ -49,7 +54,12 @@ exports[`Modal create component matches snapshot 1`] = `
             <label
               for=""
             >
-              Description: 
+              Description 
+              <span
+                class="star"
+              >
+                *
+              </span>
             </label>
             <textarea
               class="input__text"
@@ -69,7 +79,12 @@ exports[`Modal create component matches snapshot 1`] = `
             <label
               for=""
             >
-              Categories: 
+              Categories 
+              <span
+                class="star"
+              >
+                *
+              </span>
             </label>
             <select
               class="form__select"
@@ -97,7 +112,12 @@ exports[`Modal create component matches snapshot 1`] = `
               <label
                 for=""
               >
-                Price: 
+                Price 
+                <span
+                  class="star"
+                >
+                  *
+                </span>
               </label>
               <input
                 class="input__number"
@@ -116,7 +136,12 @@ exports[`Modal create component matches snapshot 1`] = `
               <label
                 for=""
               >
-                Quantity: 
+                Quantity 
+                <span
+                  class="star"
+                >
+                  *
+                </span>
               </label>
               <input
                 class="input__number"
