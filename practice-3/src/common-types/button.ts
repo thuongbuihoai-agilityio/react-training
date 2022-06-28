@@ -1,6 +1,6 @@
 export interface ButtonProps {
-  text: string | JSX.Element;
   className?: string;
-  onClick?: () => void;
+  text: string | JSX.Element;
   disabled?: boolean;
+  onClick?: () => void;
 }
