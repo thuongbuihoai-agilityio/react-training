@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
-import { SearchContext } from "@context/SearchContext";
-import "./inputSearch.css";
 import { DataContext } from "@context/DataContext";
+import "./inputSearch.css";
 
 const InputSearch: React.FC = () => {
   // handle search with SearchContext
