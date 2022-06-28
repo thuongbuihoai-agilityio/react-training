@@ -14,9 +14,7 @@ const dataReducer = (state: DataState, actions: DataAction): DataState => {
         (item) => item.id == payload.toString()
       );
       const newProduct = [...state.products];
-      if (index >= 0) {
-        newProduct.splice(index, 1);
-      }
+      newProduct.splice(index, 1);
       return { ...state, products: newProduct };
     }
     case Action.UpdateProductSuccess: {
