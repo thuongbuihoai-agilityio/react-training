@@ -3,12 +3,12 @@ import { memo } from "react";
 import { SWRConfig } from "swr";
 import { Toaster } from "react-hot-toast";
 import { Route, Routes } from "react-router-dom";
+import { DataProvider } from "@context/DataContext";
 import Categories from "@components/Categories/Categories";
 import Footer from "@components/common/Footer/Footer";
 import Header from "@components/common/Header/Header";
 import Navigation from "@components/common/Navigation/Navigation";
 import Loading from "@components/common/Loading/Loading";
-import DataProvider from "@context/DataContext";
 
 // Lazy-loaded
 const ProductListView = lazy(
@@ -17,9 +17,7 @@ const ProductListView = lazy(
 const ProductGridView = lazy(
   () => import("@pages/ProductGridView/ProductGridView")
 );
-const ProductDetails = lazy(
-  () => import("@pages/ProductDetail/ProductDetail")
-);
+const ProductDetails = lazy(() => import("@pages/ProductDetail/ProductDetail"));
 
 const App: React.FC = memo(() => {
   return (
