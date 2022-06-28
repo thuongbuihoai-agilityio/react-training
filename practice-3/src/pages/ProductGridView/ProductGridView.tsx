@@ -1,6 +1,7 @@
+import useSWR from "swr";
+import React, { useCallback, useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import ProductGridCard from "../ProductGridCard/ProductGridCard";
-import React, { useCallback, useContext, useEffect, useState } from "react";
 import ModalCreate from "@components/Modal/ModalCreate/ModalCreate";
 import ScrollButton from "@components/common/Button/ScrollButton/ScrollButton";
 import { Product } from "@common-types/product";
@@ -8,9 +9,8 @@ import { SUCCESS_MSG } from "@constants/message";
 import { create, getData, remove } from "@helpers/fetchApi";
 import { PRODUCTS_URL } from "@constants/url";
 import { DataContext } from "@context/DataContext";
+import { Action } from "@common-types/data";
 import "./productGridView.css";
-import useSWR from "swr";
-import { Action } from "@reducer/dataReducer";
 
 const ProductGridView: React.FC = () => {
   const [openModalCreate, setOpenModalCreate] = useState(false);
@@ -20,7 +20,7 @@ const ProductGridView: React.FC = () => {
   useEffect(() => {
     if(data) {
       dispatch({
-        action: Action.GetProductsSuccess,
+        action: Action.GetProductSuccess,
         payload: data
       });
     }
@@ -41,7 +41,7 @@ const ProductGridView: React.FC = () => {
       if(res) {
         dispatch({
           action: Action.CreateProductsSuccess,
-          payload: {...data}
+          payload: data?.concat({...res.data})
         });
         toast.success(SUCCESS_MSG.MESSAGE_ADD_PRODUCT);
       }
@@ -53,8 +53,14 @@ const ProductGridView: React.FC = () => {
   // delete product
   const deleteProduct = async (id: string) => {
     try {
-      await remove(`${PRODUCTS_URL}/${id}`);
-      toast.success(SUCCESS_MSG.MESSAGE_DELETE_PRODUCT);
+      const res = await remove(`${PRODUCTS_URL}/${id}`);
+      if(res) {
+        dispatch({
+          action: Action.DeleteProductSuccess,
+          payload: id
+        });
+        toast.success(SUCCESS_MSG.MESSAGE_DELETE_PRODUCT);
+      }
     } catch (error: any) {
       toast.error(error.message);
     }

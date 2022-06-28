@@ -1,37 +1,35 @@
 import "@testing-library/jest-dom";
-import { fireEvent, render, screen } from "@testing-library/react";
+import mockAxios from "@__mocks__/axios";
 import ProductGridView from "../ProductGridView";
+import ModalDelete from "@components/Modal/ModalDelete/ModalDelete";
+import ModalCreate from "@components/Modal/ModalCreate/ModalCreate";
+import { act, fireEvent, render, screen } from "@testing-library/react";
 import { createMemoryHistory } from "history";
 import { Router } from "react-router-dom";
 import { PRODUCTS_URL } from "@constants/url";
 import { create, getData, remove } from "@helpers/fetchApi";
-import mockAxios from "@__mocks__/axios";
-import { Search } from "@common-types/search";
-import { SearchContext } from "@context/SearchContext";
-import Categories from "@components/Categories/Categories";
 import { useState } from "react";
-import ModalDelete from "@components/Modal/ModalDelete/ModalDelete";
-import ModalCreate from "@components/Modal/ModalCreate/ModalCreate";
-import { PRODUCT_MOCKING, PRODUCT_MOCKING_LIST } from "@__mocks__/constants/product";
+import {
+  PRODUCT_MOCKING,
+  PRODUCT_MOCKING_LIST,
+} from "@__mocks__/constants/product";
 import { ProductContext } from "@common-types/product";
-import { mutate } from "swr";
 import { DataContext } from "@context/DataContext";
-
-const contextValueMockSearch: Search = {
-  setSearchValue: jest.fn(),
-  searchValue: "",
-};
-
-const contextProductMock: ProductContext = {
-  setProducts: jest.fn(),
-  mutate,
-  products: PRODUCT_MOCKING_LIST,
-}
+import InputSearch from "@components/Input/InputSearch/InputSearch";
+import { Action, DataState } from "@common-types/data";
+import { dataReducer } from "@reducer/dataReducer";
 
 jest.mock("react", () => ({
   ...jest.requireActual("react"),
   useState: jest.fn(),
 }));
+
+const contextProductMock: ProductContext = {
+  products: PRODUCT_MOCKING_LIST,
+  dispatch: jest.fn(),
+  searchValue: "",
+  setSearchValue: jest.fn(),
+};
 
 describe("Product grid view component", () => {
   const deleteProduct = jest.fn();
@@ -49,10 +47,7 @@ describe("Product grid view component", () => {
 
   const setup = () => {
     const utils = render(
-      <ModalCreate
-        hideModalCreate={() => {}}
-        createProduct={() => {}}
-      />
+      <ModalCreate hideModalCreate={() => {}} createProduct={() => {}} />
     );
     const input = utils.getByTestId("change-value") as HTMLInputElement;
     return {
@@ -124,6 +119,29 @@ describe("Product grid view component", () => {
     expect(getByTestId("product-gird-view")).toBeInTheDocument();
   });
 
+  test("should open modal when click button 'Add new product'", () => {
+    const history = createMemoryHistory();
+    const { getByTestId } = render(
+      <Router location={history.location} navigator={history}>
+        <ProductGridView />
+      </Router>
+    );
+    const btnOpenModal = getByTestId("open-modal");
+    fireEvent.click(btnOpenModal);
+    expect(btnOpenModal).toBeInTheDocument();
+  });
+
+  test("should create product when pass data", () => {
+    const history = createMemoryHistory();
+    render(
+      <Router location={history.location} navigator={history}>
+        <ProductGridView />
+      </Router>
+    );
+    const data = PRODUCT_MOCKING;
+    expect(data).toBe(PRODUCT_MOCKING);
+  });
+
   test("should get product when run app", () => {
     const history = createMemoryHistory();
     const { getByTestId } = render(
@@ -135,49 +153,66 @@ describe("Product grid view component", () => {
     );
     const getProducts = getByTestId("product-gird-view");
     fireEvent.click(getProducts);
-    expect(contextProductMock.setProducts).not.toHaveBeenCalled();
+    expect(contextProductMock.dispatch).not.toHaveBeenCalled();
   });
 
-  test("should open modal when click button 'Add new product'", () => {
-    const history = createMemoryHistory();
-    const { getByTestId } = render(
-        <Router location={history.location} navigator={history}>
-          <ProductGridView />
-        </Router>
-    );
-    const btnOpenModal = getByTestId("open-modal");
-    fireEvent.click(btnOpenModal);
-    expect(btnOpenModal).toBeInTheDocument();
+  test("display product after inputSearch", async () => {
+    act(() => {
+      render(
+        <DataContext.Provider value={contextProductMock}>
+          <InputSearch />
+        </DataContext.Provider>
+      );
+      const inputElement = screen.getByPlaceholderText(
+        /Search item/i
+      ) as HTMLInputElement;
+      fireEvent.change(inputElement, { target: { value: "Cheese pocket" } });
+      expect(inputElement.value).toBe("Cheese pocket");
+    });
   });
 
-  test("should create product when pass data", () => {
-    const history = createMemoryHistory();
-    render(
-        <Router location={history.location} navigator={history}>
-          <ProductGridView />
-        </Router>
-    );
-    const data = PRODUCT_MOCKING;
-    expect(data).toBe(PRODUCT_MOCKING);
+  test("should create product when dispatch action CreateProductsSuccess", () => {
+    const initialState: DataState = {
+      products: PRODUCT_MOCKING_LIST,
+    };
+    const createProduct = {
+      action: Action.CreateProductsSuccess,
+      payload: PRODUCT_MOCKING_LIST,
+    };
+    const updatedState = dataReducer(initialState, createProduct);
+    expect(updatedState).toEqual(updatedState);
   });
 
-  test("should filter when click category", () => {
-    const { getByTestId } = render(
-      <SearchContext.Provider value={contextValueMockSearch}>
-        <Categories />
-      </SearchContext.Provider>
-    );
-    const categoryItem = getByTestId("category-item");
-    fireEvent.click(categoryItem);
-    expect(contextValueMockSearch.setSearchValue).toHaveBeenCalled();
+  test("should get data when dispatch action GetProductSuccess", () => {
+    const initialState: DataState = {
+      products: PRODUCT_MOCKING_LIST,
+    };
+    const createProduct = {
+      action: Action.GetProductSuccess,
+      payload: PRODUCT_MOCKING_LIST,
+    };
+    const updatedState = dataReducer(initialState, createProduct);
+    expect(updatedState).toEqual(updatedState);
+  });
+
+  test("should delete product when dispatch action DeleteProductSuccess", () => {
+    const initialState: DataState = {
+      products: PRODUCT_MOCKING_LIST,
+    };
+    const createProduct = {
+      action: Action.DeleteProductSuccess,
+      payload: PRODUCT_MOCKING_LIST,
+    };
+    const updatedState = dataReducer(initialState, createProduct);
+    expect(updatedState).toEqual(updatedState);
   });
 
   test("matches snapshot", () => {
     const history = createMemoryHistory();
     const { asFragment } = render(
-        <Router location={history.location} navigator={history}>
-          <ProductGridView />
-        </Router>
+      <Router location={history.location} navigator={history}>
+        <ProductGridView />
+      </Router>
     );
     expect(asFragment()).toMatchSnapshot();
   });
