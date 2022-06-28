@@ -3,7 +3,7 @@ import mockAxios from "@__mocks__/axios";
 import ProductGridView from "../ProductGridView";
 import ModalDelete from "@components/Modal/ModalDelete/ModalDelete";
 import ModalCreate from "@components/Modal/ModalCreate/ModalCreate";
-import { act, fireEvent, render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import { createMemoryHistory } from "history";
 import { Router } from "react-router-dom";
 import { PRODUCTS_URL } from "@constants/url";
@@ -15,7 +15,6 @@ import {
 } from "@__mocks__/constants/product";
 import { ProductContext } from "@common-types/product";
 import { DataContext } from "@context/DataContext";
-import InputSearch from "@components/Input/InputSearch/InputSearch";
 import { Action, DataState } from "@common-types/data";
 import { dataReducer } from "@reducer/dataReducer";
 
@@ -154,21 +153,6 @@ describe("Product grid view component", () => {
     const getProducts = getByTestId("product-gird-view");
     fireEvent.click(getProducts);
     expect(contextProductMock.dispatch).not.toHaveBeenCalled();
-  });
-
-  test("display product after inputSearch", async () => {
-    act(() => {
-      render(
-        <DataContext.Provider value={contextProductMock}>
-          <InputSearch />
-        </DataContext.Provider>
-      );
-      const inputElement = screen.getByPlaceholderText(
-        /Search item/i
-      ) as HTMLInputElement;
-      fireEvent.change(inputElement, { target: { value: "Cheese pocket" } });
-      expect(inputElement.value).toBe("Cheese pocket");
-    });
   });
 
   test("should create product when dispatch action CreateProductsSuccess", () => {
