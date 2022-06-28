@@ -1,6 +1,9 @@
 import useSWR from "swr";
 import React, { ChangeEvent, useCallback, useContext, useState } from "react";
 import toast from "react-hot-toast";
+import getBase64 from "@helpers/getBase64";
+import InputValue from "@components/Input/InputValue/InputValue";
+import Button from "@components/common/Button/Button/Button";
 import { FormProps } from "@common-types/form";
 import { Product } from "@common-types/product";
 import { RULES } from "@constants/rules";
@@ -13,9 +16,6 @@ import { setFieldsValue } from "@helpers/fieldHandle";
 import { CATEGORIES_URL, PRODUCTS_URL } from "@constants/url";
 import { DataContext } from "@context/DataContext";
 import { Action } from "@common-types/data";
-import getBase64 from "@helpers/getBase64";
-import InputValue from "@components/Input/InputValue/InputValue";
-import Button from "@components/common/Button/Button/Button";
 import "../modal.css";
 
 const ModalUpdate: React.FC<ModalUpdateProps> = ({

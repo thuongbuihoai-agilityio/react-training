@@ -3,7 +3,7 @@ import mockAxios from "@__mocks__/axios";
 import ProductGridView from "../ProductGridView";
 import ModalDelete from "@components/Modal/ModalDelete/ModalDelete";
 import ModalCreate from "@components/Modal/ModalCreate/ModalCreate";
-import { fireEvent, render, screen } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { createMemoryHistory } from "history";
 import { Router } from "react-router-dom";
 import { PRODUCTS_URL } from "@constants/url";
@@ -169,11 +169,11 @@ describe("Product grid view component", () => {
     const initialState: DataState = {
       products: PRODUCT_MOCKING_LIST,
     };
-    const createProduct = {
+    const deleteProduct = {
       action: Action.DeleteProductSuccess,
       payload: PRODUCT_MOCKING_LIST,
     };
-    const updatedState = dataReducer(initialState, createProduct);
+    const updatedState = dataReducer(initialState, deleteProduct);
     expect(updatedState).toEqual(updatedState);
   });
 
