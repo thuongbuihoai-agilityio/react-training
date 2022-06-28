@@ -141,20 +141,6 @@ describe("Product grid view component", () => {
     expect(data).toBe(PRODUCT_MOCKING);
   });
 
-  test("should get product when run app", () => {
-    const history = createMemoryHistory();
-    const { getByTestId } = render(
-      <DataContext.Provider value={contextProductMock}>
-        <Router location={history.location} navigator={history}>
-          <ProductGridView />
-        </Router>
-      </DataContext.Provider>
-    );
-    const getProducts = getByTestId("product-gird-view");
-    fireEvent.click(getProducts);
-    expect(contextProductMock.dispatch).not.toHaveBeenCalled();
-  });
-
   test("should create product when dispatch action CreateProductsSuccess", () => {
     const initialState: DataState = {
       products: PRODUCT_MOCKING_LIST,

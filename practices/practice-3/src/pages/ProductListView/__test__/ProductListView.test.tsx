@@ -14,7 +14,6 @@ import { ProductContext } from "@common-types/product";
 import { DataContext } from "@context/DataContext";
 import { Action, DataState } from "@common-types/data";
 import { dataReducer } from "@reducer/dataReducer";
-import { useReducer } from "react";
 
 const contextProductMock: ProductContext = {
   products: PRODUCT_MOCKING_LIST,
@@ -52,29 +51,15 @@ describe("Product list view component", () => {
     expect(getByTestId("view-product-list")).toBeInTheDocument();
   });
 
-  test("should get product when run app", () => {
-    const history = createMemoryHistory();
-    const { getByTestId } = render(
-      <DataContext.Provider value={contextProductMock}>
-        <Router location={history.location} navigator={history}>
-          <ProductListView />
-        </Router>
-      </DataContext.Provider>
-    );
-    const getProducts = getByTestId("view-product-list");
-    fireEvent.click(getProducts);
-    expect(contextProductMock.dispatch).not.toHaveBeenCalled();
-  });
-
   test("should get data when dispatch action GetProductSuccess", () => {
     const initialState: DataState = {
       products: PRODUCT_MOCKING_LIST,
     };
-    const createProduct = {
+    const getProduct = {
       action: Action.GetProductSuccess,
       payload: PRODUCT_MOCKING_LIST,
     };
-    const updatedState = dataReducer(initialState, createProduct);
+    const updatedState = dataReducer(initialState, getProduct);
     expect(updatedState).toEqual(updatedState);
   });
 
