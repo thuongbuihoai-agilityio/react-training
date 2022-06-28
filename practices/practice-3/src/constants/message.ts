@@ -9,8 +9,4 @@ const ERROR_MSG = {
   NUMBER: "Enter a non-negative number"
 }
 
-const ACTION = {
-  GET_DATA: "get_data",
-}
-
-export { SUCCESS_MSG, ERROR_MSG, ACTION };
+export { SUCCESS_MSG, ERROR_MSG };
