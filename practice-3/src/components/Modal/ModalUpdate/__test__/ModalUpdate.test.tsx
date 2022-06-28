@@ -1,13 +1,15 @@
-import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import user from "@testing-library/user-event";
+import mockAxios from "@__mocks__/axios";
 import ModalUpdate from "../ModalUpdate";
 import "@testing-library/jest-dom";
 import { useState } from "react";
-import mockAxios from "@__mocks__/axios";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { CATEGORIES_URL, PRODUCTS_URL } from "@constants/url";
 import { CATEGORY_MOCKING_LIST } from "@__mocks__/constants/categories";
 import { getData, update } from "@helpers/fetchApi";
-import { PRODUCT_MOCKING } from "@__mocks__/constants/product";
+import { PRODUCT_MOCKING, PRODUCT_MOCKING_LIST } from "@__mocks__/constants/product";
+import { Action, DataState } from "@common-types/data";
+import { dataReducer } from "@reducer/dataReducer";
 
 jest.mock("react", () => ({
   ...jest.requireActual("react"),
@@ -143,6 +145,18 @@ describe("Modal update component", () => {
     const btnSubmit = screen.getByText("Submit");
     fireEvent.click(btnSubmit);
     expect(updateProductDetail).toHaveBeenCalled();
+  });
+
+  test("should update state when dispatch action UpdateProductSuccess", () => {
+    const initialState: DataState = {
+      products: PRODUCT_MOCKING_LIST,
+    };
+    const createProduct = {
+      action: Action.UpdateProductSuccess,
+      payload: PRODUCT_MOCKING_LIST,
+    };
+    const updatedState = dataReducer(initialState, createProduct);
+    expect(updatedState).toEqual(updatedState);
   });
 
   test("matches snapshot", () => {
