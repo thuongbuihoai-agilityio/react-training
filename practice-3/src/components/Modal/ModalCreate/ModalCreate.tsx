@@ -243,14 +243,14 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
           <div className="modal-footer-modalUpdate">
             <Button
               className="btn btn__no"
-              onClick={hideModalCreate}
               text="Cancel"
+              onClick={hideModalCreate}
             />
             <Button
               className="btn btn__yes"
+              text="Submit"
               disabled = {isDisable}
               onClick={() => handleCreateProduct()}
-              text="Submit"
             />
           </div>
         </div>
