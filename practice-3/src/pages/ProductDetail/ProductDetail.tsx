@@ -14,7 +14,7 @@ const ProductDetails: React.FC = () => {
   const { id } = useParams();
   const { products } = useContext(DataContext);
   const dataElement = products?.find((item) => item.id === id);
-  const [openModalUpdate, setOpenModalUpdate] = useState(false);
+  const [openModalUpdate, setOpenModalUpdate] = useState<boolean>(false);
   const [product, setProduct] = useState<Product | undefined>(dataElement);
 
   // update product detail

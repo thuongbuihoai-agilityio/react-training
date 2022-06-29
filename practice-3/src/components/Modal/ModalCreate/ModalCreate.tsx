@@ -9,7 +9,7 @@ import { CategoryProps } from "@common-types/category";
 import { ModalCreateProps } from "@common-types/modal";
 import { RULES } from "@constants/rules";
 import { CATEGORIES_URL } from "@constants/url";
-import { getData } from "@helpers/fetchApi";
+import { getData } from "@helpers/apiHandle";
 import { validate } from "@helpers/validate";
 import { setFieldsValue } from "@helpers/fieldHandle";
 import "../modal.css";
@@ -27,12 +27,12 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
     categoryId: "",
     description: ""
   }
-  const [isDisable, setIsDisable] = useState(false);
+  const [isDisable, setIsDisable] = useState<boolean>(false);
   const [newProduct, setNewProduct] = useState<Product>(initProduct);
   // fetch data with useSWR
   const { data } = useSWR(CATEGORIES_URL, getData<Product[]>);
   // create state to handle select file image
-  const [selectedFile, setSelectedFile] = useState([]);
+  const [selectedFile, setSelectedFile] = useState<string[]>([]);
   // create state to set form values
   const [formValues, setFormValues] = useState<FormProps>({
     categoryId: {
@@ -111,7 +111,7 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
         newFiles.push(imageSrc)
       }
     }
-    setSelectedFile([...selectedFile, ...newFiles] as never);
+    setSelectedFile([...selectedFile, ...newFiles]);
   }, [selectedFile]);
 
   // handle delete image

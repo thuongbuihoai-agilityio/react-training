@@ -6,14 +6,14 @@ import ModalCreate from "@components/Modal/ModalCreate/ModalCreate";
 import ScrollButton from "@components/common/Button/ScrollButton/ScrollButton";
 import { Product } from "@common-types/product";
 import { SUCCESS_MSG } from "@constants/message";
-import { create, getData, remove } from "@helpers/fetchApi";
+import { create, getData, remove } from "@helpers/apiHandle";
 import { PRODUCTS_URL } from "@constants/url";
 import { DataContext } from "@context/DataContext";
 import { Action } from "@common-types/data";
 import "./productGridView.css";
 
 const ProductGridView: React.FC = () => {
-  const [openModalCreate, setOpenModalCreate] = useState(false);
+  const [openModalCreate, setOpenModalCreate] = useState<boolean>(false);
   const { products, searchValue, dispatch } = useContext(DataContext);
   const queryParams: URLSearchParams = new URLSearchParams(searchValue);
   const { data } = useSWR(PRODUCTS_URL + "?" + queryParams.toString(), getData<Product[]>);

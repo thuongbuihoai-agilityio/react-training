@@ -6,7 +6,7 @@ import { fireEvent, render } from "@testing-library/react";
 import { createMemoryHistory } from "history";
 import { Router } from "react-router-dom";
 import { PRODUCTS_URL } from "@constants/url";
-import { create, getData, remove } from "@helpers/fetchApi";
+import { create, getData, remove } from "@helpers/apiHandle";
 import { useState } from "react";
 import {
   PRODUCT_MOCKING,
