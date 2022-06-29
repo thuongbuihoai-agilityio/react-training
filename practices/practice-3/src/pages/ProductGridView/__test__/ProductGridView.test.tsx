@@ -1,9 +1,8 @@
 import "@testing-library/jest-dom";
 import mockAxios from "@__mocks__/axios";
 import ProductGridView from "../ProductGridView";
-import ModalDelete from "@components/Modal/ModalDelete/ModalDelete";
 import ModalCreate from "@components/Modal/ModalCreate/ModalCreate";
-import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { fireEvent, render } from "@testing-library/react";
 import { createMemoryHistory } from "history";
 import { Router } from "react-router-dom";
 import { PRODUCTS_URL } from "@constants/url";
@@ -22,9 +21,6 @@ jest.mock("react", () => ({
 }));
 
 describe("Product grid view component", () => {
-  const deleteProduct = jest.fn();
-  const handleCreateProduct = jest.fn();
-
   beforeEach(() => {
     (useState as jest.Mock).mockImplementation(
       jest.requireActual("react").useState
@@ -74,31 +70,6 @@ describe("Product grid view component", () => {
     expect(result).toEqual(PRODUCT_MOCKING);
   });
 
-  test("should delete product when click Yes", () => {
-    render(
-      <ModalDelete
-        id={""}
-        hideModalDelete={() => {}}
-        deleteProduct={deleteProduct}
-      />
-    );
-    const hideModal = screen.getByText("Yes");
-    fireEvent.click(hideModal);
-    expect(deleteProduct).toHaveBeenCalled();
-  });
-
-  test("should create product when click Submit", () => {
-    render(
-      <ModalCreate
-        hideModalCreate={() => {}}
-        createProduct={handleCreateProduct}
-      />
-    );
-    const submitBtn = screen.getByText("Submit");
-    fireEvent.click(submitBtn);
-    expect(submitBtn).toBeInTheDocument();
-  });
-
   test("should render product grid view component", () => {
     const history = createMemoryHistory();
     const { getByTestId } = render(
@@ -119,17 +90,6 @@ describe("Product grid view component", () => {
     const btnOpenModal = getByTestId("open-modal");
     fireEvent.click(btnOpenModal);
     expect(btnOpenModal).toBeInTheDocument();
-  });
-
-  test("should create product when pass data", () => {
-    const history = createMemoryHistory();
-    render(
-      <Router location={history.location} navigator={history}>
-        <ProductGridView />
-      </Router>
-    );
-    const data = PRODUCT_MOCKING;
-    expect(data).toBe(PRODUCT_MOCKING);
   });
 
   test("should create product when dispatch action CreateProductsSuccess", () => {

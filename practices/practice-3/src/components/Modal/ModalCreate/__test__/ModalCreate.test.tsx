@@ -79,7 +79,6 @@ describe("Modal create component", () => {
       <ModalCreate
         hideModalCreate={() => {}}
         createProduct={() => {}}
-
       />
     );
     expect(getByTestId("modal-create")).toBeInTheDocument();
