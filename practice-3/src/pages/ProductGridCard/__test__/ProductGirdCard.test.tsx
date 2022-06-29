@@ -1,10 +1,9 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import { fireEvent, render } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import { createMemoryHistory } from "history";
 import { Router } from "react-router-dom";
 import ProductGridCard from "../ProductGridCard";
 import { useState } from "react";
-import ModalDelete from "@components/Modal/ModalDelete/ModalDelete";
 import { PRODUCT_MOCKING } from "@__mocks__/constants/product";
 
 jest.mock("react", () => ({
@@ -13,7 +12,6 @@ jest.mock("react", () => ({
 }));
 
 describe("Product grid card component", () => {
-  const deleteProduct = jest.fn();
   beforeEach(()=>{
     (useState as jest.Mock).mockImplementation(jest.requireActual("react").useState);
   })
@@ -38,19 +36,6 @@ describe("Product grid card component", () => {
     const btnOpenModal = getByTestId("open-modal-delete");
     fireEvent.click(btnOpenModal);
     expect(btnOpenModal).toBeInTheDocument();
-  });
-
-  test("should delete product when click Yes", () => {
-    render(
-      <ModalDelete
-        id={""}
-        hideModalDelete={() => {}}
-        deleteProduct={deleteProduct}
-      />
-    );
-    const hideModal = screen.getByText("Yes");
-    fireEvent.click(hideModal);
-    expect(deleteProduct).toHaveBeenCalled();
   });
 
   test("matches snapshot", () => {
