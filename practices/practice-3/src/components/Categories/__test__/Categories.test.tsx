@@ -1,14 +1,14 @@
 import "@testing-library/jest-dom";
-import Categories from "../Categories";
-import mockAxios from "@__mocks__/axios";
 import { useState } from "react";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { CATEGORY_MOCKING_LIST } from "@__mocks__/constants/categories";
-import { getData } from "@helpers/fetchApi";
+import { getData } from "@helpers/apiHandle";
 import { CATEGORIES_URL } from "@constants/url";
 import { DataContext } from "@context/DataContext";
 import { ProductContext } from "@common-types/product";
 import { PRODUCT_MOCKING_LIST } from "@__mocks__/constants/product";
+import Categories from "../Categories";
+import mockAxios from "@__mocks__/axios";
 
 jest.mock("react", () => ({
   ...jest.requireActual("react"),
