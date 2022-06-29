@@ -20,6 +20,18 @@ exports[`Category component matches snapshot 1`] = `
       >
         All
       </li>
+      <li
+        class="categories__item inActive"
+        data-index="1"
+      >
+        Cake
+      </li>
+      <li
+        class="categories__item inActive"
+        data-index="2"
+      >
+        Breads
+      </li>
     </ul>
   </div>
 </DocumentFragment>

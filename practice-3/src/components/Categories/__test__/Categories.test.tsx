@@ -2,7 +2,7 @@ import "@testing-library/jest-dom";
 import Categories from "../Categories";
 import mockAxios from "@__mocks__/axios";
 import { useState } from "react";
-import { fireEvent, render } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { CATEGORY_MOCKING_LIST } from "@__mocks__/constants/categories";
 import { getData } from "@helpers/fetchApi";
 import { CATEGORIES_URL } from "@constants/url";
@@ -49,10 +49,16 @@ describe("Category component", () => {
     expect(result).toEqual(CATEGORY_MOCKING_LIST);
   });
 
-  test("render category component", () => {
+  test("render category component", async () => {
+    mockAxios.get.mockResolvedValueOnce({ data: CATEGORY_MOCKING_LIST });
     const { getByTestId } = render(<Categories />);
     const categories = getByTestId("categories");
     expect(categories).toBeInTheDocument();
+
+    // Click a category
+    const firstCategory = await waitFor(() => screen.getByText(CATEGORY_MOCKING_LIST[0].name))
+    fireEvent.click(firstCategory)
+    expect(firstCategory).toEqual(firstCategory);
   });
 
   test("should render product by search category", () => {
@@ -74,9 +80,7 @@ describe("Category component", () => {
 
   test("matches snapshot", () => {
     const { asFragment } = render(
-      <DataContext.Provider value={contextProductMock}>
-        <Categories />
-      </DataContext.Provider>
+      <Categories />
     );
     expect(asFragment()).toMatchSnapshot();
   });
