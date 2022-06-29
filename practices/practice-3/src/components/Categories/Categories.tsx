@@ -26,12 +26,12 @@ const Categories: React.FC = memo(() => {
     setActiveId("");
   };
 
-  function renderCategoryList(data: []) {
+  const renderCategoryList = (data: []) => {
     return data?.map((category: CategoryProps) => (
       <li
         data-index={category.id}
         className={`categories__item ${
-          activeId === category.id ? "active" : "inactive"
+          activeId === category.id ? "active" : "inActive"
         }`}
         key={category.id}
         onClick={handleSearch(category.id)}
@@ -48,7 +48,7 @@ const Categories: React.FC = memo(() => {
         <li
           data-testid="category-item"
           className={`categories__item ${
-            activeId === "" ? "active" : "inactive"
+            activeId === "" ? "active" : "inActive"
           }`}
           onClick={handleDefaultCategory}
         >

@@ -1,9 +1,9 @@
-import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import "@testing-library/jest-dom";
+import mockAxios from "@__mocks__/axios";
 import user from "@testing-library/user-event";
 import ModalCreate from "../ModalCreate";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { useState } from "react";
-import mockAxios from "@__mocks__/axios";
 import { CATEGORY_MOCKING_LIST } from "@__mocks__/constants/categories";
 import { CATEGORIES_URL } from "@constants/url";
 import { getData } from "@helpers/fetchApi";
