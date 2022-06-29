@@ -2,7 +2,7 @@ import useSWR from "swr";
 import React, { memo, useContext, useState } from "react";
 import { CategoryProps } from "@common-types/category";
 import { CATEGORIES_URL } from "@constants/url";
-import { getData } from "@helpers/fetchApi";
+import { getData } from "@helpers/apiHandle";
 import { DataContext } from "@context/DataContext";
 import "./categories.css";
 
@@ -10,7 +10,7 @@ const Categories: React.FC = memo(() => {
   // fetch data with useSWR
   const { data } = useSWR(CATEGORIES_URL, getData);
   // handle highlight when categoryId selected
-  const [activeId, setActiveId] = useState("");
+  const [activeId, setActiveId] = useState<string>("");
   const { setSearchValue } = useContext(DataContext);
   const handleSearch = (id: string) => (e: React.MouseEvent<HTMLElement>) => {
     // get current categoryId
