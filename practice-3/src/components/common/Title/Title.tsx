@@ -1,5 +1,5 @@
 import React, { memo } from "react";
-import { TitleProps } from "@/types/title";
+import { TitleProps } from "@common-types/title";
 import "./title.css";
 
 const Title: React.FC<TitleProps> = memo(({ text="", className }) => {

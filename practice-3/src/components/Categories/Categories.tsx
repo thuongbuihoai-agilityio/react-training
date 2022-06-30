@@ -1,18 +1,17 @@
 import useSWR from "swr";
 import React, { memo, useContext, useState } from "react";
-import { CategoryProps } from "@/types/category";
-import { SearchContext } from "@/context/SearchContext";
-import { CATEGORIES_URL } from "@/constants/url";
-import { getData } from "@/helpers/fetchApi";
+import { CategoryProps } from "@common-types/category";
+import { CATEGORIES_URL } from "@constants/url";
+import { getData } from "@helpers/apiHandle";
+import { DataContext } from "@context/DataContext";
 import "./categories.css";
 
 const Categories: React.FC = memo(() => {
   // fetch data with useSWR
   const { data } = useSWR(CATEGORIES_URL, getData);
   // handle highlight when categoryId selected
-  const [activeId, setActiveId] = useState("");
-  // handle search with SearchContext
-  const { setSearchValue } = useContext(SearchContext);
+  const [activeId, setActiveId] = useState<string>("");
+  const { setSearchValue } = useContext(DataContext);
   const handleSearch = (id: string) => (e: React.MouseEvent<HTMLElement>) => {
     // get current categoryId
     const categoryId = { categoryId: e.currentTarget.dataset.index };
@@ -27,12 +26,12 @@ const Categories: React.FC = memo(() => {
     setActiveId("");
   };
 
-  function renderCategoryList(data: []) {
+  const renderCategoryList = (data: []) => {
     return data?.map((category: CategoryProps) => (
       <li
         data-index={category.id}
         className={`categories__item ${
-          activeId === category.id ? "active" : "inactive"
+          activeId === category.id ? "active" : "inActive"
         }`}
         key={category.id}
         onClick={handleSearch(category.id)}
@@ -49,7 +48,7 @@ const Categories: React.FC = memo(() => {
         <li
           data-testid="category-item"
           className={`categories__item ${
-            activeId === "" ? "active" : "inactive"
+            activeId === "" ? "active" : "inActive"
           }`}
           onClick={handleDefaultCategory}
         >

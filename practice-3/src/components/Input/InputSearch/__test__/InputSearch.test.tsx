@@ -1,13 +1,15 @@
 import { act, fireEvent, render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import InputSearch from "../InputSearch";
-import { Action, Search, SearchState } from "@/types/search";
-import { searchReducer } from "@/reducer/searchReducer";
-import { SearchContext } from "@/context/SearchContext";
+import { DataContext } from "@context/DataContext";
+import { ProductContext } from "@common-types/product";
+import { PRODUCT_MOCKING_LIST } from "@__mocks__/constants/product";
 
-const contextValueMock: Search = {
-  setSearchValue: jest.fn(),
+const contextProductMock: ProductContext = {
+  products: PRODUCT_MOCKING_LIST,
+  dispatch: jest.fn(),
   searchValue: "",
+  setSearchValue: jest.fn(),
 };
 
 describe("InputSearch component", () => {
@@ -16,24 +18,12 @@ describe("InputSearch component", () => {
     expect(getByTestId("input-search")).toBeInTheDocument();
   });
 
-  test("should return new state when dispatch action", () => {
-    const initialState: SearchState = {
-      searchValue: "",
-    };
-    const updateAction = {
-      action: Action.SetSearchValue,
-      payload: "cheese pocket",
-    };
-    const updatedState = searchReducer(initialState, updateAction);
-    expect(updatedState).toEqual(updatedState);
-  });
-
   test("display product after inputSearch", async () => {
     act(() => {
       render(
-        <SearchContext.Provider value={contextValueMock}>
+        <DataContext.Provider value={contextProductMock}>
           <InputSearch />
-        </SearchContext.Provider>
+        </DataContext.Provider>
       );
       const inputElement = screen.getByPlaceholderText(
         /Search item/i
@@ -44,11 +34,7 @@ describe("InputSearch component", () => {
   });
 
   test("matches snapshot", () => {
-    const { asFragment } = render(
-      <SearchContext.Provider value={contextValueMock}>
-        <InputSearch />
-      </SearchContext.Provider>
-    );
+    const { asFragment } = render(<InputSearch />);
     expect(asFragment()).toMatchSnapshot();
   });
 });

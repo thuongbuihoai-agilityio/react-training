@@ -1,13 +1,18 @@
-import { fireEvent, render, waitFor } from "@testing-library/react";
 import user from "@testing-library/user-event";
+import mockAxios from "@__mocks__/axios";
 import ModalUpdate from "../ModalUpdate";
 import "@testing-library/jest-dom";
 import { useState } from "react";
-import mockAxios from "@/__mocks__/axios";
-import { CATEGORIES_URL, PRODUCTS_URL } from "@/constants/url";
-import { CATEGORY_MOCKING_LIST } from "@/__mocks__/constants/categories";
-import { getData, update } from "@/helpers/fetchApi";
-import { PRODUCT_MOCKING } from "@/__mocks__/constants/product";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { CATEGORIES_URL, PRODUCTS_URL } from "@constants/url";
+import { CATEGORY_MOCKING_LIST } from "@__mocks__/constants/categories";
+import { getData, update } from "@helpers/apiHandle";
+import {
+  PRODUCT_MOCKING,
+  PRODUCT_MOCKING_LIST,
+} from "@__mocks__/constants/product";
+import { Action, DataState } from "@common-types/data";
+import { dataReducer } from "@reducer/dataReducer";
 
 jest.mock("react", () => ({
   ...jest.requireActual("react"),
@@ -118,7 +123,7 @@ describe("Modal update component", () => {
   });
 
   test("should hide modal update when click Cancel", () => {
-    const { getByTestId } = render(
+    render(
       <ModalUpdate
         product={PRODUCT_MOCKING}
         hideModalUpdate={hideModalUpdate}
@@ -126,13 +131,13 @@ describe("Modal update component", () => {
         updateProductDetail={() => {}}
       />
     );
-    const hideModal = getByTestId("btn-no-modalUpdate");
+    const hideModal = screen.getByText("Cancel");
     fireEvent.click(hideModal);
     expect(hideModalUpdate).toHaveBeenCalled();
   });
 
   test("should update product when click Submit", () => {
-    const { getByTestId } = render(
+    render(
       <ModalUpdate
         product={PRODUCT_MOCKING}
         hideModalUpdate={updateProductDetail}
@@ -140,9 +145,21 @@ describe("Modal update component", () => {
         updateProductDetail={() => {}}
       />
     );
-    const btnSubmit = getByTestId("btn-yes-modalUpdate");
+    const btnSubmit = screen.getByText("Submit");
     fireEvent.click(btnSubmit);
     expect(updateProductDetail).toHaveBeenCalled();
+  });
+
+  test("should update state when dispatch action UpdateProductSuccess", () => {
+    const initialState: DataState = {
+      products: PRODUCT_MOCKING_LIST,
+    };
+    const updateProduct = {
+      action: Action.UpdateProductSuccess,
+      payload: PRODUCT_MOCKING_LIST,
+    };
+    const updatedState = dataReducer(initialState, updateProduct);
+    expect(updatedState).toEqual(updatedState);
   });
 
   test("matches snapshot", () => {

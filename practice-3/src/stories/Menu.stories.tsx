@@ -1,6 +1,6 @@
 import React from "react";
-import MENU_LIST from "@/constants/menu";
-import Menu from "@/components/common/Menu/Menu";
+import MENU_LIST from "@constants/menu";
+import Menu from "@components/common/Menu/Menu";
 import { BrowserRouter } from "react-router-dom";
 
 export default {

@@ -17,3 +17,10 @@ export interface ProductItemProps {
 export interface ProductCardProps {
   product: Product;
 }
+
+export interface ProductContext {
+  products: Product[];
+  dispatch: Function,
+  searchValue: string;
+  setSearchValue: Function;
+}

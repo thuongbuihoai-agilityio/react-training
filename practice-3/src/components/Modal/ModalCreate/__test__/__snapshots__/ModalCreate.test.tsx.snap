@@ -32,10 +32,14 @@ exports[`Modal create component matches snapshot 1`] = `
             <label
               for=""
             >
-              Product name: 
+              Product name 
+              <span
+                class="star"
+              >
+                *
+              </span>
             </label>
             <input
-              class="input__value"
               name="name"
               type="text"
               value=""
@@ -50,7 +54,12 @@ exports[`Modal create component matches snapshot 1`] = `
             <label
               for=""
             >
-              Description: 
+              Description 
+              <span
+                class="star"
+              >
+                *
+              </span>
             </label>
             <textarea
               class="input__text"
@@ -70,7 +79,12 @@ exports[`Modal create component matches snapshot 1`] = `
             <label
               for=""
             >
-              Categories: 
+              Categories 
+              <span
+                class="star"
+              >
+                *
+              </span>
             </label>
             <select
               class="form__select"
@@ -98,7 +112,12 @@ exports[`Modal create component matches snapshot 1`] = `
               <label
                 for=""
               >
-                Price: 
+                Price 
+                <span
+                  class="star"
+                >
+                  *
+                </span>
               </label>
               <input
                 class="input__number"
@@ -117,7 +136,12 @@ exports[`Modal create component matches snapshot 1`] = `
               <label
                 for=""
               >
-                Quantity: 
+                Quantity 
+                <span
+                  class="star"
+                >
+                  *
+                </span>
               </label>
               <input
                 class="input__number"
@@ -152,14 +176,12 @@ exports[`Modal create component matches snapshot 1`] = `
           class="modal-footer-modalUpdate"
         >
           <button
-            class="btn btn__no"
-            data-testid="hide-modal-btn"
+            class="btn btn__btn btn__no"
           >
             Cancel
           </button>
           <button
-            class="btn btn__yes"
-            data-testid="add-new-product"
+            class="btn btn__btn btn__yes"
           >
             Submit
           </button>

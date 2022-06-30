@@ -1,27 +1,28 @@
-import axios from "axios";
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useContext, useState } from "react";
 import { useParams } from "react-router-dom";
-import Price from "@/components/Price/Price";
-import Title from "@/components/common/Title/Title";
-import Text from "@/components/Text/Text";
-import ModalUpdate from "@/components/Modal/ModalUpdate/ModalUpdate";
-import { Product } from "@/types/product";
-import { PRODUCTS_URL } from "@/constants/url";
+import { DataContext } from "@context/DataContext";
+import { Product } from "@common-types/product";
+import Price from "@components/Price/Price";
+import Title from "@components/common/Title/Title";
+import Text from "@components/Text/Text";
+import ModalUpdate from "@components/Modal/ModalUpdate/ModalUpdate";
 import toast from "react-hot-toast";
 import "./productDetail.css";
 
 const ProductDetails: React.FC = () => {
   // use useParams to get id
   const { id } = useParams();
-  const [product, setProduct] = useState<Product>();
-  const [openModalUpdate, setOpenModalUpdate] = useState(false);
+  const { products } = useContext(DataContext);
+  const dataElement = products?.find((item) => item.id === id);
+  const [openModalUpdate, setOpenModalUpdate] = useState<boolean>(false);
+  const [product, setProduct] = useState<Product | undefined>(dataElement);
 
   // update product detail
   const updateProductDetail = (response: Product) => {
     try {
       setProduct(response);
-    } catch (error) {
-      toast.error(error as string);
+    } catch (error: any) {
+      toast.error(error);
     }
   };
 
@@ -29,19 +30,6 @@ const ProductDetails: React.FC = () => {
   const toggleModalUpdate = useCallback(() => {
     setOpenModalUpdate(!openModalUpdate);
   }, [openModalUpdate]);
-
-  // fetch data by id
-  const fetchDataById = async () => {
-    try {
-      const response = await axios.get(PRODUCTS_URL + `${id}`);
-      setProduct(response.data);
-    } catch (error) {
-      toast.error(error as string);
-    }
-  };
-  useEffect(() => {
-    fetchDataById();
-  }, []);
 
   return (
     <>

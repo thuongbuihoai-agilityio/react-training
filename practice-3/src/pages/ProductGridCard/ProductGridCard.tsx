@@ -1,16 +1,16 @@
-import React, { memo, useCallback, useState } from "react";
+import React, { useCallback, useState } from "react";
 import { Link } from "react-router-dom";
-import Title from "@/components/common/Title/Title";
-import Price from "@/components/Price/Price";
-import { ProductItemProps } from "@/types/product";
-import ModalDelete from "@/components/Modal/ModalDelete/ModalDelete";
+import { ProductItemProps } from "@common-types/product";
+import Title from "@components/common/Title/Title";
+import Price from "@components/Price/Price";
+import ModalDelete from "@components/Modal/ModalDelete/ModalDelete";
 import "./productGridCard.css";
 
-const ProductGridCard: React.FC<ProductItemProps> = memo(({
+const ProductGridCard: React.FC<ProductItemProps> = ({
   product,
   deleteProduct,
 }) => {
-  const [openModalDelete, setOpenModalDelete] = useState(false);
+  const [openModalDelete, setOpenModalDelete] = useState<boolean>(false);
   // handle toggle modal delete
   const toggleModalDelete = useCallback(() => {
     setOpenModalDelete(!openModalDelete);
@@ -28,7 +28,7 @@ const ProductGridCard: React.FC<ProductItemProps> = memo(({
           <i className="fa fa-trash"></i>
         </button>
         <div className="product__content">
-          <Link className="productViewPage__link" to={`/product/${product.id}`}>
+          <Link className="productViewPage__link" to={`/products/${product.id}`}>
             <Title className="productViewPage__title" text={product.name} />
           </Link>
           <Price className="productViewPage__price" value={product.price} />
@@ -43,6 +43,6 @@ const ProductGridCard: React.FC<ProductItemProps> = memo(({
       </div>
     </>
   );
-});
+};
 
 export default ProductGridCard;

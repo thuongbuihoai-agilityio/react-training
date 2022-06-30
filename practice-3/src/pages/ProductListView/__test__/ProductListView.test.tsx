@@ -1,21 +1,28 @@
-import { fireEvent, render } from "@testing-library/react";
 import "@testing-library/jest-dom";
+import mockAxios from "@__mocks__/axios";
 import ProductListView from "../ProductListView";
+import Categories from "@components/Categories/Categories";
+import Button from "@components/common/Button/Button/Button";
+import ProductGridView from "@pages/ProductGridView/ProductGridView";
+import ModalUpdate from "@components/Modal/ModalUpdate/ModalUpdate";
+import ModalCreate from "@components/Modal/ModalCreate/ModalCreate";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { createMemoryHistory } from "history";
 import { Link, Router } from "react-router-dom";
-import { Search } from "@/types/search";
-import { SearchContext } from "@/context/SearchContext";
-import Categories from "@/components/Categories/Categories";
-import mockAxios from "@/__mocks__/axios";
-import { CATEGORIES_URL, PRODUCTS_URL } from "@/constants/url";
-import { getData } from "@/helpers/fetchApi";
-import { CATEGORY_MOCKING_LIST } from "@/__mocks__/constants/categories";
-import { PRODUCT_MOCKING_LIST } from "@/__mocks__/constants/product";
-import Button from "@/components/common/Button/Button/Button";
+import { CATEGORIES_URL, PRODUCTS_URL } from "@constants/url";
+import { getData } from "@helpers/apiHandle";
+import { CATEGORY_MOCKING_LIST } from "@__mocks__/constants/categories";
+import { PRODUCT_MOCKING, PRODUCT_MOCKING_LIST } from "@__mocks__/constants/product";
+import { ProductContext } from "@common-types/product";
+import { DataContext } from "@context/DataContext";
+import { Action, DataState } from "@common-types/data";
+import { dataReducer } from "@reducer/dataReducer";
 
-const contextValueMockSearch: Search = {
-  setSearchValue: jest.fn(),
+const contextProductMock: ProductContext = {
+  products: PRODUCT_MOCKING_LIST,
+  dispatch: jest.fn(),
   searchValue: "",
+  setSearchValue: jest.fn(),
 };
 
 describe("Product list view component", () => {
@@ -37,25 +44,85 @@ describe("Product list view component", () => {
     expect(result).toEqual(CATEGORY_MOCKING_LIST);
   });
 
-  test("should render product list view component", () => {
+  test("should get product when run app", () => {
+    mockAxios.get.mockResolvedValue({ data: PRODUCT_MOCKING_LIST });
     const history = createMemoryHistory();
-    const { getByTestId } = render(
-      <Router location={history.location} navigator={history}>
-         <ProductListView />
-      </Router>
+    render(
+      <DataContext.Provider value={contextProductMock}>
+        <Router location={history.location} navigator={history}>
+          <ProductListView />
+        </Router>
+      </DataContext.Provider>
     );
-    expect(getByTestId("view-product-list")).toBeInTheDocument();
+    waitFor(() => { expect(contextProductMock.dispatch).toHaveBeenCalled() });
+  });
+
+  test("should update product when click button submit", () => {
+    mockAxios.put.mockResolvedValue(PRODUCT_MOCKING);
+    render(
+      <DataContext.Provider value={contextProductMock}>
+        <ModalUpdate
+          product={PRODUCT_MOCKING}
+          hideModalUpdate={() => {}}
+          deleteImage={() => {}}
+          updateProductDetail={() => {}}
+        />
+      </DataContext.Provider>
+    );
+    const btnSubmit = screen.getByText("Submit");
+    fireEvent.click(btnSubmit);
+    waitFor(() => { expect(contextProductMock.dispatch).toHaveBeenCalled() });
+  });
+
+  test("should create product when click Submit", () => {
+    mockAxios.post.mockResolvedValue(PRODUCT_MOCKING);
+    render(
+      <ModalCreate
+        hideModalCreate={() => {}}
+        createProduct={() => {}}
+      />
+    );
+    const submitBtn = screen.getByText("Submit");
+    fireEvent.click(submitBtn);
+    waitFor(() => { expect(contextProductMock.dispatch).toHaveBeenCalled() });
+  });
+
+  test("should get product when run app", () => {
+    mockAxios.get.mockResolvedValue({ data: PRODUCT_MOCKING_LIST });
+    const history = createMemoryHistory();
+    render(
+      <DataContext.Provider value={contextProductMock}>
+        <Router location={history.location} navigator={history}>
+          <ProductGridView />
+        </Router>
+      </DataContext.Provider>
+    );
+    waitFor(() => {
+      expect(contextProductMock.dispatch).toHaveBeenCalled();
+    });
+  });
+
+  test("should get data when dispatch action GetProductSuccess", () => {
+    const initialState: DataState = {
+      products: PRODUCT_MOCKING_LIST,
+    };
+    const getProduct = {
+      action: Action.GetProductSuccess,
+      payload: PRODUCT_MOCKING_LIST,
+    };
+    const updatedState = dataReducer(initialState, getProduct);
+    expect(updatedState).toEqual(updatedState);
   });
 
   test("should filter when click category", () => {
     const { getByTestId } = render(
-      <SearchContext.Provider value={contextValueMockSearch}>
+      <DataContext.Provider value={contextProductMock}>
         <Categories />
-      </SearchContext.Provider>
+      </DataContext.Provider>
     );
     const categoryItem = getByTestId("category-item");
     fireEvent.click(categoryItem);
-    expect(contextValueMockSearch.setSearchValue).toHaveBeenCalled();
+    expect(contextProductMock.setSearchValue).toHaveBeenCalled();
   });
 
   test("Redirect to product page when click button 'View all products'", async () => {
@@ -76,9 +143,11 @@ describe("Product list view component", () => {
   test("matches snapshot", () => {
     const history = createMemoryHistory();
     const { asFragment } = render(
-      <Router location={history.location} navigator={history}>
-         <ProductListView />
-      </Router>
+      <DataContext.Provider value={contextProductMock}>
+        <Router location={history.location} navigator={history}>
+          <ProductListView />
+        </Router>
+      </DataContext.Provider>
     );
     expect(asFragment()).toMatchSnapshot();
   });

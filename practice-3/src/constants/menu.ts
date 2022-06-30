@@ -1,4 +1,4 @@
-import { MenuType } from "../types/menu";
+import { MenuType } from "../common-types/menu";
 
 const MENU_LIST: MenuType[] = [
   {

@@ -1,7 +1,7 @@
 import React, { memo } from "react";
-import { MenuProps, MenuType } from "@/types/menu";
-import "./menu.css";
 import { Link } from "react-router-dom";
+import { MenuProps, MenuType } from "@common-types/menu";
+import "./menu.css";
 
 const Menu: React.FC<MenuProps> = memo(({ menuList }) => {
   function renderMenuList(list: MenuType[]) {

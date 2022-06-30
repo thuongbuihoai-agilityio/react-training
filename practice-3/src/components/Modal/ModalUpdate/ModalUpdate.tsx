@@ -1,18 +1,21 @@
 import useSWR from "swr";
-import React, { ChangeEvent, useCallback, useState } from "react";
+import React, { ChangeEvent, useCallback, useContext, useState } from "react";
 import toast from "react-hot-toast";
-import { FormProps } from "@/types/form";
-import { Product } from "@/types/product";
-import { RULES } from "@/constants/rules";
-import getBase64 from "@/helpers/getBase64";
-import { validate } from "@/helpers/validate";
-import { ModalUpdateProps } from "@/types/modal";
-import { CategoryProps } from "@/types/category";
-import { SUCCESS_MSG } from "@/constants/message";
-import { getData, update } from "@/helpers/fetchApi";
-import { setFieldsValue } from "@/helpers/fieldHandle";
-import { CATEGORIES_URL, PRODUCTS_URL } from "@/constants/url";
-import InputValue from "@/components/Input/InputValue/InputValue";
+import getBase64 from "@helpers/getBase64";
+import InputValue from "@components/Input/InputValue/InputValue";
+import Button from "@components/common/Button/Button/Button";
+import { FormProps } from "@common-types/form";
+import { Product } from "@common-types/product";
+import { RULES } from "@constants/rules";
+import { validate } from "@helpers/validate";
+import { ModalUpdateProps } from "@common-types/modal";
+import { CategoryProps } from "@common-types/category";
+import { SUCCESS_MSG } from "@constants/message";
+import { getData, update } from "@helpers/apiHandle";
+import { setFieldsValue } from "@helpers/fieldHandle";
+import { CATEGORIES_URL, PRODUCTS_URL } from "@constants/url";
+import { DataContext } from "@context/DataContext";
+import { Action } from "@common-types/data";
 import "../modal.css";
 
 const ModalUpdate: React.FC<ModalUpdateProps> = ({
@@ -21,11 +24,12 @@ const ModalUpdate: React.FC<ModalUpdateProps> = ({
   updateProductDetail,
 }) => {
   // fetch data with useSWR
-  const { data, mutate } = useSWR(CATEGORIES_URL, getData<Product[]>);
+  const { data } = useSWR(CATEGORIES_URL, getData<CategoryProps[]>);
+  const {dispatch} = useContext(DataContext);
   // create state to handle select file image
-  const [selectedFile, setSelectedFile] = useState([]);
+  const [selectedFile, setSelectedFile] = useState<string[]>([]);
   // create state to update product
-  const [productEdit, setProductEdit] = useState(product);
+  const [productEdit, setProductEdit] = useState<Product>(product);
   const updateProduct = async (id: string, productData: Product) => {
     const productEdit: Product = {
       id: productData.id,
@@ -38,11 +42,16 @@ const ModalUpdate: React.FC<ModalUpdateProps> = ({
     };
     try {
       const response = await update(`${PRODUCTS_URL}/${id}`, productEdit);
-      mutate();
-      updateProductDetail(response.data);
+      if(response) {
+        dispatch({
+          action: Action.UpdateProductSuccess,
+          payload: {...productEdit}
+        });
+        updateProductDetail(response.data);
+      }
       toast.success(SUCCESS_MSG.MESSAGE_UPDATE_PRODUCT);
-    } catch (error) {
-      toast.error((error as any).message);
+    } catch (error: any) {
+      toast.error(error.message);
     }
   };
 
@@ -120,7 +129,7 @@ const ModalUpdate: React.FC<ModalUpdateProps> = ({
         newFiles.push(imageSrc)
       }
     }
-    setSelectedFile([...selectedFile, ...newFiles] as never);
+    setSelectedFile([...selectedFile, ...newFiles]);
   }, [selectedFile]);
 
   // handle delete image
@@ -150,7 +159,6 @@ const ModalUpdate: React.FC<ModalUpdateProps> = ({
             <div className="form-control">
               <label htmlFor="">Product name: </label>
               <InputValue
-                className="input__value"
                 type="text"
                 name="name"
                 value={productEdit?.name}
@@ -261,20 +269,16 @@ const ModalUpdate: React.FC<ModalUpdateProps> = ({
             </div>
           </div>
           <div className="modal-footer-modalUpdate">
-            <button
-              data-testid="btn-no-modalUpdate"
+            <Button
               className="btn btn__no"
               onClick={hideModalUpdate}
-            >
-              Cancel
-            </button>
-            <button
-              data-testid="btn-yes-modalUpdate"
+              text="Cancel"
+            />
+            <Button
+              text="Submit"
               className="btn btn__yes"
               onClick={() => handleUpdateProduct(product.id, productEdit)}
-            >
-              Submit
-            </button>
+            />
           </div>
         </div>
       </div>

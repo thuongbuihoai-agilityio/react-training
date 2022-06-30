@@ -1,27 +1,38 @@
 import useSWR from "swr";
 import React, { ChangeEvent, useCallback, useState } from "react";
-import { FormProps } from "@/types/form";
-import { Product } from "@/types/product";
-import { RULES } from "@/constants/rules";
-import getBase64 from "@/helpers/getBase64";
-import { getData } from "@/helpers/fetchApi";
-import { validate } from "@/helpers/validate";
-import { ModalCreateProps } from "@/types/modal";
-import { CATEGORIES_URL } from "@/constants/url";
-import { CategoryProps } from "@/types/category";
-import { setFieldsValue } from "@/helpers/fieldHandle";
-import InputValue from "@/components/Input/InputValue/InputValue";
+import getBase64 from "@helpers/getBase64";
+import InputValue from "@components/Input/InputValue/InputValue";
+import Button from "@components/common/Button/Button/Button";
+import { FieldName, FormProps } from "@common-types/form";
+import { Product } from "@common-types/product";
+import { CategoryProps } from "@common-types/category";
+import { ModalCreateProps } from "@common-types/modal";
+import { RULES } from "@constants/rules";
+import { CATEGORIES_URL } from "@constants/url";
+import { getData } from "@helpers/apiHandle";
+import { validate } from "@helpers/validate";
+import { setFieldsValue } from "@helpers/fieldHandle";
 import "../modal.css";
 
 const ModalCreate: React.FC<ModalCreateProps> = ({
   hideModalCreate,
   createProduct,
 }) => {
-  const [newProduct, setNewProduct] = useState([]);
+  const initProduct: Product = {
+    id: "",
+    name: "",
+    price: 0,
+    images: [],
+    quantity: 0,
+    categoryId: "",
+    description: ""
+  }
+  const [isDisable, setIsDisable] = useState<boolean>(false);
+  const [newProduct, setNewProduct] = useState<Product>(initProduct);
   // fetch data with useSWR
   const { data } = useSWR(CATEGORIES_URL, getData<Product[]>);
   // create state to handle select file image
-  const [selectedFile, setSelectedFile] = useState([]);
+  const [selectedFile, setSelectedFile] = useState<string[]>([]);
   // create state to set form values
   const [formValues, setFormValues] = useState<FormProps>({
     categoryId: {
@@ -75,7 +86,9 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
     // check validate if pass then create product
     if (!temp.includes(false)) {
       setFormValues({...formValues});
-      createProduct({ images, ...newProduct } as unknown as Product);
+      setIsDisable(!isDisable);
+      const product: Product = { ...newProduct, images: images }
+      createProduct(product);
       hideModalCreate();
     }
   };
@@ -83,7 +96,7 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
   // handle change value
   const handleChange = useCallback((event: { target: { value: string; name: string } }) => {
     const value = event.target.value;
-    const fieldName = event.target.name;
+    const fieldName = event.target.name as FieldName;
     setNewProduct({ ...newProduct, [fieldName]: value });
     setFormValues(setFieldsValue(formValues, value, fieldName));
   }, [formValues]);
@@ -98,7 +111,7 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
         newFiles.push(imageSrc)
       }
     }
-    setSelectedFile([...selectedFile, ...newFiles] as never);
+    setSelectedFile([...selectedFile, ...newFiles]);
   }, [selectedFile]);
 
   // handle delete image
@@ -126,9 +139,8 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
           </div>
           <div className="modal-body">
             <div className="form-control">
-              <label htmlFor="">Product name: </label>
+              <label htmlFor="">Product name <span className="star">*</span></label>
               <InputValue
-                className="input__value"
                 type="text"
                 name="name"
                 onChange={handleChange}
@@ -138,7 +150,7 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
               </small>
             </div>
             <div className="form-control">
-              <label htmlFor="">Description: </label>
+              <label htmlFor="">Description <span className="star">*</span></label>
               <textarea
                 data-testid="change-value"
                 className="input__text"
@@ -155,7 +167,7 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
               </small>
             </div>
             <div className="form-control">
-              <label htmlFor="">Categories: </label>
+              <label htmlFor="">Categories <span className="star">*</span></label>
               <select
                 className="form__select"
                 name="categoryId"
@@ -177,7 +189,7 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
             </div>
             <div id="form__number" className="form-control">
               <div className="form-control">
-                <label htmlFor="">Price: </label>
+                <label htmlFor="">Price <span className="star">*</span></label>
                 <InputValue
                   className="input__number"
                   type="number"
@@ -190,7 +202,7 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
                 </small>
               </div>
               <div className="form-control">
-                <label htmlFor="">Quantity: </label>
+                <label htmlFor="">Quantity <span className="star">*</span></label>
                 <InputValue
                   className="input__number"
                   type="number"
@@ -229,20 +241,17 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
             </div>
           </div>
           <div className="modal-footer-modalUpdate">
-            <button
-              data-testid="hide-modal-btn"
+            <Button
               className="btn btn__no"
+              text="Cancel"
               onClick={hideModalCreate}
-            >
-              Cancel
-            </button>
-            <button
-              data-testid="add-new-product"
+            />
+            <Button
               className="btn btn__yes"
+              text="Submit"
+              disabled = {isDisable}
               onClick={() => handleCreateProduct()}
-            >
-              Submit
-            </button>
+            />
           </div>
         </div>
       </div>

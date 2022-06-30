@@ -1,23 +1,19 @@
-import { fireEvent, render } from "@testing-library/react";
 import "@testing-library/jest-dom";
+import mockAxios from "@__mocks__/axios";
 import ProductGridView from "../ProductGridView";
+import ModalCreate from "@components/Modal/ModalCreate/ModalCreate";
+import { fireEvent, render } from "@testing-library/react";
 import { createMemoryHistory } from "history";
 import { Router } from "react-router-dom";
-import { PRODUCTS_URL } from "@/constants/url";
-import { create, getData, remove } from "@/helpers/fetchApi";
-import mockAxios from "@/__mocks__/axios";
-import { Search } from "@/types/search";
-import { SearchContext } from "@/context/SearchContext";
-import Categories from "@/components/Categories/Categories";
+import { PRODUCTS_URL } from "@constants/url";
+import { create, getData, remove } from "@helpers/apiHandle";
 import { useState } from "react";
-import ModalDelete from "@/components/Modal/ModalDelete/ModalDelete";
-import ModalCreate from "@/components/Modal/ModalCreate/ModalCreate";
-import { PRODUCT_MOCKING, PRODUCT_MOCKING_LIST } from "@/__mocks__/constants/product";
-
-const contextValueMockSearch: Search = {
-  setSearchValue: jest.fn(),
-  searchValue: "",
-};
+import {
+  PRODUCT_MOCKING,
+  PRODUCT_MOCKING_LIST,
+} from "@__mocks__/constants/product";
+import { Action, DataState } from "@common-types/data";
+import { dataReducer } from "@reducer/dataReducer";
 
 jest.mock("react", () => ({
   ...jest.requireActual("react"),
@@ -25,9 +21,6 @@ jest.mock("react", () => ({
 }));
 
 describe("Product grid view component", () => {
-  const deleteProduct = jest.fn();
-  const handleCreateProduct = jest.fn();
-
   beforeEach(() => {
     (useState as jest.Mock).mockImplementation(
       jest.requireActual("react").useState
@@ -40,10 +33,7 @@ describe("Product grid view component", () => {
 
   const setup = () => {
     const utils = render(
-      <ModalCreate
-        hideModalCreate={() => {}}
-        createProduct={() => {}}
-      />
+      <ModalCreate hideModalCreate={() => {}} createProduct={() => {}} />
     );
     const input = utils.getByTestId("change-value") as HTMLInputElement;
     return {
@@ -80,37 +70,12 @@ describe("Product grid view component", () => {
     expect(result).toEqual(PRODUCT_MOCKING);
   });
 
-  test("should delete product when click Yes", () => {
-    const { getByTestId } = render(
-      <ModalDelete
-        id={""}
-        hideModalDelete={() => {}}
-        deleteProduct={deleteProduct}
-      />
-    );
-    const hideModal = getByTestId("btn-yes");
-    fireEvent.click(hideModal);
-    expect(deleteProduct).toHaveBeenCalled();
-  });
-
-  test("should create product when click Submit", () => {
-    const { getByTestId } = render(
-      <ModalCreate
-        hideModalCreate={() => {}}
-        createProduct={handleCreateProduct}
-      />
-    );
-    const submitBtn = getByTestId("add-new-product");
-    fireEvent.click(submitBtn);
-    expect(submitBtn).toBeInTheDocument();
-  });
-
   test("should render product grid view component", () => {
     const history = createMemoryHistory();
     const { getByTestId } = render(
-        <Router location={history.location} navigator={history}>
-          <ProductGridView />
-        </Router>
+      <Router location={history.location} navigator={history}>
+        <ProductGridView />
+      </Router>
     );
     expect(getByTestId("product-gird-view")).toBeInTheDocument();
   });
@@ -118,43 +83,57 @@ describe("Product grid view component", () => {
   test("should open modal when click button 'Add new product'", () => {
     const history = createMemoryHistory();
     const { getByTestId } = render(
-        <Router location={history.location} navigator={history}>
-          <ProductGridView />
-        </Router>
+      <Router location={history.location} navigator={history}>
+        <ProductGridView />
+      </Router>
     );
     const btnOpenModal = getByTestId("open-modal");
     fireEvent.click(btnOpenModal);
     expect(btnOpenModal).toBeInTheDocument();
   });
 
-  test("should create product when pass data", () => {
-    const history = createMemoryHistory();
-    render(
-        <Router location={history.location} navigator={history}>
-          <ProductGridView />
-        </Router>
-    );
-    const data = PRODUCT_MOCKING;
-    expect(data).toBe(PRODUCT_MOCKING);
+  test("should create product when dispatch action CreateProductsSuccess", () => {
+    const initialState: DataState = {
+      products: PRODUCT_MOCKING_LIST,
+    };
+    const createProduct = {
+      action: Action.CreateProductsSuccess,
+      payload: PRODUCT_MOCKING_LIST,
+    };
+    const updatedState = dataReducer(initialState, createProduct);
+    expect(updatedState).toEqual(updatedState);
   });
 
-  test("should filter when click category", () => {
-    const { getByTestId } = render(
-      <SearchContext.Provider value={contextValueMockSearch}>
-        <Categories />
-      </SearchContext.Provider>
-    );
-    const categoryItem = getByTestId("category-item");
-    fireEvent.click(categoryItem);
-    expect(contextValueMockSearch.setSearchValue).toHaveBeenCalled();
+  test("should get data when dispatch action GetProductSuccess", () => {
+    const initialState: DataState = {
+      products: PRODUCT_MOCKING_LIST,
+    };
+    const createProduct = {
+      action: Action.GetProductSuccess,
+      payload: PRODUCT_MOCKING_LIST,
+    };
+    const updatedState = dataReducer(initialState, createProduct);
+    expect(updatedState).toEqual(updatedState);
+  });
+
+  test("should delete product when dispatch action DeleteProductSuccess", () => {
+    const initialState: DataState = {
+      products: PRODUCT_MOCKING_LIST,
+    };
+    const deleteProduct = {
+      action: Action.DeleteProductSuccess,
+      payload: PRODUCT_MOCKING_LIST,
+    };
+    const updatedState = dataReducer(initialState, deleteProduct);
+    expect(updatedState).toEqual(updatedState);
   });
 
   test("matches snapshot", () => {
     const history = createMemoryHistory();
     const { asFragment } = render(
-        <Router location={history.location} navigator={history}>
-          <ProductGridView />
-        </Router>
+      <Router location={history.location} navigator={history}>
+        <ProductGridView />
+      </Router>
     );
     expect(asFragment()).toMatchSnapshot();
   });

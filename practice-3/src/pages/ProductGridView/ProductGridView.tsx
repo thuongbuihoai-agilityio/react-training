@@ -1,24 +1,30 @@
 import useSWR from "swr";
+import React, { useCallback, useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
-import { Product } from "@/types/product";
-import { SUCCESS_MSG } from "@/constants/message";
-import { SearchContext } from "@/context/SearchContext";
-import { create, getData, remove } from "@/helpers/fetchApi";
-import { PRODUCTS_URL } from "@/constants/url";
 import ProductGridCard from "../ProductGridCard/ProductGridCard";
-import React, { useCallback, useContext, useState } from "react";
-import ModalCreate from "@/components/Modal/ModalCreate/ModalCreate";
-import ScrollButton from "@/components/common/Button/ScrollButton/ScrollButton";
+import ModalCreate from "@components/Modal/ModalCreate/ModalCreate";
+import ScrollButton from "@components/common/Button/ScrollButton/ScrollButton";
+import { Product } from "@common-types/product";
+import { SUCCESS_MSG } from "@constants/message";
+import { create, getData, remove } from "@helpers/apiHandle";
+import { PRODUCTS_URL } from "@constants/url";
+import { DataContext } from "@context/DataContext";
+import { Action } from "@common-types/data";
 import "./productGridView.css";
 
 const ProductGridView: React.FC = () => {
-  const [openModalCreate, setOpenModalCreate] = useState(false);
-  const { searchValue } = useContext(SearchContext);
-
-  // URLSearchParams: convert searchValue to string => handle search
+  const [openModalCreate, setOpenModalCreate] = useState<boolean>(false);
+  const { products, searchValue, dispatch } = useContext(DataContext);
   const queryParams: URLSearchParams = new URLSearchParams(searchValue);
-  const { data, mutate } = useSWR(PRODUCTS_URL + "?" + queryParams.toString(), getData<Product[]>);
-
+  const { data } = useSWR(PRODUCTS_URL + "?" + queryParams.toString(), getData<Product[]>);
+  useEffect(() => {
+    if(data) {
+      dispatch({
+        action: Action.GetProductSuccess,
+        payload: data
+      });
+    }
+  }, [data]);
   // create product
   const createProduct = async (productData: Product) => {
     const newProduct: Product = {
@@ -31,22 +37,32 @@ const ProductGridView: React.FC = () => {
       images: productData.images,
     };
     try {
-      await create(PRODUCTS_URL, newProduct);
-      mutate();
-      toast.success(SUCCESS_MSG.MESSAGE_ADD_PRODUCT);
-    } catch (error) {
-      toast.error((error as any).message);
+      const response = await create(PRODUCTS_URL, newProduct);
+      if(response) {
+        dispatch({
+          action: Action.CreateProductsSuccess,
+          payload: data?.concat({...response.data})
+        });
+        toast.success(SUCCESS_MSG.MESSAGE_ADD_PRODUCT);
+      }
+    } catch (error: any) {
+      toast.error(error.message);
     }
   };
 
   // delete product
   const deleteProduct = async (id: string) => {
     try {
-      await remove(`${PRODUCTS_URL}/${id}`);
-      mutate();
-      toast.success(SUCCESS_MSG.MESSAGE_DELETE_PRODUCT);
-    } catch (error) {
-      toast.error((error as any).message);
+      const response = await remove(`${PRODUCTS_URL}/${id}`);
+      if(response) {
+        dispatch({
+          action: Action.DeleteProductSuccess,
+          payload: id
+        });
+        toast.success(SUCCESS_MSG.MESSAGE_DELETE_PRODUCT);
+      }
+    } catch (error: any) {
+      toast.error(error.message);
     }
   };
 
@@ -66,7 +82,7 @@ const ProductGridView: React.FC = () => {
           Add new product
         </button>
         <div data-testid="delete-product" className="product__info">
-          {data?.map((product: Product) => (
+          {products?.map((product: Product) => (
             <div className="product__item" key={product.id}>
               <ProductGridCard
                 product={product}

@@ -1,10 +1,10 @@
 import React, { memo, useEffect, useState } from "react";
-import { ButtonProps } from "@/types/button";
+import { ButtonProps } from "@common-types/button";
 import "./scrollButton.css";
 
 const ScrollButton: React.FC<ButtonProps> = memo(({ text, className }) => {
   // create state to handle back to top
-  const [btnOnTop, setBtnOnTop] = useState(true);
+  const [btnOnTop, setBtnOnTop] = useState<boolean>(true);
   useEffect(() => {
     window.addEventListener("scroll", () => {
       if (window.pageYOffset > 500) {

@@ -1,13 +1,19 @@
 import React, { memo } from "react";
-import { ButtonProps } from "@/types/button";
+import { ButtonProps } from "@common-types/button";
 import "./button.css";
 
-const Button: React.FC<ButtonProps> = memo(({ text, className, onClick }) => {
-  return (
-    <button onClick={onClick} className={`btn btn__${className}`}>
-      {text}
-    </button>
-  );
-});
+const Button: React.FC<ButtonProps> = memo(
+  ({ text, className, onClick, disabled }) => {
+    return (
+      <button
+        className={`btn btn__${className}`}
+        disabled={disabled}
+        onClick={onClick}
+      >
+        {text}
+      </button>
+    );
+  }
+);
 
 export default Button;

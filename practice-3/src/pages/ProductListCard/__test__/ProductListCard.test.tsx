@@ -3,7 +3,7 @@ import "@testing-library/jest-dom";
 import ProductListCard from "../ProductListCard";
 import { createMemoryHistory } from "history";
 import { Router } from "react-router-dom";
-import { PRODUCT_MOCKING } from "@/__mocks__/constants/product";
+import { PRODUCT_MOCKING } from "@__mocks__/constants/product";
 
 describe("Product list card component", () => {
   test("should render productListCard component", () => {

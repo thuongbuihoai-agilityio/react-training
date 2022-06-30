@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "@/components/common/Header/Header";
+import Header from "@components/common/Header/Header";
 import { BrowserRouter } from "react-router-dom";
 
 export default {
