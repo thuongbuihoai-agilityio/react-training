@@ -9,7 +9,7 @@ const initialState: DataState = {
 
 const DataContext = createContext<ProductContext>({} as ProductContext);
 const DataProvider: React.FC<{children: JSX.Element[] | JSX.Element}> = ({ children }) => {
-  const [searchValue, setSearchValue] = useState("");
+  const [searchValue, setSearchValue] = useState<string>("");
   const [state, dispatch] = useReducer(dataReducer, initialState);
   const { products } = state;
 
