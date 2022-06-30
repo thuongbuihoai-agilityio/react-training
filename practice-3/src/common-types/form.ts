@@ -1,32 +1,18 @@
-export interface FormProps {
-  categoryId: {
-    value: string,
-    rules: string[],
-    error: string,
-  },
-  name: {
-    value: string,
-    rules: string[],
-    error: string,
-  },
-  price: {
-    value: string,
-    rules: string[],
-    error: string,
-  },
-  quantity: {
-    value: string,
-    rules: string[],
-    error: string,
-  },
-  description: {
-    value: string,
-    rules: string[],
-    error: string,
-  },
-  images: {
-    value: string,
-    rules: string[],
-    error: string,
-  }
+export enum FieldName {
+  categoryId = "categoryId",
+  name = "name",
+  price = "price",
+  quantity = "quantity",
+  description = "description",
+  images = "images",
+}
+
+export interface Field {
+  value: string,
+  rules: string[],
+  error: string,
+}
+
+export type FormProps = {
+  [key in FieldName]: Field
 }

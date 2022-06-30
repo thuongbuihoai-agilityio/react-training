@@ -3,7 +3,7 @@ import React, { ChangeEvent, useCallback, useState } from "react";
 import getBase64 from "@helpers/getBase64";
 import InputValue from "@components/Input/InputValue/InputValue";
 import Button from "@components/common/Button/Button/Button";
-import { FormProps } from "@common-types/form";
+import { FieldName, FormProps } from "@common-types/form";
 import { Product } from "@common-types/product";
 import { CategoryProps } from "@common-types/category";
 import { ModalCreateProps } from "@common-types/modal";
@@ -96,7 +96,7 @@ const ModalCreate: React.FC<ModalCreateProps> = ({
   // handle change value
   const handleChange = useCallback((event: { target: { value: string; name: string } }) => {
     const value = event.target.value;
-    const fieldName = event.target.name;
+    const fieldName = event.target.name as FieldName;
     setNewProduct({ ...newProduct, [fieldName]: value });
     setFormValues(setFieldsValue(formValues, value, fieldName));
   }, [formValues]);
