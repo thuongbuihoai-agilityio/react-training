@@ -59,8 +59,8 @@
 - git clone git@gitlab.asoft-python.com:thuong.buihoai/react-training.git
 - cd react-training
 - git checkout feature/react-practice-3
-- Run server: pnpm run server
 - Install dependencies : pnpm install
+- Run server: pnpm run server
 - Run app: pnpm dev
 - Open on web: http://localhost:3000/
 - Run story book: pnpm storybook
