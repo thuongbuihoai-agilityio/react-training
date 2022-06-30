@@ -4,7 +4,7 @@ import toast from "react-hot-toast";
 import getBase64 from "@helpers/getBase64";
 import InputValue from "@components/Input/InputValue/InputValue";
 import Button from "@components/common/Button/Button/Button";
-import { FormProps } from "@common-types/form";
+import { FieldName, FormProps } from "@common-types/form";
 import { Product } from "@common-types/product";
 import { RULES } from "@constants/rules";
 import { validate } from "@helpers/validate";
@@ -114,7 +114,7 @@ const ModalUpdate: React.FC<ModalUpdateProps> = ({
   // handle change value
   const handleChange = useCallback((event: { target: { value: string; name: string } }) => {
     const value = event.target.value;
-    const fieldName = event.target.name;
+    const fieldName = event.target.name as FieldName;
     setProductEdit({ ...productEdit, [fieldName]: value });
     setFormValues(setFieldsValue(formValues, value, fieldName));
   }, [productEdit]);
