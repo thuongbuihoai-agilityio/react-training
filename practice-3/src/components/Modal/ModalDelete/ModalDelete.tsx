@@ -1,7 +1,12 @@
 import React from "react";
-import { ModalDeleteProps } from "@common-types/modal";
 import Button from "@components/common/Button/Button/Button";
 import "../modal.css";
+
+interface ModalDeleteProps {
+  id: string;
+  hideModalDelete: () => void;
+  deleteProduct: (id: string) => void;
+}
 
 const ModalDelete: React.FC<ModalDeleteProps> = ({ id, hideModalDelete, deleteProduct }) => {
   return (
