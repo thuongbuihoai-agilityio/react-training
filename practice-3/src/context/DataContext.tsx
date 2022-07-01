@@ -16,7 +16,7 @@ const DataProvider: React.FC<{children: JSX.Element[] | JSX.Element}> = ({ child
   const [state, dispatch] = useReducer(dataReducer, initialState);
   const { products } = state;
 
-  const value = useMemo(() => ({ 
+  const value = useMemo(() => ({
     products,
     dispatch,
     searchValue,
