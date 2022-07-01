@@ -1,3 +1,5 @@
+import { CategoryProps } from "./category";
+
 export interface Product {
   id: string;
   name: string;
@@ -9,18 +11,11 @@ export interface Product {
   product?: {};
 }
 
-export interface ProductItemProps {
-  product: Product;
-  deleteProduct: (id: string) => void;
-}
-
-export interface ProductCardProps {
-  product: Product;
-}
-
 export interface ProductContext {
   products: Product[];
   dispatch: Function,
   searchValue: string;
   setSearchValue: Function;
+  categories: CategoryProps[];
+  setCategories: Function;
 }
