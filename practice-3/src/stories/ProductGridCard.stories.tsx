@@ -1,7 +1,7 @@
 import React from "react";
 import { PRODUCT_MOCKING } from "@__mocks__/constants/product";
-import ProductGridCard from "@pages/ProductGridCard/ProductGridCard";
 import { BrowserRouter } from "react-router-dom";
+import ProductGridCard from "@components/ProductGridCard/ProductGridCard";
 
 export default {
   /* 👇 The title prop is optional.

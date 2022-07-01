@@ -13,7 +13,7 @@ import {
   PRODUCT_MOCKING_LIST,
 } from "@__mocks__/constants/product";
 import { Action, DataState } from "@common-types/data";
-import { dataReducer } from "@reducer/dataReducer";
+import { productReducer } from "@reducer/productReducer";
 
 jest.mock("react", () => ({
   ...jest.requireActual("react"),
@@ -100,7 +100,7 @@ describe("Product grid view component", () => {
       action: Action.CreateProductsSuccess,
       payload: PRODUCT_MOCKING_LIST,
     };
-    const updatedState = dataReducer(initialState, createProduct);
+    const updatedState = productReducer(initialState, createProduct);
     expect(updatedState).toEqual(updatedState);
   });
 
@@ -112,7 +112,7 @@ describe("Product grid view component", () => {
       action: Action.GetProductSuccess,
       payload: PRODUCT_MOCKING_LIST,
     };
-    const updatedState = dataReducer(initialState, createProduct);
+    const updatedState = productReducer(initialState, createProduct);
     expect(updatedState).toEqual(updatedState);
   });
 
@@ -124,7 +124,7 @@ describe("Product grid view component", () => {
       action: Action.DeleteProductSuccess,
       payload: PRODUCT_MOCKING_LIST,
     };
-    const updatedState = dataReducer(initialState, deleteProduct);
+    const updatedState = productReducer(initialState, deleteProduct);
     expect(updatedState).toEqual(updatedState);
   });
 

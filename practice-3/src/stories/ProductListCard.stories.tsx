@@ -1,8 +1,7 @@
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
 import { PRODUCT_MOCKING } from "@__mocks__/constants/product";
-import ProductListCard from "@pages/ProductListCard/ProductListCard";
-
+import ProductListCard from "@components/ProductListCard/ProductListCard";
 
 export default {
   /* 👇 The title prop is optional.

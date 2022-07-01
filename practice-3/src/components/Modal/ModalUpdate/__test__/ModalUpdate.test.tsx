@@ -12,7 +12,7 @@ import {
   PRODUCT_MOCKING_LIST,
 } from "@__mocks__/constants/product";
 import { Action, DataState } from "@common-types/data";
-import { dataReducer } from "@reducer/dataReducer";
+import { productReducer } from "@reducer/productReducer";
 
 jest.mock("react", () => ({
   ...jest.requireActual("react"),
@@ -158,7 +158,7 @@ describe("Modal update component", () => {
       action: Action.UpdateProductSuccess,
       payload: PRODUCT_MOCKING_LIST,
     };
-    const updatedState = dataReducer(initialState, updateProduct);
+    const updatedState = productReducer(initialState, updateProduct);
     expect(updatedState).toEqual(updatedState);
   });
 

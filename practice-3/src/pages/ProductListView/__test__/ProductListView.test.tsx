@@ -16,13 +16,15 @@ import { PRODUCT_MOCKING, PRODUCT_MOCKING_LIST } from "@__mocks__/constants/prod
 import { ProductContext } from "@common-types/product";
 import { DataContext } from "@context/DataContext";
 import { Action, DataState } from "@common-types/data";
-import { dataReducer } from "@reducer/dataReducer";
+import { productReducer } from "@reducer/productReducer";
 
 const contextProductMock: ProductContext = {
   products: PRODUCT_MOCKING_LIST,
   dispatch: jest.fn(),
   searchValue: "",
   setSearchValue: jest.fn(),
+  categories: CATEGORY_MOCKING_LIST,
+  setCategories: jest.fn()
 };
 
 describe("Product list view component", () => {
@@ -110,7 +112,7 @@ describe("Product list view component", () => {
       action: Action.GetProductSuccess,
       payload: PRODUCT_MOCKING_LIST,
     };
-    const updatedState = dataReducer(initialState, getProduct);
+    const updatedState = productReducer(initialState, getProduct);
     expect(updatedState).toEqual(updatedState);
   });
 

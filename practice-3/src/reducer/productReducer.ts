@@ -1,13 +1,13 @@
 import { Action, DataAction, DataState } from "@common-types/data";
 
-const dataReducer = (state: DataState, actions: DataAction): DataState => {
+const productReducer = (state: DataState, actions: DataAction): DataState => {
   const { action, payload } = actions;
   switch (action) {
     case Action.GetProductSuccess: {
       return { ...state, products: payload };
     }
     case Action.CreateProductsSuccess: {
-      return { ...state.products, products: payload };
+      return { ...state.products, products: state.products.concat(payload) };
     }
     case Action.DeleteProductSuccess: {
       const index = state.products.findIndex(
@@ -27,4 +27,4 @@ const dataReducer = (state: DataState, actions: DataAction): DataState => {
   }
 };
 
-export { dataReducer };
+export { productReducer };
