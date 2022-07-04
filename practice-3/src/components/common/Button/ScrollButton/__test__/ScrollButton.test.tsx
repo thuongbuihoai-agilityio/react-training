@@ -11,12 +11,12 @@ describe("ScrollButton component", () => {
   test("should render button when window.pageYOffset > 500", () => {
     const { getByTestId } = render(
       <ScrollButton
-        text={<i className="fa fa-arrow-alt-circle-up"></i>}
+        children={<i className="fa fa-arrow-alt-circle-up"></i>}
         onClick={spyScrollTo}
       />
     );
     const clickBtn = getByTestId("back-to-top");
-    fireEvent.scroll(window, {target: {pageYOffset: 700}})
+    fireEvent.scroll(window, { target: { pageYOffset: 700 } });
     fireEvent.click(clickBtn);
     expect(spyScrollTo).toHaveBeenCalled();
   });
@@ -24,12 +24,12 @@ describe("ScrollButton component", () => {
   test("should not render button when window.pageYOffset < 500", () => {
     const { getByTestId } = render(
       <ScrollButton
-        text={<i className="fa fa-arrow-alt-circle-up"></i>}
+        children={<i className="fa fa-arrow-alt-circle-up"></i>}
         onClick={spyScrollTo}
       />
     );
     const clickBtn = getByTestId("back-to-top");
-    fireEvent.scroll(window, {target: {pageYOffset: 300}})
+    fireEvent.scroll(window, { target: { pageYOffset: 300 } });
     fireEvent.click(clickBtn);
     expect(spyScrollTo).not.toHaveBeenCalled();
   });
@@ -37,7 +37,7 @@ describe("ScrollButton component", () => {
   test("matches snapshot", () => {
     const { asFragment } = render(
       <ScrollButton
-        text={<i className="fa fa-arrow-alt-circle-up"></i>}
+        children={<i className="fa fa-arrow-alt-circle-up"></i>}
         onClick={() => {}}
       />
     );
