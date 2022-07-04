@@ -276,13 +276,13 @@ const ModalUpdate: React.FC<ModalUpdateProps> = ({
           </div>
           <div className="modal-footer-modalUpdate">
             <Button
-              className="btn btn__no"
+              type="warning"
               onClick={hideModalUpdate}
               text="Cancel"
             />
             <Button
               text="Submit"
-              className="btn btn__yes"
+              type="success"
               onClick={() => handleUpdateProduct(product.id, productEdit)}
             />
           </div>

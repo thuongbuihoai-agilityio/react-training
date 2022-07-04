@@ -17,8 +17,8 @@ const ModalDelete: React.FC<ModalDeleteProps> = ({ id, hideModalDelete, deletePr
             <span className="modal-title">Are you sure to delete this product?</span>
           </div>
           <div className="modal-footer">
-            <Button text="No" className="btn btn__no" onClick={hideModalDelete} />
-            <Button text="Yes" className="btn btn__yes" onClick={() => deleteProduct(id)} />
+            <Button text="No" type="warning" onClick={hideModalDelete} />
+            <Button text="Yes" type="success" onClick={() => deleteProduct(id)} />
           </div>
         </div>
       </div>

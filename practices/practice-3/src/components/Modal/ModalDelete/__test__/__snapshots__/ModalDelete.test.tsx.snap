@@ -26,12 +26,12 @@ exports[`Modal create component matches snapshot 1`] = `
           class="modal-footer"
         >
           <button
-            class="btn btn__btn btn__no"
+            class="btn btn__btn btn__warning"
           >
             No
           </button>
           <button
-            class="btn btn__btn btn__yes"
+            class="btn btn__btn btn__success"
           >
             Yes
           </button>
