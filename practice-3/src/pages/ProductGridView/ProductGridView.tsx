@@ -98,7 +98,7 @@ const ProductGridView: React.FC = () => {
           />
         )}
       </div>
-      <ScrollButton className="btn__backToTop" text={<i className="fa fa-arrow-alt-circle-up"></i>} />
+      <ScrollButton className="btn__backToTop" children={<i className="fa fa-arrow-alt-circle-up"></i>} />
     </>
   );
 };
