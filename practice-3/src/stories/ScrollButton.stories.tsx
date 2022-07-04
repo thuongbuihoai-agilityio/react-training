@@ -1,4 +1,4 @@
-import React from "react";
+import { ComponentStory, ComponentMeta } from "@storybook/react";
 import ScrollButton from "@components/common/Button/ScrollButton/ScrollButton";
 
 export default {
@@ -8,15 +8,14 @@ export default {
    */
   title: "Component/ScrollButton",
   component: ScrollButton,
-};
+} as ComponentMeta<typeof ScrollButton>;
 
-const Default: React.FC = () => {
-  return (
-    <ScrollButton
-      className="btn__scroll"
-      text={<i className="fa fa-arrow-alt-circle-up"></i>}
-    />
-  );
-};
+const TemplateScrollButton: ComponentStory<typeof ScrollButton> = (args) => (
+  <ScrollButton {...args} />
+);
 
-export { Default };
+export const Default = TemplateScrollButton.bind({});
+Default.args = {
+  className: "btn__scroll",
+  children: <i className="fa fa-arrow-alt-circle-up"></i>,
+};
