@@ -133,7 +133,7 @@ describe("Product list view component", () => {
     const { getByText } = render(
       <Router location={history.location} navigator={history}>
         <Link to="/products">
-          <Button className="btn btn__secondary" text="VIEW ALL PRODUCTS" />
+          <Button type="secondary" text="VIEW ALL PRODUCTS" />
         </Link>
       </Router>
     );

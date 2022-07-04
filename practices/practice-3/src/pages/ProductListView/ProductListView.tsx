@@ -36,9 +36,9 @@ const ProductListView: React.FC = () => {
         ))}
       </div>
       <Link className="viewProduct__link" to="/products">
-        <Button className="btn btn__secondary" text="VIEW ALL PRODUCTS" />
+        <Button type="secondary" text="VIEW ALL PRODUCTS" />
       </Link>
-      <ScrollButton className="btn__backToTop" text={<i className="fa fa-arrow-alt-circle-up"></i>} />
+      <ScrollButton className="btn__backToTop" children={<i className="fa fa-arrow-alt-circle-up"></i>} />
     </>
   );
 };
