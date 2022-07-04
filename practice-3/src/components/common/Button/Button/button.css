@@ -23,9 +23,13 @@
 }
 
 .btn__secondary:hover,
-.btn__add:hover {
+.btn__info:hover {
   color: var(--btn-primary);
   background-color: var(--bg-view);
+}
+
+.btn__info {
+  margin: 20px;
 }
 
 .btn__update {
@@ -56,24 +60,20 @@
   display: block;
 }
 
-.btn__no,
-.btn__yes {
+.btn__warning,
+.btn__success {
   border: 1px solid var(--border-btn);
   margin: 3px;
 }
 
-.btn__yes:hover {
+.btn__success:hover {
   color: var(--btn-primary);
   border-color: var(--bg-submit);
   background-color: var(--bg-submit);
 }
 
-.btn__no:hover {
+.btn__warning:hover {
   color: var(--btn-primary);
   border-color: var(--bg-cancel);
   background-color: var(--bg-cancel);
-}
-
-.btn__add {
-  margin: 20px;
 }
