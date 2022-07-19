@@ -1,26 +1,25 @@
-import "@testing-library/jest-dom";
 import { render } from "@testing-library/react";
 import { createMemoryHistory } from "history";
 import { Router } from "react-router-dom";
-import url from "../../../../assets/images/logos/logo.png";
-import Logo from "../Logo";
+import "@testing-library/jest-dom";
+import NavigationBar from "../NavigationBar";
 
-describe("Logo component", () => {
-  test("should render logo component", () => {
+describe("Navigation component", () => {
+  test("should render navigation component", () => {
     const history = createMemoryHistory();
     const { getByTestId } = render(
       <Router location={history.location} navigator={history}>
-        <Logo src={url} />
+        <NavigationBar />
       </Router>
     );
-    expect(getByTestId("logo")).toBeInTheDocument();
+    expect(getByTestId("navigation-bar")).toBeInTheDocument();
   });
 
   test("matches snapshot", () => {
     const history = createMemoryHistory();
     const { asFragment } = render(
       <Router location={history.location} navigator={history}>
-        <Logo src={url} />
+        <NavigationBar />
       </Router>
     );
     expect(asFragment()).toMatchSnapshot();

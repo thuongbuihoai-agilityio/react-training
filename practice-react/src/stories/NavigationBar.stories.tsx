@@ -1,23 +1,19 @@
+import NavigationBar from "@components/common/NavigationBar/NavigationBar";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { BrowserRouter } from "react-router-dom";
-import url from "@assets/images/logos/logo.png";
-import Logo from "@components/common/Logo/Logo";
 
 export default {
   /* 👇 The title prop is optional.
    * See https://storybook.js.org/docs/react/configure/overview#configure-story-loading
    * to learn how to generate automatic titles
    */
-  title: "Component/Logo",
-  component: Logo,
-} as ComponentMeta<typeof Logo>;
+  title: "Component/NavigationBar",
+  component: NavigationBar,
+} as ComponentMeta<typeof NavigationBar>;
 
-const TemplateLogo: ComponentStory<typeof Logo> = (args) => (
+const TemplateNavigationBar: ComponentStory<typeof NavigationBar> = (args) => (
   <BrowserRouter>
-    <Logo {...args} />
+    <NavigationBar {...args} />
   </BrowserRouter>
 );
-export const Default = TemplateLogo.bind({});
-Default.args = {
-  src: url,
-};
+export const Default = TemplateNavigationBar.bind({});

@@ -1,23 +1,23 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
+import MENU_LIST from "@constants/menu";
+import Menu from "@components/common/Menu/Menu";
 import { BrowserRouter } from "react-router-dom";
-import url from "@assets/images/logos/logo.png";
-import Logo from "@components/common/Logo/Logo";
 
 export default {
   /* 👇 The title prop is optional.
    * See https://storybook.js.org/docs/react/configure/overview#configure-story-loading
    * to learn how to generate automatic titles
    */
-  title: "Component/Logo",
-  component: Logo,
-} as ComponentMeta<typeof Logo>;
+  title: "Component/Menu",
+  component: Menu,
+} as ComponentMeta<typeof Menu>;
 
-const TemplateLogo: ComponentStory<typeof Logo> = (args) => (
+const TemplateMenu: ComponentStory<typeof Menu> = (args) => (
   <BrowserRouter>
-    <Logo {...args} />
+    <Menu {...args} />
   </BrowserRouter>
 );
-export const Default = TemplateLogo.bind({});
+export const Default = TemplateMenu.bind({});
 Default.args = {
-  src: url,
+  menuList: MENU_LIST,
 };
