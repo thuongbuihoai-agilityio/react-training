@@ -9,7 +9,7 @@ const CATEGORY: Categories = {
   },
 };
 
-const CATEGORY_LIST: Categories[] = [
+const CATEGORY_MOCKING_LIST: Categories[] = [
   {
     id: "1234",
     name: "Beverages",
@@ -60,4 +60,4 @@ const CATEGORY_LIST: Categories[] = [
   },
 ];
 
-export { CATEGORY, CATEGORY_LIST };
+export { CATEGORY, CATEGORY_MOCKING_LIST };
