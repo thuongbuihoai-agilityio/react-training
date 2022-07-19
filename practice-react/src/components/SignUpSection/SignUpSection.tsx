@@ -5,30 +5,30 @@ import Input from "@components/common/Input/Input";
 import Button from "@components/common/Button/Button";
 import "./signUpSection.css";
 
-const SignUpSection: React.FC = memo(() => {
+const SignUpSection: React.FC = () => {
   return (
-    <section data-testid="signUp-section" className="section__signUp">
+    <section data-testid="signUp-section" className="sectionSignUp">
       <figure>
         <img src={url} alt="This is image vegetables-fruits" />
       </figure>
-      <div className="section__content">
+      <div className="sectionSignUp__content">
         <Text
           text="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-          type="medium"
+          size="medium"
         />
-        <div className="section__info">
+        <div className="sectionSignUp__info">
           <Text
             text="Subscribe to get 10% Discount and promotion"
-            type="normal"
+            size="normal"
           />
         </div>
-        <div className="section__address">
+        <div className="sectionSignUp__address">
           <Input type="text" placeholder="Email address" />
           <Button text="Sign Up" type="large" />
         </div>
       </div>
     </section>
   );
-});
+};
 
 export default SignUpSection;

@@ -16,4 +16,12 @@ const TemplateNavigationBar: ComponentStory<typeof NavigationBar> = (args) => (
     <NavigationBar {...args} />
   </BrowserRouter>
 );
-export const Default = TemplateNavigationBar.bind({});
+export const Light = TemplateNavigationBar.bind({});
+Light.args = {
+  mode: "light"
+}
+
+export const Dark = TemplateNavigationBar.bind({});
+Dark.args = {
+  mode: "dark"
+}

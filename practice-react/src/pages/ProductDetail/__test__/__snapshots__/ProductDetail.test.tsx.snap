@@ -11,9 +11,6 @@ exports[`ProductDetail component matches snapshot 1`] = `
       data-testid="navigation-bar"
     >
       <a
-        href="/"
-      />
-      <a
         data-testid="logo"
         href="/"
       >
@@ -46,7 +43,7 @@ exports[`ProductDetail component matches snapshot 1`] = `
               class="menu__item"
             >
               <a
-                href=""
+                href="/"
               >
                 Orders
               </a>
@@ -55,7 +52,7 @@ exports[`ProductDetail component matches snapshot 1`] = `
               class="menu__item"
             >
               <a
-                href=""
+                href="/"
               >
                 Cart
               </a>
@@ -64,7 +61,7 @@ exports[`ProductDetail component matches snapshot 1`] = `
               class="menu__item"
             >
               <a
-                href=""
+                href="/"
               >
                 Contact
               </a>
@@ -85,11 +82,11 @@ exports[`ProductDetail component matches snapshot 1`] = `
     </nav>
     <figure>
       <img
-        class="productDetail--image"
+        class="productDetail__image"
       />
       <img
         alt="This is background"
-        class="productDetail--background"
+        class="productDetail__background"
       />
     </figure>
     <div
@@ -109,7 +106,7 @@ exports[`ProductDetail component matches snapshot 1`] = `
         data-testid="price"
       >
         <span
-          class="price--unit"
+          class="price__unit"
         />
       </p>
       <p
@@ -127,9 +124,14 @@ exports[`ProductDetail component matches snapshot 1`] = `
           class="counter"
           data-testid="counter"
         >
-          <i
-            class="fa fa-minus"
-          />
+          <div
+            class="counter__minus"
+          >
+            <i
+              class="icon-minus"
+              data-testid="icon"
+            />
+          </div>
           <input
             class="counter__input"
             min="0"
@@ -146,7 +148,7 @@ exports[`ProductDetail component matches snapshot 1`] = `
         </div>
       </div>
       <div
-        class="productDetail--btn"
+        class="productDetail__btn"
       >
         <button
           class="btn btn--large"
@@ -156,20 +158,20 @@ exports[`ProductDetail component matches snapshot 1`] = `
       </div>
     </div>
     <div
-      class="productDetail--more"
+      class="productDetail__more"
     >
       <div
         class="productDetail__title"
       >
         <p
-          class="text--large-dark"
+          class="text--dark"
           data-testid="text"
         >
           Products you may like
         </p>
       </div>
       <div
-        class="productDetail-popular"
+        class="productDetail__productMore"
       />
     </div>
   </div>

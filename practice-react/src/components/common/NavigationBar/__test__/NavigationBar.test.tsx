@@ -9,7 +9,7 @@ describe("Navigation component", () => {
     const history = createMemoryHistory();
     const { getByTestId } = render(
       <Router location={history.location} navigator={history}>
-        <NavigationBar isThemeDark={true} />
+        <NavigationBar mode="light" />
       </Router>
     );
     expect(getByTestId("navigation-bar")).toBeInTheDocument();
@@ -19,7 +19,7 @@ describe("Navigation component", () => {
     const history = createMemoryHistory();
     const { getByTestId } = render(
       <Router location={history.location} navigator={history}>
-        <NavigationBar isThemeLight={true} />
+        <NavigationBar mode="dark" />
       </Router>
     );
     expect(getByTestId("navigation-bar")).toBeInTheDocument();
@@ -29,7 +29,7 @@ describe("Navigation component", () => {
     const history = createMemoryHistory();
     const { asFragment } = render(
       <Router location={history.location} navigator={history}>
-        <NavigationBar />
+        <NavigationBar mode="light" />
       </Router>
     );
     expect(asFragment()).toMatchSnapshot();
