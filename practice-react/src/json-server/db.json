@@ -53,7 +53,8 @@
     {
       "productId": "164665454657522",
       "categoryId": "1651999197973",
-      "productName": "CottageCheese",
+      "productName": "Cottage Cheese",
+      "productQuantity": 3,
       "originalPrice": {
         "value": 150,
         "currency": "$"
@@ -67,14 +68,15 @@
       "bestSelling": false,
       "popular": false,
       "images": {
-        "src": "src/assets/images/icons/costmetic.png",
-        "alt": "This is costmetic images"
+        "src": "src/assets/images/cottage-cheese.png",
+        "alt": "This is cottage-cheese images"
       }
     },
     {
       "productId": "16466545464646547",
       "categoryId": "1651454657522",
       "productName": "Ice Cream Sundae",
+      "productQuantity": 5,
       "originalPrice": {
         "value": 20,
         "currency": "$"
@@ -88,14 +90,15 @@
       "bestSelling": true,
       "popular": false,
       "images": {
-        "src": "src/assets/images/icons/stationery.png",
-        "alt": "This is stationery images"
+        "src": "src/assets/images/ice-cream-sundae.png",
+        "alt": "This is ice-cream-sundae images"
       }
     },
     {
       "productId": "1646654668992646547",
       "categoryId": "1651924356334",
-      "productName": "Eco-Shampoo",
+      "productName": "Beef-Steak",
+      "productQuantity": 9,
       "originalPrice": {
         "value": 50,
         "currency": "$"
@@ -109,8 +112,8 @@
       "bestSelling": false,
       "popular": true,
       "images": {
-        "src": "src/assets/images/icons/meat.png",
-        "alt": "This is meat images"
+        "src": "src/assets/images/beef-steak.png",
+        "alt": "This is beef-steak images"
       }
     }
   ]
