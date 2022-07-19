@@ -4,8 +4,8 @@ import CardProduct from "../CardProduct";
 
 const CardProductList: React.FC = memo(() => {
   return (
-    <div className="cardProductList">
-      <div className="cardProductList__title">
+    <div className="cardOffersList">
+      <div className="cardOffersList__title">
       <Text text="Offers" type="large" />
       </div>
       <div className="card__item--offers">
