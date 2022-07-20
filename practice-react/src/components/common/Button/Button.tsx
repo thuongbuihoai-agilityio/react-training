@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React, { memo, useMemo } from "react";
 import Icon from "../Icon/Icon";
 import "./button.css";
 
@@ -6,44 +6,39 @@ interface ButtonProps {
   type?: string;
   text: string;
   icon?: boolean;
+  disabled?: boolean;
   onClick?: () => void;
 }
 
-const Button: React.FC<ButtonProps> = memo(({ text, type, onClick, icon }) => {
-  let className = "btn";
-  switch (type) {
-    case "primary":
-      className += " btn__primary";
-      break;
-    case "light":
-      className += " btn--light";
-      break;
-    case "dark":
-      className += " btn--dark";
-      break;
-    case "large":
-      className += " btn--large";
-      break;
-    case "outline--light":
-      className += " btn__outline--light";
-      break;
-    case "outline--dark":
-      className += " btn__outline--dark";
-      break;
-    default:
-      break;
-  }
+const Button: React.FC<ButtonProps> = memo(({ text, type="primary", onClick, icon, disabled }) => {
+  const className = useMemo(() => {
+    switch (type) {
+      case "primary":
+        return ` btn-${type}`;
+      case "light":
+        return ` btn-${type}`;
+      case "dark":
+        return ` btn-${type}`;
+      case "large":
+        return ` btn-${type}`;
+      case "outline-light":
+        return ` btn-${type}`;
+      case "outline-dark":
+        return ` btn-${type}`;
+      default:
+        return "btn"
+    }
+  }, [type]);
+
   return (
-    <>
-      <button className={className} onClick={onClick}>
-        {text}
-      </button>
+    <button className={className} disabled={disabled} onClick={onClick}>
+      {text}
       {icon && (
-        <div className="btn btn__icon">
+        <div className="btn btn-icon">
           <Icon iconName="filter" />
         </div>
       )}
-    </>
+    </button>
   );
 });
 

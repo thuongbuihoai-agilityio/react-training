@@ -1,5 +1,5 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { action } from '@storybook/addon-actions';
+import { action } from "@storybook/addon-actions";
 import Button from "@components/common/Button/Button";
 
 export default {
@@ -42,11 +42,18 @@ ButtonLarge.args = {
 export const ButtonOutlineLight = TemplateButton.bind({});
 ButtonOutlineLight.args = {
   text: "Login",
-  type: "outline--light",
+  type: "outline-light",
 };
 
 export const ButtonOutlineDark = TemplateButton.bind({});
 ButtonOutlineDark.args = {
   text: "Login",
-  type: "outline--dark",
+  type: "outline-dark",
+};
+
+export const ButtonDisable = TemplateButton.bind({});
+ButtonDisable.args = {
+  text: "Submit",
+  type: "large",
+  disabled: true,
 };

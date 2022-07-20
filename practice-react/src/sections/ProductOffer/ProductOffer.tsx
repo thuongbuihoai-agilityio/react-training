@@ -5,14 +5,14 @@ import ProductList from "@components/ProductList/ProductList";
 
 const ProductOffer: React.FC = () => {
   const { products } = useContext(DataContext);
-  const productOffer = products?.filter((product) => product.offer === true);
+  const productOffer = products?.filter((product) => product.offer);
 
   return (
-    <div data-testid="card-product-offer" className="cardOffersList">
-      <div className="cardOffersList__title">
-        <Text text="Offers" size="large" />
+    <div data-testid="card-product-offer" className="card-offers-list">
+      <div className="card-offers-list-title">
+        <Text text="Offers" size="large" decoration="" />
       </div>
-      <div className="card__item--offers">
+      <div className="card-item-offers">
         <ProductList
           type="normal"
           content="discount"
