@@ -11,16 +11,12 @@ const productReducer = (state: DataState, actions: DataAction): DataState => {
       return { ...state.products, products: state.products.concat(payload as Product) };
     }
     case Action.DeleteProductSuccess: {
-      const index = state.products.findIndex(
-        (item) => item.id == payload.toString()
-      );
-      const newProduct = [...state.products];
-      newProduct.splice(index, 1);
-      return {...state, products: newProduct};
+      const deleteProduct = state.products.filter(item => item.id != payload)
+      return {...state, products: deleteProduct};
     }
     case Action.UpdateProductSuccess: {
-      const updateProduct = state.products.filter(item => item.id === payload);
-      return { ...state, products: updateProduct };
+      state.products.findIndex(item => item.id == payload);
+      return {...state};
     }
     default: {
       return { ...state };

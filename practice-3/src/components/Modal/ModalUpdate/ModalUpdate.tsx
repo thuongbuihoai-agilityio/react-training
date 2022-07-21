@@ -51,7 +51,7 @@ const ModalUpdate: React.FC<ModalUpdateProps> = ({
       if(response) {
         dispatch({
           action: Action.UpdateProductSuccess,
-          payload: {...productEdit}
+          payload: {...response.data}
         });
         updateProductDetail(response.data);
       }
