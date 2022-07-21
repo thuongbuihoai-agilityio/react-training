@@ -7,7 +7,7 @@ exports[`Product grid view component matches snapshot 1`] = `
     data-testid="product-gird-view"
   >
     <button
-      class="btn btn__info"
+      class="btn btn__add"
       data-testid="open-modal"
     >
       Add new product
