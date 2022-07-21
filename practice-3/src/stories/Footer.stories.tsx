@@ -1,5 +1,5 @@
-import React from "react";
 import Footer from "@components/common/Footer/Footer";
+import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 export default {
   /* 👇 The title prop is optional.
@@ -8,10 +8,7 @@ export default {
   */
   title: "Component/Footer",
   component: Footer,
-};
+} as ComponentMeta<typeof Footer>;
 
-const Default: React.FC = () => {
-  return <Footer />;
-}
-
-export { Default };
+const TemplateFooter: ComponentStory<typeof Footer> = (args) => <Footer {...args} />
+export const Default = TemplateFooter.bind({});

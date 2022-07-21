@@ -1,4 +1,4 @@
-import React from "react";
+import { ComponentStory, ComponentMeta } from "@storybook/react";
 import InputValue from "@components/Input/InputValue/InputValue";
 
 export default {
@@ -8,14 +8,20 @@ export default {
    */
   title: "Component/InputValue",
   component: InputValue,
-};
+} as ComponentMeta<typeof InputValue>;
 
-const Number: React.FC = () => {
-  return <InputValue type="number" min={0} className="input__number"/>;
-};
+const TemplateInputValue: ComponentStory<typeof InputValue> = (args) => <InputValue {...args} />
 
-const Text: React.FC = () => {
-  return <InputValue type="text" className="input__value"/>;
-};
+export const Number = TemplateInputValue.bind({});
+Number.args = {
+  type: "number",
+  min: 0,
+  className: "input__number"
+}
 
-export { Number, Text };
+export const Text = TemplateInputValue.bind({});
+Text.args = {
+  type: "text",
+  className: "input__value"
+}
+

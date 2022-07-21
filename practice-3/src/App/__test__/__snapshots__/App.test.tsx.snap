@@ -85,7 +85,7 @@ exports[`App component matches snapshot 1`] = `
         </ul>
       </div>
       <button
-        class="btn btn__btn btn__primary"
+        class="btn btn__primary"
       >
         ORDER ONLINE
       </button>
@@ -151,16 +151,21 @@ exports[`App component matches snapshot 1`] = `
     >
       What are you looking for here?
     </p>
-    <ul
-      class="categories__list"
+    <div
+      class="categories"
+      data-testid="category-list"
     >
-      <li
-        class="categories__item active"
-        data-testid="category-item"
+      <ul
+        class="categories__list"
       >
-        All
-      </li>
-    </ul>
+        <li
+          class="categories__item active"
+          data-testid="category-item"
+        >
+          All
+        </li>
+      </ul>
+    </div>
   </div>
   <div
     class="viewProduct__list"
@@ -171,7 +176,7 @@ exports[`App component matches snapshot 1`] = `
     href="/products"
   >
     <button
-      class="btn btn__btn btn__secondary"
+      class="btn btn__secondary"
     >
       VIEW ALL PRODUCTS
     </button>

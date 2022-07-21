@@ -8,7 +8,6 @@ import { FieldName, FormProps } from "@common-types/form";
 import { Product } from "@common-types/product";
 import { RULES } from "@constants/rules";
 import { validate } from "@helpers/validate";
-import { ModalUpdateProps } from "@common-types/modal";
 import { CategoryProps } from "@common-types/category";
 import { SUCCESS_MSG } from "@constants/message";
 import { getData, update } from "@helpers/apiHandle";
@@ -17,6 +16,13 @@ import { CATEGORIES_URL, PRODUCTS_URL } from "@constants/url";
 import { DataContext } from "@context/DataContext";
 import { Action } from "@common-types/data";
 import "../modal.css";
+
+interface ModalUpdateProps {
+  product: Product;
+  hideModalUpdate: () => void;
+  deleteImage: () => void;
+  updateProductDetail: (product: Product) => void;
+}
 
 const ModalUpdate: React.FC<ModalUpdateProps> = ({
   product,
@@ -45,7 +51,7 @@ const ModalUpdate: React.FC<ModalUpdateProps> = ({
       if(response) {
         dispatch({
           action: Action.UpdateProductSuccess,
-          payload: {...productEdit}
+          payload: {...response.data}
         });
         updateProductDetail(response.data);
       }
@@ -270,13 +276,13 @@ const ModalUpdate: React.FC<ModalUpdateProps> = ({
           </div>
           <div className="modal-footer-modalUpdate">
             <Button
-              className="btn btn__no"
+              type="warning"
               onClick={hideModalUpdate}
               text="Cancel"
             />
             <Button
               text="Submit"
-              className="btn btn__yes"
+              type="success"
               onClick={() => handleUpdateProduct(product.id, productEdit)}
             />
           </div>

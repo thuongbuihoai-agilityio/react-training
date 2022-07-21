@@ -1,8 +1,8 @@
 import useSWR from "swr";
 import React, { useContext, useEffect } from "react";
 import Button from "@components/common/Button/Button/Button";
-import ProductListCard from "../ProductListCard/ProductListCard";
 import ScrollButton from "@components/common/Button/ScrollButton/ScrollButton";
+import ProductListCard from "@components/ProductListCard/ProductListCard";
 import { Link } from "react-router-dom";
 import { Product } from "@common-types/product";
 import { DataContext } from "@context/DataContext";
@@ -36,9 +36,9 @@ const ProductListView: React.FC = () => {
         ))}
       </div>
       <Link className="viewProduct__link" to="/products">
-        <Button className="btn btn__secondary" text="VIEW ALL PRODUCTS" />
+        <Button type="secondary" text="VIEW ALL PRODUCTS" />
       </Link>
-      <ScrollButton className="btn__backToTop" text={<i className="fa fa-arrow-alt-circle-up"></i>} />
+      <ScrollButton className="btn__backToTop" children={<i className="fa fa-arrow-alt-circle-up"></i>} />
     </>
   );
 };

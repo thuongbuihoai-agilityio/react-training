@@ -1,6 +1,10 @@
 import React, { memo } from "react";
-import { PriceProps } from "@common-types/price";
 import "./price.css";
+
+interface PriceProps {
+  value?: number;
+  className?: string;
+}
 
 const Price: React.FC<PriceProps> = memo(({ value="", className }) => {
   return (

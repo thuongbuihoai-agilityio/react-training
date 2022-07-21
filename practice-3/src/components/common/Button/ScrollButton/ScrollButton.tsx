@@ -1,8 +1,13 @@
 import React, { memo, useEffect, useState } from "react";
-import { ButtonProps } from "@common-types/button";
 import "./scrollButton.css";
 
-const ScrollButton: React.FC<ButtonProps> = memo(({ text, className }) => {
+interface ButtonScroll {
+  className?: string;
+  children: JSX.Element;
+  onClick?: () => void;
+}
+
+const ScrollButton: React.FC<ButtonScroll> = memo(({ children, className }) => {
   // create state to handle back to top
   const [btnOnTop, setBtnOnTop] = useState<boolean>(true);
   useEffect(() => {
@@ -31,7 +36,7 @@ const ScrollButton: React.FC<ButtonProps> = memo(({ text, className }) => {
           className={className}
           onClick={scrollToTop}
         >
-          {text}
+          {children}
         </button>
       )}
       <div></div>

@@ -1,7 +1,12 @@
 import React, { memo } from "react";
-import { LogoProps } from "@common-types/logo";
 import { Link } from "react-router-dom";
 import "./logo.css";
+
+interface LogoProps {
+  src: string;
+  alt?: string;
+  productId?: string;
+}
 
 const Logo: React.FC<LogoProps> = memo(({ src, alt }) => {
   return (

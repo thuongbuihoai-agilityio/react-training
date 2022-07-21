@@ -11,7 +11,9 @@ export interface DataState {
   products: Product[];
 }
 
+export type DataPayload = Product[] | string | Product
+
 export interface DataAction {
   action: Action;
-  payload: Product[];
+  payload: DataPayload
 }

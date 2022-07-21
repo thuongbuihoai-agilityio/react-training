@@ -3,7 +3,11 @@ import { RULES } from "@constants/rules";
 import { FormProps } from "@common-types/form";
 
 // check required
-const checkRequired = ( value: string, errors: {[fieldName: string]: {error: string}}, fieldName: string ) => {
+const checkRequired = (
+  value: string,
+  errors: { [fieldName: string]: { error: string } },
+  fieldName: string
+): void => {
   if (value) {
     errors[fieldName].error = "";
   } else {
@@ -12,7 +16,11 @@ const checkRequired = ( value: string, errors: {[fieldName: string]: {error: str
 };
 
 // check value is number
-const checkNumber = ( value: string, errors: {[fieldName: string]: {error: string}}, fieldName: string ) => {
+const checkNumber = (
+  value: string,
+  errors: { [fieldName: string]: { error: string } },
+  fieldName: string
+): void => {
   if (typeof +value == RULES.NUMBER) {
     errors[fieldName].error += "";
   } else {
@@ -21,7 +29,11 @@ const checkNumber = ( value: string, errors: {[fieldName: string]: {error: strin
 };
 
 // check value is negative
-const checkNegative = ( value: string, errors: {[fieldName: string]: {error: string}}, fieldName: string ) => {
+const checkNegative = (
+  value: string,
+  errors: { [fieldName: string]: { error: string } },
+  fieldName: string
+): void => {
   if (+value < 0) {
     errors[fieldName].error += ERROR_MSG.NUMBER;
   } else {
@@ -30,7 +42,7 @@ const checkNegative = ( value: string, errors: {[fieldName: string]: {error: str
 };
 
 // handle validate
-const validate = (values: FormProps) => {
+const validate = (values: FormProps): FormProps => {
   const errors = { ...values };
   (Object.keys(errors) as (keyof FormProps)[]).map((fieldName) => {
     errors[fieldName].rules.map((rule: string) => {

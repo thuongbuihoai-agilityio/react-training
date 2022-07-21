@@ -92,7 +92,7 @@ exports[`Product list view component matches snapshot 1`] = `
     href="/products"
   >
     <button
-      class="btn btn__btn btn__secondary"
+      class="btn btn__secondary"
     >
       VIEW ALL PRODUCTS
     </button>

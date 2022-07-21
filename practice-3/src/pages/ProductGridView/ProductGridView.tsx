@@ -1,9 +1,9 @@
 import useSWR from "swr";
 import React, { useCallback, useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
-import ProductGridCard from "../ProductGridCard/ProductGridCard";
 import ModalCreate from "@components/Modal/ModalCreate/ModalCreate";
 import ScrollButton from "@components/common/Button/ScrollButton/ScrollButton";
+import ProductGridCard from "@components/ProductGridCard/ProductGridCard";
 import { Product } from "@common-types/product";
 import { SUCCESS_MSG } from "@constants/message";
 import { create, getData, remove } from "@helpers/apiHandle";
@@ -41,7 +41,7 @@ const ProductGridView: React.FC = () => {
       if(response) {
         dispatch({
           action: Action.CreateProductsSuccess,
-          payload: data?.concat({...response.data})
+          payload: {...response.data}
         });
         toast.success(SUCCESS_MSG.MESSAGE_ADD_PRODUCT);
       }
@@ -98,7 +98,7 @@ const ProductGridView: React.FC = () => {
           />
         )}
       </div>
-      <ScrollButton className="btn__backToTop" text={<i className="fa fa-arrow-alt-circle-up"></i>} />
+      <ScrollButton className="btn__backToTop" children={<i className="fa fa-arrow-alt-circle-up"></i>} />
     </>
   );
 };

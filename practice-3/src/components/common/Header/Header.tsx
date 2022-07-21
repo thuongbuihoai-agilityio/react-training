@@ -16,7 +16,7 @@ const Header: React.FC = () => {
         </div>
         <div className="header__about">
           <Menu menuList={MENU_LIST} />
-          <Button className="btn btn__primary" text="ORDER ONLINE" />
+          <Button type="primary" text="ORDER ONLINE" />
         </div>
       </header>
       <figure>
