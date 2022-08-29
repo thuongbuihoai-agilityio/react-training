@@ -1,8 +1,8 @@
+import { EXPERT_MOCKING, EXPERT_MOCKING_LIST } from "@constants/expert";
 import { ExpertContextProps } from "@common-types/expert";
-import { EXPERT_MOCKING_LIST } from "@constants/expert";
 import { ExpertContext } from "@context/ExpertContext";
 import { render } from "@testing-library/react";
-import ExpertList from "../index";
+import OurExpert from "@pages/expert-page/[slug]";
 
 const contextExpertMocking: ExpertContextProps = {
   experts: EXPERT_MOCKING_LIST,
@@ -12,27 +12,21 @@ const contextExpertMocking: ExpertContextProps = {
   handleUpdateExperts: jest.fn(),
 };
 
-describe("ExpertList component", () => {
-  test("Should render ExpertList component", () => {
+describe("ExpertDetail page", () => {
+  test("Should render ExpertDetail page", () => {
     const { getByTestId } = render(
       <ExpertContext.Provider value={contextExpertMocking}>
-        <ExpertList />
+        <OurExpert expert={EXPERT_MOCKING} />
       </ExpertContext.Provider>,
     );
-    const expertList = getByTestId("expert-list");
-    expect(expertList).toBeInTheDocument();
-  });
-
-  test("Should render ExpertList component when error data", () => {
-    const { getByTestId } = render(<ExpertList />);
-    const expertList = getByTestId("expert-list");
-    expect(expertList).toBeInTheDocument();
+    const expertDetail = getByTestId("layout");
+    expect(expertDetail).toBeInTheDocument();
   });
 
   test("Matches snapshot", () => {
     const { container } = render(
       <ExpertContext.Provider value={contextExpertMocking}>
-        <ExpertList />
+        <OurExpert expert={EXPERT_MOCKING} />
       </ExpertContext.Provider>,
     );
     expect(container).toMatchSnapshot();

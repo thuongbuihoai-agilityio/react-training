@@ -2,7 +2,7 @@ import { BlogContextProps } from "@common-types/blog";
 import { BLOG_MOCKING_LIST } from "@constants/blog";
 import { BlogContext } from "@context/BlogContext";
 import { render } from "@testing-library/react";
-import BlogList from "../index";
+import Home from "@pages";
 
 const contextBlogMocking: BlogContextProps = {
   searchValue: "",
@@ -15,27 +15,21 @@ const contextBlogMocking: BlogContextProps = {
   handleUpdateBlogs: jest.fn(),
 };
 
-describe("BlogList component", () => {
-  test("Should render BlogList component", () => {
+describe("HomePage", () => {
+  test("Should render HomePage", () => {
     const { getByTestId } = render(
       <BlogContext.Provider value={contextBlogMocking}>
-        <BlogList />
+        <Home blogs={BLOG_MOCKING_LIST} errorCode={""} />
       </BlogContext.Provider>,
     );
-    const blogList = getByTestId("blog-list");
-    expect(blogList).toBeInTheDocument();
-  });
-
-  test("Should render BlogList component with error data", () => {
-    const { getByTestId } = render(<BlogList />);
-    const blogList = getByTestId("blog-list");
-    expect(blogList).toBeInTheDocument();
+    const homePage = getByTestId("layout");
+    expect(homePage).toBeInTheDocument();
   });
 
   test("Matches snapshot", () => {
     const { container } = render(
       <BlogContext.Provider value={contextBlogMocking}>
-        <BlogList />
+        <Home blogs={BLOG_MOCKING_LIST} errorCode={""} />
       </BlogContext.Provider>,
     );
     expect(container).toMatchSnapshot();
