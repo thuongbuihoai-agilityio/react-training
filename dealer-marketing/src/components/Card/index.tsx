@@ -7,10 +7,10 @@ import { Expert } from "@common-types/expert";
 import { ButtonType } from "@components/common/Button";
 import { TextType } from "@components/common/Text";
 import { EXPERT_MOCKING } from "@constants/expert";
-import styleResearch from "./researchSection.module.css";
 import { IMAGE } from "@constants/image";
+import styleResearch from "./card.module.css";
 
-interface ResearchProps {
+interface CardProps {
   layout?: string;
   content?: string;
   imageSmall?: boolean;
@@ -19,7 +19,7 @@ interface ResearchProps {
   expert?: Expert;
 }
 
-const ResearchSection: React.FC<ResearchProps> = ({
+const Card: React.FC<CardProps> = ({
   imageSmall = false,
   layout = BlogLayoutType.center,
   content = BlogContentType.center,
@@ -87,4 +87,4 @@ const ResearchSection: React.FC<ResearchProps> = ({
   );
 };
 
-export default memo(ResearchSection);
+export default memo(Card);
