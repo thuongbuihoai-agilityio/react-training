@@ -1,4 +1,5 @@
 .card-border {
+  margin-top: 80px;
   position: relative;
   z-index: var(--z-tiny);
   width: 251px;
@@ -44,18 +45,6 @@
 .card-button {
   margin: 20px 0 15px;
   text-align: center;
-}
-
-.card-button > button {
-  border: none;
-  background-color: var(--border-primary);
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
-}
-
-.card-button > button:hover {
-  color: var(--bg-primary);
 }
 
 .card-description {
