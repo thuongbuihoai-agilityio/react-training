@@ -4,7 +4,7 @@ import { GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
 
 // common-types
-import { Blog } from "@common-types/blog";
+import { Blog } from "@self-types/blog";
 
 // components
 const Navigation = lazy(() => import("@components/common/Navigation"));
@@ -17,7 +17,7 @@ import { Loader } from "@components/common";
 import { BLOG_RESPONSE_DATA } from "@api-backup/blogResponseData";
 
 // layouts
-import Layout from "@layouts";
+import Layout from "@layouts/index";
 import style from "./style.module.css";
 import { IMAGE } from "@constants/image";
 
@@ -92,7 +92,7 @@ const BlogDetail: React.FC<BlogProps> = ({ blog }) => {
                 <p>
                   by <span>{expertId}</span>
                 </p>
-                <p>{createDate}</p>
+                <Text size={TextType.regularDark} text={createDate} />
               </div>
             </div>
           </div>

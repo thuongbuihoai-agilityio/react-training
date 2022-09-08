@@ -4,7 +4,7 @@ import { GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
 
 // common-types
-import { Expert } from "@common-types/expert";
+import { Expert } from "@self-types/expert";
 
 // components
 const Navigation = lazy(() => import("@components/common/Navigation"));
@@ -20,7 +20,7 @@ import { EXPERT_RESPONSE_DATA } from "@api-backup/expertResponseData";
 import { IMAGE } from "@constants/image";
 
 // layouts
-import Layout from "@layouts";
+import Layout from "@layouts/index";
 import style from "./expert.module.css";
 
 interface ExpertProps {

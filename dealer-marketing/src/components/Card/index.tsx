@@ -2,8 +2,8 @@ import React, { memo } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Button, Text } from "@components/common";
-import { Blog, BlogLayoutType, BlogContentType } from "@common-types/blog";
-import { Expert } from "@common-types/expert";
+import { Blog, BlogLayoutType, BlogContentType } from "@self-types/blog";
+import { Expert } from "@self-types/expert";
 import { ButtonType } from "@components/common/Button";
 import { TextType } from "@components/common/Text";
 import { EXPERT_MOCKING } from "@constants/expert";
@@ -14,7 +14,7 @@ interface CardProps {
   layout?: string;
   content?: string;
   imageSmall?: boolean;
-  isButton?: boolean;
+  hasButton?: boolean;
   blog: Blog;
   expert?: Expert;
 }
@@ -23,7 +23,7 @@ const Card: React.FC<CardProps> = ({
   imageSmall = false,
   layout = BlogLayoutType.center,
   content = BlogContentType.center,
-  isButton = true,
+  hasButton = true,
   blog,
   expert = EXPERT_MOCKING,
 }) => {
@@ -75,7 +75,7 @@ const Card: React.FC<CardProps> = ({
             </div>
           </div>
           <div className={styleResearch["research-button"]}>
-            {isButton ? (
+            {hasButton ? (
               <Button type={ButtonType.primary} text="Read more" />
             ) : (
               ""

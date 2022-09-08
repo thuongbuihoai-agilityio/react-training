@@ -9,13 +9,13 @@ import { TextType } from "@components/common/Text";
 import { Loader } from "@components/common";
 
 // common-types
-import { Expert } from "@common-types/expert";
+import { Expert } from "@self-types/expert";
 
 // api
 import { EXPERT_RESPONSE_DATA } from "@api-backup/expertResponseData";
 
 // layouts
-import Layout from "@layouts";
+import Layout from "@layouts/index";
 
 // context
 import { ExpertContext } from "@context/ExpertContext";

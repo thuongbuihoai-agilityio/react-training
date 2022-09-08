@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Expert, ExpertContentType } from "@common-types/expert";
+import { Expert, ExpertContentType } from "@self-types/expert";
 import { EXPERT_MOCKING } from "@constants/expert";
 import { Button, Text } from "@components/common";
 import { TextType } from "@components/common/Text";
@@ -25,12 +25,12 @@ interface CardExpertProps {
 
 const CardExpert: React.FC<CardExpertProps> = ({
   isImage = false,
-  url = IMAGE.url,
-  alt = IMAGE.alt,
+  url = IMAGE.urlExpert,
+  alt = IMAGE.altExpert,
   isDescription = false,
   isLayoutImage = false,
-  urlContact = IMAGE.url,
-  altContact = IMAGE.alt,
+  urlContact = IMAGE.urlContact,
+  altContact = IMAGE.altContact,
   expert = EXPERT_MOCKING,
   layout = ExpertContentType.border,
   description = "This is description of interviews",

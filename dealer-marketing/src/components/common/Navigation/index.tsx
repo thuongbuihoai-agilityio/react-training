@@ -1,18 +1,15 @@
-import React, { useCallback, useContext, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import Icon, { IconType } from "../Icon";
-import { MENU_LIST } from "@constants/menu";
-import { MenuTypeProp } from "@common-types/menu";
+import { ROUTER_LIST } from "@constants/routes";
 import { IMAGE } from "@constants/image";
-import { BlogContext } from "@context/BlogContext";
 import Logo from "../Logo";
 import Menu from "../Menu";
 import styleNavigation from "./navigation.module.css";
 import SearchBox from "../SearchBox/SearchBox";
-import debounce from "@helpers/debounce";
+import { RouterTypeProp } from "@self-types/routes";
 
 const Navigation: React.FC = () => {
   const [openModal, setOpenModal] = useState<boolean>(false);
-  const { setSearchValue } = useContext(BlogContext);
   const [viewOnBlogs, setViewOnBlogs] = useState<boolean>(true);
 
   useEffect(() => {
@@ -36,14 +33,6 @@ const Navigation: React.FC = () => {
     [],
   );
 
-  const handleSearch = useCallback(
-    async (event: { target: { value: string } }) => {
-      const value = event.target.value;
-      debounce(() => setSearchValue(value), 500);
-    },
-    [],
-  );
-
   const closeSearchBox = useCallback((event: Event) => {
     if (!(event.target as HTMLInputElement).closest("#searchInput")) {
       setOpenModal(false);
@@ -60,16 +49,12 @@ const Navigation: React.FC = () => {
       <nav data-testid="navigation" className={styleNavigation.nav}>
         <Logo url={IMAGE.logoUrl} />
         <div className={styleNavigation["nav-info"]}>
-          <Menu type={MenuTypeProp.dark} menuList={MENU_LIST} />
+          <Menu type={RouterTypeProp.dark} menuList={ROUTER_LIST} />
           <Icon iconName={IconType.search} onClick={handleToggleModal} />
         </div>
       </nav>
       {openModal && (
-        <SearchBox
-          openModal={handleToggleModal}
-          onSearch={handleSearch}
-          onScroll={scrollToBlogs}
-        />
+        <SearchBox openModal={handleToggleModal} onScroll={scrollToBlogs} />
       )}
     </>
   );
