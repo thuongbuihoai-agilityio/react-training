@@ -1,9 +1,8 @@
 import React, { memo, MouseEventHandler, useCallback, useContext } from "react";
 import { BlogContext } from "@context/BlogContext";
-import debounce from "@helpers/debounce";
 import Input from "../Input";
+import debounce from "@helpers/debounce";
 import styleNavigation from "../Navigation/navigation.module.css";
-
 interface SearchBoxProps {
   openModal: Function;
   onScroll: MouseEventHandler<HTMLInputElement>;
@@ -20,6 +19,7 @@ const SearchBox = React.forwardRef<HTMLInputElement, SearchBoxProps>(
       },
       [],
     );
+
     return (
       <div data-testid="search-box" className={styleNavigation["nav-search"]}>
         <Input
