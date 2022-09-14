@@ -10,12 +10,15 @@ interface SearchBoxProps {
 
 const SearchBox = React.forwardRef<HTMLInputElement, SearchBoxProps>(
   ({ onScroll }, ref) => {
-    const { setSearchValue } = useContext(BlogContext);
-
+    const { setSearchValue, isLoading, setIsLoading } = useContext(BlogContext);
     const handleSearch = useCallback(
       async (event: { target: { value: string } }) => {
         const value = event.target.value;
-        debounce(() => setSearchValue(value), 500);
+        setIsLoading(!isLoading);
+        debounce(() => {
+          setIsLoading(isLoading);
+          setSearchValue(value);
+        }, 500);
       },
       [],
     );

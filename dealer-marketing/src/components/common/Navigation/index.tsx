@@ -1,16 +1,24 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, {
+  useCallback,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import Icon, { IconType } from "../Icon";
 import { ROUTER_LIST } from "@constants/routes";
 import { IMAGE } from "@constants/image";
 import { RouterTypeProp } from "@self-types/routes";
+import { BlogContext } from "@context/BlogContext";
 import Logo from "../Logo";
 import Menu from "../Menu";
-import SearchBox from "../SearchBox/SearchBox";
 import styleNavigation from "./navigation.module.css";
+import SearchBox from "../SearchBox";
 
 const Navigation: React.FC = () => {
   const [openModal, setOpenModal] = useState<boolean>(false);
   const [viewOnBlogs, setViewOnBlogs] = useState<boolean>(true);
+  const { setSearchValue } = useContext(BlogContext);
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -36,6 +44,7 @@ const Navigation: React.FC = () => {
   const inputRef = useRef<HTMLInputElement>(null);
   const handleClickOutside = (event: MouseEvent) => {
     if (inputRef.current && !inputRef.current.contains(event.target as Node)) {
+      setSearchValue("");
       setOpenModal(false);
     }
   };

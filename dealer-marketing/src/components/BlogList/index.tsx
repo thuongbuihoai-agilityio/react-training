@@ -1,12 +1,12 @@
 import Error from "next/error";
-import React, { lazy, memo, Suspense, useContext } from "react";
+import React, { memo, useContext } from "react";
 import { BlogContext } from "@context/BlogContext";
-import { ErrorBoundary, Loader } from "@components/common";
+import { ErrorBoundary, Loader, Text } from "@components/common";
 import styleBlogList from "./blogList.module.css";
-const CardBlog = lazy(() => import("../CardBlog"));
+import CardBlog from "../CardBlog";
 
 const BlogList: React.FC = () => {
-  const { errorCode, blogList } = useContext(BlogContext);
+  const { errorCode, blogList, isLoading } = useContext(BlogContext);
   const arrBlog = blogList?.slice(0, 3);
 
   if (errorCode) {
@@ -16,13 +16,21 @@ const BlogList: React.FC = () => {
   return (
     <ErrorBoundary>
       <div data-testid="blog-list" className={styleBlogList["blog-list"]}>
-        {arrBlog?.map((blog) => (
-          <div key={blog.blogId}>
-            <Suspense fallback={<Loader />}>
-              <CardBlog blog={blog} />
-            </Suspense>
+        {isLoading ? (
+          <Loader />
+        ) : arrBlog?.length !== 0 ? (
+          <>
+            {arrBlog?.map((blog) => (
+              <div key={blog.blogId}>
+                <CardBlog blog={blog} />
+              </div>
+            ))}
+          </>
+        ) : (
+          <div className={styleBlogList["blog-title"]}>
+            <Text text="There are no matching results !" />
           </div>
-        ))}
+        )}
       </div>
     </ErrorBoundary>
   );
