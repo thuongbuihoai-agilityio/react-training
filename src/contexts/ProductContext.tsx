@@ -9,7 +9,9 @@ const valueInitial = {
   product: '',
   brand: '',
   quantity: '',
-  price: ''
+  price: '',
+  type: '',
+  status: ''
 }
 
 const ProductContext = createContext<ProductContextType>({} as ProductContextType);
@@ -19,14 +21,17 @@ const ProductProvider: React.FC<{children: JSX.Element[] | JSX.Element}> = ({ ch
 
   const data = useSWR(PRODUCT_URL, getData<ProductType[]>);
   const products = data.data;
-
+  const isShowAll = searchValue.status === '';
   const productList = useMemo(() => {
     return searchValue
       ? products?.filter((product: ProductType) =>
+          isShowAll ? product.product?.toLowerCase().includes(searchValue.product.toLowerCase()) :
           product.product?.toLowerCase().includes(searchValue.product.toLowerCase()) &&
           product.brand?.toLowerCase().includes(searchValue.brand.toLowerCase()) &&
           product.quantity?.toString().includes(searchValue.quantity) &&
-          product.price?.toString().includes(searchValue.price)
+          product.price?.toString().includes(searchValue.price) &&
+          product.type?.toLowerCase().includes(searchValue.type?.toLowerCase()) &&
+          (searchValue.status as string | boolean) === product.status
         )
       : products;
   }, [products, searchValue]);
@@ -38,7 +43,7 @@ const ProductProvider: React.FC<{children: JSX.Element[] | JSX.Element}> = ({ ch
         setIsLoading(isLoading);
         setSearchValue({
           ...searchValue,
-          [key]: value
+          [key]: value,
         });
       }, 500);
     },
@@ -52,7 +57,7 @@ const ProductProvider: React.FC<{children: JSX.Element[] | JSX.Element}> = ({ ch
     setIsLoading,
     setSearchValue,
     handleSearch
-  }), [products, searchValue]);
+  }), [productList, searchValue]);
 
   return (
     <ProductContext.Provider value={value}>

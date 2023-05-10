@@ -12,7 +12,7 @@ interface TableHeadProps {
 
 const TableHead: React.FC<TableHeadProps> = ({ columns = [] }) => {
   const { searchValue, handleSearch } = useContext(ProductContext);
-
+  console.log('searchValue', searchValue);
   return (
     <thead>
       <tr>
@@ -22,9 +22,26 @@ const TableHead: React.FC<TableHeadProps> = ({ columns = [] }) => {
               <div className={styles['th-value']}>
                 {column.value}
                 {column === columns[1] ? (
-                  <Dropdown className={styles['th-status']} data={STATUS} />
+                  <Dropdown
+                    className={styles['th-status']}
+                    options={STATUS}
+                    onChange={e =>
+                      handleSearch(
+                        column.key as string,
+                        (e.target.value
+                          ? e.target.value === 'true'
+                          : '') as string
+                      )
+                    }
+                  />
                 ) : (
-                  <Dropdown className={styles['th-type']} data={TYPE} />
+                  <Dropdown
+                    className={styles['th-type']}
+                    options={TYPE}
+                    onChange={e =>
+                      handleSearch(column.key as string, e.target?.value || '')
+                    }
+                  />
                 )}
               </div>
             ) : column === columns[6] ? (
@@ -33,12 +50,13 @@ const TableHead: React.FC<TableHeadProps> = ({ columns = [] }) => {
               <div className={styles['th-value']}>
                 {column.value}
                 <Input
-                  key={column.key}
                   value={searchValue[column.key]}
                   className={styles['th-search']}
                   placeholder='Search'
                   styleInput='primary'
-                  onChange={(e) => handleSearch((column.key as string), e.target.value)}
+                  onChange={e =>
+                    handleSearch(column.key as string, e.target.value)
+                  }
                 />
               </div>
             )}
