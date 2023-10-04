@@ -63,3 +63,34 @@ function Todos({ todoId }) {
 ```
 ### Query Functions
 - A query function can be literally any function that `returns a promise`. The promise that is returned should either `resolve the data` or `throw an error`.
+### Background Fetching Indicators
+- A query's `status === 'loading'` state is sufficient enough to show the initial hard-loading state for a query, but sometimes you may want to display an additional indicator that a query is refetching in the background. To do this, queries also supply you with an `isFetching` boolean that you can use to show that it's in a fetching state.
+#### Displaying Global Background Fetching Loading State
+- In addition to individual query loading states, if you would like to show a global loading indicator when **any** queries are fetching (including in the background), you can use the `useIsFetching` hook:
+### Paginated / Lagged Queries
+- Rendering paginated data is a very common UI pattern and in TanStack Query, it "just works" by including the page information in the query key:
+```
+const result = useQuery({
+  queryKey: ['projects', page],
+  queryFn: fetchProjects
+})
+```
+- *The UI jumps in and out of the success and loading states because each new page is treated like a brand new query.*
+#### Better Paginated Queries with keepPreviousData
+-  If we were to use `useQuery`, **it would still technically work fine**, but the UI would jump in and out of the `success` and `loading` states as different queries are created and destroyed for each page or cursor. By setting `keepPreviousData` to `true` we get a few new things:
+- **The data from the last successful fetch is available while new data is being requested, even though the query key has changed**.
+- When the new data arrives, the previous `data` is seamlessly swapped to show the new data.
+#### Lagging Infinite Query results with keepPreviousData
+- While not as common, the `keepPreviousData` option also works flawlessly with the `useInfiniteQuery` hook, so you can seamlessly allow your users to continue to see cached data while infinite query keys change over time.
+### Infinite Queries
+- Rendering lists that can additively "load more" data onto an existing set of data or "infinite scroll" is also a very common UI pattern. TanStack Query supports a useful version of `useQuery` called `useInfiniteQuery` for querying these types of lists.
+- When using `useInfiniteQuery`, you'll notice a few things are different:
+  - `data` is now an object containing infinite query data:
+  - `data.pages` array containing the fetched pages
+  - `data.pageParams` array containing the page params used to fetch the pages
+  - The `fetchNextPage` and `fetchPreviousPage` functions are now available
+  - The `getNextPageParam` and `getPreviousPageParam` options are available for both determining if there is more data to load and the information to fetch it.
+  - A `hasNextPage` boolean is now available and is true if `getNextPageParam` returns a value other than undefined
+  - A `hasPreviousPage` boolean is now available and is true if `getPreviousPageParam` returns a value other than undefined
+  - The `isFetchingNextPage` and `isFetchingPreviousPage` booleans are now available to distinguish between a background refresh state and a loading more state
+- **Note**: ***When using options like initialData or select in your query, make sure that when you restructure your data that it still includes data.pages and data.pageParams properties, otherwise your changes will be overwritten by the query in its return!***
