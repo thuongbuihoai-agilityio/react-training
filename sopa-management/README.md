@@ -61,7 +61,6 @@
 - Clone project:
 - git clone git@gitlab.asoft-python.com:thuong.buihoai/react-training.git
 - cd react-training
-- git checkout react-query
 - git checkout practice-sopa-management
 - cd sopa-management
 ```
