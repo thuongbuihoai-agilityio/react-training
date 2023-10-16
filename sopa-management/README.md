@@ -1,27 +1,80 @@
-# React + TypeScript + Vite
+# OVERVIEW
+- This document provides a detailed estimate of the React query Practice
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## FEATURES
+- User can login with email, password
+- User can see list products in Home page
+- User can show more products in Home page (offset: 6 products, limit: 3)
+- User can see Product details page when click on each product in Home page
+- User can add/update/delete cart products
 
-Currently, two official plugins are available:
+## DESIGN
+- [UI](https://www.figma.com/file/szgvNWlyqFUqgDTDTeLl9p/SOPA-E-Commerce-Website-UI-KIT-(Community)?type=design&node-id=10-2&mode=design&t=hPieyB5mLcmMJZQk-0)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## TIMELINE
+- Estimate time: (16/10/2023 - 26/10/2023) [9 working days](https://docs.google.com/document/d/1XpJJAkSAbfo5S5jrJW0uuXG6SwhtP1zD/edit)
 
-## Expanding the ESLint configuration
+## TEAM SIZE
+- 1 dev
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## TECHNICAL STACK
+- React latest version
+- React query
+- React-hook-form
+- Zustand
 
-- Configure the top-level `parserOptions` property like this:
+## TARGETS
+- Understand  React query, React-hook-form, Zustand
+- Unit test
+- Storybook
+- Improve PageSpeed for Page
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+## EDITOR
+- Visual Studio Code
+
+## DEVELOP TOOLS
+- [Mock API](https://mockapi.io/): A service that allows you to simulate and test API responses in a controlled manner.
+- [Storybook](https://storybook.js.org/): A tool for developing UI components in isolation, providing a sandbox environment for your components.
+- [Vite](https://vitejs.dev/): is a build tool that aims to provide a faster and leaner development experience for modern web projects.
+- [Eslint](https://eslint.org/): statically analyzes code to quickly find problems. It is built into most text editors and developers can run ESLint as part of your continuous integration pipeline.
+- [Husky](https://typicode.github.io): improves your commits and more! You can use it to lint your commit messages, run tests, lint code, etc... when you commit or push. Husky supports all Git hooks.
+- [Commitlint](https://commitlint.js.org/): supports checking a commit convention. By supporting npm-installed configurations it makes sharing of commit conventions easy.
+- [Prettier](https://prettier.io/): removes all original styling\* and ensures that all outputted code conforms to a consistent style.
+
+## PREREQUISITES
+- Install pnpm **(Node.js is preinstalled)**
+```
+  On Linux or macOS:
+    curl -f https://get.pnpm.io/v6.16.js | node - add --global pnpm
+```
+```
+  On Windows (PowerShell):
+  Invoke-WebRequest 'https://get.pnpm.io/v6.16.js' -UseBasicParsing -o pnpm.js; node pnpm.js add --global pnpm; Remove-Item pnpm.js
+```
+```
+  Using npm:
+  npm install -g pnpm
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## RUN
+```
+- Clone project:
+- git clone git@gitlab.asoft-python.com:thuong.buihoai/react-training.git
+- cd react-training
+- git checkout react-query
+- git checkout practice-sopa-management
+- cd sopa-management
+```
+
+```
+- create .env.development file:
+- VITE_PUBLIC_ENDPOINTS=https://652be6d0d0d1df5273eee18f.mockapi.io
+```
+
+```
+- Install dependencies : pnpm install
+- Run app: pnpm dev
+- Open on web: http://localhost:3000/
+- Run storybook: pnpm storybook
+- View story book on web: http://localhost:6006/
+```
