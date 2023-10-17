@@ -3,7 +3,7 @@
 exports[`Icon component Matches snapshot 1`] = `
 <div>
   <div
-    class="icon icon-cart"
+    class="icon icon-cart icon-cart"
     data-testid="icon"
   />
 </div>

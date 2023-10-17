@@ -34,7 +34,7 @@ const Icon: React.FC<IconProps> = ({
   return (
     <div
       data-testid="icon"
-      className={className}
+      className={`${className} icon-${iconName}`}
       onClick={onClick}
     />
   )
