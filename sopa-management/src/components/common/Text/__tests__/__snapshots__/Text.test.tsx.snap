@@ -3,7 +3,7 @@
 exports[`Text component Matches snapshot 1`] = `
 <div>
   <p
-    class="text text-normal"
+    class="text text-normal text-normal"
     data-testid="text"
   >
     Sopa Management

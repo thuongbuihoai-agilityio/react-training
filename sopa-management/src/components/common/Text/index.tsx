@@ -63,9 +63,8 @@ const Text: React.FC<TextProps> =({
   return (
     <p
       data-testid="text"
-      className={className}
-      dangerouslySetInnerHTML={{ __html: `${text}` }}
-    />
+      className={`${className} text-${type}`}
+    >{text}</p>
   );
 };
 
