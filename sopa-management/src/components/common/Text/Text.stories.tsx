@@ -8,44 +8,58 @@ const meta: Meta<typeof Text> = {
 export default meta;
 type Story = StoryObj<typeof Text>;
 
-export const TextNormalDark: Story = {
+export const TextNormal: Story = {
   args: {
     text: "Sopa management",
-    size: SizeType.normal,
+    type: SizeType.normal,
   }
-}
-
-export const TextHighLightPrimary: Story = {
-  args: {
-    text: "Sopa management",
-    size: ThemeType.highlightPrimary,
-  }
-}
-
-export const TextHightLightSecondary: Story = {
-  args: {
-    text: "Sopa management",
-    size: ThemeType.highlightSecondary,
-  }
-}
+};
 
 export const TextRegular: Story = {
   args: {
     text: "Sopa management",
-    size: SizeType.regular,
+    type: SizeType.regular,
   }
-}
+};
+
+export const TextMedium: Story = {
+  args: {
+    text: "Sopa management",
+    type: SizeType.medium,
+  }
+};
 
 export const TextExtraMedium: Story = {
   args: {
     text: "Sopa management",
-    size: SizeType.extraMedium,
+    type: SizeType.extraMedium,
   }
-}
+};
 
 export const TextLarge: Story = {
   args: {
     text: "Sopa management",
-    size: SizeType.large,
+    type: SizeType.large,
+  }
+};
+
+export const TextHighLightPrimary: Story = {
+  args: {
+    text: "Sopa management",
+    type: ThemeType.highlightPrimary,
+  }
+};
+
+export const TextHightLightSecondary: Story = {
+  args: {
+    text: "Sopa management",
+    type: ThemeType.highlightSecondary,
   }
 }
+
+export const TextDark: Story = {
+  args: {
+    text: "Sopa management",
+    type: ThemeType.dark,
+  }
+};

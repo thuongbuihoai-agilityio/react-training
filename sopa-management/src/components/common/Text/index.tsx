@@ -1,5 +1,5 @@
 import React, { memo } from "react";
-import styles from "./text.module.css";
+import "./text.css";
 
 export enum SizeType {
   default = "",
@@ -8,7 +8,7 @@ export enum SizeType {
   medium = "medium",
   extraMedium = "extra-medium",
   large = "large",
-}
+};
 
 export enum ThemeType {
   default = "",
@@ -16,29 +16,57 @@ export enum ThemeType {
   dark = "dark",
   highlightPrimary = "highlight-primary",
   highlightSecondary = "highlight-secondary",
-}
+};
 
 interface TextProps {
-  size?: string;
-  theme?: string;
+  type?: string;
   text?: string;
-  className?: string;
-}
+};
 
-const Text = React.forwardRef<HTMLInputElement, TextProps>(
-  (
-    { text = "Sopa", size = SizeType.default, theme = ThemeType.default, className = "" },
-  ) => {
-    return (
-      <p
-        data-testid="text"
-        className={[
-          styles[`${size ? `text-${size}` : `text-${theme}`}`],
-          className].join(' ')}
-        dangerouslySetInnerHTML={{ __html: `${text}` }}
-      />
-    );
-  },
-);
+const Text: React.FC<TextProps> =({
+  text = "Sopa",
+  type = SizeType.default,
+}) => {
+  let className = "text";
+  switch (type) {
+    case SizeType.normal:
+      className += ` text-${SizeType.normal}`;
+      break;
+    case SizeType.regular:
+      className += ` ${SizeType.regular}`;
+      break;
+    case SizeType.medium:
+      className += ` text-${SizeType.medium}`;
+      break;
+    case SizeType.extraMedium:
+      className += ` text-${SizeType.extraMedium}`;
+      break;
+    case SizeType.large:
+      className += ` text-${SizeType.large}`;
+      break;
+    case ThemeType.light:
+      className += ` text-${ThemeType.light}`;
+    break;
+    case ThemeType.dark:
+      className += ` text-${ThemeType.dark}`;
+      break;
+    case ThemeType.highlightPrimary:
+      className += ` text-${ThemeType.highlightPrimary}`;
+      break;
+    case ThemeType.highlightSecondary:
+      className += ` text-${ThemeType.highlightSecondary}`;
+      break;
+    default:
+      break;
+  };
+
+  return (
+    <p
+      data-testid="text"
+      className={className}
+      dangerouslySetInnerHTML={{ __html: `${text}` }}
+    />
+  );
+};
 
 export default memo(Text);
