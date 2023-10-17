@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Logo component matches snapshot 1`] = `
+<DocumentFragment>
+  <a
+    data-testid="logo"
+    href="/"
+  >
+    <img
+      class="logo"
+      src="/public/images/logos/white-logo.svg"
+    />
+  </a>
+</DocumentFragment>
+`;
