@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import Text, { SizeType, ThemeType } from '.';
 
 const meta: Meta<typeof Text> = {
-  component: Text,
+  component: Text
 };
 
 export default meta;
@@ -10,56 +10,56 @@ type Story = StoryObj<typeof Text>;
 
 export const TextNormal: Story = {
   args: {
-    text: "Sopa management",
-    type: SizeType.normal,
+    text: 'Sopa management',
+    type: SizeType.normal
   }
 };
 
 export const TextRegular: Story = {
   args: {
-    text: "Sopa management",
-    type: SizeType.regular,
+    text: 'Sopa management',
+    type: SizeType.regular
   }
 };
 
 export const TextMedium: Story = {
   args: {
-    text: "Sopa management",
-    type: SizeType.medium,
+    text: 'Sopa management',
+    type: SizeType.medium
   }
 };
 
 export const TextExtraMedium: Story = {
   args: {
-    text: "Sopa management",
-    type: SizeType.extraMedium,
+    text: 'Sopa management',
+    type: SizeType.extraMedium
   }
 };
 
 export const TextLarge: Story = {
   args: {
-    text: "Sopa management",
-    type: SizeType.large,
+    text: 'Sopa management',
+    type: SizeType.large
   }
 };
 
 export const TextHighLightPrimary: Story = {
   args: {
-    text: "Sopa management",
-    type: ThemeType.highlightPrimary,
+    text: 'Sopa management',
+    type: ThemeType.highlightPrimary
   }
 };
 
 export const TextHightLightSecondary: Story = {
   args: {
-    text: "Sopa management",
-    type: ThemeType.highlightSecondary,
+    text: 'Sopa management',
+    type: ThemeType.highlightSecondary
   }
-}
+};
 
 export const TextDark: Story = {
   args: {
-    text: "Sopa management",
-    type: ThemeType.dark,
+    text: 'Sopa management',
+    type: ThemeType.dark
   }
 };

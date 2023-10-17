@@ -1,33 +1,33 @@
-import React, { memo } from "react";
-import "./text.css";
+import React, { memo } from 'react';
+import './text.css';
 
 export enum SizeType {
-  default = "",
-  normal = "normal",
-  regular = "regular",
-  medium = "medium",
-  extraMedium = "extra-medium",
-  large = "large",
-};
+  default = '',
+  normal = 'normal',
+  regular = 'regular',
+  medium = 'medium',
+  extraMedium = 'extra-medium',
+  large = 'large'
+}
 
 export enum ThemeType {
-  default = "",
-  light = "light",
-  dark = "dark",
-  highlightPrimary = "highlight-primary",
-  highlightSecondary = "highlight-secondary",
-};
+  default = '',
+  light = 'light',
+  dark = 'dark',
+  highlightPrimary = 'highlight-primary',
+  highlightSecondary = 'highlight-secondary'
+}
 
 interface TextProps {
   type?: string;
   text?: string;
-};
+}
 
-const Text: React.FC<TextProps> =({
-  text = "Sopa",
-  type = SizeType.default,
+const Text: React.FC<TextProps> = ({
+  text = 'Sopa',
+  type = SizeType.default
 }) => {
-  let className = "text";
+  let className = 'text';
   switch (type) {
     case SizeType.normal:
       className += ` text-${SizeType.normal}`;
@@ -46,7 +46,7 @@ const Text: React.FC<TextProps> =({
       break;
     case ThemeType.light:
       className += ` text-${ThemeType.light}`;
-    break;
+      break;
     case ThemeType.dark:
       className += ` text-${ThemeType.dark}`;
       break;
@@ -58,13 +58,12 @@ const Text: React.FC<TextProps> =({
       break;
     default:
       break;
-  };
+  }
 
   return (
-    <p
-      data-testid="text"
-      className={`${className} text-${type}`}
-    >{text}</p>
+    <p data-testid='text' className={`${className} text-${type}`}>
+      {text}
+    </p>
   );
 };
 

@@ -1,99 +1,95 @@
-import { render } from "@testing-library/react";
-import "@testing-library/jest-dom";
-import Text, { SizeType, ThemeType } from "../index";
+import { render } from '@testing-library/react';
+import '@testing-library/jest-dom';
+import Text, { SizeType, ThemeType } from '../index';
 
-describe("Text component", () => {
-  test("Should render Text component with size is normal", () => {
+describe('Text component', () => {
+  test('Should render Text component with size is normal', () => {
     const { getByTestId } = render(
-      <Text text="Sopa Management" type={SizeType.normal} />,
+      <Text text='Sopa Management' type={SizeType.normal} />
     );
-    const text = getByTestId("text");
+    const text = getByTestId('text');
     expect(text).toBeInTheDocument();
   });
 
-  test("Should render Text component with size is regular", () => {
+  test('Should render Text component with size is regular', () => {
     const { getByTestId } = render(
-      <Text text="Sopa Management" type={SizeType.regular} />,
+      <Text text='Sopa Management' type={SizeType.regular} />
     );
-    const text = getByTestId("text");
+    const text = getByTestId('text');
     expect(text).toBeInTheDocument();
   });
 
-  test("Should render Text component with size is medium", () => {
+  test('Should render Text component with size is medium', () => {
     const { getByTestId } = render(
-      <Text text="Sopa Management" type={SizeType.medium} />,
+      <Text text='Sopa Management' type={SizeType.medium} />
     );
-    const text = getByTestId("text");
+    const text = getByTestId('text');
     expect(text).toBeInTheDocument();
   });
 
-  test("Should render Text component with size is extraMedium", () => {
+  test('Should render Text component with size is extraMedium', () => {
     const { getByTestId } = render(
-      <Text text="Sopa Management" type={SizeType.extraMedium} />,
+      <Text text='Sopa Management' type={SizeType.extraMedium} />
     );
-    const text = getByTestId("text");
+    const text = getByTestId('text');
     expect(text).toBeInTheDocument();
   });
 
-  test("Should render Text component with size is large", () => {
+  test('Should render Text component with size is large', () => {
     const { getByTestId } = render(
-      <Text text="Sopa Management" type={SizeType.large} />,
+      <Text text='Sopa Management' type={SizeType.large} />
     );
-    const text = getByTestId("text");
+    const text = getByTestId('text');
     expect(text).toBeInTheDocument();
   });
 
-  test("Should render Text component with theme is dark", () => {
+  test('Should render Text component with theme is dark', () => {
     const { getByTestId } = render(
-      <Text text="Sopa Management" type={ThemeType.dark} />,
+      <Text text='Sopa Management' type={ThemeType.dark} />
     );
-    const text = getByTestId("text");
+    const text = getByTestId('text');
     expect(text).toBeInTheDocument();
   });
 
-  test("Should render Text component with theme is light", () => {
+  test('Should render Text component with theme is light', () => {
     const { getByTestId } = render(
-      <Text text="Sopa Management" type={ThemeType.light} />,
+      <Text text='Sopa Management' type={ThemeType.light} />
     );
-    const text = getByTestId("text");
+    const text = getByTestId('text');
     expect(text).toBeInTheDocument();
   });
 
-  test("Should render Text component with theme is highlightPrimary", () => {
+  test('Should render Text component with theme is highlightPrimary', () => {
     const { getByTestId } = render(
-      <Text text="Sopa Management" type={ThemeType.highlightPrimary} />,
+      <Text text='Sopa Management' type={ThemeType.highlightPrimary} />
     );
-    const text = getByTestId("text");
+    const text = getByTestId('text');
     expect(text).toBeInTheDocument();
   });
 
-  test("Should render Text component with theme is highlightSecondary", () => {
+  test('Should render Text component with theme is highlightSecondary', () => {
     const { getByTestId } = render(
-      <Text text="Sopa Management" type={ThemeType.highlightSecondary} />,
+      <Text text='Sopa Management' type={ThemeType.highlightSecondary} />
     );
-    const text = getByTestId("text");
+    const text = getByTestId('text');
     expect(text).toBeInTheDocument();
   });
 
-  test("Should render Text component with default type", () => {
-    const { getByTestId } = render(
-      <Text text="Sopa Management" />,
-    );
-    const text = getByTestId("text");
+  test('Should render Text component with default type', () => {
+    const { getByTestId } = render(<Text text='Sopa Management' />);
+    const text = getByTestId('text');
     expect(text).toBeInTheDocument();
   });
 
-  test("Should render Text component with default value", () => {
-    const { getByTestId } = render(
-      <Text />,
-    );
-    const text = getByTestId("text");
+  test('Should render Text component with default value', () => {
+    const { getByTestId } = render(<Text />);
+    const text = getByTestId('text');
     expect(text).toBeInTheDocument();
   });
 
-  test("Matches snapshot", () => {
+  test('Matches snapshot', () => {
     const { container } = render(
-      <Text text="Sopa Management" type={SizeType.normal} />,
+      <Text text='Sopa Management' type={SizeType.normal} />
     );
     expect(container).toMatchSnapshot();
   });

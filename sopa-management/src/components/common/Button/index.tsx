@@ -1,14 +1,14 @@
-import React, { memo } from "react";
-import "./button.css";
+import React, { memo } from 'react';
+import './button.css';
 
 export enum ButtonType {
-  default = "",
-  primary = "primary",
-  secondary = "secondary",
-  tertiary = "tertiary",
-  btnIconPrimary = "icon-primary",
-  btnIconSecondary = "icon-secondary"
-};
+  default = '',
+  primary = 'primary',
+  secondary = 'secondary',
+  tertiary = 'tertiary',
+  btnIconPrimary = 'icon-primary',
+  btnIconSecondary = 'icon-secondary'
+}
 
 interface ButtonProps {
   children?: string | JSX.Element;
@@ -16,16 +16,16 @@ interface ButtonProps {
   disable?: boolean;
   onClick?: () => void;
   onSubmit?: () => void;
-};
+}
 
 const Button: React.FC<ButtonProps> = ({
-  children = "",
+  children = '',
   type = ButtonType.default,
   disable = false,
   onClick = () => {},
-  onSubmit = () => {},
+  onSubmit = () => {}
 }) => {
-  let className = "btn";
+  let className = 'btn';
   switch (type) {
     case ButtonType.primary:
       className += ` btn-${ButtonType.primary}`;
@@ -44,16 +44,18 @@ const Button: React.FC<ButtonProps> = ({
       break;
     default:
       break;
-  };
+  }
 
   return (
     <button
-      data-testid="button"
+      data-testid='button'
       className={`${className} btn-${type}`}
       disabled={disable}
       onClick={onClick}
       onSubmit={onSubmit}
-    >{children}</button>
+    >
+      {children}
+    </button>
   );
 };
 

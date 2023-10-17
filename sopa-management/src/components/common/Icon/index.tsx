@@ -1,22 +1,19 @@
-import React, { memo, MouseEventHandler } from "react";
-import "./icon.css";
+import React, { memo, MouseEventHandler } from 'react';
+import './icon.css';
 
 export enum IconType {
-  user = "user",
-  cart = "cart",
-  trash = "trash",
-};
+  user = 'user',
+  cart = 'cart',
+  trash = 'trash'
+}
 
 interface IconProps {
   iconName?: IconType;
   onClick?: MouseEventHandler<HTMLElement>;
-};
+}
 
-const Icon: React.FC<IconProps> = ({
-  iconName,
-  onClick = () => {},
-}) => {
-  let className = "icon";
+const Icon: React.FC<IconProps> = ({ iconName, onClick = () => {} }) => {
+  let className = 'icon';
   switch (iconName) {
     case IconType.user:
       className += ` icon-${IconType.user}`;
@@ -29,15 +26,15 @@ const Icon: React.FC<IconProps> = ({
       break;
     default:
       break;
-  };
+  }
 
   return (
     <div
-      data-testid="icon"
+      data-testid='icon'
       className={`${className} icon-${iconName}`}
       onClick={onClick}
     />
-  )
+  );
 };
 
 export default memo(Icon);
