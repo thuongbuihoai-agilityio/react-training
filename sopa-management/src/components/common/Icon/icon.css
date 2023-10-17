@@ -1,19 +1,19 @@
 .icon-user {
-  background-image: url(../../../../public/images/icons/user.svg);
+  background-image: url(/images/icons/user.svg);
   display: inline-block;
   width: var(--w-small);
   height: var(--h-small);
 }
 
 .icon-trash {
-  background-image: url(../../../../public/images/icons/trash.svg);
+  background-image: url(/images/icons/trash.svg);
   display: inline-block;
   width: var(--w-tiny);
   height: var(--h-tiny);
 }
 
 .icon-cart {
-  background-image: url(../../../../public/images/icons/shopping-bag.svg);
+  background-image: url(/images/icons/shopping-bag.svg);
   display: inline-block;
   width: var(--w-small);
   height: var(--h-small);

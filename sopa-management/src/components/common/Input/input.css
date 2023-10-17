@@ -1,0 +1,37 @@
+.input-wrapper {
+  position: relative;
+}
+
+.input {
+  border: 1px solid #02021D;
+  border-radius: 16px;
+  position: relative;
+  width: 450px;
+  padding: 20px 9px;
+}
+
+.input-info {
+  border: 1px solid #3184FF;
+}
+
+.input-error {
+  border: 1px solid #F14E2E;
+}
+
+.label {
+  position: absolute;
+  top: -8px;
+  z-index: 1;
+  left: 32px;
+  background-color: white;
+  padding: 0 5px;
+  border: none;
+}
+
+.label-info {
+  color: #3184FF;
+}
+
+.label-error {
+  color: #F14E2E;
+}
