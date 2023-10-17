@@ -1,5 +1,4 @@
 import React, { memo } from "react";
-import Icon, { IconType } from "../Icon";
 import "./button.css";
 
 export enum ButtonType {
@@ -12,19 +11,19 @@ export enum ButtonType {
 };
 
 interface ButtonProps {
+  children?: string | JSX.Element;
   type?: ButtonType;
-  text?: string;
   disable?: boolean;
-  icon?: boolean;
   onClick?: () => void;
+  onSubmit?: () => void;
 };
 
 const Button: React.FC<ButtonProps> = ({
+  children = "",
   type = ButtonType.default,
-  text = "",
   disable = false,
-  icon = false,
   onClick = () => {},
+  onSubmit = () => {},
 }) => {
   let className = "btn";
   switch (type) {
@@ -50,12 +49,11 @@ const Button: React.FC<ButtonProps> = ({
   return (
     <button
       data-testid="button"
-      className={className}
+      className={`${className} btn-${type}`}
       disabled={disable}
-      onClick={onClick}>
-      {text}
-      {icon && <Icon iconName={IconType.trash} />}
-    </button>
+      onClick={onClick}
+      onSubmit={onSubmit}
+    >{children}</button>
   );
 };
 

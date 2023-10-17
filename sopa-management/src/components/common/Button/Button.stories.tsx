@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import Button, { ButtonType } from '.';
+import Icon, { IconType } from '../Icon';
 
 const meta: Meta<typeof Button> = {
   component: Button,
@@ -10,44 +11,42 @@ type Story = StoryObj<typeof Button>;
 
 export const ButtonPrimary: Story = {
   args: {
-    text: "SHOW MORE",
+    children: "Show more",
     type: ButtonType.primary,
   }
 };
 
 export const ButtonSecondary: Story = {
   args: {
-    text: "Add to bag $15",
+    children: "Add to bag $15",
     type: ButtonType.secondary,
   }
 };
 
 export const ButtonTertiary: Story = {
   args: {
-    text: "LOGIN",
+    children: "LOGIN",
     type: ButtonType.tertiary,
   }
 };
 
 export const ButtonIconPrimary: Story = {
   args: {
-    text: "",
     type: ButtonType.btnIconPrimary,
-    icon: true
+    children: <Icon iconName={IconType.trash} />,
   }
 };
 
 export const ButtonIconSecondary: Story = {
   args: {
-    text: "",
     type: ButtonType.btnIconSecondary,
-    icon: true
+    children: <Icon iconName={IconType.trash} />,
   }
 };
 
 export const ButtonDisable: Story = {
   args: {
-    text: "SHOW MORE",
+    children: "SHOW MORE",
     disable: true
   }
 };
