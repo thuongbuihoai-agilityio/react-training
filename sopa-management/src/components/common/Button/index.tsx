@@ -7,7 +7,8 @@ export enum ButtonType {
   secondary = 'secondary',
   tertiary = 'tertiary',
   btnIconPrimary = 'icon-primary',
-  btnIconSecondary = 'icon-secondary'
+  btnIconSecondary = 'icon-secondary',
+  btnOutLight = 'out-light'
 }
 
 interface ButtonProps {
@@ -41,6 +42,9 @@ const Button: React.FC<ButtonProps> = ({
       break;
     case ButtonType.btnIconSecondary:
       className += ` btn-${ButtonType.btnIconSecondary}`;
+      break;
+    case ButtonType.btnOutLight:
+      className += ` btn-${ButtonType.btnOutLight}`;
       break;
     default:
       break;

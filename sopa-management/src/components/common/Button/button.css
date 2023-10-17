@@ -31,3 +31,12 @@
   border: 1px solid var(--border-primary);
   padding: var(--p-tiny);
 }
+
+.btn-out-light {
+  width: 149px;
+  padding: 10px 0;
+  border-radius: 24px;
+  color: #81D376;
+  border: 1px solid #81D376;
+  background: #fff;
+}
