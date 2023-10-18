@@ -11,12 +11,14 @@
   /* Font size */
   --text-sm: 14px;
   --text-base: 20px;
+  --text-extra-base: 24px;
   --text-medium: 40px;
   --text-extra-medium: 48px;
   --text-large: 66px;
 
   /* Font weight */
   --font-medium: 500;
+  --font-bold: 700;
 
   /* Line height */
   --leading-primary: 24px;
@@ -26,19 +28,29 @@
 
   /* Border color */
   --border-primary: #e3e5ed;
+  --border-secondary: #3184ff;
+  --border-tertiary: #f14e2e;
 
   /* Border radius */
-  --rounded-primary: 32px;
+  --rounded-tiny: 8px;
+  --rounded-primary: 16px;
+  --rounded-secondary: 24px;
+  --rounded-tertiary: 32px;
 
   /* Padding */
-  --p-tiny: 11px;
+  --p-tiny: 5px;
+  --p-small: 9px;
+  --p-extra-small: 10px;
+  --p-base: 11px;
   --px-normal: 20px;
+  --py-normal: 24px;
 
   /* Width */
   --w-tiny: 20px;
   --w-small: 24px;
-  --w-medium: 48px;
+  --w-normal: 149px;
   --w-medium: 370px;
+  --w-extra-medium: 450px;
   --w-large: 470px;
 
   /* Height */
