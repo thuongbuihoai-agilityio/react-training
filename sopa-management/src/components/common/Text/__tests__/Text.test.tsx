@@ -1,6 +1,13 @@
+// Libs
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import Text, { SizeType, ThemeType } from '../index';
+
+// Components
+import Text,
+{
+  SizeType,
+  ThemeType
+} from '../index';
 
 describe('Text component', () => {
   test('Should render Text component with size is normal', () => {

@@ -1,6 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
+
+// Components
 import Button, { ButtonType } from '.';
-import Icon, { IconType } from '../Icon';
+
+// Images
+import { Trash } from '../../../../public/images/icons';
 
 const meta: Meta<typeof Button> = {
   component: Button
@@ -40,14 +44,14 @@ export const ButtonOutLight: Story = {
 export const ButtonIconPrimary: Story = {
   args: {
     type: ButtonType.btnIconPrimary,
-    children: <Icon iconName={IconType.trash} />
+    children: <Trash />
   }
 };
 
 export const ButtonIconSecondary: Story = {
   args: {
     type: ButtonType.btnIconSecondary,
-    children: <Icon iconName={IconType.trash} />
+    children: <Trash />
   }
 };
 

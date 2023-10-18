@@ -1,8 +1,16 @@
-import { render, screen } from '@testing-library/react';
+// Libs
+import {
+  render,
+  screen
+} from '@testing-library/react';
 import '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event';
+
+// Components
 import Button, { ButtonType } from '../index';
-import Icon, { IconType } from '../../Icon';
+
+// Images
+import { Trash } from '../../../../../public/images/icons';
 
 describe('Button component', () => {
   test("Should render Button component with type 'default'", async () => {
@@ -41,7 +49,7 @@ describe('Button component', () => {
   test("Should render Button component with type 'btnIconPrimary'", async () => {
     render(
       <Button
-        children={<Icon iconName={IconType.trash} />}
+        children={<Trash />}
         type={ButtonType.btnIconPrimary}
       />
     );
@@ -53,7 +61,7 @@ describe('Button component', () => {
   test("Should render Button component with type 'btnIconSecondary'", async () => {
     render(
       <Button
-        children={<Icon iconName={IconType.trash} />}
+        children={<Trash />}
         type={ButtonType.btnIconSecondary}
       />
     );
