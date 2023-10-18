@@ -24,14 +24,14 @@ type Story = StoryObj<typeof Logo>;
 export const WhiteLogo: Story = {
   args: {
     url: IMAGE.whiteLogo,
-    alt: IMAGE.atl,
+    alt: IMAGE.altLogo,
   }
 };
 
 export const BlackLogo: Story = {
   args: {
     url: IMAGE.blackLogo,
-    alt: IMAGE.atl,
+    alt: IMAGE.altLogo,
   }
 };
 

@@ -1,0 +1,19 @@
+.card {
+  width: 370px;
+  height: 502px;
+  border-radius: 16px;
+  background: #F2F2F2;
+}
+
+.card-image {
+  width: 322px;
+}
+
+.card-item {
+  padding: 0 24px;
+}
+
+.card-info {
+  display: flex;
+  justify-content: space-between;
+}

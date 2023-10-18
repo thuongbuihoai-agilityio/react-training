@@ -3,16 +3,20 @@ import React, { memo } from 'react';
 import { Link } from 'react-router-dom';
 
 interface LogoProps {
-  url: string;
+  url?: string;
   alt?: string;
+  href: string;
+  className?: string;
 }
 
 const Logo: React.FC<LogoProps> = ({
-  url,
-  alt = ''
+  url = '',
+  alt = '',
+  href,
+  className = '',
 }) => (
-  <Link data-testid='logo' to='/'>
-    <img className='logo' src={url} alt={alt} />
+  <Link data-testid='logo' to={href}>
+    <img className={className} src={url} alt={alt} />
   </Link>
 );
 
