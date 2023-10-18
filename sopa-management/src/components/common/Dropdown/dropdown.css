@@ -14,10 +14,10 @@
 }
 
 .dropdown {
-  width: 370px;
-  border-radius: 8px;
-  border: 1px solid #E3E5ED;
-  padding: 11px 24px;
+  width: var(--w-medium);
+  border-radius: var(--rounded-tiny);
+  border: 1px solid var(--border-primary);
+  padding: var(--p-base) var(--py-normal);
   -moz-appearance: none;
   -webkit-appearance:none;
   appearance: none;

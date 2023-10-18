@@ -1,5 +1,10 @@
+// Libs
 import type { Meta, StoryObj } from '@storybook/react';
+
+// Components
 import Dropdown from '.';
+
+// Constants
 import { SIZE } from '../../../constants/common';
 
 const meta: Meta<typeof Dropdown> = {
