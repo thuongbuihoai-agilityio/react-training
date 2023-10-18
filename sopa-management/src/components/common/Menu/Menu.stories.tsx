@@ -27,15 +27,15 @@ type Story = StoryObj<typeof Menu>;
 export const MenuHeader: Story = {
   args: {
     menuList: MENU_HEADER,
-    type: MenuTheme.primary
+    type: MenuTheme.vertical
   }
 };
 
 export const MenuFooter: Story = {
   args: {
-    mainItem: "Everything Else",
+    menuFooter: true,
     menuList: MENU_EVERYTHING_ELSE,
-    type: MenuTheme.secondary
+    type: MenuTheme.horizontal
   }
 };
 
