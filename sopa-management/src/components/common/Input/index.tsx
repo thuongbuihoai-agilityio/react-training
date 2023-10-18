@@ -1,4 +1,6 @@
 import React, { memo } from 'react';
+
+// Styles
 import './input.css';
 
 export enum InputType {
@@ -17,39 +19,26 @@ interface IconProps {
   label?: string;
   type?: string;
   theme?: string;
+  placeholder?: string;
+  classNameInput?: string;
+  classNameLabel?: string;
 }
 
-const Input: React.FC<IconProps> = ({ label, type, theme }) => {
-  let className = 'input';
-  switch (type) {
-    case InputType.info:
-      className += ` input-${InputType.info}`;
-      break;
-    case InputType.error:
-      className += ` input-${InputType.error}`;
-      break;
-    default:
-      break;
-  }
-
-  let themes = 'label';
-  switch (theme) {
-    case InputTheme.info:
-      themes += ` label-${InputTheme.info}`;
-      break;
-    case InputTheme.error:
-      themes += ` label-${InputTheme.error}`;
-      break;
-    default:
-      break;
-  }
-
-  return (
-    <div className="input-wrapper">
-      <label className={`${themes} input-${theme}`}>{label}</label>
-      <input className={`${className} input-${type}`} />
-    </div>
-  );
-};
+const Input: React.FC<IconProps> = ({
+  label = '',
+  type = InputType.default,
+  theme = InputTheme.default,
+  placeholder = '',
+  classNameInput = 'input',
+  classNameLabel = 'label'
+}) => (
+  <div data-testId='input-value' className='input-wrapper'>
+    <label className={`${classNameLabel} label-${theme}`}>{label}</label>
+    <input
+      placeholder={placeholder}
+      className={`${classNameInput} input-${type}`}
+    />
+  </div>
+);
 
 export default memo(Input);

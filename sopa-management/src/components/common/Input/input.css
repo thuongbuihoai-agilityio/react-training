@@ -3,19 +3,19 @@
 }
 
 .input {
-  border: 1px solid #02021D;
-  border-radius: 16px;
+  border: 1px solid var(--dark);
+  border-radius: var(--rounded-primary);
   position: relative;
-  width: 450px;
-  padding: 20px 9px;
+  width: var(--w-extra-medium);
+  padding: var(--px-normal) var(--p-small);
 }
 
 .input-info {
-  border: 1px solid #3184FF;
+  border: 1px solid var(--border-secondary);
 }
 
 .input-error {
-  border: 1px solid #F14E2E;
+  border: 1px solid var(--border-tertiary);
 }
 
 .label {
@@ -23,15 +23,15 @@
   top: -8px;
   z-index: 1;
   left: 32px;
-  background-color: white;
-  padding: 0 5px;
+  background-color: var(--light);
+  padding: 0 var(--p-tiny);
   border: none;
 }
 
 .label-info {
-  color: #3184FF;
+  color: var(--border-secondary);
 }
 
 .label-error {
-  color: #F14E2E;
+  color: var(--border-tertiary);
 }

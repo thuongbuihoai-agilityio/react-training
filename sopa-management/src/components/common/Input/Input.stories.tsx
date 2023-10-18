@@ -1,5 +1,12 @@
+// Libs
 import type { Meta, StoryObj } from '@storybook/react';
-import Input, { InputTheme, InputType } from '.';
+
+// Components
+import Input,
+{
+  InputTheme,
+  InputType
+} from '.';
 
 const meta: Meta<typeof Input> = {
   component: Input,
