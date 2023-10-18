@@ -1,16 +1,16 @@
 .price-primary {
-  font-size: 14px;
-  color: #75869C;
+  font-size: var(--text-sm);
+  color: var(--text-tertiary);
 }
 
 .price-secondary {
-  font-size: 24px;
-  font-weight: 700;
-  color: #02021D;
+  font-size: var(--text-extra-base);
+  font-weight: var(--font-bold);
+  color: var(--dark);
 }
 
 .price-tertiary {
-  font-size: 20px;
-  font-weight: 700;
-  color: #02021D;
+  font-size: var(--text-base);
+  font-weight: var(--font-bold);
+  color: var(--dark);
 }

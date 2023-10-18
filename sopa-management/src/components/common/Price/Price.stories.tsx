@@ -1,5 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import Price, { PriceType } from '.';
+
+// Components
+import Price,
+{
+  PriceType
+} from '.';
 
 const meta: Meta<typeof Price> = {
   component: Price,
