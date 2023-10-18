@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import Logout from '.';
 import { BrowserRouter } from 'react-router-dom';
+
+// Components
+import Logout from '.';
 
 const meta: Meta<typeof Logout> = {
   component: Logout,
@@ -9,8 +11,8 @@ const meta: Meta<typeof Logout> = {
       <BrowserRouter>
         <Story />
       </BrowserRouter>
-    ),
-  ],
+    )
+  ]
 };
 
 export default meta;

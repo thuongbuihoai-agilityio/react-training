@@ -1,9 +1,9 @@
 import React, { memo, useCallback, useState } from 'react';
 import Button, { ButtonType } from '../Button';
-import Icon, { IconType } from '../Icon';
 import Dropdown from '../Dropdown';
 import { USER } from '../../../constants/common';
 import { Link } from 'react-router-dom';
+import { User } from '../../../../public/images/icons';
 
 const Logout: React.FC = () => {
   const [showDropdown, setShowDropdown] = useState<boolean>(false);
@@ -15,7 +15,7 @@ const Logout: React.FC = () => {
   return (
     <div data-testid='logout'>
       <Button
-        children={<Icon iconName={IconType.user} />}
+        children={<User />}
         type={ButtonType.btnIconPrimary}
         onClick={handleToggle}
       />
