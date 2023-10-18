@@ -37,14 +37,14 @@ export const ButtonTertiary: Story = {
 export const ButtonOutLightPrimary: Story = {
   args: {
     type: ButtonType.btnOutLightPrimary,
-    children: "Shoe Finder Quiz",
+    children: 'Shoe Finder Quiz'
   }
 };
 
 export const ButtonOutLightSecondary: Story = {
   args: {
     type: ButtonType.btnOutLightSecondary,
-    children: "Enter email here for updates",
+    children: 'Enter email here for updates'
   }
 };
 
