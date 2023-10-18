@@ -8,6 +8,7 @@ import { useCounterStore } from '../../../stores/counter';
 
 // Styles
 import './counter.css';
+import Input from '../Input';
 
 const Counter: React.FC = () => {
   const { count, increment, decrement } = useCounterStore();
@@ -19,7 +20,7 @@ const Counter: React.FC = () => {
         className='counter-minus'
         onClick={decrement}
       />
-      <input type='number' className='counter-input' value={count} />
+      <Input type='number' classNameInput='counter-input' value={count} />
       <Button
         type={ButtonType.btnIconPrimary}
         className='counter-plus'
