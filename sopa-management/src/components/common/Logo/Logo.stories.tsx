@@ -1,7 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import Logo from '.';
-import { IMAGE } from '../../../constants/image';
 import { BrowserRouter } from 'react-router-dom';
+
+// Components
+import Logo from '.';
+
+// Constants
+import { IMAGE } from '../../../constants/image';
 
 const meta: Meta<typeof Logo> = {
   component: Logo,

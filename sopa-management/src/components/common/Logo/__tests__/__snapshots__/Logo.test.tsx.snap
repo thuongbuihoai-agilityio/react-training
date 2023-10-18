@@ -7,8 +7,9 @@ exports[`Logo component matches snapshot 1`] = `
     href="/"
   >
     <img
+      alt=""
       class="logo"
-      src="/public/images/logos/white-logo.svg"
+      src="/images/logos/white-logo.svg"
     />
   </a>
 </DocumentFragment>
