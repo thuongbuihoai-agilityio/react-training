@@ -1,0 +1,8 @@
+.social-item {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.social-link {
+  margin-right: 12px;
+}
