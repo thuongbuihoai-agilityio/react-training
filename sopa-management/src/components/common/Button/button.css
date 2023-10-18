@@ -36,7 +36,7 @@
   padding: var(--p-base);
 }
 
-.btn-out-light-primary {
+.btn-out-line-primary {
   width: var(--w-normal);
   padding: var(--p-extra-small) 0;
   border-radius: var(--rounded-secondary);
@@ -45,7 +45,7 @@
   background: var(--light);
 }
 
-.btn-out-light-secondary {
+.btn-out-line-secondary {
   width: var(--w-extra-normal);
   padding: var(--px-base) 0;
   border-radius: var(--rounded-tertiary);
