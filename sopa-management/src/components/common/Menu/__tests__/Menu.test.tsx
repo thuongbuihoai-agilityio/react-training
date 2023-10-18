@@ -11,23 +11,22 @@ import Menu from '../index';
 import { MENU_HEADER } from '../../../../constants/common';
 
 describe('Menu component', () => {
-  test('Should render Menu component', () => {
-    const { getByTestId } = render(<Menu menuList={MENU_HEADER} />);
-    const menu = getByTestId('menu');
-    expect(menu).toBeInTheDocument();
-  });
-
-  test('Should render Menu component by default', () => {
-    const { getByTestId } = render(<Menu menuList={MENU_HEADER} />);
-    const menu = getByTestId('menu');
-    expect(menu).toBeInTheDocument();
-  });
-
   test('Should render Menu component by default', () => {
     const history = createMemoryHistory();
     const { getByTestId } = render(
       <Router location={history.location} navigator={history}>
-        <Menu menuList={MENU_HEADER} mainItem='Products' />
+        <Menu menuList={MENU_HEADER} />
+      </Router>
+    );
+    const menu = getByTestId('menu');
+    expect(menu).toBeInTheDocument();
+  });
+
+  test('Should render Menu component by menuFooter', () => {
+    const history = createMemoryHistory();
+    const { getByTestId } = render(
+      <Router location={history.location} navigator={history}>
+        <Menu menuList={MENU_HEADER} menuFooter />
       </Router>
     );
     const menu = getByTestId('menu');
@@ -35,7 +34,12 @@ describe('Menu component', () => {
   });
 
   test('Matches snapshot', () => {
-    const { container } = render(<Menu menuList={MENU_HEADER} />);
+    const history = createMemoryHistory();
+    const { container } = render(
+      <Router location={history.location} navigator={history}>
+        <Menu menuList={MENU_HEADER} />
+      </Router>
+    );
     expect(container).toMatchSnapshot();
   });
 });

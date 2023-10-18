@@ -6,12 +6,10 @@ exports[`Input component Matches snapshot 1`] = `
     class="input-wrapper"
     data-testid="input-value"
   >
-    <label
-      class="label label-"
-    />
     <input
       class="input input-text"
       placeholder="Your email..."
+      value=""
     />
   </div>
 </div>

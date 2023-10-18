@@ -13,7 +13,7 @@ exports[`Menu component Matches snapshot 1`] = `
         class="undefined menu-item-undefined"
       >
         <a
-          href="#"
+          href="/"
         >
           Men
         </a>
@@ -22,7 +22,7 @@ exports[`Menu component Matches snapshot 1`] = `
         class="undefined menu-item-undefined"
       >
         <a
-          href="#"
+          href="/"
         >
           Women
         </a>
@@ -31,7 +31,7 @@ exports[`Menu component Matches snapshot 1`] = `
         class="undefined menu-item-undefined"
       >
         <a
-          href="#"
+          href="/"
         >
           Accessories
         </a>
@@ -40,7 +40,7 @@ exports[`Menu component Matches snapshot 1`] = `
         class="undefined menu-item-undefined"
       >
         <a
-          href="#"
+          href="/"
         >
           About
         </a>
