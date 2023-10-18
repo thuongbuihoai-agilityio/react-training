@@ -1,7 +1,15 @@
-import { render, screen } from '@testing-library/react';
+// Libs
+import {
+  render,
+  screen
+} from '@testing-library/react';
 import '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event';
+
+// Components
 import Button, { ButtonType } from '../index';
+
+// Images
 import { Trash } from '../../../../../public/images/icons';
 
 describe('Button component', () => {
