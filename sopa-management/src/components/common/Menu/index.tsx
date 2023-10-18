@@ -17,7 +17,7 @@ export enum MenuTheme {
 
 export interface MenuProps {
   menuList: MenuType[];
-  menuFooter?: string;
+  value?: string;
   type?: string;
   className?: string;
 }
@@ -25,7 +25,7 @@ export interface MenuProps {
 const Menu: React.FC<MenuProps> = memo(
   ({
     menuList,
-    menuFooter,
+    value,
     type,
     className
   }) => {
@@ -40,8 +40,8 @@ const Menu: React.FC<MenuProps> = memo(
     return (
       <div data-testid='menu' className='menu'>
         <ul className={`${className} menu-list-${type}`}>
-          {menuFooter && (
-            <p className={`menu-main-${type}`}>{menuFooter}</p>
+          {MenuTheme.vertical && (
+            <p className={`menu-main-${type}`}>{value}</p>
           )}
           {renderMenuHeader(menuList)}
         </ul>

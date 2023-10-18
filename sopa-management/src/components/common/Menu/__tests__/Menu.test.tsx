@@ -22,11 +22,11 @@ describe('Menu component', () => {
     expect(menu).toBeInTheDocument();
   });
 
-  test('Should render Menu component by menuFooter', () => {
+  test('Should render Menu component by value', () => {
     const history = createMemoryHistory();
     const { getByTestId } = render(
       <Router location={history.location} navigator={history}>
-        <Menu menuList={MENU_HEADER} menuFooter='Products' />
+        <Menu menuList={MENU_HEADER} value='Products' />
       </Router>
     );
     const menu = getByTestId('menu');

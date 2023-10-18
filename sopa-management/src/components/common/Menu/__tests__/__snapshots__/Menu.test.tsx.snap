@@ -9,6 +9,9 @@ exports[`Menu component Matches snapshot 1`] = `
     <ul
       class="undefined menu-list-undefined"
     >
+      <p
+        class="menu-main-undefined"
+      />
       <li
         class="undefined menu-item-undefined"
       >
