@@ -6,7 +6,7 @@ exports[`Logout component matches snapshot 1`] = `
     data-testid="logout"
   >
     <button
-      class=" btn-icon-primary"
+      class=" btn btn-icon-primary"
       data-testid="button"
     >
       <svg

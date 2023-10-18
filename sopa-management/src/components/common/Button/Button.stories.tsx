@@ -34,10 +34,17 @@ export const ButtonTertiary: Story = {
   }
 };
 
-export const ButtonOutLight: Story = {
+export const ButtonOutLinePrimary: Story = {
   args: {
-    type: ButtonType.btnOutLight,
-    children: "Shoe Finder Quiz",
+    type: ButtonType.btnOutlinePrimary,
+    children: 'Shoe Finder Quiz'
+  }
+};
+
+export const ButtonOutLineSecondary: Story = {
+  args: {
+    type: ButtonType.btnOutlineSecondary,
+    children: 'Enter email here for updates'
   }
 };
 

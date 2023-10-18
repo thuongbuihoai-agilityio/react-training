@@ -10,7 +10,8 @@ export enum ButtonType {
   tertiary = 'tertiary',
   btnIconPrimary = 'icon-primary',
   btnIconSecondary = 'icon-secondary',
-  btnOutLight = 'out-light'
+  btnOutlinePrimary = 'out-line-primary',
+  btnOutlineSecondary = 'out-line-secondary',
 }
 
 interface ButtonProps {
@@ -34,7 +35,7 @@ const Button: React.FC<ButtonProps> = ({
 }) => (
   <button
     data-testid='button'
-    className={`${className} btn-${type}`}
+    className={`${className} btn btn-${type}`}
     disabled={disable}
     type={submit}
     onClick={onClick}

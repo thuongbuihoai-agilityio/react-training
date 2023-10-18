@@ -16,6 +16,7 @@ export enum InputTheme {
 }
 
 interface IconProps {
+  value?: string | number;
   label?: string;
   type?: string;
   theme?: string;
@@ -25,6 +26,7 @@ interface IconProps {
 }
 
 const Input: React.FC<IconProps> = ({
+  value,
   label = '',
   type = InputType.default,
   theme = InputTheme.default,
@@ -33,8 +35,11 @@ const Input: React.FC<IconProps> = ({
   classNameLabel = 'label'
 }) => (
   <div data-testId='input-value' className='input-wrapper'>
-    <label className={`${classNameLabel} label-${theme}`}>{label}</label>
+    {label && (
+      <label className={`${classNameLabel} label-${theme}`}>{label}</label>
+    )}
     <input
+      value={value}
       placeholder={placeholder}
       className={`${classNameInput} input-${type}`}
     />

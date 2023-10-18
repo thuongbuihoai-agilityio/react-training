@@ -1,3 +1,7 @@
+.btn {
+  cursor: pointer;
+}
+
 .btn-primary {
   padding: var(--px-normal) 0;
   width: 181px;
@@ -32,11 +36,21 @@
   padding: var(--p-base);
 }
 
-.btn-out-light {
+.btn-out-line-primary {
   width: var(--w-normal);
   padding: var(--p-extra-small) 0;
   border-radius: var(--rounded-secondary);
   color: var(--text-quaternary);
   border: 1px solid var(--text-quaternary);
   background: var(--light);
+}
+
+.btn-out-line-secondary {
+  width: var(--w-extra-normal);
+  padding: var(--px-base) 0;
+  border-radius: var(--rounded-tertiary);
+  border: 1px solid var(--light);
+  color: var(--light);
+  background: transparent;
+  font-size: var(--text-extra-sm);
 }
