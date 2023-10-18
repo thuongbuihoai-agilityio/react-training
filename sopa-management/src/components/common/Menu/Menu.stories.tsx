@@ -33,7 +33,7 @@ export const MenuHeader: Story = {
 
 export const MenuFooter: Story = {
   args: {
-    menuFooter: true,
+    menuFooter: 'Products',
     menuList: MENU_EVERYTHING_ELSE,
     type: MenuTheme.horizontal
   }

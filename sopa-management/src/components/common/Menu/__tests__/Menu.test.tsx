@@ -26,7 +26,7 @@ describe('Menu component', () => {
     const history = createMemoryHistory();
     const { getByTestId } = render(
       <Router location={history.location} navigator={history}>
-        <Menu menuList={MENU_HEADER} menuFooter />
+        <Menu menuList={MENU_HEADER} menuFooter='Products' />
       </Router>
     );
     const menu = getByTestId('menu');

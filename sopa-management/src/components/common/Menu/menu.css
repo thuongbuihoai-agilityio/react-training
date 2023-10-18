@@ -29,14 +29,14 @@
   margin-bottom: 20px;
 }
 
-.menu-item-horizontal:first-child {
-  font-size: var(--text-base);
-  font-weight: var(--font-medium);
-}
-
-.menu-item-horizontal,
+.menu-item-horizontal > a,
 .menu-main-horizontal {
   font-size: var(--text-extra-sm);
   text-decoration: none;
   color: var(--light);
+}
+
+.menu-main-horizontal {
+  font-size: var(--text-base);
+  font-weight: var(--font-medium);
 }
