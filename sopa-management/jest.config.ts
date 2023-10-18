@@ -32,6 +32,10 @@ const config: Config.InitialOptions = {
   transformIgnorePatterns: [
     "/node_modules/(?!antd|@ant-design|rc-.+?|@babel/runtime).+(js|jsx)$",
   ],
+  "collectCoverage": true,
+  "collectCoverageFrom": [
+    "src/**/*index.tsx"
+  ],
 };
 
 module.exports = config;
