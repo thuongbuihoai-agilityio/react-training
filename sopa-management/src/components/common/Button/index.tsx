@@ -9,7 +9,8 @@ export enum ButtonType {
   secondary = 'secondary',
   tertiary = 'tertiary',
   btnIconPrimary = 'icon-primary',
-  btnIconSecondary = 'icon-secondary'
+  btnIconSecondary = 'icon-secondary',
+  btnOutLight = 'out-light'
 }
 
 interface ButtonProps {

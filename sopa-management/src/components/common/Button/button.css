@@ -2,14 +2,14 @@
   padding: var(--px-normal) 0;
   width: 181px;
   background-color: var(--text-primary);
-  border-radius:  var(--rounded-primary);
+  border-radius:  var(--rounded-tertiary);
   border: none;
 }
 
 .btn-secondary,
 .btn-tertiary {
   background-color: var(--dark);
-  border-radius: var(--rounded-primary);
+  border-radius: var(--rounded-tertiary);
   color: var(--light);
   padding: var(--px-normal) 0;
   width: var(--w-medium);
@@ -29,5 +29,14 @@
   background-color: transparent;
   border-radius: 50%;
   border: 1px solid var(--border-primary);
-  padding: var(--p-tiny);
+  padding: var(--p-base);
+}
+
+.btn-out-light {
+  width: var(--w-normal);
+  padding: var(--p-extra-small) 0;
+  border-radius: var(--rounded-secondary);
+  color: var(--text-quaternary);
+  border: 1px solid var(--text-quaternary);
+  background: var(--light);
 }

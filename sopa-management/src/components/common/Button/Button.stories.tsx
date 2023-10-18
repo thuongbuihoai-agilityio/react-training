@@ -34,6 +34,13 @@ export const ButtonTertiary: Story = {
   }
 };
 
+export const ButtonOutLight: Story = {
+  args: {
+    type: ButtonType.btnOutLight,
+    children: "Shoe Finder Quiz",
+  }
+};
+
 export const ButtonIconPrimary: Story = {
   args: {
     type: ButtonType.btnIconPrimary,
