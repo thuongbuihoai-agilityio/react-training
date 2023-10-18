@@ -10,8 +10,8 @@ export enum ButtonType {
   tertiary = 'tertiary',
   btnIconPrimary = 'icon-primary',
   btnIconSecondary = 'icon-secondary',
-  btnOutLinePrimary = 'out-line-primary',
-  btnOutLineSecondary = 'out-line-secondary',
+  btnOutlinePrimary = 'out-line-primary',
+  btnOutlineSecondary = 'out-line-secondary',
 }
 
 interface ButtonProps {
