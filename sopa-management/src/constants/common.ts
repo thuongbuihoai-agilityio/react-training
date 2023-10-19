@@ -126,6 +126,8 @@ const MENU_EVERYTHING_ELSE: MenuType[] = [
   },
 ];
 
+const LIMIT_PRODUCTS = 6;
+
 export {
   SIZE,
   USER,
@@ -133,4 +135,5 @@ export {
   MENU_PRODUCTS,
   MENU_SUPPORT,
   MENU_EVERYTHING_ELSE,
+  LIMIT_PRODUCTS,
 };
