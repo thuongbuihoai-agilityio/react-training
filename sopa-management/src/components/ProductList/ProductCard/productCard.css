@@ -1,8 +1,8 @@
 .card {
-  width: 370px;
-  height: 502px;
-  border-radius: 16px;
-  background: #F2F2F2;
+  width: var(--w-medium);
+  height: var(--h-large);
+  border-radius: var(--rounded-primary);
+  background: var(--bg-primary);
   margin-bottom: 30px;
 }
 
@@ -12,15 +12,15 @@
 }
 
 .card-image-item {
-  width: 322px;
+  width: var(--w-base);
 }
 
 .card-item {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 398px;
-  padding: 80px 24px 24px 24px;
+  height: var(--h-medium);
+  padding: var(--px-medium) var(--py-normal) var(--py-normal) var(--py-normal);
 }
 
 .card-description {
@@ -30,7 +30,7 @@
 }
 
 .card-name {
-  color: #02021D;
+  color: var(--dark);
   font-size: var(--text-base);
   line-height: var(--leading-primary);
   font-weight: var(--font-medium);

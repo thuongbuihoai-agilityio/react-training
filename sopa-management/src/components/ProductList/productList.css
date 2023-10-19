@@ -1,12 +1,12 @@
 .product {
-  padding: 80px 135px;
+  padding: var(--px-medium) var(--py-medium);
 }
 
 .product-list {
   display: flex;
   flex-wrap: wrap;
   margin: 0 auto;
-  width: 1170px;
+  width: var(--w-extra-large);
   justify-content: space-between;
 }
 
