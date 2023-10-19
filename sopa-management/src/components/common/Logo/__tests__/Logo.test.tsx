@@ -15,7 +15,17 @@ describe('Logo component', () => {
     const history = createMemoryHistory();
     const { getByTestId } = render(
       <Router location={history.location} navigator={history}>
-        <Logo url={IMAGE.blackLogo} />
+        <Logo url={IMAGE.blackLogo} href='/' />
+      </Router>
+    );
+    expect(getByTestId('logo')).toBeInTheDocument();
+  });
+
+  test('should render logo component default url', () => {
+    const history = createMemoryHistory();
+    const { getByTestId } = render(
+      <Router location={history.location} navigator={history}>
+        <Logo href='/' />
       </Router>
     );
     expect(getByTestId('logo')).toBeInTheDocument();
@@ -25,7 +35,7 @@ describe('Logo component', () => {
     const history = createMemoryHistory();
     const { asFragment } = render(
       <Router location={history.location} navigator={history}>
-        <Logo url={IMAGE.whiteLogo} />
+        <Logo url={IMAGE.whiteLogo} href='/' />
       </Router>
     );
     expect(asFragment()).toMatchSnapshot();

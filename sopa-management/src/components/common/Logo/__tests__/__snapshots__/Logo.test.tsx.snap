@@ -8,7 +8,7 @@ exports[`Logo component matches snapshot 1`] = `
   >
     <img
       alt=""
-      class="logo"
+      class=""
       src="/images/logos/white-logo.svg"
     />
   </a>
