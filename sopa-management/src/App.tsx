@@ -1,8 +1,14 @@
+import { QueryClient, QueryClientProvider } from 'react-query';
+import ProductList from './components/ProductList';
+import './styles/main.css';
 
 const App = () => {
+  const queryClient = new QueryClient();
   return (
-   <></>
-  )
-}
+    <QueryClientProvider client={queryClient}>
+      <ProductList />
+    </QueryClientProvider>
+  );
+};
 
-export default App
+export default App;
