@@ -28,13 +28,13 @@ const ProductList: React.FC = () => {
   const isDisable = !hasNextPage || isFetchingNextPage;
 
   return (
-    <div data-testId='product-list' className='product'>
+    <div data-testId='product' className='product'>
       {isLoading ? (
         // TODO: I will create component Loading later
         <p>Loading...</p>
       ) : (
         <>
-          <div className='product-list'>
+          <div data-testId='product-list' className='product-list'>
             {data?.pages?.map((page) => (
               <>
                 {page.map((product: Product) => (

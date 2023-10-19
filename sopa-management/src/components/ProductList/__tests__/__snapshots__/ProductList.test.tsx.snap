@@ -4,13 +4,118 @@ exports[`ProductList component matches snapshot 1`] = `
 <DocumentFragment>
   <div
     class="product"
-    data-testid="product-list"
+    data-testid="product"
   >
     <div
       class="product-list"
-    />
+      data-testid="product-list"
+    >
+      <div>
+        <div
+          class="card"
+          data-testid="product-card"
+        >
+          <div
+            class="card-item"
+          >
+            <figure
+              class="card-image"
+            >
+              <a
+                data-testid="logo"
+                href="/"
+              >
+                <img
+                  alt=""
+                  class="card-image-item"
+                  src="/images/products/black-shoes.png"
+                />
+              </a>
+            </figure>
+            <div
+              class="card-info"
+            >
+              <a
+                class="card-name"
+                href="/"
+              >
+                Black shoes
+              </a>
+              <div
+                class="card-description"
+              >
+                <p
+                  class=" text-highlight-primary"
+                  data-testid="text"
+                >
+                  Black
+                </p>
+                <p
+                  class=" price-primary"
+                  data-testid="price"
+                >
+                  $87
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div
+          class="card"
+          data-testid="product-card"
+        >
+          <div
+            class="card-item"
+          >
+            <figure
+              class="card-image"
+            >
+              <a
+                data-testid="logo"
+                href="/"
+              >
+                <img
+                  alt=""
+                  class="card-image-item"
+                  src="/images/products/blue-shoes.png"
+                />
+              </a>
+            </figure>
+            <div
+              class="card-info"
+            >
+              <a
+                class="card-name"
+                href="/"
+              >
+                Blue shoes
+              </a>
+              <div
+                class="card-description"
+              >
+                <p
+                  class=" text-highlight-primary"
+                  data-testid="text"
+                >
+                  Blue
+                </p>
+                <p
+                  class=" price-primary"
+                  data-testid="price"
+                >
+                  $45
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <div
       class="product-btn"
+      data-testid="product-btn"
     >
       <button
         class=" btn btn-primary"

@@ -1,9 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import ProductCard from '.';
 import { BrowserRouter } from 'react-router-dom';
+
+// Constants
 import { IMAGE } from '../../../constants/image';
 
 // Components
+import ProductCard from '.';
 
 const meta: Meta<typeof ProductCard> = {
   component: ProductCard,
