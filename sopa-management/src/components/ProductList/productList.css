@@ -1,0 +1,15 @@
+.product {
+  padding: 80px 135px;
+}
+
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  width: 1170px;
+  justify-content: space-between;
+}
+
+.product-btn {
+  text-align: center;
+}
