@@ -3,17 +3,36 @@
   height: 502px;
   border-radius: 16px;
   background: #F2F2F2;
+  margin-bottom: 30px;
 }
 
 .card-image {
+  text-align: center;
+  margin-top: 80px;
+}
+
+.card-image-item {
   width: 322px;
 }
 
 .card-item {
-  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 398px;
+  padding: 80px 24px 24px 24px;
 }
 
-.card-info {
+.card-description {
   display: flex;
+  margin-top: 8px;
   justify-content: space-between;
+}
+
+.card-name {
+  color: #02021D;
+  font-size: var(--text-base);
+  line-height: var(--leading-primary);
+  font-weight: var(--font-medium);
+  text-decoration: none;
 }

@@ -1,7 +1,18 @@
-import { memo } from "react"
-import Text, { SizeType, ThemeType } from "../../common/Text";
-import Price, { PriceType } from "../../common/Price";
-import Logo from "../../common/Logo";
+import { memo } from 'react';
+import { Link } from 'react-router-dom';
+
+// Components
+import Text,
+{
+  ThemeType
+} from '../../common/Text';
+import Price,
+{
+  PriceType
+} from '../../common/Price';
+import Logo from '../../common/Logo';
+
+// Styles
 import './productCard.css';
 
 interface ProductCardProps {
@@ -11,28 +22,34 @@ interface ProductCardProps {
   href: string;
   src: string;
   alt?: string;
-};
+}
 
 const ProductCard: React.FC<ProductCardProps> = ({
-  name,
-  color,
-  price,
+  name = '',
+  color = '',
+  price = 0,
   href,
   src,
-  alt
+  alt = ''
 }) => {
   return (
-    <div className="card">
-      <Logo href={href} url={src} alt={alt} className="card-image" />
-      <div className="card-item">
-        <Text text={name} type={SizeType.regular} />
-        <div className="card-info">
-          <Text text={color} type={ThemeType.highlightPrimary} />
-          <Price value={price} type={PriceType.primary} />
+    <div data-testId='product-card' className='card'>
+      <div className='card-item'>
+        <figure className='card-image'>
+          <Logo href={href} url={src} alt={alt} className='card-image-item' />
+        </figure>
+        <div className='card-info'>
+          <Link to={href} className='card-name'>
+            {name}
+          </Link>
+          <div className='card-description'>
+            <Text text={color} type={ThemeType.highlightPrimary} />
+            <Price value={price} type={PriceType.primary} />
+          </div>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default memo(ProductCard);
