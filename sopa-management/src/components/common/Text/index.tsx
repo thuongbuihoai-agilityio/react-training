@@ -5,6 +5,7 @@ export enum SizeType {
   default = '',
   normal = 'normal',
   regular = 'regular',
+  extraRegular = 'extra-regular',
   medium = 'medium',
   extraMedium = 'extra-medium',
   large = 'large'

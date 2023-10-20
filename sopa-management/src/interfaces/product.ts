@@ -7,6 +7,6 @@ export interface Product {
     url: string;
     alt: string;
   };
-  size: string[];
+  size: string;
   description?: string;
 };
