@@ -115,7 +115,6 @@ exports[`ProductList component matches snapshot 1`] = `
     </div>
     <div
       class="product-btn"
-      data-testid="product-btn"
     >
       <button
         class=" btn btn-primary"
