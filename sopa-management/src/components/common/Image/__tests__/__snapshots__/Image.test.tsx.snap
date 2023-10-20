@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Image component matches snapshot 1`] = `
+<div>
+  <a
+    data-testid="image-link"
+    href="/"
+  >
+    <img
+      alt=""
+      class=""
+      src="/images/logos/black-logo.svg"
+    />
+  </a>
+</div>
+`;

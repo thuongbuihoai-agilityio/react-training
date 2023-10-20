@@ -23,6 +23,12 @@ describe('Input component', () => {
     expect(inputValue).toBeInTheDocument();
   });
 
+  test('Should render Input component with label', () => {
+    const { getByTestId } = render(<Input label='Products' />);
+    const inputValue = getByTestId('input-value');
+    expect(inputValue).toBeInTheDocument();
+  });
+
   test('Check value input', async () => {
     render(<Input type='text' placeholder='Enter email...' />);
     const inputElement = screen.getByPlaceholderText(

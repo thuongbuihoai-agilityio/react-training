@@ -1,0 +1,111 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProductList component matches snapshot 1`] = `
+<div>
+  <div
+    class="product-card"
+    data-testid="product-card"
+  >
+    <div
+      class="card"
+      data-testid="card"
+    >
+      <div
+        class="card-item"
+      >
+        <figure
+          class="card-image"
+        >
+          <a
+            data-testid="image-link"
+            href="/"
+          >
+            <img
+              alt="This is black shoes"
+              class="card-image-item"
+              src="/images/products/black-shoes.png"
+            />
+          </a>
+        </figure>
+        <div
+          class="card-info"
+        >
+          <a
+            class="card-name"
+            href="/"
+          >
+            Black shoes
+          </a>
+          <div
+            class="card-description"
+          >
+            <p
+              class=" text-highlight-primary"
+              data-testid="text"
+            >
+              Black
+            </p>
+            <p
+              class=" price-primary"
+              data-testid="price"
+            >
+              $
+              87
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="card"
+      data-testid="card"
+    >
+      <div
+        class="card-item"
+      >
+        <figure
+          class="card-image"
+        >
+          <a
+            data-testid="image-link"
+            href="/"
+          >
+            <img
+              alt="This is blue shoes"
+              class="card-image-item"
+              src="/images/products/blue-shoes.png"
+            />
+          </a>
+        </figure>
+        <div
+          class="card-info"
+        >
+          <a
+            class="card-name"
+            href="/"
+          >
+            Blue shoes
+          </a>
+          <div
+            class="card-description"
+          >
+            <p
+              class=" text-highlight-primary"
+              data-testid="text"
+            >
+              Blue
+            </p>
+            <p
+              class=" price-primary"
+              data-testid="price"
+            >
+              $
+              45
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

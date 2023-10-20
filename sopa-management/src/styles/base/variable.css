@@ -33,6 +33,9 @@
   --border-secondary: #3184ff;
   --border-tertiary: #f14e2e;
 
+  /* Background color */
+  --bg-primary: #F2F2F2;
+
   /* Border radius */
   --rounded-tiny: 8px;
   --rounded-primary: 16px;
@@ -46,19 +49,25 @@
   --p-base: 11px;
   --px-base: 13px;
   --px-normal: 20px;
+  --px-medium: 80px;
   --py-normal: 24px;
+  --py-medium: 135px;
 
   /* Width */
   --w-tiny: 20px;
   --w-small: 24px;
   --w-normal: 149px;
   --w-extra-normal: 320px;
+  --w-base: 322px;
   --w-medium: 370px;
   --w-extra-medium: 450px;
   --w-large: 470px;
+  --w-extra-large: 1170px;
 
   /* Height */
   --h-tiny: 20px;
   --h-small: 24px;
   --h-normal: 46px;
+  --h-medium: 398px;
+  --h-large: 502px;
 }

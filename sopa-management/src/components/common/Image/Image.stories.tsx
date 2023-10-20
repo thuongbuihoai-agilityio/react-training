@@ -2,13 +2,13 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { BrowserRouter } from 'react-router-dom';
 
 // Components
-import Logo from '.';
+import Image from '.';
 
 // Constants
 import { IMAGE } from '../../../constants/image';
 
-const meta: Meta<typeof Logo> = {
-  component: Logo,
+const meta: Meta<typeof Image> = {
+  component: Image,
   decorators: [
     (Story) => (
       <BrowserRouter>
@@ -19,19 +19,18 @@ const meta: Meta<typeof Logo> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof Logo>;
+type Story = StoryObj<typeof Image>;
 
 export const WhiteLogo: Story = {
   args: {
     url: IMAGE.whiteLogo,
-    alt: IMAGE.atl,
+    alt: IMAGE.altLogo,
   }
 };
 
 export const BlackLogo: Story = {
   args: {
     url: IMAGE.blackLogo,
-    alt: IMAGE.atl,
+    alt: IMAGE.altLogo,
   }
 };
-

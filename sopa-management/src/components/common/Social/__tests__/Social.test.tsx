@@ -1,30 +1,20 @@
 // Libs
 import '@testing-library/jest-dom';
-import { render } from '@testing-library/react';
-import { createMemoryHistory } from 'history';
-import { Router } from 'react-router-dom';
+
+// Helpers
+import { renderRouterTest } from '../../../../helpers/testUtils';
 
 // Components
 import Social from '..';
 
 describe('Logo component', () => {
   test('should render logo component', () => {
-    const history = createMemoryHistory();
-    const { getByTestId } = render(
-      <Router location={history.location} navigator={history}>
-        <Social />
-      </Router>
-    );
+    const { getByTestId } = renderRouterTest(<Social />);
     expect(getByTestId('social')).toBeInTheDocument();
   });
 
   test('matches snapshot', () => {
-    const history = createMemoryHistory();
-    const { asFragment } = render(
-      <Router location={history.location} navigator={history}>
-        <Social />
-      </Router>
-    );
+    const { asFragment } = renderRouterTest(<Social />);
     expect(asFragment()).toMatchSnapshot();
   });
 });
