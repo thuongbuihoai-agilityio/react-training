@@ -10,18 +10,16 @@ import { Product } from '../../../interfaces/product';
 import './productCard.css';
 
 interface ProductCardProps {
-  href: string;
   data: Product[];
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({
-  href,
   data,
 }) => (
   <div className='product-card' data-testid='product-card'>
     {data.map((product) => (
       <Card
-        href={href}
+        href={`products/${product.id}`}
         src={product.image.url}
         name={product.name}
         color={product.color}
