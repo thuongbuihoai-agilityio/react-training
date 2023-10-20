@@ -23,7 +23,7 @@ const App: React.FC = () => {
 
   return (
     <QueryClientProvider client={queryClient}>
-      // TODO: I will create component Loading later
+      {/* TODO: I will create component Loading later */}
       <Suspense fallback={<p>Loading...</p>}>
         <Routes>
           <Route path='/' element={<ProductList />} />
