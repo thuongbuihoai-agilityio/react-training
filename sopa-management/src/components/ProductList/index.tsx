@@ -1,7 +1,7 @@
 import { memo } from 'react';
 
 // Hooks
-import { useProducts } from '../../hooks/useQuery';
+import { useInfiniteProducts } from '../../hooks/useQuery';
 
 // Components
 import ProductCard from './ProductCard';
@@ -23,7 +23,7 @@ const ProductList: React.FC = () => {
     hasNextPage,
     isLoading,
     isFetchingNextPage
-  } = useProducts();
+  } = useInfiniteProducts();
 
   const isDisable = !hasNextPage || isFetchingNextPage;
 
