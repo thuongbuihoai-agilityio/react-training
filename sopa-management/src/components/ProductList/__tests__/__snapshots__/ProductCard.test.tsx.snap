@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ProductList component matches snapshot 1`] = `
-<DocumentFragment>
+<div>
   <div
     class="product-card"
     data-testid="product-card"
@@ -49,7 +49,8 @@ exports[`ProductList component matches snapshot 1`] = `
               class=" price-primary"
               data-testid="price"
             >
-              $87
+              $
+              87
             </p>
           </div>
         </div>
@@ -98,12 +99,13 @@ exports[`ProductList component matches snapshot 1`] = `
               class=" price-primary"
               data-testid="price"
             >
-              $45
+              $
+              45
             </p>
           </div>
         </div>
       </div>
     </div>
   </div>
-</DocumentFragment>
+</div>
 `;

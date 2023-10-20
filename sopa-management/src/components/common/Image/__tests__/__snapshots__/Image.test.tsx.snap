@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Image component matches snapshot 1`] = `
-<DocumentFragment>
+<div>
   <a
     data-testid="image-link"
     href="/"
@@ -12,5 +12,5 @@ exports[`Image component matches snapshot 1`] = `
       src="/images/logos/black-logo.svg"
     />
   </a>
-</DocumentFragment>
+</div>
 `;

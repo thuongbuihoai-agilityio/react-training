@@ -30,7 +30,7 @@ describe('Card component', () => {
   });
 
   test('matches snapshot', () => {
-    const { asFragment } = renderRouterTest(
+    const { container } = renderRouterTest(
       <Card
         href='/'
         src={MOCK_PRODUCT.image?.url}
@@ -39,6 +39,6 @@ describe('Card component', () => {
         price={MOCK_PRODUCT.price}
       />
     );
-    expect(asFragment()).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

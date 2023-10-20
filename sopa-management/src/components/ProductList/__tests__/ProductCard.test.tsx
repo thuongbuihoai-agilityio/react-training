@@ -17,7 +17,7 @@ describe('ProductList component', () => {
   });
 
   test('matches snapshot', () => {
-    const { asFragment } = renderRouterTest(<ProductCard href='/' data={MOCK_PRODUCTS} />);
-    expect(asFragment()).toMatchSnapshot();
+    const { container } = renderRouterTest(<ProductCard href='/' data={MOCK_PRODUCTS} />);
+    expect(container).toMatchSnapshot();
   });
 });

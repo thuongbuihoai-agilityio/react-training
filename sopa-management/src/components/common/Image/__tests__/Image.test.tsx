@@ -33,9 +33,9 @@ describe('Image component', () => {
   });
 
   test('matches snapshot', () => {
-    const { asFragment } = renderRouterTest(
+    const { container } = renderRouterTest(
       <Image url={IMAGE.blackLogo} href='/' />
     );
-    expect(asFragment()).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });
