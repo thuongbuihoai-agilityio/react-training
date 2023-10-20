@@ -3,7 +3,7 @@ import React, { memo } from 'react';
 // Styles
 import './dropdown.css';
 
-type SizeType = {
+export type SizeType = {
   key?: string;
   label?: string;
 };
@@ -19,7 +19,7 @@ const Dropdown: React.FC<DropdownProps> = ({ data = [] }) => (
         <option key={item.key} value={item.label} className='option'>
           {item.label}
         </option>
-      ))}s
+      ))}
     </select>
   </div>
 );

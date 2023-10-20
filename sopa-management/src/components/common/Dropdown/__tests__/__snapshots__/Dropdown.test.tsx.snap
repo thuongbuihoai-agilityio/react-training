@@ -27,7 +27,6 @@ exports[`Dropdown component matches snapshot 1`] = `
       >
         Large
       </option>
-      s
     </select>
   </div>
 </DocumentFragment>
