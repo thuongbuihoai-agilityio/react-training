@@ -5,8 +5,10 @@ import '@testing-library/jest-dom';
 import { MOCK_PRODUCT } from '../../../../__mocks__/product';
 
 // Components
-import { renderRouterTest } from '../../../../helpers/testUtils';
 import Card from '..';
+
+// Helpers
+import { renderRouterTest } from '../../../../helpers/testUtils';
 
 describe('Card component', () => {
   test('should render Card component', () => {

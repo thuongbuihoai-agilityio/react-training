@@ -1,10 +1,13 @@
-import { act, renderHook } from '@testing-library/react';
-import { useProductStore } from '..';
-import { MOCK_PRODUCTS } from '../../../__mocks__/product';
+import {
+  act,
+  renderHook
+} from '@testing-library/react';
 
 // Mocks
+import { MOCK_PRODUCTS } from '../../../__mocks__/product';
 
 // Hooks
+import { useProductStore } from '..';
 
 describe('Test useProductStore', () => {
   it('Initial value of useProductStore', () => {

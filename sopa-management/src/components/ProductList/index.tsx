@@ -5,7 +5,10 @@ import { useInfiniteProducts } from '../../hooks/useQuery';
 
 // Components
 import ProductCard from './ProductCard';
-import Button, { ButtonType } from '../common/Button';
+import Button,
+{
+  ButtonType
+} from '../common/Button';
 
 // Styles
 import './productList.css';

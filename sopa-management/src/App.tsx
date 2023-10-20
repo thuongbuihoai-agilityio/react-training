@@ -1,8 +1,15 @@
-import { QueryClient, QueryClientProvider } from 'react-query';
+import {
+  QueryClient,
+  QueryClientProvider
+} from 'react-query';
+
+// Components
 import ProductList from './components/ProductList';
+
+// Styles
 import './styles/main.css';
 
-const App = () => {
+const App: React.FC = () => {
   const queryClient = new QueryClient();
   return (
     <QueryClientProvider client={queryClient}>

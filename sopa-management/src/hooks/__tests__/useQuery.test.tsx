@@ -1,5 +1,11 @@
-import { renderHook, waitFor } from '@testing-library/react';
-import { QueryClient, QueryClientProvider } from 'react-query';
+import {
+  renderHook,
+  waitFor
+} from '@testing-library/react';
+import {
+  QueryClient,
+  QueryClientProvider
+} from 'react-query';
 
 // Mocks
 import mockAxios from '../../__mocks__/axios';
