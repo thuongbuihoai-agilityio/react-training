@@ -1,52 +1,106 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ProductCard component matches snapshot 1`] = `
+exports[`ProductList component matches snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="card"
+    class="product-card"
     data-testid="product-card"
   >
     <div
-      class="card-item"
+      class="card"
+      data-testid="card"
     >
-      <figure
-        class="card-image"
-      >
-        <a
-          data-testid="logo"
-          href="/"
-        >
-          <img
-            alt=""
-            class="card-image-item"
-            src="/images/products/black-shoes.png"
-          />
-        </a>
-      </figure>
       <div
-        class="card-info"
+        class="card-item"
       >
-        <a
-          class="card-name"
-          href="/"
+        <figure
+          class="card-image"
         >
-          Black shoes
-        </a>
+          <a
+            data-testid="image-link"
+            href="/"
+          >
+            <img
+              alt="This is black shoes"
+              class="card-image-item"
+              src="/images/products/black-shoes.png"
+            />
+          </a>
+        </figure>
         <div
-          class="card-description"
+          class="card-info"
         >
-          <p
-            class=" text-highlight-primary"
-            data-testid="text"
+          <a
+            class="card-name"
+            href="/"
           >
-            Black
-          </p>
-          <p
-            class=" price-primary"
-            data-testid="price"
+            Black shoes
+          </a>
+          <div
+            class="card-description"
           >
-            $87
-          </p>
+            <p
+              class=" text-highlight-primary"
+              data-testid="text"
+            >
+              Black
+            </p>
+            <p
+              class=" price-primary"
+              data-testid="price"
+            >
+              $87
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="card"
+      data-testid="card"
+    >
+      <div
+        class="card-item"
+      >
+        <figure
+          class="card-image"
+        >
+          <a
+            data-testid="image-link"
+            href="/"
+          >
+            <img
+              alt="This is blue shoes"
+              class="card-image-item"
+              src="/images/products/blue-shoes.png"
+            />
+          </a>
+        </figure>
+        <div
+          class="card-info"
+        >
+          <a
+            class="card-name"
+            href="/"
+          >
+            Blue shoes
+          </a>
+          <div
+            class="card-description"
+          >
+            <p
+              class=" text-highlight-primary"
+              data-testid="text"
+            >
+              Blue
+            </p>
+            <p
+              class=" price-primary"
+              data-testid="price"
+            >
+              $45
+            </p>
+          </div>
         </div>
       </div>
     </div>
