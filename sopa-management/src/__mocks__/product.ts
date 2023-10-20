@@ -1,4 +1,6 @@
-const MOCK_PRODUCTS = [
+import { Product } from "../interfaces/product";
+
+const MOCK_PRODUCTS: Product[] = [
   {
     name: 'Black shoes',
     price: 87,
@@ -27,7 +29,7 @@ const MOCK_PRODUCTS = [
   }
 ];
 
-const MOCK_PRODUCT = {
+const MOCK_PRODUCT: Product = {
   name: 'Black shoes',
   price: 87,
   size: ['Small', 'Medium', 'Large'],
