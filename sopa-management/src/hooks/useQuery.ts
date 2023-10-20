@@ -9,7 +9,7 @@ import { LIMIT_PRODUCTS } from '../constants/common';
 /**
  * @description custom hook to get product with show more
  */
-export const useProducts = () =>
+export const useInfiniteProducts = () =>
   useInfiniteQuery<Product[], AxiosError>({
     queryKey: [QUERY_KEYS.PRODUCTS],
     queryFn: ({ pageParam = 1 }) => getData(PRODUCT_URL, pageParam),
