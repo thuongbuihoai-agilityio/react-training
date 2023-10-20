@@ -5,27 +5,14 @@ import { useInfiniteProducts } from '../../hooks/useQuery';
 
 // Components
 import ProductCard from './ProductCard';
-import Button,
-{
-  ButtonType
-} from '../common/Button';
-
-// Constants
-import { Product } from '../../interfaces/product';
+import Button, { ButtonType } from '../common/Button';
 
 // Styles
 import './productList.css';
 
 const ProductList: React.FC = () => {
-  const {
-    data,
-    fetchNextPage,
-    hasNextPage,
-    isLoading,
-    isFetchingNextPage
-  } = useInfiniteProducts();
-
-  const isDisable = !hasNextPage || isFetchingNextPage;
+  const { data, fetchNextPage, hasNextPage, isLoading, isFetchingNextPage } =
+    useInfiniteProducts();
 
   return (
     <div data-testId='product' className='product'>
@@ -35,35 +22,22 @@ const ProductList: React.FC = () => {
       ) : (
         <>
           <div data-testId='product-list' className='product-list'>
-            {data?.pages?.map((page) => (
-              <>
-                {page.map((product: Product) => (
-                  <div key={product.id}>
-                    <ProductCard
-                      href={'/'}
-                      src={product.image?.url}
-                      name={product.name}
-                      color={product.color}
-                      price={product.price}
-                    />
-                  </div>
-                ))}
-              </>
-            ))}
+            {data?.pages?.map((page) =>
+                <ProductCard
+                  href={'/'}
+                  data={page}
+                />
+            )}
           </div>
           <div className='product-btn'>
-            <Button
-              children={
-                isFetchingNextPage
-                  ? 'Loading more...'
-                  : hasNextPage
-                  ? 'Show More'
-                  : 'No more products'
-              }
-              type={ButtonType.primary}
-              onClick={() => fetchNextPage()}
-              disable={isDisable}
-            />
+            {hasNextPage && (
+              <Button
+                children={isFetchingNextPage ? 'Loading more...' : 'Show More'}
+                type={ButtonType.primary}
+                onClick={() => fetchNextPage()}
+                disable={isFetchingNextPage}
+              />
+            )}
           </div>
         </>
       )}

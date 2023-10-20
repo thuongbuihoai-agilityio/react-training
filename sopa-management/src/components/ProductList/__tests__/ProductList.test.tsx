@@ -1,15 +1,6 @@
 // Libs
 import '@testing-library/jest-dom';
-import {
-  render,
-  waitFor,
-  screen
-} from '@testing-library/react';
-import {
-  QueryClient,
-  QueryClientProvider
-} from 'react-query';
-import { BrowserRouter } from 'react-router-dom';
+import { waitFor, screen } from '@testing-library/react';
 
 // Components
 import ProductList from '..';
@@ -18,27 +9,20 @@ import ProductList from '..';
 import { MOCK_PRODUCTS } from '../../../__mocks__/product';
 import mockAxios from '../../../__mocks__/axios';
 
-const queryClient = new QueryClient();
+// Helpers
+import { renderWithRouterAndQuery } from '../../../helpers/testUtils';
+
 mockAxios.get.mockResolvedValue({ data: MOCK_PRODUCTS });
 
 describe('ProductList component', () => {
   test('should render ProductList component', () => {
-    const { getByTestId } = render(
-      <QueryClientProvider client={queryClient}>
-        <ProductList />
-      </QueryClientProvider>
-    );
+    const { getByTestId } = renderWithRouterAndQuery(<ProductList />);
     expect(getByTestId('product')).toBeInTheDocument();
   });
 
   test('renders loading state initially', async () => {
-    const { getByTestId } = render(
-      <QueryClientProvider client={queryClient}>
-        <BrowserRouter>
-          <ProductList />
-        </BrowserRouter>
-      </QueryClientProvider>
-    );
+    const { getByTestId } = renderWithRouterAndQuery(<ProductList />);
+
     expect(getByTestId('product')).toBeInTheDocument();
     await waitFor(() => screen.getByTestId('product-list'));
     expect(screen.queryByText('Loading...')).not.toBeInTheDocument();
@@ -46,13 +30,7 @@ describe('ProductList component', () => {
   });
 
   test('matches snapshot', () => {
-    const { asFragment } = render(
-      <QueryClientProvider client={queryClient}>
-        <BrowserRouter>
-          <ProductList />
-        </BrowserRouter>
-      </QueryClientProvider>
-    );
-    expect(asFragment()).toMatchSnapshot();
+    const { container } = renderWithRouterAndQuery(<ProductList />);
+    expect(container).toMatchSnapshot();
   });
 });
