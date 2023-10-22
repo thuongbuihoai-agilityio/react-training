@@ -13,6 +13,7 @@ import {
 
 // Styles
 import './styles/main.css';
+import Modal from './components/common/Modal';
 
 // Components
 const ProductList = lazy(() => import('./components/ProductList'));
@@ -24,6 +25,7 @@ const App: React.FC = () => {
   return (
     <QueryClientProvider client={queryClient}>
       {/* TODO: I will create component Loading later */}
+        <Modal />
       <Suspense fallback={<p>Loading...</p>}>
         <Routes>
           <Route path='/' element={<ProductList />} />

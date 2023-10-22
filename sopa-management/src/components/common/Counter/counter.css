@@ -1,4 +1,5 @@
 .counter {
+  position: relative;
   border-radius: var(--rounded-secondary);
   border: 1px solid var(--border-primary);
   height: var(--h-normal);
@@ -6,17 +7,16 @@
 }
 
 .counter-minus {
-  width: 40%;
-  display: block;
   height: 44px;
-  float: left;
-  position: relative;
+  position: absolute;
+  z-index: 2;
+  left: 20px;
 }
 
 .counter-plus {
   position: absolute;
-  top: 38px;
-  left: 130px;
+  top: 22px;
+  left: 121px;
 }
 
 .counter-minus:before,
@@ -38,11 +38,13 @@
 }
 
 .counter-input {
-  width: 20%;
+  position: absolute;
   font-size: var(--text-base);
   font-weight: var(--font-semi-bold);
-  height: 42px;
   border: none;
+  width: 50px;
+  left: 34%;
+  top: 10px;
   text-align: center;
 }
 

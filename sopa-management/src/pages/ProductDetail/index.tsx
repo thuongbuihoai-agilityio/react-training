@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { memo, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 // Components
@@ -21,12 +21,38 @@ import { SIZE } from '../../constants/common';
 
 // Styles
 import './productDetail.css';
+import { Product } from '../../interfaces/product';
+import { getStorage, setStorage } from '../../helpers/storage';
 
 const ProductDetail = () => {
   // use useParams to get id
   const { id } = useParams();
   const { data: product } = useFetchProductDetail(id);
   const { name, image, color, price, description } = product;
+
+  const initialCart = getStorage('cart') || [];
+  console.log('initialCart', initialCart);
+  
+  const [cart, setCart] = useState(initialCart);
+
+  const handleAddToCart = () => {
+    const existingProduct = cart?.find((item: Product) => item.id === product.id);
+    if (existingProduct) {
+      const updatedCart = cart?.map((item: Product) => {
+        if (item.id === existingProduct.id) {
+          return { ...item, quantity: item?.quantity + 1 };
+        }
+        return item;
+      });
+      setCart(updatedCart);
+      setStorage('cart', updatedCart)
+    } else {
+      const newProduct = { ...product, quantity: 1 };
+      const newCart = [...cart, newProduct];
+      setCart(newCart);
+      setStorage('cart', newCart)
+    }
+  }
 
   return (
     <div data-testid='detail' className='detail'>
@@ -61,6 +87,7 @@ const ProductDetail = () => {
           children={`Add to bag $${price}`}
           type={ButtonType.secondary}
           className='detail-btn'
+          onClick={handleAddToCart}
         />
         <Text type={SizeType.extraRegular} text={description} />
       </div>

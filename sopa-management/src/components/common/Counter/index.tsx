@@ -3,28 +3,33 @@ import { memo } from 'react';
 // Components
 import Button, { ButtonType } from '../Button';
 
-// Stores
-import { useCounterStore } from '../../../stores/counter';
-
 // Styles
 import './counter.css';
 import Input from '../Input';
 
-const Counter: React.FC = () => {
-  const { count, increment, decrement } = useCounterStore();
+interface CounterProps {
+  value?: number;
+  onIncrement?: () => void;
+  onDecrement?: () => void;
+}
 
+const Counter: React.FC<CounterProps> = ({
+  value,
+  onIncrement = () => {},
+  onDecrement = () => {}
+}) => {
   return (
     <div data-testId='counter' className='counter'>
       <Button
         type={ButtonType.btnIconPrimary}
         className='counter-minus'
-        onClick={decrement}
+        onClick={onDecrement}
       />
-      <Input type='number' classNameInput='counter-input' value={count} />
+      <Input type='number' classNameInput='counter-input' value={value} />
       <Button
         type={ButtonType.btnIconPrimary}
         className='counter-plus'
-        onClick={increment}
+        onClick={onIncrement}
       />
     </div>
   );

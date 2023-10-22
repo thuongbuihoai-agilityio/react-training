@@ -1,3 +1,5 @@
+import { Product } from '../interfaces/product';
+
 // Flattens an array of arrays into a single array
 export const flattenArray = <T>(pages: T[][]): T[] => {
   const result: T[] = [];
@@ -6,4 +8,16 @@ export const flattenArray = <T>(pages: T[][]): T[] => {
   });
 
   return result;
+};
+
+// Calculate the total price
+export const totalPrices = (cartData: []) => {
+  const subTotals = cartData.map((item: Product) => item.quantity * item.price);
+
+  const total = subTotals.reduce(
+    (totalPrice: number, cartItem: number) => totalPrice + cartItem,
+    0
+  );
+
+  return total;
 };
