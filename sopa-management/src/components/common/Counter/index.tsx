@@ -8,15 +8,15 @@ import './counter.css';
 import Input from '../Input';
 
 interface CounterProps {
-  value?: number;
-  onIncrement?: () => void;
-  onDecrement?: () => void;
+  value: number;
+  onIncrement: () => void;
+  onDecrement: () => void;
 }
 
 const Counter: React.FC<CounterProps> = ({
   value,
-  onIncrement = () => {},
-  onDecrement = () => {}
+  onIncrement,
+  onDecrement
 }) => {
   return (
     <div data-testId='counter' className='counter'>

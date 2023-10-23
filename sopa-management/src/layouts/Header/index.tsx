@@ -18,7 +18,7 @@ import Text,
 {
   SizeType
 } from '../../components/common/Text';
-import Modal from '../../components/common/Modal';
+import CartModal from '../../components/common/CartModal';
 
 // Constants
 import { IMAGE } from '../../constants/image';
@@ -65,7 +65,7 @@ const Header = () => {
           />
         </div>
       </div>
-      {toggleModal && <Modal onToggleModal={handleToggleModal} />}
+      {toggleModal && <CartModal onToggleModal={handleToggleModal} />}
     </>
   );
 };
