@@ -36,6 +36,7 @@
 
   /* Background color */
   --bg-primary: #F2F2F2;
+  --bg-secondary: rgba(2, 2, 29, .4);
 
   /* Border radius */
   --rounded-tiny: 8px;
@@ -53,17 +54,20 @@
   --px-extra-normal: 40px;
   --px-medium: 80px;
   --py-normal: 24px;
+  --py-extra-normal: 35px;
   --py-medium: 135px;
 
   /* Width */
   --w-tiny: 20px;
   --w-small: 24px;
+  --w-extra-small: 130px;
   --w-normal: 149px;
   --w-extra-normal: 320px;
   --w-base: 322px;
   --w-medium: 370px;
   --w-extra-medium: 450px;
   --w-large: 470px;
+  --w-xs-large: 605px;
   --w-x-large: 770px;
   --w-extra-large: 1170px;
 
@@ -71,6 +75,7 @@
   --h-tiny: 20px;
   --h-small: 24px;
   --h-normal: 46px;
+  --h-extra-normal: 130px;
   --h-medium: 398px;
   --h-large: 502px;
   --h-extra-large: 588px;
