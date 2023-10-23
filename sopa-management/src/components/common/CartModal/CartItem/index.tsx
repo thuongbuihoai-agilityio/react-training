@@ -22,6 +22,9 @@ import Text,
 import Counter from '../../Counter';
 import Image from '../../Image';
 
+// Stores
+import { useCartStore } from '../../../../stores/cart';
+
 interface CartItemProps {
   key?: string;
   cartItem: Product;
@@ -29,12 +32,14 @@ interface CartItemProps {
 const CartItem: React.FC<CartItemProps> = ({
   cartItem,
 }) => {
+  const { increaseQuantity, decreaseQuantity } = useCartStore();
+
   const handleIncrement = () => {
-    // TODO: I will handle in feature/update-cart
+    increaseQuantity(cartItem.id)
   };
 
   const handleDecrement = () => {
-    // TODO: I will handle in feature/update-cart
+    decreaseQuantity(cartItem.id)
   };
 
   return (
