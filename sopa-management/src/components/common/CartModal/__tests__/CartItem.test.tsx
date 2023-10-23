@@ -3,29 +3,33 @@ import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
 
 // Components
-import Counter from '..';
+import CartItem from '../CartItem';
 
-describe('Counter component', () => {
-  const onIncrement= jest.fn();
+// Mocks
+import { MOCK_PRODUCT } from '../../../../__mocks__/product';
+
+describe('CartItem component', () => {
+  const onIncrement = jest.fn();
   const onDecrement = jest.fn();
-  test('should render Counter component', () => {
+  test('should render CartItem component', () => {
     const { getByTestId } = render(
-      <Counter
-        value={2}
+      <CartItem
+        cartItem={MOCK_PRODUCT}
         onIncrement={onIncrement}
         onDecrement={onDecrement}
       />
     );
-    expect(getByTestId('counter')).toBeInTheDocument();
+    expect(getByTestId('cart-item')).toBeInTheDocument();
   });
 
   test('matches snapshot', () => {
     const { asFragment } = render(
-      <Counter
-        value={2}
+      <CartItem
+        cartItem={MOCK_PRODUCT}
         onIncrement={onIncrement}
         onDecrement={onDecrement}
-      />);
+      />
+    );
     expect(asFragment()).toMatchSnapshot();
   });
 });
