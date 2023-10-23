@@ -35,7 +35,7 @@ const Modal: React.FC = () => {
           <div className="cart-item">
             <div className="cart-info">
               <figure className="cart-image">
-                <Image className="cart-image-item" url={item.image.url} />
+                <Image className="cart-image-item" url={item?.image?.url} />
               </figure>
               <div className="cart-description">
                 <Text text={item.name} className="cart-text" />
