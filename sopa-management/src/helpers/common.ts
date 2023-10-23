@@ -11,8 +11,8 @@ export const flattenArray = <T>(pages: T[][]): T[] => {
 };
 
 // Calculate the total price
-export const totalPrices = (cartData: []) => {
-  const subTotals = cartData.map((item: Product) => item.quantity * item.price);
+export const totalPrices = (carts: Product[]) => {
+  const subTotals = carts.map((item: Product) => item.quantity * item.price);
 
   const total = subTotals.reduce(
     (totalPrice: number, cartItem: number) => totalPrice + cartItem,
