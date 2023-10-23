@@ -25,17 +25,20 @@ import Image from '../../Image';
 interface CartItemProps {
   key?: string;
   cartItem: Product;
-  onDecrement: () => void;
-  onIncrement: () => void;
 }
 const CartItem: React.FC<CartItemProps> = ({
-  key = '',
   cartItem,
-  onDecrement,
-  onIncrement
 }) => {
+  const handleIncrement = () => {
+    // TODO: I will handle in feature/update-cart
+  };
+
+  const handleDecrement = () => {
+    // TODO: I will handle in feature/update-cart
+  };
+
   return (
-    <div key={key} data-testid='cart-item' className='cart-item'>
+    <div data-testid='cart-item' className='cart-item'>
       <div className='cart-info'>
         <figure className='cart-image'>
           <Image className='cart-image-item' url={cartItem?.image?.url} />
@@ -55,8 +58,8 @@ const CartItem: React.FC<CartItemProps> = ({
           <div className='card-quantity'>
             <Counter
               value={cartItem?.quantity}
-              onDecrement={onDecrement}
-              onIncrement={onIncrement}
+              onDecrement={handleDecrement}
+              onIncrement={handleIncrement}
             />
             <Button
               children={<Trash />}

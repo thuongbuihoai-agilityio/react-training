@@ -10,9 +10,8 @@ import { MOCK_PRODUCT } from '../../../../__mocks__/product';
 
 describe('CartItem component', () => {
   const props = {
+    key: '1',
     cartItem: MOCK_PRODUCT,
-    onIncrement: jest.fn(),
-    onDecrement: jest.fn()
   };
   test('should render CartItem component', () => {
     const { getByTestId } = render(<CartItem {...props} />);

@@ -35,14 +35,6 @@ const CartModal: React.FC<CartModalProps> = ({
 }) => {
   const { carts } = useCartStore();
 
-  const handleIncrement = () => {
-    // TODO: I will handle in feature/update-cart
-  };
-
-  const handleDecrement = () => {
-    // TODO: I will handle in feature/update-cart
-  };
-
   return (
     <div data-testid='cart-modal' className='overlay'>
       <div className='cart'>
@@ -59,8 +51,6 @@ const CartModal: React.FC<CartModalProps> = ({
             <CartItem
               key={cartItem.id}
               cartItem={cartItem}
-              onDecrement={handleDecrement}
-              onIncrement={handleIncrement}
             />
           ))}
         </div>
