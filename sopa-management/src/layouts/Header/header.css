@@ -1,0 +1,16 @@
+.header {
+  width: var(--w-extra-large);
+  margin: 20px auto 0;
+}
+
+.header,
+.header-menu,
+.header-support {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-user {
+  margin: 0 24px;
+}
