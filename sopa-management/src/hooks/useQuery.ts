@@ -1,12 +1,14 @@
-import { useInfiniteQuery } from 'react-query';
-
-// Mocks axios
+import { useInfiniteQuery, useQuery } from 'react-query';
 import { AxiosError } from 'axios';
+
 
 // Constants
 import { QUERY_KEYS } from '../constants/keyQuery';
 import { PRODUCT_URL } from '../constants/url';
-import { LIMIT_PRODUCTS } from '../constants/common';
+import {
+  INITIAL_PRODUCT,
+  LIMIT_PRODUCTS
+} from '../constants/common';
 
 // Interfaces
 import { Product } from '../interfaces/product';
@@ -19,6 +21,23 @@ import { useProductStore } from '../stores/product';
 
 // Helpers
 import { flattenArray } from '../helpers/common';
+
+/**
+ * @description Fetch product by id
+ * @param { string } id
+ * @returns
+ */
+export const useFetchProductDetail = (id?: string) => {
+  const { data, ...rest } = useQuery<Product, AxiosError>({
+    queryKey: [QUERY_KEYS.PRODUCTS + id],
+    queryFn: async () => await getData(`${PRODUCT_URL}/${id}`),
+  });
+
+  return {
+    data: data || INITIAL_PRODUCT,
+    ...rest
+  };
+};
 
 /**
  * @description custom hook to get product with show more
@@ -38,6 +57,6 @@ export const useInfiniteProducts = () => {
     onSuccess: ({ pages }) => {
       const result = flattenArray(pages);
       setProducts(result);
-    },
+    }
   });
 };

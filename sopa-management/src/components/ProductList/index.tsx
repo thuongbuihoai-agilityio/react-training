@@ -27,7 +27,6 @@ const ProductList: React.FC = () => {
           <div data-testId='product-list' className='product-list'>
             {data?.pages?.map((page) =>
                 <ProductCard
-                  href={'/'}
                   data={page}
                 />
             )}

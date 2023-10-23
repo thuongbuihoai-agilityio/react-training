@@ -17,6 +17,7 @@
   color: var(--light);
   padding: var(--px-normal) 0;
   width: var(--w-medium);
+  border: none;
 }
 
 .btn-tertiary {

@@ -18,7 +18,7 @@ exports[`ProductList component matches snapshot 1`] = `
         >
           <a
             data-testid="image-link"
-            href="/"
+            href="/products/1"
           >
             <img
               alt="This is black shoes"
@@ -32,7 +32,7 @@ exports[`ProductList component matches snapshot 1`] = `
         >
           <a
             class="card-name"
-            href="/"
+            href="/products/1"
           >
             Black shoes
           </a>
@@ -68,7 +68,7 @@ exports[`ProductList component matches snapshot 1`] = `
         >
           <a
             data-testid="image-link"
-            href="/"
+            href="/products/2"
           >
             <img
               alt="This is blue shoes"
@@ -82,7 +82,7 @@ exports[`ProductList component matches snapshot 1`] = `
         >
           <a
             class="card-name"
-            href="/"
+            href="/products/2"
           >
             Blue shoes
           </a>

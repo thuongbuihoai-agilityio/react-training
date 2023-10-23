@@ -1,4 +1,5 @@
 import { MenuType } from "../components/common/Menu";
+import { Product } from "../interfaces/product";
 
 const SIZE = [
   {
@@ -128,6 +129,18 @@ const MENU_EVERYTHING_ELSE: MenuType[] = [
 
 const LIMIT_PRODUCTS = 6;
 
+const INITIAL_PRODUCT: Product = {
+  id: "",
+  name: "",
+  price: 0,
+  color: "",
+  image: {
+    url: "",
+    alt: ""
+  },
+  size: ""
+}
+
 export {
   SIZE,
   USER,
@@ -136,4 +149,5 @@ export {
   MENU_SUPPORT,
   MENU_EVERYTHING_ELSE,
   LIMIT_PRODUCTS,
+  INITIAL_PRODUCT,
 };

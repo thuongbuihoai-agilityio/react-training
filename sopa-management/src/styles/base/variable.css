@@ -11,6 +11,7 @@
   /* Font size */
   --text-sm: 14px;
   --text-extra-sm: 16px;
+  --text-regular: 18px;
   --text-base: 20px;
   --text-extra-base: 24px;
   --text-medium: 40px;
@@ -49,6 +50,7 @@
   --p-base: 11px;
   --px-base: 13px;
   --px-normal: 20px;
+  --px-extra-normal: 40px;
   --px-medium: 80px;
   --py-normal: 24px;
   --py-medium: 135px;
@@ -62,6 +64,7 @@
   --w-medium: 370px;
   --w-extra-medium: 450px;
   --w-large: 470px;
+  --w-x-large: 770px;
   --w-extra-large: 1170px;
 
   /* Height */
@@ -70,4 +73,5 @@
   --h-normal: 46px;
   --h-medium: 398px;
   --h-large: 502px;
+  --h-extra-large: 588px;
 }

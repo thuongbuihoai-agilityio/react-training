@@ -12,12 +12,16 @@ import { MOCK_PRODUCTS } from '../../../__mocks__/product';
 
 describe('ProductList component', () => {
   test('should render ProductList component', () => {
-    const { getByTestId } = renderRouterTest(<ProductCard href='/' data={MOCK_PRODUCTS} />);
+    const { getByTestId } = renderRouterTest(
+      <ProductCard data={MOCK_PRODUCTS} />
+    );
     expect(getByTestId('product-card')).toBeInTheDocument();
   });
 
   test('matches snapshot', () => {
-    const { container } = renderRouterTest(<ProductCard href='/' data={MOCK_PRODUCTS} />);
+    const { container } = renderRouterTest(
+      <ProductCard data={MOCK_PRODUCTS} />
+    );
     expect(container).toMatchSnapshot();
   });
 });

@@ -4,7 +4,7 @@ const MOCK_PRODUCTS: Product[] = [
   {
     name: 'Black shoes',
     price: 87,
-    size: ['Small', 'Medium', 'Large'],
+    size: 'Small',
     description:
       'Our goal in designing the super-soft Atoms Crew Socks was to provide a seamless match with your Atoms shoes, enhancing your comfort for everyday wear - making them the perfect socks for your everyday shoes.',
     color: 'Black',
@@ -17,7 +17,7 @@ const MOCK_PRODUCTS: Product[] = [
   {
     name: 'Blue shoes',
     price: 45,
-    size: ['Small', 'Medium', 'Large'],
+    size: 'Medium',
     description:
       'Our goal in designing the super-soft Atoms Crew Socks was to provide a seamless match with your Atoms shoes, enhancing your comfort for everyday wear - making them the perfect socks for your everyday shoes.',
     color: 'Blue',
@@ -32,7 +32,7 @@ const MOCK_PRODUCTS: Product[] = [
 const MOCK_PRODUCT: Product = {
   name: 'Black shoes',
   price: 87,
-  size: ['Small', 'Medium', 'Large'],
+  size: 'Large',
   description:
     'Our goal in designing the super-soft Atoms Crew Socks was to provide a seamless match with your Atoms shoes, enhancing your comfort for everyday wear - making them the perfect socks for your everyday shoes.',
   color: 'Black',

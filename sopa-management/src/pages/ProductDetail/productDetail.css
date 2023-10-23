@@ -1,0 +1,42 @@
+.detail {
+  display: flex;
+  padding: var(--px-extra-normal) var(--py-medium);
+  margin: 0 auto;
+  width: var(--w-extra-large);
+}
+
+.detail-image {
+  width: var(--w-x-large);
+  height: var(--h-extra-large);
+}
+
+.detail-info {
+  margin-left: 30px;
+}
+
+.detail-name {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.detail-size {
+  margin: 30px 0;
+}
+
+.detail-text-size {
+  margin-bottom: 12px;
+}
+
+.detail-rating {
+  display: flex;
+  align-items: center;
+  width: 192px;
+  justify-content: space-between;
+  margin-top: 8px;
+}
+
+.detail-btn {
+  margin-bottom: 24px;
+}
