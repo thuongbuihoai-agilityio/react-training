@@ -57,6 +57,7 @@ const CartModal: React.FC<CartModalProps> = ({
         <div className='card-body'>
           {carts?.map((cartItem: Product) => (
             <CartItem
+              key={cartItem.id}
               cartItem={cartItem}
               onDecrement={handleDecrement}
               onIncrement={handleIncrement}

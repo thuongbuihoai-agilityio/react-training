@@ -23,17 +23,19 @@ import Counter from '../../Counter';
 import Image from '../../Image';
 
 interface CartItemProps {
+  key?: string;
   cartItem: Product;
   onDecrement: () => void;
   onIncrement: () => void;
 }
 const CartItem: React.FC<CartItemProps> = ({
+  key = '',
   cartItem,
   onDecrement,
   onIncrement
 }) => {
   return (
-    <div data-testid='cart-item' className='cart-item'>
+    <div key={key} data-testid='cart-item' className='cart-item'>
       <div className='cart-info'>
         <figure className='cart-image'>
           <Image className='cart-image-item' url={cartItem?.image?.url} />
