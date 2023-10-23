@@ -1,37 +1,43 @@
 import { create } from 'zustand';
+
+// Interfaces
 import { Product } from '../../interfaces/product';
-import { getStorage, setStorage } from '../../helpers/storage';
+
+// Helpers
+import {
+  getStorage,
+  setStorage
+} from '../../helpers/storage';
+
+// Constants
+import { STORAGE_KEY } from '../../constants/common';
 
 type CartType = {
-  cart: Product[];
-  deleteCart: (id: string) => void;
+  carts: Product[];
   addToCart: (product: Product) => void;
 };
 
 export const useCartStore = create<CartType>()((set) => ({
-  cart: getStorage('cart') || [],
-  deleteCart: (productId: string) => {
-    // Filter out the cart with the specified ID
-    set((state) => ({
-      cart: state.cart.filter((cart) => cart.id !== productId)
-    }));
-  },
+  carts: getStorage(STORAGE_KEY.CART_KEY) || [],
   addToCart: (product: Product) => {
-    console.log('product');
-    const currentCart = getStorage('cart') || [];
-    const existingProduct = currentCart.find((item: Product) => item.id === product.id);
+    const currentCart = getStorage(STORAGE_KEY.CART_KEY) || [];
+    const existingProduct = currentCart.find(
+      (item: Product) => item.id === product.id
+    );
 
     if (existingProduct) {
-      const updatedCart = currentCart.map((item: Product) =>
+      const updatedCart = currentCart?.map((item: Product) =>
         item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
       );
-      setStorage('cart', updatedCart);
-      set({ cart: updatedCart });
+      setStorage(STORAGE_KEY.CART_KEY, updatedCart);
+      set({ carts: updatedCart });
     } else {
-      const updatedCart = [...currentCart, { ...product, quantity: 1 }];
-      console.log('updatedCart', updatedCart);
-      setStorage('cart', updatedCart);
-      set({ cart: updatedCart });
+      const updatedCart = [
+        ...currentCart,
+        { ...product, quantity: 1 }
+      ] as Product[];
+      setStorage(STORAGE_KEY.CART_KEY, updatedCart);
+      set({ carts: updatedCart });
     }
-  },
+  }
 }));
