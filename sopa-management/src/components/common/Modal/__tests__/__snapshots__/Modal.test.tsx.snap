@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Modal component Matches snapshot 1`] = `
+<div>
+  <div
+    class="overlay"
+    data-testid="modal"
+  >
+    <div
+      class="cart"
+    >
+      <div
+        class="cart-header"
+      >
+        <p
+          class="cart-text text-"
+          data-testid="text"
+        >
+          Cart
+        </p>
+        <button
+          class=" btn btn-icon-primary"
+          data-testid="button"
+        >
+          <svg
+            fill="none"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M18 6L6 18"
+              stroke="#02021D"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+            />
+            <path
+              d="M6 6L18 18"
+              stroke="#02021D"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+            />
+          </svg>
+        </button>
+      </div>
+      <div
+        class="card-body"
+      />
+      <hr />
+      <div
+        class="cart-footer"
+      >
+        <p
+          class="cart-text text-"
+          data-testid="text"
+        >
+          Subtotal
+        </p>
+        <p
+          class=" price-tertiary"
+          data-testid="price"
+        >
+          $
+          0
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;

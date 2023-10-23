@@ -7,7 +7,13 @@ import Counter from '..';
 
 describe('Counter component', () => {
   test('should render Counter component', () => {
-    const { getByTestId } = render(<Counter />);
+    const { getByTestId } = render(
+      <Counter
+        value={2}
+        onIncrement={() => {}}
+        onDecrement={() => {}}
+      />
+    );
     expect(getByTestId('counter')).toBeInTheDocument();
   });
 

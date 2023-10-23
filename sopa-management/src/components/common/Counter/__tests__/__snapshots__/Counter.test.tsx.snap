@@ -17,7 +17,7 @@ exports[`Counter component matches snapshot 1`] = `
       <input
         class="counter-input input-number"
         placeholder=""
-        value="0"
+        value=""
       />
     </div>
     <button
