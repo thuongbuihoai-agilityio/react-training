@@ -31,6 +31,7 @@ const config: Config.InitialOptions = {
   collectCoverageFrom: [
     '**/*.{ts,tsx}',
     '!**/*.d.ts',
+    '!**/*main.tsx',
     '!**/*.stories.tsx',
     '!**/node_modules/**',
     '!<rootDir>/dist/**',
