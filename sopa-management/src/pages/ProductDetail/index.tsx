@@ -1,8 +1,14 @@
-import { memo } from 'react';
+import {
+  memo,
+  useCallback
+} from 'react';
 import { useParams } from 'react-router-dom';
 
 // Components
-import Text, { SizeType } from '../../components/common/Text';
+import Text,
+{
+  SizeType
+} from '../../components/common/Text';
 import Price from '../../components/common/Price';
 import Dropdown from '../../components/common/Dropdown';
 import Button,
@@ -19,6 +25,9 @@ import { useFetchProductDetail } from '../../hooks/useQuery';
 // Constants
 import { SIZE } from '../../constants/common';
 
+// Stores
+import { useCartStore } from '../../stores/cart';
+
 // Styles
 import './productDetail.css';
 
@@ -26,7 +35,19 @@ const ProductDetail = () => {
   // use useParams to get id
   const { id } = useParams();
   const { data: product } = useFetchProductDetail(id);
-  const { name, image, color, price, description } = product;
+  const {
+    name,
+    image,
+    color,
+    price,
+    description
+  } = product;
+
+  const addToCart = useCartStore((state) => state.addToCart);
+
+  const handleAddToCart = useCallback(() => {
+    addToCart(product)
+  }, [name]);
 
   return (
     <div data-testid='detail' className='detail'>
@@ -61,6 +82,7 @@ const ProductDetail = () => {
           children={`Add to bag $${price}`}
           type={ButtonType.secondary}
           className='detail-btn'
+          onClick={handleAddToCart}
         />
         <Text type={SizeType.extraRegular} text={description} />
       </div>

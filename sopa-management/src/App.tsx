@@ -15,6 +15,7 @@ import {
 import './styles/main.css';
 
 // Components
+import Header from './layouts/Header';
 const ProductList = lazy(() => import('./components/ProductList'));
 const ProductDetail = lazy(() => import('./pages/ProductDetail'));
 
@@ -23,6 +24,7 @@ const App: React.FC = () => {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <Header />
       {/* TODO: I will create component Loading later */}
       <Suspense fallback={<p>Loading...</p>}>
         <Routes>

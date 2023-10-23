@@ -138,8 +138,13 @@ const INITIAL_PRODUCT: Product = {
     url: "",
     alt: ""
   },
-  size: ""
+  size: "",
+  quantity: 0
 }
+
+const STORAGE_KEY = {
+  CART_KEY: 'cart'
+};
 
 export {
   SIZE,
@@ -150,4 +155,5 @@ export {
   MENU_EVERYTHING_ELSE,
   LIMIT_PRODUCTS,
   INITIAL_PRODUCT,
+  STORAGE_KEY,
 };

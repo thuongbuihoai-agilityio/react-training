@@ -2,10 +2,10 @@
 import '@testing-library/jest-dom';
 
 // Components
-import ProductDetail from '.';
+import ProductDetail from '..';
 
 // Helpers
-import { renderWithRouterAndQuery } from '../../helpers/testUtils';
+import { renderWithRouterAndQuery } from '../../../helpers/testUtils';
 
 describe('ProductDetail component', () => {
   test('should render ProductDetail component', () => {

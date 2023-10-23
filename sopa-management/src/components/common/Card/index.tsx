@@ -16,6 +16,7 @@ import Image from '../Image';
 import './card.css';
 
 interface CardProps {
+  key?: string;
   name?: string;
   color?: string;
   price?: number;

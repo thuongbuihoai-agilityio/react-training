@@ -8,3 +8,4 @@ export * from './twitter';
 export * from './user';
 export * from './vogua';
 export * from './star';
+export * from './close';

@@ -10,6 +10,7 @@ import { Product } from '../../../interfaces/product';
 import './productCard.css';
 
 interface ProductCardProps {
+  key?: string;
   data: Product[];
 }
 
@@ -19,6 +20,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
   <div className='product-card' data-testid='product-card'>
     {data.map((product) => (
       <Card
+        key={product.id}
         href={`products/${product.id}`}
         src={product.image.url}
         name={product.name}

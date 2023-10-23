@@ -9,4 +9,5 @@ export interface Product {
   };
   size: string;
   description?: string;
+  quantity: number;
 };
