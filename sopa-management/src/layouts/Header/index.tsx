@@ -32,13 +32,23 @@ import {
 
 // Styles
 import './header.css';
+import { showToast } from '../../helpers/toast';
+import Toast from '../../components/Toast';
 
 const Header = () => {
   const [toggleModal, setToggleModal] = useState<boolean>(false);
+  const [toast, setToast] = useState();
+
+  const showSuccessToast = () => {
+    setToast(!toast);
+    return showToast('Thành công!', 'Bạn đã đăng ký thành công tài khoản tại F8.', 'success', 5000);
+  };
 
   const handleToggleModal = useCallback(() => {
-    setToggleModal(!toggleModal);
-  }, [toggleModal]);
+    console.log('run');
+    showSuccessToast()
+    // setToggleModal(!toggleModal);
+  }, []);
 
   return (
     <>
@@ -57,6 +67,7 @@ const Header = () => {
             children={<User />}
             type={ButtonType.btnIconPrimary}
             className='header-user'
+            onClick={showSuccessToast}
           />
           <Button
             children={<ShoppingBag />}
@@ -65,7 +76,8 @@ const Header = () => {
           />
         </div>
       </div>
-      {toggleModal && <CartModal onToggleModal={handleToggleModal} />}
+      {/* {toggleModal && <CartModal onToggleModal={handleToggleModal} />} */}
+      {toast && <Toast />}
     </>
   );
 };

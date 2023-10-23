@@ -21,7 +21,6 @@ const ProductDetail = lazy(() => import('./pages/ProductDetail'));
 
 const App: React.FC = () => {
   const queryClient = new QueryClient();
-
   return (
     <QueryClientProvider client={queryClient}>
       <Header />
