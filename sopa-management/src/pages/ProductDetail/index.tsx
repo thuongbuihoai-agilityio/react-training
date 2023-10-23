@@ -11,7 +11,10 @@ import Text,
 } from '../../components/common/Text';
 import Price from '../../components/common/Price';
 import Dropdown from '../../components/common/Dropdown';
-import Button, { ButtonType } from '../../components/common/Button';
+import Button,
+{
+  ButtonType
+} from '../../components/common/Button';
 
 // Images
 import { Star } from '../../../public/images/icons';

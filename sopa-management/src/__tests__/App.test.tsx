@@ -2,6 +2,8 @@ import { render, screen } from '@testing-library/react';
 import { createMemoryHistory } from 'history';
 import { Router } from 'react-router-dom';
 import '@testing-library/jest-dom';
+
+// Components
 import App from '../App';
 
 describe('App component', () => {
