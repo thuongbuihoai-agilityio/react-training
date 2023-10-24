@@ -34,7 +34,9 @@ interface CartItemProps {
   key?: string;
   cartItem: Product;
 }
-const CartItem: React.FC<CartItemProps> = ({ cartItem }) => {
+const CartItem: React.FC<CartItemProps> = ({
+  cartItem
+}) => {
   const [openModalConfirm, setOpenModalConfirm] = useState<boolean>(false);
 
   const {
