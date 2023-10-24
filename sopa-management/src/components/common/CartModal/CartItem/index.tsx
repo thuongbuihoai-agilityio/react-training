@@ -1,6 +1,7 @@
 import {
   memo,
-  useCallback
+  useCallback,
+  useState
 } from 'react';
 
 // Images
@@ -24,6 +25,7 @@ import Text,
 } from '../../Text';
 import Counter from '../../Counter';
 import Image from '../../Image';
+import PopupDelete from '../../PopupDelete';
 
 // Stores
 import { useCartStore } from '../../../../stores/cart';
@@ -32,12 +34,13 @@ interface CartItemProps {
   key?: string;
   cartItem: Product;
 }
-const CartItem: React.FC<CartItemProps> = ({
-  cartItem,
-}) => {
+const CartItem: React.FC<CartItemProps> = ({ cartItem }) => {
+  const [openModalConfirm, setOpenModalConfirm] = useState<boolean>(false);
+
   const {
     increaseQuantity,
-    decreaseQuantity
+    decreaseQuantity,
+    deleteCart
   } = useCartStore();
 
   const handleIncrement = useCallback(() => {
@@ -46,6 +49,14 @@ const CartItem: React.FC<CartItemProps> = ({
 
   const handleDecrement = useCallback(() => {
     decreaseQuantity(cartItem.id)
+  }, [cartItem]);
+
+  const handleOpenModalConfirm = useCallback(() => {
+    setOpenModalConfirm(!openModalConfirm);
+  }, [openModalConfirm]);
+
+  const handleDeleteCart = useCallback(() => {
+    deleteCart(cartItem.id);
   }, [cartItem]);
 
   return (
@@ -76,7 +87,14 @@ const CartItem: React.FC<CartItemProps> = ({
               children={<Trash />}
               type={ButtonType.btnIconSecondary}
               className='cart-btn'
+              onClick={handleOpenModalConfirm}
             />
+            {openModalConfirm && (
+              <PopupDelete
+                onCancel={handleOpenModalConfirm}
+                onDelete={handleDeleteCart}
+              />
+            )}
           </div>
         </div>
       </div>
