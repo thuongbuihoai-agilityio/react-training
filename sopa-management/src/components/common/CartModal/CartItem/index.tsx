@@ -1,4 +1,7 @@
-import { memo } from 'react';
+import {
+  memo,
+  useCallback
+} from 'react';
 
 // Images
 import { Trash } from '../../../../../public/images/icons';
@@ -32,15 +35,18 @@ interface CartItemProps {
 const CartItem: React.FC<CartItemProps> = ({
   cartItem,
 }) => {
-  const { increaseQuantity, decreaseQuantity } = useCartStore();
+  const {
+    increaseQuantity,
+    decreaseQuantity
+  } = useCartStore();
 
-  const handleIncrement = () => {
+  const handleIncrement = useCallback(() => {
     increaseQuantity(cartItem.id)
-  };
+  }, [cartItem]);
 
-  const handleDecrement = () => {
+  const handleDecrement = useCallback(() => {
     decreaseQuantity(cartItem.id)
-  };
+  }, [cartItem]);
 
   return (
     <div data-testid='cart-item' className='cart-item'>
