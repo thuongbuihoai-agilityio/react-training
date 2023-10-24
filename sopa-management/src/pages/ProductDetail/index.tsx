@@ -1,6 +1,7 @@
 import {
   memo,
-  useCallback
+  useCallback,
+  useState
 } from 'react';
 import { useParams } from 'react-router-dom';
 
@@ -30,6 +31,7 @@ import { useCartStore } from '../../stores/cart';
 
 // Styles
 import './productDetail.css';
+import Toast, { ToastType } from '../../components/Toast';
 
 const ProductDetail = () => {
   // use useParams to get id
@@ -42,12 +44,17 @@ const ProductDetail = () => {
     price,
     description
   } = product;
-
+  const [toast, setToast] = useState<boolean>(false)
   const addToCart = useCartStore((state) => state.addToCart);
 
+  const handleShowToast = useCallback(() => {
+    setToast(!toast);
+  }, [toast]);
+
   const handleAddToCart = useCallback(() => {
-    addToCart(product)
-  }, [name]);
+    addToCart(product);
+    handleShowToast();
+  }, [name, toast]);
 
   return (
     <div data-testid='detail' className='detail'>
@@ -86,6 +93,7 @@ const ProductDetail = () => {
         />
         <Text type={SizeType.extraRegular} text={description} />
       </div>
+      {toast && <Toast title='Success' message='OK' type={ToastType.success} />}
     </div>
   );
 };

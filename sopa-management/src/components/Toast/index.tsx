@@ -1,14 +1,25 @@
-import { FC, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import './toast.css';
 
+export enum ToastType {
+  default = '',
+  success = 'success',
+  error = 'error',
+}
+
 type ToastProps = {
-  title?: string;
-  message?: string;
-  type?: 'success' | 'error';
+  title: string;
+  message: string;
+  type: ToastType;
   duration?: number;
 };
 
-const Toast: FC<ToastProps> = ({ title, message, type, duration }) => {
+const Toast: React.FC<ToastProps> = ({
+  title,
+  message,
+  type,
+  duration = 2000
+}) => {
   const [visible, setVisible] = useState(true);
 
   useEffect(() => {
@@ -26,7 +37,6 @@ const Toast: FC<ToastProps> = ({ title, message, type, duration }) => {
   return (
     <div className={`toast toast-${type}`}>
       <div className="toast-body">
-        <div className="toast-icon">{type === 'success' ? '✔' : '❌'}</div>
         <div>
           <h3 className="toast-title">{title}</h3>
           <p className="toast-msg">{message}</p>

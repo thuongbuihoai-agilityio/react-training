@@ -32,6 +32,7 @@ import { useCartStore } from '../../../../stores/cart';
 
 // Constants
 import { VALIDATE_MESSAGE } from '../../../../constants/validate';
+import Toast, { ToastType } from '../../../Toast';
 
 interface CartItemProps {
   key?: string;
@@ -41,12 +42,17 @@ const CartItem: React.FC<CartItemProps> = ({
   cartItem
 }) => {
   const [openModalConfirm, setOpenModalConfirm] = useState<boolean>(false);
+  const [toast, setToast] = useState<boolean>(false)
 
   const {
     increaseQuantity,
     decreaseQuantity,
     deleteCart
   } = useCartStore();
+
+   const handleShowToast = useCallback(() => {
+    setToast(!toast);
+  }, [toast]);
 
   const handleIncrement = useCallback(() => {
     increaseQuantity(cartItem.id)
@@ -61,8 +67,11 @@ const CartItem: React.FC<CartItemProps> = ({
   }, [openModalConfirm]);
 
   const handleDeleteCart = useCallback(() => {
+    if (!openModalConfirm) {
+      handleShowToast();
+    }
     deleteCart(cartItem.id);
-  }, [cartItem]);
+  }, []);
 
   return (
     <div data-testid='cart-item' className='cart-item'>
@@ -101,6 +110,7 @@ const CartItem: React.FC<CartItemProps> = ({
                 onDelete={handleDeleteCart}
               />
             )}
+            {toast && <Toast title='Success' message='Xoas' type={ToastType.success} />}
           </div>
         </div>
       </div>
