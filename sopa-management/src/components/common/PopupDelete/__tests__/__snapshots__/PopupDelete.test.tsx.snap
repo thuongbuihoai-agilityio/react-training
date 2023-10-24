@@ -9,9 +9,7 @@ exports[`PopupDelete component matches snapshot 1`] = `
     <p
       class=" text-light"
       data-testid="text"
-    >
-      Are you sure you want to delete?
-    </p>
+    />
     <div
       class="popup-btn"
     >

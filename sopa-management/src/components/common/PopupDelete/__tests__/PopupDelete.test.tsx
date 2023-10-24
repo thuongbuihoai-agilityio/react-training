@@ -5,6 +5,9 @@ import { render } from '@testing-library/react';
 // Components
 import PopupDelete from '..';
 
+// Constants
+import { VALIDATE_MESSAGE } from '../../../../constants/validate';
+
 describe('PopupDelete component', () => {
   const props = {
     onCancel: jest.fn(),
@@ -12,6 +15,11 @@ describe('PopupDelete component', () => {
   };
   test('should render PopupDelete component', () => {
     const { getByTestId } = render(<PopupDelete {...props} />);
+    expect(getByTestId('popup-delete')).toBeInTheDocument();
+  });
+
+  test('should render PopupDelete component', () => {
+    const { getByTestId } = render(<PopupDelete title={VALIDATE_MESSAGE.CONFIRM_DELETE} {...props} />);
     expect(getByTestId('popup-delete')).toBeInTheDocument();
   });
 

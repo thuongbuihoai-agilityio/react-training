@@ -30,6 +30,9 @@ import PopupDelete from '../../PopupDelete';
 // Stores
 import { useCartStore } from '../../../../stores/cart';
 
+// Constants
+import { VALIDATE_MESSAGE } from '../../../../constants/validate';
+
 interface CartItemProps {
   key?: string;
   cartItem: Product;
@@ -93,6 +96,7 @@ const CartItem: React.FC<CartItemProps> = ({
             />
             {openModalConfirm && (
               <PopupDelete
+                title={VALIDATE_MESSAGE.CONFIRM_DELETE}
                 onCancel={handleOpenModalConfirm}
                 onDelete={handleDeleteCart}
               />
