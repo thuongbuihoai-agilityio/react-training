@@ -16,6 +16,7 @@ import './styles/main.css';
 
 // Components
 import Header from './layouts/Header';
+import Footer from './layouts/Footer';
 const ProductList = lazy(() => import('./components/ProductList'));
 const ProductDetail = lazy(() => import('./pages/ProductDetail'));
 
@@ -32,6 +33,7 @@ const App: React.FC = () => {
           <Route path='/products/:id' element={<ProductDetail />} />
         </Routes>
       </Suspense>
+      <Footer />
     </QueryClientProvider>
   );
 };
