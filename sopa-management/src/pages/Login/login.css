@@ -1,0 +1,17 @@
+.form {
+  margin-top: 80px;
+  text-align: center;
+}
+
+.form-input {
+  width: var(--w-extra-medium);
+  margin: 0 auto;
+}
+
+.form-email {
+  margin: 60px 0 24px;
+}
+
+.form-password {
+  margin-bottom: 24px;
+}

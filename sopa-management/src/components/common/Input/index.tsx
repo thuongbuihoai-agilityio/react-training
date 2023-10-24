@@ -25,25 +25,33 @@ interface IconProps {
   classNameLabel?: string;
 }
 
-const Input: React.FC<IconProps> = ({
-  value,
-  label = '',
-  type = InputType.default,
-  theme = InputTheme.default,
-  placeholder = '',
-  classNameInput = 'input',
-  classNameLabel = 'label'
-}) => (
-  <div data-testId='input-value' className='input-wrapper'>
-    {label && (
-      <label className={`${classNameLabel} label-${theme}`}>{label}</label>
-    )}
-    <input
-      value={value}
-      placeholder={placeholder}
-      className={`${classNameInput} input-${type}`}
-    />
-  </div>
+const Input = React.forwardRef<HTMLInputElement, IconProps>(
+  (
+    {
+      value,
+      label = '',
+      type = InputType.default,
+      theme = InputTheme.default,
+      placeholder = '',
+      classNameInput = 'input',
+      classNameLabel = 'label',
+    },
+    ref
+  ) => {
+    return (
+      <div data-testId='input-value' className='input-wrapper'>
+        {label && (
+          <label className={`${classNameLabel} label-${theme}`}>{label}</label>
+        )}
+        <input
+          ref={ref}
+          value={value}
+          placeholder={placeholder}
+          className={`${classNameInput} input-${type}`}
+        />
+      </div>
+    );
+  }
 );
 
 export default memo(Input);

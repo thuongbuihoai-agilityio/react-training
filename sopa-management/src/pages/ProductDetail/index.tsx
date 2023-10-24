@@ -76,7 +76,7 @@ const ProductDetail = () => {
             className='detail-text-size'
             type={SizeType.extraRegular}
           />
-          <Dropdown data={SIZE} />
+          <Dropdown dataSize={SIZE} />
         </div>
         <Button
           children={`Add to bag $${price}`}
