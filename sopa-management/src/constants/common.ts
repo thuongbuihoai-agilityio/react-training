@@ -149,7 +149,8 @@ const INITIAL_PRODUCT: Product = {
 }
 
 const STORAGE_KEY = {
-  CART_KEY: 'cart'
+  CART_KEY: 'cart',
+  TOKEN: 'token'
 };
 
 export {

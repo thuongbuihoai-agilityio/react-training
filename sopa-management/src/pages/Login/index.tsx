@@ -1,47 +1,41 @@
-import { memo, useRef } from 'react';
+import { memo, useRef, useState } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import Input, { InputTheme, InputType } from '../../components/common/Input';
 import Button, { ButtonType } from '../../components/common/Button';
 import Text, { SizeType } from '../../components/common/Text';
-import './login.css';
-import { useMutation } from 'react-query';
-import axios from 'axios';
-import { ACCOUNT_URL } from '../../constants/url';
 import { createMemoryHistory } from 'history';
+import { useFetchUser } from '../../hooks/useQuery';
+import { Account } from '../../interfaces/account';
+import './login.css';
 import { setStorage } from '../../helpers/storage';
-
-interface LoginProps {
-  email: string;
-  password: string;
-}
+import { checkLogin } from '../../helpers/common';
 
 const Login: React.FC = () => {
   const history = createMemoryHistory();
+
   const emailRef = useRef<HTMLInputElement | null>(null);
   const passwordRef = useRef<HTMLInputElement | null>(null);
+  const [emailError, setEmailError] = useState(false);
+  const [passwordError, setPasswordError] = useState(false);
 
-  const { register, handleSubmit, control } = useForm<LoginProps>();
-
-  const loginMutation = useMutation((credentials: LoginProps) =>
-    axios.post(ACCOUNT_URL, credentials)
-  );
+  const { data } = useFetchUser();
+  const { register, handleSubmit, control } = useForm<Account>();
 
   const onSubmit = async () => {
-    try {
-      const email = emailRef.current?.value || '';
-      const password = passwordRef.current?.value || '';
-      const data = { email, password };
-      const response = await loginMutation.mutateAsync(data);
-      const token = response.data;
-      console.log('token', token);
+    const email = emailRef.current?.value || '';
+    const password = passwordRef.current?.value || '';
 
-      setStorage('token', token);
+    if (checkLogin(data, email, password)) {
       history.push('/');
-      console.log('success');
-    } catch (error: any) {
-      // Handle error here
-      console.log('catch');
-      console.error('Login failed:', error.message);
+      setStorage('token', {
+        email,
+        password
+      })
+      console.log('Login successful!');
+    } else {
+      setEmailError(true);
+      setPasswordError(true);
+      console.log('Invalid email or password. Please try again.');
     }
   };
 
@@ -54,11 +48,11 @@ const Login: React.FC = () => {
           control={control}
           render={({ fieldState: { error } }) => (
             <div className='form-email'>
-              {error ? (
+              {emailError ? (
                 <Input
                   label='Email'
-                  type={error ? InputType.error : InputType.info}
-                  theme={error ? InputTheme.error : InputTheme.info}
+                  type={emailError ? InputType.error : InputType.info}
+                  theme={emailError ? InputTheme.error : InputTheme.info}
                 />
               ) : (
                 <Input
@@ -79,11 +73,11 @@ const Login: React.FC = () => {
           control={control}
           render={({ fieldState: { error } }) => (
             <div className='form-password'>
-              {error ? (
+              {passwordError ? (
                 <Input
                   label='Password'
-                  type={error ? InputType.error : InputType.info}
-                  theme={error ? InputTheme.error : InputTheme.info}
+                  type={passwordError ? InputType.error : InputType.info}
+                  theme={passwordError ? InputTheme.error : InputTheme.info}
                 />
               ) : (
                 <Input

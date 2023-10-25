@@ -1,6 +1,4 @@
-import { Product } from "../interfaces/product";
-
-export const setStorage = (key: string, data: Product[]) => {
+export const setStorage = (key: string, data: any) => {
   localStorage.setItem(key, JSON.stringify(data));
 };
 

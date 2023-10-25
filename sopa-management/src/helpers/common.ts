@@ -1,3 +1,4 @@
+import { Account } from '../interfaces/account';
 import { Product } from '../interfaces/product';
 
 // Flattens an array of arrays into a single array
@@ -20,4 +21,15 @@ export const totalPrices = (carts: Product[]) => {
   );
 
   return total;
+};
+
+// Check login
+export const checkLogin = (
+  data?: Account[],
+  email?: string,
+  password?: string
+) => {
+  return data?.some(
+    (user: Account) => user.email === email && user.password === password
+  );
 };
