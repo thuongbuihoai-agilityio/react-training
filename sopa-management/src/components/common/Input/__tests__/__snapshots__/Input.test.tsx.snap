@@ -2,15 +2,15 @@
 
 exports[`Input component Matches snapshot 1`] = `
 <div>
-  <div
-    class="input-wrapper"
-    data-testid="input-value"
-  >
-    <input
-      class="input input-text"
-      placeholder="Your email..."
-      value=""
-    />
-  </div>
+  <input
+    aria-hidden="true"
+    class=""
+    data-testid="input"
+    id=""
+    name=""
+    placeholder="Your email..."
+    type="text"
+    value=""
+  />
 </div>
 `;

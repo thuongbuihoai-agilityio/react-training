@@ -10,16 +10,16 @@ exports[`Counter component matches snapshot 1`] = `
       class="counter-minus btn btn-icon-primary"
       data-testid="button"
     />
-    <div
-      class="input-wrapper"
-      data-testid="input-value"
-    >
-      <input
-        class="counter-input input-number"
-        placeholder=""
-        value="2"
-      />
-    </div>
+    <input
+      aria-hidden="true"
+      class=""
+      data-testid="input"
+      id=""
+      name=""
+      placeholder=""
+      type="number"
+      value="2"
+    />
     <button
       class="counter-plus btn btn-icon-primary"
       data-testid="button"
