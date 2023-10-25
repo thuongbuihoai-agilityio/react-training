@@ -1,4 +1,7 @@
-import { memo } from 'react';
+import {
+  memo,
+  useCallback
+} from 'react';
 
 // Images
 import { Trash } from '../../../../../public/images/icons';
@@ -22,6 +25,9 @@ import Text,
 import Counter from '../../Counter';
 import Image from '../../Image';
 
+// Stores
+import { useCartStore } from '../../../../stores/cart';
+
 interface CartItemProps {
   key?: string;
   cartItem: Product;
@@ -29,13 +35,18 @@ interface CartItemProps {
 const CartItem: React.FC<CartItemProps> = ({
   cartItem,
 }) => {
-  const handleIncrement = () => {
-    // TODO: I will handle in feature/update-cart
-  };
+  const {
+    increaseQuantity,
+    decreaseQuantity
+  } = useCartStore();
 
-  const handleDecrement = () => {
-    // TODO: I will handle in feature/update-cart
-  };
+  const handleIncrement = useCallback(() => {
+    increaseQuantity(cartItem.id)
+  }, [cartItem]);
+
+  const handleDecrement = useCallback(() => {
+    decreaseQuantity(cartItem.id)
+  }, [cartItem]);
 
   return (
     <div data-testid='cart-item' className='cart-item'>
