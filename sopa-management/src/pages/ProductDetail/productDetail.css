@@ -1,8 +1,11 @@
 .detail {
-  display: flex;
   padding: var(--px-extra-normal) var(--py-medium);
   margin: 0 auto;
   width: var(--w-extra-large);
+}
+
+.detail-product {
+  display: flex;
 }
 
 .detail-image {
