@@ -15,9 +15,8 @@ import Button,
 {
   ButtonType
 } from '../../components/common/Button';
-
-// Images
-import { Star } from '../../../public/images/icons';
+import Rating from '../../components/Rating';
+import RatingStar from '../../components/Rating/RatingStar';
 
 // Hooks
 import { useFetchProductDetail } from '../../hooks/useQuery';
@@ -46,46 +45,45 @@ const ProductDetail = () => {
   const addToCart = useCartStore((state) => state.addToCart);
 
   const handleAddToCart = useCallback(() => {
-    addToCart(product)
+    addToCart(product);
   }, [name]);
 
   return (
     <div data-testid='detail' className='detail'>
-      <figure>
-        <img className='detail-image' src={image.url} alt={image.alt} />
-      </figure>
-      <div className='detail-info'>
-        <div className='detail-name'>
-          <div className='detail-description'>
-            <Text text={name} type={SizeType.regular} />
-            <div className='detail-rating'>
-              <Star />
-              <Star />
-              <Star />
-              <Star />
-              <Star />
-              <Text text='4.7(3205)' type={SizeType.normal} />
+      <div className='detail-product'>
+        <figure>
+          <img className='detail-image' src={image.url} alt={image.alt} />
+        </figure>
+        <div className='detail-info'>
+          <div className='detail-name'>
+            <div className='detail-description'>
+              <Text text={name} type={SizeType.regular} />
+              <div className='detail-rating'>
+                <RatingStar />
+                <Text text='4.7(3205)' type={SizeType.normal} />
+              </div>
             </div>
+            <Price value={price} />
           </div>
-          <Price value={price} />
-        </div>
-        <Text text={`Color: ${color}`} type={SizeType.extraRegular} />
-        <div className='detail-size'>
-          <Text
-            text='Size'
-            className='detail-text-size'
-            type={SizeType.extraRegular}
+          <Text text={`Color: ${color}`} type={SizeType.extraRegular} />
+          <div className='detail-size'>
+            <Text
+              text='Size'
+              className='detail-text-size'
+              type={SizeType.extraRegular}
+            />
+            <Dropdown data={SIZE} />
+          </div>
+          <Button
+            children={`Add to bag $${price}`}
+            type={ButtonType.secondary}
+            className='detail-btn'
+            onClick={handleAddToCart}
           />
-          <Dropdown data={SIZE} />
+          <Text type={SizeType.extraRegular} text={description} />
         </div>
-        <Button
-          children={`Add to bag $${price}`}
-          type={ButtonType.secondary}
-          className='detail-btn'
-          onClick={handleAddToCart}
-        />
-        <Text type={SizeType.extraRegular} text={description} />
       </div>
+      <Rating />
     </div>
   );
 };
