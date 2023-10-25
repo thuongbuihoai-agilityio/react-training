@@ -3,15 +3,15 @@ import { useForm, Controller } from 'react-hook-form';
 import Input, { InputTheme, InputType } from '../../components/common/Input';
 import Button, { ButtonType } from '../../components/common/Button';
 import Text, { SizeType } from '../../components/common/Text';
-import { createMemoryHistory } from 'history';
 import { useFetchUser } from '../../hooks/useQuery';
 import { Account } from '../../interfaces/account';
 import './login.css';
 import { setStorage } from '../../helpers/storage';
 import { checkLogin } from '../../helpers/common';
+import { useNavigate } from 'react-router-dom';
 
 const Login: React.FC = () => {
-  const history = createMemoryHistory();
+  const navigate = useNavigate();
 
   const emailRef = useRef<HTMLInputElement | null>(null);
   const passwordRef = useRef<HTMLInputElement | null>(null);
@@ -19,23 +19,25 @@ const Login: React.FC = () => {
   const [passwordError, setPasswordError] = useState(false);
 
   const { data } = useFetchUser();
-  const { register, handleSubmit, control } = useForm<Account>();
+  const { register, handleSubmit, control, formState: { errors } } = useForm<Account>();
+  console.log('errors.email', errors.email);
+  
 
   const onSubmit = async () => {
     const email = emailRef.current?.value || '';
     const password = passwordRef.current?.value || '';
 
+    console.log('isValidate', email, password);
+
     if (checkLogin(data, email, password)) {
-      history.push('/');
+      navigate('/');
       setStorage('token', {
         email,
         password
       })
-      console.log('Login successful!');
     } else {
       setEmailError(true);
       setPasswordError(true);
-      console.log('Invalid email or password. Please try again.');
     }
   };
 
@@ -46,13 +48,33 @@ const Login: React.FC = () => {
         <Controller
           name='email'
           control={control}
-          render={({ fieldState: { error } }) => (
+          rules={{
+            required: 'Email is required',
+            pattern: {
+              value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+              message: 'Invalid email address'
+            }
+          }}
+          render={() => (
             <div className='form-email'>
-              {emailError ? (
+              <Input
+                label='Email'
+                ref={(e) => {
+                  register('email');
+                  emailRef.current = e;
+                }}
+                type={
+                  emailError ? InputType.error : (errors.email && errors.email.type === 'pattern') ? InputType.info : InputType.default
+                }
+                theme={
+                  emailError ? InputTheme.error : (errors.email && errors.email.type === 'pattern') ? InputTheme.info : InputTheme.default
+                }
+              />
+              {/* {emailError ? (
                 <Input
                   label='Email'
-                  type={emailError ? InputType.error : InputType.info}
-                  theme={emailError ? InputTheme.error : InputTheme.info}
+                  type={InputType.error}
+                  theme={InputTheme.error}
                 />
               ) : (
                 <Input
@@ -61,9 +83,10 @@ const Login: React.FC = () => {
                     register('email');
                     emailRef.current = e;
                   }}
-                  type={InputType.default}
+                    type={true ? InputType.info : InputType.default}
+                    theme={true ? InputTheme.info : InputTheme.default}
                 />
-              )}
+              )} */}
             </div>
           )}
         />
@@ -71,7 +94,7 @@ const Login: React.FC = () => {
         <Controller
           name='password'
           control={control}
-          render={({ fieldState: { error } }) => (
+          render={() => (
             <div className='form-password'>
               {passwordError ? (
                 <Input

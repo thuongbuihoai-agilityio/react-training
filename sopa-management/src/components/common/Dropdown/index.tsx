@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 // Styles
 import './dropdown.css';
@@ -33,7 +33,7 @@ const Dropdown: React.FC<DropdownProps> = ({
       {isHref
         ? dataUser.map((item: UserType) => (
             <option key={item.key} value={item.label} className='option'>
-              <Link to={item.href}>{item.label}</Link>
+              <NavLink to={item.href}>{item.label}</NavLink>
             </option>
           ))
         : dataSize.map((item: SizeType) => (

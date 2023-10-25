@@ -16,10 +16,10 @@ const Logout: React.FC<LogoutProps> = ({ className = '' }) => {
     setShowDropdown(!showDropdown);
   }, [showDropdown]);
 
-  const user = getStorage(STORAGE_KEY.TOKEN);
+  const user = getStorage(STORAGE_KEY.TOKEN) || '';
 
   return (
-    <div title={user.email} className={`${className} account`} data-testid='logout'>
+    <div title={user?.email} className={`${className} account`} data-testid='logout'>
       <Button
         children={<User />}
         type={ButtonType.btnIconPrimary}
