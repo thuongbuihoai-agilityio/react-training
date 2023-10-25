@@ -26,7 +26,7 @@ const App: React.FC = () => {
   return (
     <QueryClientProvider client={queryClient}>
       {/* TODO: I will create component Loading later */}
-      <Suspense fallback={<p>Loading...</p>}>
+      <Suspense fallback={<p data-testid='loading-page'>Loading...</p>}>
         <Routes>
           <Route element={<MainLayout />}>
             <Route path='/' element={<ProductList />} />
