@@ -17,6 +17,7 @@ import './styles/main.css';
 // Components
 
 import MainLayout from './layouts/MainLayout';
+import Loading from './components/common/Loading';
 const ProductList = lazy(() => import('./components/ProductList'));
 const ProductDetail = lazy(() => import('./pages/ProductDetail'));
 
@@ -25,8 +26,7 @@ const App: React.FC = () => {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* TODO: I will create component Loading later */}
-      <Suspense fallback={<p data-testid='loading-page'>Loading...</p>}>
+      <Suspense fallback={<Loading />}>
         <Routes>
           <Route element={<MainLayout />}>
             <Route path='/' element={<ProductList />} />
