@@ -15,8 +15,8 @@ import {
 import './styles/main.css';
 
 // Components
-import Header from './layouts/Header';
-import Footer from './layouts/Footer';
+
+import MainLayout from './layouts/MainLayout';
 const ProductList = lazy(() => import('./components/ProductList'));
 const ProductDetail = lazy(() => import('./pages/ProductDetail'));
 
@@ -25,15 +25,14 @@ const App: React.FC = () => {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Header />
       {/* TODO: I will create component Loading later */}
       <Suspense fallback={<p>Loading...</p>}>
         <Routes>
+          <Route element={<MainLayout />} />
           <Route path='/' element={<ProductList />} />
           <Route path='/products/:id' element={<ProductDetail />} />
         </Routes>
       </Suspense>
-      <Footer />
     </QueryClientProvider>
   );
 };
