@@ -146,7 +146,23 @@ const STORAGE_KEY = {
   CART_KEY: 'cart'
 };
 
+const CAROUSEL_BULLET = [
+  {
+    htmlFor: 'carousel-1',
+    className: 'carousel-bullet'
+  },
+  {
+    htmlFor: 'carousel-2',
+    className: 'carousel-bullet'
+  },
+  {
+    htmlFor: 'carousel-3',
+    className: 'carousel-bullet'
+  }
+];
+
 export {
+  CAROUSEL_BULLET,
   SIZE,
   USER,
   MENU_HEADER,
