@@ -28,9 +28,10 @@ const App: React.FC = () => {
       {/* TODO: I will create component Loading later */}
       <Suspense fallback={<p>Loading...</p>}>
         <Routes>
-          <Route element={<MainLayout />} />
-          <Route path='/' element={<ProductList />} />
-          <Route path='/products/:id' element={<ProductDetail />} />
+          <Route element={<MainLayout />}>
+            <Route path='/' element={<ProductList />} />
+            <Route path='/products/:id' element={<ProductDetail />} />
+          </Route>
         </Routes>
       </Suspense>
     </QueryClientProvider>
