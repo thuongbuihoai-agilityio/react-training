@@ -55,7 +55,7 @@ const Carousel: React.FC = () => (
       </figure>
       <ul className='carousel-indicators'>
         {CAROUSEL_BULLET.map((item) => (
-          <li>
+          <li key={item.key}>
             <label htmlFor={item.htmlFor} className={item.className} />
           </li>
         ))}
