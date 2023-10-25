@@ -9,7 +9,7 @@ import Text,
 {
   SizeType
 } from '../../components/common/Text';
-import Price from '../../components/common/Price';
+import Price, { PriceType } from '../../components/common/Price';
 import Dropdown from '../../components/common/Dropdown';
 import Button,
 {
@@ -58,12 +58,14 @@ const ProductDetail = () => {
           <div className='detail-name'>
             <div className='detail-description'>
               <Text text={name} type={SizeType.regular} />
-              <div className='detail-rating'>
-                <RatingStar />
-                <Text text='4.7(3205)' type={SizeType.normal} />
-              </div>
+              <RatingStar
+                value='4.7(3205)'
+                type={SizeType.normal}
+                className='detail-rating'
+                classNameStar='rating-star'
+              />
             </div>
-            <Price value={price} />
+            <Price value={price} type={PriceType.tertiary} />
           </div>
           <Text text={`Color: ${color}`} type={SizeType.extraRegular} />
           <div className='detail-size'>
@@ -80,7 +82,7 @@ const ProductDetail = () => {
             className='detail-btn'
             onClick={handleAddToCart}
           />
-          <Text type={SizeType.extraRegular} text={description} />
+          <Text className='detail-description' text={description} />
         </div>
       </div>
       <Rating />

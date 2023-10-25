@@ -43,3 +43,8 @@
 .detail-btn {
   margin-bottom: 24px;
 }
+
+.detail-description {
+  font-size: var(--text-extra-sm);
+  line-height: 22px;
+}

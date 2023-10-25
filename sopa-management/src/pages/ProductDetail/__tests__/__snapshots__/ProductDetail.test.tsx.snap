@@ -33,7 +33,7 @@ exports[`ProductDetail component matches snapshot 1`] = `
               class="detail-rating"
             >
               <div
-                class="undefined rating-star"
+                class="rating-star"
                 data-testid="rating-star"
               >
                 <svg
@@ -201,7 +201,7 @@ exports[`ProductDetail component matches snapshot 1`] = `
             </div>
           </div>
           <p
-            class=" price-"
+            class=" price-tertiary"
             data-testid="price"
           >
             $
@@ -258,7 +258,7 @@ exports[`ProductDetail component matches snapshot 1`] = `
           Add to bag $0
         </button>
         <p
-          class=" text-extra-regular"
+          class="detail-description text-"
           data-testid="text"
         >
           Sopa
@@ -270,7 +270,7 @@ exports[`ProductDetail component matches snapshot 1`] = `
       data-testid="rating"
     >
       <p
-        class=" text-large"
+        class=" text-extra-medium"
         data-testid="text"
       >
         Ratings and Reviews
@@ -282,177 +282,181 @@ exports[`ProductDetail component matches snapshot 1`] = `
         An overwhelming 97% of reviewers have endorsed this product, recommending it wholeheartedly to their friends and family.
       </p>
       <p
-        class=" text-large"
+        class="rating-point text-large"
         data-testid="text"
       >
         4.7
       </p>
       <div
-        class="rating-vote rating-star"
-        data-testid="rating-star"
+        class="rating-review"
       >
-        <svg
-          fill="none"
-          height="16"
-          viewBox="0 0 16 16"
-          width="16"
-          xmlns="http://www.w3.org/2000/svg"
+        <div
+          class="rating-vote"
+          data-testid="rating-star"
         >
-          <g
-            clip-path="url(#clip0_233_6161)"
+          <svg
+            fill="none"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
           >
-            <path
-              d="M8.00016 1.33331L10.0602 5.50665L14.6668 6.17998L11.3335 9.42665L12.1202 14.0133L8.00016 11.8466L3.88016 14.0133L4.66683 9.42665L1.3335 6.17998L5.94016 5.50665L8.00016 1.33331Z"
-              fill="#02021D"
-              stroke="#02021D"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-            />
-          </g>
-          <defs>
-            <clippath
-              id="clip0_233_6161"
+            <g
+              clip-path="url(#clip0_233_6161)"
             >
-              <rect
-                fill="white"
-                height="16"
-                width="16"
+              <path
+                d="M8.00016 1.33331L10.0602 5.50665L14.6668 6.17998L11.3335 9.42665L12.1202 14.0133L8.00016 11.8466L3.88016 14.0133L4.66683 9.42665L1.3335 6.17998L5.94016 5.50665L8.00016 1.33331Z"
+                fill="#02021D"
+                stroke="#02021D"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
               />
-            </clippath>
-          </defs>
-        </svg>
-        <svg
-          fill="none"
-          height="16"
-          viewBox="0 0 16 16"
-          width="16"
-          xmlns="http://www.w3.org/2000/svg"
+            </g>
+            <defs>
+              <clippath
+                id="clip0_233_6161"
+              >
+                <rect
+                  fill="white"
+                  height="16"
+                  width="16"
+                />
+              </clippath>
+            </defs>
+          </svg>
+          <svg
+            fill="none"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g
+              clip-path="url(#clip0_233_6161)"
+            >
+              <path
+                d="M8.00016 1.33331L10.0602 5.50665L14.6668 6.17998L11.3335 9.42665L12.1202 14.0133L8.00016 11.8466L3.88016 14.0133L4.66683 9.42665L1.3335 6.17998L5.94016 5.50665L8.00016 1.33331Z"
+                fill="#02021D"
+                stroke="#02021D"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+              />
+            </g>
+            <defs>
+              <clippath
+                id="clip0_233_6161"
+              >
+                <rect
+                  fill="white"
+                  height="16"
+                  width="16"
+                />
+              </clippath>
+            </defs>
+          </svg>
+          <svg
+            fill="none"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g
+              clip-path="url(#clip0_233_6161)"
+            >
+              <path
+                d="M8.00016 1.33331L10.0602 5.50665L14.6668 6.17998L11.3335 9.42665L12.1202 14.0133L8.00016 11.8466L3.88016 14.0133L4.66683 9.42665L1.3335 6.17998L5.94016 5.50665L8.00016 1.33331Z"
+                fill="#02021D"
+                stroke="#02021D"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+              />
+            </g>
+            <defs>
+              <clippath
+                id="clip0_233_6161"
+              >
+                <rect
+                  fill="white"
+                  height="16"
+                  width="16"
+                />
+              </clippath>
+            </defs>
+          </svg>
+          <svg
+            fill="none"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g
+              clip-path="url(#clip0_233_6161)"
+            >
+              <path
+                d="M8.00016 1.33331L10.0602 5.50665L14.6668 6.17998L11.3335 9.42665L12.1202 14.0133L8.00016 11.8466L3.88016 14.0133L4.66683 9.42665L1.3335 6.17998L5.94016 5.50665L8.00016 1.33331Z"
+                fill="#02021D"
+                stroke="#02021D"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+              />
+            </g>
+            <defs>
+              <clippath
+                id="clip0_233_6161"
+              >
+                <rect
+                  fill="white"
+                  height="16"
+                  width="16"
+                />
+              </clippath>
+            </defs>
+          </svg>
+          <svg
+            fill="none"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g
+              clip-path="url(#clip0_233_6161)"
+            >
+              <path
+                d="M8.00016 1.33331L10.0602 5.50665L14.6668 6.17998L11.3335 9.42665L12.1202 14.0133L8.00016 11.8466L3.88016 14.0133L4.66683 9.42665L1.3335 6.17998L5.94016 5.50665L8.00016 1.33331Z"
+                fill="#02021D"
+                stroke="#02021D"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+              />
+            </g>
+            <defs>
+              <clippath
+                id="clip0_233_6161"
+              >
+                <rect
+                  fill="white"
+                  height="16"
+                  width="16"
+                />
+              </clippath>
+            </defs>
+          </svg>
+        </div>
+        <p
+          class=" text-normal"
+          data-testid="text"
         >
-          <g
-            clip-path="url(#clip0_233_6161)"
-          >
-            <path
-              d="M8.00016 1.33331L10.0602 5.50665L14.6668 6.17998L11.3335 9.42665L12.1202 14.0133L8.00016 11.8466L3.88016 14.0133L4.66683 9.42665L1.3335 6.17998L5.94016 5.50665L8.00016 1.33331Z"
-              fill="#02021D"
-              stroke="#02021D"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-            />
-          </g>
-          <defs>
-            <clippath
-              id="clip0_233_6161"
-            >
-              <rect
-                fill="white"
-                height="16"
-                width="16"
-              />
-            </clippath>
-          </defs>
-        </svg>
-        <svg
-          fill="none"
-          height="16"
-          viewBox="0 0 16 16"
-          width="16"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <g
-            clip-path="url(#clip0_233_6161)"
-          >
-            <path
-              d="M8.00016 1.33331L10.0602 5.50665L14.6668 6.17998L11.3335 9.42665L12.1202 14.0133L8.00016 11.8466L3.88016 14.0133L4.66683 9.42665L1.3335 6.17998L5.94016 5.50665L8.00016 1.33331Z"
-              fill="#02021D"
-              stroke="#02021D"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-            />
-          </g>
-          <defs>
-            <clippath
-              id="clip0_233_6161"
-            >
-              <rect
-                fill="white"
-                height="16"
-                width="16"
-              />
-            </clippath>
-          </defs>
-        </svg>
-        <svg
-          fill="none"
-          height="16"
-          viewBox="0 0 16 16"
-          width="16"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <g
-            clip-path="url(#clip0_233_6161)"
-          >
-            <path
-              d="M8.00016 1.33331L10.0602 5.50665L14.6668 6.17998L11.3335 9.42665L12.1202 14.0133L8.00016 11.8466L3.88016 14.0133L4.66683 9.42665L1.3335 6.17998L5.94016 5.50665L8.00016 1.33331Z"
-              fill="#02021D"
-              stroke="#02021D"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-            />
-          </g>
-          <defs>
-            <clippath
-              id="clip0_233_6161"
-            >
-              <rect
-                fill="white"
-                height="16"
-                width="16"
-              />
-            </clippath>
-          </defs>
-        </svg>
-        <svg
-          fill="none"
-          height="16"
-          viewBox="0 0 16 16"
-          width="16"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <g
-            clip-path="url(#clip0_233_6161)"
-          >
-            <path
-              d="M8.00016 1.33331L10.0602 5.50665L14.6668 6.17998L11.3335 9.42665L12.1202 14.0133L8.00016 11.8466L3.88016 14.0133L4.66683 9.42665L1.3335 6.17998L5.94016 5.50665L8.00016 1.33331Z"
-              fill="#02021D"
-              stroke="#02021D"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-            />
-          </g>
-          <defs>
-            <clippath
-              id="clip0_233_6161"
-            >
-              <rect
-                fill="white"
-                height="16"
-                width="16"
-              />
-            </clippath>
-          </defs>
-        </svg>
+          Based on 3,205 reviews
+        </p>
       </div>
-      <p
-        class="rating-review text-normal"
-        data-testid="text"
-      >
-        Based on 3,205 reviews
-      </p>
       <hr />
     </div>
   </div>

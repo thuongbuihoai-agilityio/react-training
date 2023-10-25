@@ -9,14 +9,25 @@
   margin: 40px auto 48px;
 }
 
+.rating-point {
+  font-size: 56px;
+  font-family: 'noto-serif-lao';
+  font-weight: var(--font-bold);
+}
+
+.rating-vote,
+.rating-star {
+  display: flex;
+  width: 132px;
+  justify-content: space-between;
+}
+
 .rating-vote {
   margin: 24px auto;
 }
 
 .rating-star {
-  width: 132px;
-  justify-content: space-between;
-  display: flex;
+  margin-right: 8px;
 }
 
 .rating-review {
