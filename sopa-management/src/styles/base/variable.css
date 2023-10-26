@@ -35,8 +35,8 @@
   --border-tertiary: #f14e2e;
 
   /* Background color */
-  --bg-primary: #F2F2F2;
-  --bg-secondary: rgba(2, 2, 29, .4);
+  --bg-primary: #f2f2f2;
+  --bg-secondary: rgba(2, 2, 29, 0.4);
 
   /* Border radius */
   --rounded-tiny: 8px;

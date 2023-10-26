@@ -15,8 +15,10 @@ import {
 import './styles/main.css';
 
 // Components
-import Header from './layouts/Header';
-const Partners = lazy(() => import('./components/Partners'));
+
+import MainLayout from './layouts/MainLayout';
+import Loading from './components/common/Loading';
+import Partners from './components/Partners';
 const ProductList = lazy(() => import('./components/ProductList'));
 const ProductDetail = lazy(() => import('./pages/ProductDetail'));
 
@@ -25,20 +27,17 @@ const App: React.FC = () => {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Header />
-      {/* TODO: I will create component Loading later */}
-      <Suspense fallback={<p>Loading...</p>}>
+      <Suspense fallback={<Loading />}>
         <Routes>
-          <Route
-            path='/'
-            element={
+          <Route element={<MainLayout />}>
+            <Route path='/' element={
               <>
                 <Partners />
                 <ProductList />
-              </>
-            }
-          />
-          <Route path='/products/:id' element={<ProductDetail />} />
+              </>}
+            />
+            <Route path='/products/:id' element={<ProductDetail />} />
+          </Route>
         </Routes>
       </Suspense>
     </QueryClientProvider>

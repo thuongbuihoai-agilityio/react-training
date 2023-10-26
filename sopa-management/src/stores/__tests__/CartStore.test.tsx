@@ -46,4 +46,20 @@ describe('useCartStore', () => {
 
     expect(storedCart).toEqual(updatedCart);
   });
+
+  test('should increase product quantity in cart', () => {
+    const { result } = renderHook(() => useCartStore());
+
+    useCartStore.getState().increaseQuantity('1');
+    act(() => result.current.increaseQuantity());
+    expect(useCartStore.getState().increaseQuantity('2'))
+  });
+
+  test('should decrement product quantity in cart', () => {
+    const { result } = renderHook(() => useCartStore());
+
+    useCartStore.getState().decreaseQuantity('2');
+    act(() => result.current.decreaseQuantity());
+    expect(useCartStore.getState().decreaseQuantity('1'))
+  });
 });
