@@ -18,6 +18,7 @@ import './styles/main.css';
 
 import MainLayout from './layouts/MainLayout';
 import Loading from './components/common/Loading';
+import Partners from './components/Partners';
 import Carousel from './components/common/Carousel';
 const ProductList = lazy(() => import('./components/ProductList'));
 const ProductDetail = lazy(() => import('./pages/ProductDetail'));
@@ -33,6 +34,7 @@ const App: React.FC = () => {
             <Route path='/' element={
               <>
                 <Carousel />
+                <Partners />
                 <ProductList />
               </>}
             />
