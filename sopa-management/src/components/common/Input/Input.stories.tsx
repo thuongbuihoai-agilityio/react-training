@@ -18,14 +18,14 @@ type Story = StoryObj<typeof Input>;
 export const InputDefault: Story = {
   args: {
     label: 'Email address',
-    type: InputType.default
+    style: InputType.default
   }
 };
 
 export const InputInfo: Story = {
   args: {
     label: 'Email address',
-    type: InputType.info,
+    style: InputType.info,
     theme: InputTheme.info,
   }
 };
@@ -33,7 +33,7 @@ export const InputInfo: Story = {
 export const InputError: Story = {
   args: {
     label: 'Email address',
-    type: InputType.error,
+    style: InputType.error,
     theme: InputTheme.error,
   }
 };
