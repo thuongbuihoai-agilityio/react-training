@@ -18,6 +18,7 @@ import './styles/main.css';
 
 import MainLayout from './layouts/MainLayout';
 import Loading from './components/common/Loading';
+import Partners from './components/Partners';
 const ProductList = lazy(() => import('./components/ProductList'));
 const ProductDetail = lazy(() => import('./pages/ProductDetail'));
 const Login = lazy(() => import('./pages/Login'));
@@ -30,7 +31,12 @@ const App: React.FC = () => {
       <Suspense fallback={<Loading />}>
         <Routes>
           <Route element={<MainLayout />}>
-            <Route path='/' element={<ProductList />} />
+            <Route path='/' element={
+              <>
+                <Partners />
+                <ProductList />
+              </>}
+            />
             <Route path='/products/:id' element={<ProductDetail />} />
             <Route path='/login' element={<Login />} />
           </Route>

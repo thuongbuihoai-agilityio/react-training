@@ -3,23 +3,18 @@
 exports[`ProductDetail component matches snapshot 1`] = `
 <div>
   <div
-    class="detail"
-    data-testid="detail"
+    class="loading-container"
+    data-testid="loading-page"
   >
     <div
-      class="loading-container"
-      data-testid="loading-page"
-    >
-      <div
-        class="circle"
-      />
-      <div
-        class="circle"
-      />
-      <div
-        class="circle"
-      />
-    </div>
+      class="circle"
+    />
+    <div
+      class="circle"
+    />
+    <div
+      class="circle"
+    />
   </div>
 </div>
 `;

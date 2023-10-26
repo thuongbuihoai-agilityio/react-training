@@ -1,24 +1,13 @@
-import {
-  memo,
-  useCallback
-} from 'react';
+import { memo, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
 
 // Components
-import Text,
-{
-  SizeType
-} from '../../components/common/Text';
-import Price from '../../components/common/Price';
+import Text, { SizeType } from '../../components/common/Text';
+import Price, { PriceType } from '../../components/common/Price';
 import Dropdown from '../../components/common/Dropdown';
-import Button,
-{
-  ButtonType
-} from '../../components/common/Button';
-import Loading from '../../components/common/Loading';
-
-// Images
-import { Star } from '../../../public/images/icons';
+import Button, { ButtonType } from '../../components/common/Button';
+import Rating from '../../components/Rating';
+import RatingStar from '../../components/Rating/RatingStar';
 
 // Hooks
 import { useFetchProductDetail } from '../../hooks/useQuery';
@@ -31,18 +20,13 @@ import { useCartStore } from '../../stores/cart';
 
 // Styles
 import './productDetail.css';
+import Loading from '../../components/common/Loading';
 
 const ProductDetail = () => {
   // use useParams to get id
   const { id } = useParams();
   const { data: product, isLoading } = useFetchProductDetail(id);
-  const {
-    name,
-    image,
-    color,
-    price,
-    description
-  } = product;
+  const { name, image, color, price, description } = product;
 
   const addToCart = useCartStore((state) => state.addToCart);
 
@@ -50,49 +34,46 @@ const ProductDetail = () => {
     addToCart(product);
   }, [name]);
 
-  return (
+  return isLoading ? (
+    <Loading />
+  ) : (
     <div data-testid='detail' className='detail'>
-      {isLoading ? (
-        <Loading />
-      ) : (
-        <>
-          <figure>
-            <img className='detail-image' src={image.url} alt={image.alt} />
-          </figure>
-          <div className='detail-info'>
-            <div className='detail-name'>
-              <div className='detail-description'>
-                <Text text={name} type={SizeType.regular} />
-                <div className='detail-rating'>
-                  <Star />
-                  <Star />
-                  <Star />
-                  <Star />
-                  <Star />
-                  <Text text='4.7(3205)' type={SizeType.normal} />
-                </div>
-              </div>
-              <Price value={price} />
-            </div>
-            <Text text={`Color: ${color}`} type={SizeType.extraRegular} />
-            <div className='detail-size'>
-              <Text
-                text='Size'
-                className='detail-text-size'
-                type={SizeType.extraRegular}
+      <div className='detail-product'>
+        <figure>
+          <img className='detail-image' src={image.url} alt={image.alt} />
+        </figure>
+        <div className='detail-info'>
+          <div className='detail-name'>
+            <div className='detail-description'>
+              <Text text={name} type={SizeType.regular} />
+              <RatingStar
+                value='4.7(3205)'
+                type={SizeType.normal}
+                className='detail-rating'
+                classNameStar='rating-star'
               />
-              <Dropdown dataSize={SIZE} />
             </div>
-            <Button
-              children={`Add to bag $${price}`}
-              type={ButtonType.secondary}
-              className='detail-btn'
-              onClick={handleAddToCart}
-            />
-            <Text type={SizeType.extraRegular} text={description} />
+            <Price value={price} type={PriceType.tertiary} />
           </div>
-        </>
-      )}
+          <Text text={`Color: ${color}`} type={SizeType.extraRegular} />
+          <div className='detail-size'>
+            <Text
+              text='Size'
+              className='detail-text-size'
+              type={SizeType.extraRegular}
+            />
+            <Dropdown dataSize={SIZE} />
+          </div>
+          <Button
+            children={`Add to bag $${price}`}
+            type={ButtonType.secondary}
+            className='detail-btn'
+            onClick={handleAddToCart}
+          />
+          <Text className='detail-description' text={description} />
+        </div>
+      </div>
+      <Rating />
     </div>
   );
 };
