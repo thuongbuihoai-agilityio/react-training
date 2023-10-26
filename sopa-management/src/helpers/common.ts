@@ -33,3 +33,22 @@ export const checkLogin = (
     (user: Account) => user.email === email && user.password === password
   );
 };
+
+export const checkEmail = (
+  data?: Account[],
+  email?: string,
+) => {
+  return data?.some(
+    (user: Account) => user.email === email
+  );
+};
+
+export const checkPassword = (
+  data?: Account[],
+  password?: string,
+) => {
+  return data?.some(
+    (user: Account) => user.password === password
+  );
+};
+

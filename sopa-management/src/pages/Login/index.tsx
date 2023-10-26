@@ -1,43 +1,92 @@
-import { memo, useRef, useState } from 'react';
-import { useForm, Controller } from 'react-hook-form';
-import Input, { InputTheme, InputType } from '../../components/common/Input';
-import Button, { ButtonType } from '../../components/common/Button';
-import Text, { SizeType } from '../../components/common/Text';
-import { useFetchUser } from '../../hooks/useQuery';
-import { Account } from '../../interfaces/account';
-import './login.css';
-import { setStorage } from '../../helpers/storage';
-import { checkLogin } from '../../helpers/common';
+import {
+  memo,
+  useRef
+} from 'react';
+import {
+  useForm,
+  Controller
+} from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
+
+// Components
+import Input,
+{
+  InputTheme,
+  InputType
+} from '../../components/common/Input';
+import Button,
+{
+  ButtonType
+} from '../../components/common/Button';
+import Text,
+{
+  SizeType
+} from '../../components/common/Text';
+
+// Hooks
+import { useFetchUser } from '../../hooks/useQuery';
+
+// Interfaces
+import { Account } from '../../interfaces/account';
+
+// Helpers
+import { setStorage } from '../../helpers/storage';
+import {
+  checkEmail,
+  checkLogin,
+  checkPassword
+} from '../../helpers/common';
+
+// Stores
+import { useAccountStore } from '../../stores/login';
+
+// Constants
+import { STORAGE_KEY } from '../../constants/common';
+
+// Styles
+import './login.css';
+import { VALIDATE } from '../../helpers/validate';
+import { ERROR_MESSAGES } from '../../constants/validate';
 
 const Login: React.FC = () => {
   const navigate = useNavigate();
 
   const emailRef = useRef<HTMLInputElement | null>(null);
   const passwordRef = useRef<HTMLInputElement | null>(null);
-  const [emailError, setEmailError] = useState(false);
-  const [passwordError, setPasswordError] = useState(false);
 
   const { data } = useFetchUser();
-  const { register, handleSubmit, control, formState: { errors } } = useForm<Account>();
-  console.log('errors.email', errors.email);
-  
+  const {
+    isIncorrectEmail,
+    isIncorrectPassword,
+    setIsIncorrectEmail,
+    setIsIncorrectPassword,
+  } = useAccountStore();
+
+  const {
+    register,
+    handleSubmit,
+    control,
+    formState: { errors, isDirty },
+  } = useForm<Account>();
 
   const onSubmit = async () => {
     const email = emailRef.current?.value || '';
     const password = passwordRef.current?.value || '';
 
-    console.log('isValidate', email, password);
-
+    const checkCorrectEmail = checkEmail(data, email);
+    const checkCorrectPassword = checkPassword(data, password);
     if (checkLogin(data, email, password)) {
       navigate('/');
-      setStorage('token', {
+      setStorage(STORAGE_KEY.TOKEN, {
         email,
         password
-      })
+      });
+
+      setIsIncorrectEmail(!!checkCorrectEmail);
+      setIsIncorrectPassword(!!checkCorrectPassword)
     } else {
-      setEmailError(true);
-      setPasswordError(true);
+      setIsIncorrectEmail(!checkCorrectEmail);
+      setIsIncorrectPassword(!checkCorrectPassword)
     }
   };
 
@@ -48,70 +97,42 @@ const Login: React.FC = () => {
         <Controller
           name='email'
           control={control}
-          rules={{
-            required: 'Email is required',
-            pattern: {
-              value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-              message: 'Invalid email address'
-            }
-          }}
-          render={() => (
+          rules={VALIDATE.email}
+          render={({ field }) => (
             <div className='form-email'>
               <Input
+                {...field}
                 label='Email'
                 ref={(e) => {
                   register('email');
                   emailRef.current = e;
                 }}
-                type={
-                  emailError ? InputType.error : (errors.email && errors.email.type === 'pattern') ? InputType.info : InputType.default
-                }
-                theme={
-                  emailError ? InputTheme.error : (errors.email && errors.email.type === 'pattern') ? InputTheme.info : InputTheme.default
-                }
+                style={((isIncorrectEmail || (errors.email)) ? InputType.error : isDirty ? InputType.info : InputType.default)}
+                theme={((isIncorrectEmail || (errors.email)) ? InputTheme.error : isDirty ? InputTheme.info : InputTheme.default)}
               />
-              {/* {emailError ? (
-                <Input
-                  label='Email'
-                  type={InputType.error}
-                  theme={InputTheme.error}
-                />
-              ) : (
-                <Input
-                  label='Email'
-                  ref={(e) => {
-                    register('email');
-                    emailRef.current = e;
-                  }}
-                    type={true ? InputType.info : InputType.default}
-                    theme={true ? InputTheme.info : InputTheme.default}
-                />
-              )} */}
+              {errors.email && <Text text={(errors.email.message)} className='form-error' />}
+              {isIncorrectEmail && <Text text={ERROR_MESSAGES.EMAIL_INVALID} className='form-error' />}
             </div>
           )}
         />
-
         <Controller
           name='password'
           control={control}
-          render={() => (
+          rules={VALIDATE.password}
+          render={({ field }) => (
             <div className='form-password'>
-              {passwordError ? (
-                <Input
-                  label='Password'
-                  type={passwordError ? InputType.error : InputType.info}
-                  theme={passwordError ? InputTheme.error : InputTheme.info}
-                />
-              ) : (
-                <Input
-                  label='Password'
-                  ref={(e) => {
-                    register('password');
-                    passwordRef.current = e;
-                  }}
-                  type={InputType.default}
-                />
-              )}
+              <Input
+                {...field}
+                label='Password'
+                ref={(e) => {
+                  register('password');
+                  passwordRef.current = e;
+                }}
+                style={((isIncorrectPassword || (errors.password)) ? InputType.error : isDirty ? InputType.info : InputType.default)}
+                theme={((isIncorrectPassword || (errors.password)) ? InputTheme.error : isDirty ? InputTheme.info : InputTheme.default)}
+              />
+              {errors.password && <Text text={(errors.password.message)} className='form-error' />}
+              {isIncorrectPassword && <Text text={ERROR_MESSAGES.PASSWORD_INVALID} className='form-error' />}
             </div>
           )}
         />
