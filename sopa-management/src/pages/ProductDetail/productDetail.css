@@ -1,8 +1,11 @@
 .detail {
-  display: flex;
   padding: var(--px-extra-normal) var(--py-medium);
   margin: 0 auto;
   width: var(--w-extra-large);
+}
+
+.detail-product {
+  display: flex;
 }
 
 .detail-image {
@@ -39,4 +42,9 @@
 
 .detail-btn {
   margin-bottom: 24px;
+}
+
+.detail-description {
+  font-size: var(--text-extra-sm);
+  line-height: 22px;
 }
