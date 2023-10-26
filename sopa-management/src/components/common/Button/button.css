@@ -34,7 +34,7 @@
   background-color: transparent;
   border-radius: 50%;
   border: 1px solid var(--border-primary);
-  padding: var(--p-base);
+  padding: 0 var(--px-base);
 }
 
 .btn-out-line-primary {

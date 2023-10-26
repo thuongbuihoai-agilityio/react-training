@@ -1,4 +1,8 @@
-import { memo } from 'react';
+import {
+  memo,
+  useCallback,
+  useState
+} from 'react';
 
 // Images
 import { Trash } from '../../../../../public/images/icons';
@@ -21,21 +25,44 @@ import Text,
 } from '../../Text';
 import Counter from '../../Counter';
 import Image from '../../Image';
+import PopupDelete from '../../PopupDelete';
+
+// Stores
+import { useCartStore } from '../../../../stores/cart';
+
+// Constants
+import { VALIDATE_MESSAGE } from '../../../../constants/validate';
 
 interface CartItemProps {
   key?: string;
   cartItem: Product;
 }
 const CartItem: React.FC<CartItemProps> = ({
-  cartItem,
+  cartItem
 }) => {
-  const handleIncrement = () => {
-    // TODO: I will handle in feature/update-cart
-  };
+  const [openModalConfirm, setOpenModalConfirm] = useState<boolean>(false);
 
-  const handleDecrement = () => {
-    // TODO: I will handle in feature/update-cart
-  };
+  const {
+    increaseQuantity,
+    decreaseQuantity,
+    deleteCart
+  } = useCartStore();
+
+  const handleIncrement = useCallback(() => {
+    increaseQuantity(cartItem.id)
+  }, [cartItem]);
+
+  const handleDecrement = useCallback(() => {
+    decreaseQuantity(cartItem.id)
+  }, [cartItem]);
+
+  const handleOpenModalConfirm = useCallback(() => {
+    setOpenModalConfirm(!openModalConfirm);
+  }, [openModalConfirm]);
+
+  const handleDeleteCart = useCallback(() => {
+    deleteCart(cartItem.id);
+  }, [cartItem]);
 
   return (
     <div data-testid='cart-item' className='cart-item'>
@@ -65,7 +92,15 @@ const CartItem: React.FC<CartItemProps> = ({
               children={<Trash />}
               type={ButtonType.btnIconSecondary}
               className='cart-btn'
+              onClick={handleOpenModalConfirm}
             />
+            {openModalConfirm && (
+              <PopupDelete
+                title={VALIDATE_MESSAGE.CONFIRM_DELETE}
+                onCancel={handleOpenModalConfirm}
+                onDelete={handleDeleteCart}
+              />
+            )}
           </div>
         </div>
       </div>
