@@ -1,20 +1,11 @@
-import {
-  memo,
-  useCallback
-} from 'react';
+import { memo, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
 
 // Components
-import Text,
-{
-  SizeType
-} from '../../components/common/Text';
+import Text, { SizeType } from '../../components/common/Text';
 import Price, { PriceType } from '../../components/common/Price';
 import Dropdown from '../../components/common/Dropdown';
-import Button,
-{
-  ButtonType
-} from '../../components/common/Button';
+import Button, { ButtonType } from '../../components/common/Button';
 import Rating from '../../components/Rating';
 import RatingStar from '../../components/Rating/RatingStar';
 
@@ -29,18 +20,13 @@ import { useCartStore } from '../../stores/cart';
 
 // Styles
 import './productDetail.css';
+import Loading from '../../components/common/Loading';
 
 const ProductDetail = () => {
   // use useParams to get id
   const { id } = useParams();
-  const { data: product } = useFetchProductDetail(id);
-  const {
-    name,
-    image,
-    color,
-    price,
-    description
-  } = product;
+  const { data: product, isLoading } = useFetchProductDetail(id);
+  const { name, image, color, price, description } = product;
 
   const addToCart = useCartStore((state) => state.addToCart);
 
@@ -48,7 +34,9 @@ const ProductDetail = () => {
     addToCart(product);
   }, [name]);
 
-  return (
+  return isLoading ? (
+    <Loading />
+  ) : (
     <div data-testid='detail' className='detail'>
       <div className='detail-product'>
         <figure>

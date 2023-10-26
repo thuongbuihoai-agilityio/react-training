@@ -9,6 +9,7 @@ import Button,
 {
   ButtonType
 } from '../common/Button';
+import Loading from '../common/Loading';
 
 // Styles
 import './productList.css';
@@ -20,8 +21,7 @@ const ProductList: React.FC = () => {
   return (
     <div data-testId='product' className='product'>
       {isLoading ? (
-        // TODO: I will create component Loading later
-        <p>Loading...</p>
+        <Loading />
       ) : (
         <>
           <div data-testId='product-list' className='product-list'>

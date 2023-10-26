@@ -150,9 +150,20 @@ exports[`App component matches snapshot 1`] = `
     class="product"
     data-testid="product"
   >
-    <p>
-      Loading...
-    </p>
+    <div
+      class="loading-container"
+      data-testid="loading-page"
+    >
+      <div
+        class="circle"
+      />
+      <div
+        class="circle"
+      />
+      <div
+        class="circle"
+      />
+    </div>
   </div>
   <div
     class="footer"
