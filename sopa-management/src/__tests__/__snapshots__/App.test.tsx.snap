@@ -147,6 +147,117 @@ exports[`App component matches snapshot 1`] = `
     </div>
   </div>
   <div
+    class="carousel"
+    data-testid="carousel"
+  >
+    <div
+      class="carousel-inner"
+    >
+      <input
+        aria-hidden="true"
+        checked=""
+        class="carousel-open"
+        data-testid="input"
+        hidden=""
+        id="carousel-1"
+        name="carousel"
+        placeholder=""
+        type="radio"
+        value=""
+      />
+      <figure
+        class="carousel-item"
+      >
+        <img
+          alt="This is banner"
+          class=""
+          data-testid="image"
+          src="/images/banner.webp"
+        />
+      </figure>
+      <input
+        aria-hidden="true"
+        class="carousel-open"
+        data-testid="input"
+        hidden=""
+        id="carousel-2"
+        name="carousel"
+        placeholder=""
+        type="radio"
+        value=""
+      />
+      <figure
+        class="carousel-item"
+      >
+        <img
+          alt="This is banner"
+          class=""
+          data-testid="image"
+          src="/images/banner-2.webp"
+        />
+      </figure>
+      <input
+        aria-hidden="true"
+        class="carousel-open"
+        data-testid="input"
+        hidden=""
+        id="carousel-3"
+        name="carousel"
+        placeholder=""
+        type="radio"
+        value=""
+      />
+      <figure
+        class="carousel-item"
+      >
+        <img
+          alt="This is banner"
+          class=""
+          data-testid="image"
+          src="/images/banner-3.webp"
+        />
+      </figure>
+      <ul
+        class="carousel-indicators"
+      >
+        <li>
+          <label
+            class="carousel-bullet"
+            for="carousel-1"
+          />
+        </li>
+        <li>
+          <label
+            class="carousel-bullet"
+            for="carousel-2"
+          />
+        </li>
+        <li>
+          <label
+            class="carousel-bullet"
+            for="carousel-3"
+          />
+        </li>
+      </ul>
+    </div>
+    <div
+      class="carousel-info"
+    >
+      <p
+        class="carousel-heading text-large"
+        data-testid="text"
+      >
+        Step inside, for comfort and magic await you.
+      </p>
+      <button
+        class=" btn btn-primary"
+        data-testid="button"
+      >
+        Show now
+      </button>
+    </div>
+  </div>
+  <div
     class="partners"
     data-testid="partners"
   >

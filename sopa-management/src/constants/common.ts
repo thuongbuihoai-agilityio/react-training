@@ -153,7 +153,26 @@ const STORAGE_KEY = {
   TOKEN: 'token',
 };
 
+const CAROUSEL_BULLET = [
+  {
+    key: '1',
+    htmlFor: 'carousel-1',
+    className: 'carousel-bullet'
+  },
+  {
+    key: '2',
+    htmlFor: 'carousel-2',
+    className: 'carousel-bullet'
+  },
+  {
+    key: '3',
+    htmlFor: 'carousel-3',
+    className: 'carousel-bullet'
+  }
+];
+
 export {
+  CAROUSEL_BULLET,
   SIZE,
   USER,
   MENU_HEADER,
