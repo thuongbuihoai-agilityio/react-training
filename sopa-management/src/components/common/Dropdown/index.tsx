@@ -20,29 +20,38 @@ interface DropdownProps {
   dataUser?: UserType[];
   isHref?: boolean;
   className?: string;
+  onLogout?: () => void;
+  closeDropdown?: () => void;
 }
 
 const Dropdown: React.FC<DropdownProps> = ({
   dataSize = [],
-  dataUser = [],
   isHref,
-  className =  ''
-}) => (
-  <div data-testid='dropdown' className={`${className} custom-dropdown`}>
-    <select className='dropdown'>
-      {isHref
-        ? dataUser.map((item: UserType) => (
-            <option key={item.key} value={item.label} className='option'>
-              <NavLink to={item.href}>{item.label}</NavLink>
-            </option>
-          ))
-        : dataSize.map((item: SizeType) => (
-            <option key={item.key} value={item.label} className='option'>
+  className = '',
+  onLogout = () => {},
+  closeDropdown = () => {}
+}) => {
+
+  const handleToggle = () => {
+    closeDropdown(),
+    onLogout()
+  }
+
+  return (
+    <div data-testid='dropdown' className={`${className} custom-dropdown`}>
+      <ul className='dropdown'>
+        {isHref ?
+          <li onClick={handleToggle} className='option'>
+            Logout
+          </li>
+          : dataSize.map((item: SizeType) => (
+            <li key={item.key} value={item.label} className='option'>
               {item.label}
-            </option>
+            </li>
           ))}
-    </select>
-  </div>
-);
+      </ul>
+    </div>
+  );
+}
 
 export default memo(Dropdown);

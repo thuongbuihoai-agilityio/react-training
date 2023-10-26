@@ -34,7 +34,8 @@ import { setStorage } from '../../helpers/storage';
 import {
   checkEmail,
   checkLogin,
-  checkPassword
+  checkPassword,
+  checkValidationStyles
 } from '../../helpers/common';
 
 // Stores
@@ -107,8 +108,22 @@ const Login: React.FC = () => {
                   register('email');
                   emailRef.current = e;
                 }}
-                style={((isIncorrectEmail || (errors.email)) ? InputType.error : isDirty ? InputType.info : InputType.default)}
-                theme={((isIncorrectEmail || (errors.email)) ? InputTheme.error : isDirty ? InputTheme.info : InputTheme.default)}
+                style={checkValidationStyles(
+                  isIncorrectEmail,
+                  errors.email,
+                  isDirty,
+                  InputType.error,
+                  InputType.info,
+                  InputType.default
+                )}
+                theme={checkValidationStyles(
+                  isIncorrectEmail,
+                  errors.email,
+                  isDirty,
+                  InputTheme.error,
+                  InputTheme.info,
+                  InputTheme.default
+                )}
               />
               {errors.email && <Text text={(errors.email.message)} className='form-error' />}
               {isIncorrectEmail && <Text text={ERROR_MESSAGES.EMAIL_INVALID} className='form-error' />}
@@ -128,8 +143,22 @@ const Login: React.FC = () => {
                   register('password');
                   passwordRef.current = e;
                 }}
-                style={((isIncorrectPassword || (errors.password)) ? InputType.error : isDirty ? InputType.info : InputType.default)}
-                theme={((isIncorrectPassword || (errors.password)) ? InputTheme.error : isDirty ? InputTheme.info : InputTheme.default)}
+                style={checkValidationStyles(
+                  isIncorrectPassword,
+                  errors.password,
+                  isDirty,
+                  InputType.error,
+                  InputType.info,
+                  InputType.default
+                )}
+                theme={checkValidationStyles(
+                  isIncorrectPassword,
+                  errors.password,
+                  isDirty,
+                  InputTheme.error,
+                  InputTheme.info,
+                  InputTheme.default
+                )}
               />
               {errors.password && <Text text={(errors.password.message)} className='form-error' />}
               {isIncorrectPassword && <Text text={ERROR_MESSAGES.PASSWORD_INVALID} className='form-error' />}

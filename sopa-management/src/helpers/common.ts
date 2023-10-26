@@ -1,3 +1,4 @@
+import { FieldError } from 'react-hook-form';
 import { Account } from '../interfaces/account';
 import { Product } from '../interfaces/product';
 
@@ -34,21 +35,21 @@ export const checkLogin = (
   );
 };
 
-export const checkEmail = (
-  data?: Account[],
-  email?: string,
-) => {
-  return data?.some(
-    (user: Account) => user.email === email
-  );
+export const checkEmail = (data?: Account[], email?: string) => {
+  return data?.some((user: Account) => user.email === email);
 };
 
-export const checkPassword = (
-  data?: Account[],
-  password?: string,
-) => {
-  return data?.some(
-    (user: Account) => user.password === password
-  );
+export const checkPassword = (data?: Account[], password?: string) => {
+  return data?.some((user: Account) => user.password === password);
 };
 
+export const checkValidationStyles = (
+  serverError: boolean,
+  rules: FieldError | undefined,
+  isDirty: boolean,
+  typeError: string,
+  typeInfo: string,
+  typeDefault: string
+) => {
+  return serverError || rules ? typeError : isDirty ? typeInfo : typeDefault;
+};

@@ -16,19 +16,6 @@ const SIZE = [
   }
 ];
 
-const USER = [
-  {
-    key: "1",
-    label: "Login",
-    href: "/login"
-  },
-  {
-    key: "1",
-    label: "Logout",
-    href: "/login"
-  },
-];
-
 const MENU_HEADER: MenuType[] = [
   {
     key: "men",
@@ -174,7 +161,6 @@ const CAROUSEL_BULLET = [
 export {
   CAROUSEL_BULLET,
   SIZE,
-  USER,
   MENU_HEADER,
   MENU_PRODUCTS,
   MENU_SUPPORT,

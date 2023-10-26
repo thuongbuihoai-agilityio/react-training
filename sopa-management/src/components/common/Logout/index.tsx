@@ -1,9 +1,9 @@
 import React, { memo, useCallback, useState } from 'react';
 import Button, { ButtonType } from '../Button';
 import Dropdown from '../Dropdown';
-import { STORAGE_KEY, USER } from '../../../constants/common';
+import { STORAGE_KEY } from '../../../constants/common';
 import { User } from '../../../../public/images/icons';
-import { getStorage } from '../../../helpers/storage';
+import { clearStorage, getStorage } from '../../../helpers/storage';
 
 interface LogoutProps {
   className?: string;
@@ -16,17 +16,25 @@ const Logout: React.FC<LogoutProps> = ({ className = '' }) => {
     setShowDropdown(!showDropdown);
   }, [showDropdown]);
 
-  const user = getStorage(STORAGE_KEY.TOKEN) || '';
+  const handleLogout = () => {
+    clearStorage();
+    window.location.href = '/login';
+  }
 
   return (
-    <div title={user?.email} className={`${className} account`} data-testid='logout'>
+    <div className={`${className} account`} data-testid='logout'>
       <Button
         children={<User />}
         type={ButtonType.btnIconPrimary}
         onClick={handleToggle}
       />
       {showDropdown && (
-        <Dropdown dataUser={USER} isHref className='account-dropdown' />
+        <Dropdown
+          isHref
+          className='account-dropdown'
+          onLogout={handleLogout}
+          closeDropdown={handleToggle}
+        />
       )}
     </div>
   );
