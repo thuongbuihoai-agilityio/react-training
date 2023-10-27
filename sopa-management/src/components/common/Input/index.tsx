@@ -80,7 +80,7 @@ const Input = React.forwardRef<HTMLInputElement, IconProps>(
           value={value}
           placeholder={placeholder}
           aria-hidden='true'
-          className={className}
+          className={`${className} ${classNameInput} input-${style}`}
         />
       )}
     </>
