@@ -30,6 +30,7 @@ interface IconProps {
   classNameLabel?: string;
   className?: string;
   onChange?: () => void;
+  onBlur?: () => void;
 }
 
 const Input = React.forwardRef<HTMLInputElement, IconProps>(
@@ -48,7 +49,8 @@ const Input = React.forwardRef<HTMLInputElement, IconProps>(
       classNameInput = 'input',
       classNameLabel = 'label',
       className = '',
-      onChange = () => {}
+      onChange = () => {},
+      onBlur = () => {},
     },
     ref
   ) => (
@@ -67,6 +69,7 @@ const Input = React.forwardRef<HTMLInputElement, IconProps>(
             aria-hidden='true'
             className={`${classNameInput} input-${style}`}
             onChange={onChange}
+            onBlur={onBlur}
           />
         </div>
       ) : (

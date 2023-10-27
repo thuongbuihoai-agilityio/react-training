@@ -1,5 +1,6 @@
 import {
   memo,
+  useEffect,
   useRef
 } from 'react';
 import {
@@ -59,6 +60,15 @@ const Login: React.FC = () => {
     setIsIncorrectPassword,
   } = useAccountStore();
 
+  const resetErrors = () => {
+    setIsIncorrectEmail(false);
+    setIsIncorrectPassword(false);
+  };
+
+  useEffect(() => {
+    resetErrors();
+  }, []);
+
   const {
     register,
     handleSubmit,
@@ -66,12 +76,23 @@ const Login: React.FC = () => {
     formState: { errors, isDirty },
   } = useForm<Account>();
 
+  const {
+    style: styleEmail,
+    theme: themeEmail
+  } = checkValidationStyles(isIncorrectEmail, errors.email, isDirty);
+
+  const {
+    style: stylePassword,
+    theme: themePassword
+  } = checkValidationStyles(isIncorrectPassword, errors.password, isDirty);
+
   const onSubmit = async () => {
     const email = emailRef.current?.value || '';
     const password = passwordRef.current?.value || '';
 
     const checkCorrectEmail = checkEmail(data, email);
     const checkCorrectPassword = checkPassword(data, password);
+
     if (checkLogin(data, email, password)) {
       navigate('/');
       setStorage(STORAGE_KEY.TOKEN, {
@@ -86,16 +107,6 @@ const Login: React.FC = () => {
       setIsIncorrectPassword(!checkCorrectPassword)
     }
   };
-
-  const {
-    style: styleEmail,
-    theme: themeEmail
-  } = checkValidationStyles(isIncorrectEmail, errors.email, isDirty);
-
-  const {
-    style: stylePassword,
-    theme: themePassword
-  } = checkValidationStyles(isIncorrectPassword, errors.password, isDirty)
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className='form'>
@@ -116,9 +127,10 @@ const Login: React.FC = () => {
                 }}
                 style={styleEmail}
                 theme={themeEmail}
+                onBlur={resetErrors}
               />
-              {errors?.email && <Text text={(errors?.email?.message)} className='form-error' />}
-              {isIncorrectEmail && <Text text={ERROR_MESSAGES.EMAIL_INVALID} className='form-error' />}
+              {errors?.email && <Text text={(errors.email.message)} className='form-error' />}
+              {isIncorrectEmail && <Text text={ERROR_MESSAGES.EMAIL_INCORRECT} className='form-error' />}
             </div>
           )}
         />
@@ -137,9 +149,10 @@ const Login: React.FC = () => {
                 }}
                 style={stylePassword}
                 theme={themePassword}
+                onBlur={resetErrors}
               />
-              {errors?.password && <Text text={(errors?.password?.message)} className='form-error' />}
-              {isIncorrectPassword && <Text text={ERROR_MESSAGES.PASSWORD_INVALID} className='form-error' />}
+              {errors?.password && <Text text={(errors.password.message)} className='form-error' />}
+              {isIncorrectPassword && <Text text={ERROR_MESSAGES.PASSWORD_INCORRECT} className='form-error' />}
             </div>
           )}
         />

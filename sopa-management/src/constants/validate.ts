@@ -5,9 +5,9 @@ const CONFIRM_MESSAGE = {
 const ERROR_MESSAGES = {
   REQUIRED: 'This field is required',
   EMAIL_FORMAT: 'Wrong email format',
-  EMAIL_INVALID: 'Email is invalid',
+  EMAIL_INCORRECT: 'Email is incorrect',
   PASSWORD_FORMAT: 'Password must be more than 6 characters',
-  PASSWORD_INVALID: 'Password is invalid',
+  PASSWORD_INCORRECT: 'Password is incorrect',
 }
 
 export {
