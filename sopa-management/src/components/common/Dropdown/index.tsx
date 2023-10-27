@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 // Styles
 import './dropdown.css';
@@ -16,8 +16,8 @@ export type UserType = {
 };
 
 interface DropdownProps {
-  dataSize?: SizeType[];
-  dataUser?: UserType[];
+  data?: SizeType[];
+  value?: string;
   isHref?: boolean;
   className?: string;
   onLogout?: () => void;
@@ -25,31 +25,47 @@ interface DropdownProps {
 }
 
 const Dropdown: React.FC<DropdownProps> = ({
-  dataSize = [],
+  data = [],
   isHref,
+  value,
   className = '',
   onLogout = () => {},
   closeDropdown = () => {}
 }) => {
-
   const handleToggle = () => {
     closeDropdown(),
-    onLogout()
-  }
+    onLogout();
+  };
 
   return (
     <div data-testid='dropdown' className={`${className} custom-dropdown`}>
-      <ul className='dropdown'>
-        {isHref ?
-          <li onClick={handleToggle} className='option'>
-            Logout
-          </li>
-          : dataSize.map((item: SizeType) => (
-            <li key={item.key} value={item.label} className='option'>
-              {item.label}
-            </li>
-          ))}
-      </ul>
+      <input type='checkbox' id='my-dropdown' value='' name='my-checkbox' />
+      {isHref ? (
+        <Link
+          to='/login'
+          className='dropdown-link'
+          onClick={handleToggle}
+        >
+          Logout
+        </Link>
+      ) : (
+        <>
+          <label
+            htmlFor='my-dropdown'
+            data-toggle='dropdown'
+            className='dropdown-label'
+          >
+            {value}
+          </label>
+          <ul className='dropdown-list'>
+            {data.map((item: SizeType) => (
+              <li key={item.key} value={item.label} className='dropdown-option'>
+                {item.label}
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
     </div>
   );
 }
