@@ -1,9 +1,22 @@
-import React, { memo, useCallback, useState } from 'react';
+import React,
+{
+  memo,
+  useCallback,
+  useState
+} from 'react';
+
+// Components
 import Button, { ButtonType } from '../Button';
 import Dropdown from '../Dropdown';
-import { STORAGE_KEY } from '../../../constants/common';
+
+// Public
 import { User } from '../../../../public/images/icons';
-import { clearStorage, getStorage } from '../../../helpers/storage';
+
+// Helpers
+import { clearStorage } from '../../../helpers/storage';
+
+// Constants
+import { STORAGE_KEY } from '../../../constants/common';
 
 interface LogoutProps {
   className?: string;
@@ -17,7 +30,7 @@ const Logout: React.FC<LogoutProps> = ({ className = '' }) => {
   }, [showDropdown]);
 
   const handleLogout = () => {
-    clearStorage();
+    clearStorage(STORAGE_KEY.TOKEN);
     window.location.href = '/login';
   }
 
