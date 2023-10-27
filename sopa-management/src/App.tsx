@@ -22,6 +22,7 @@ import Partners from './components/Partners';
 import Carousel from './components/common/Carousel';
 const ProductList = lazy(() => import('./components/ProductList'));
 const ProductDetail = lazy(() => import('./pages/ProductDetail'));
+const Login = lazy(() => import('./pages/Login'));
 
 const App: React.FC = () => {
   const queryClient = new QueryClient();
@@ -39,6 +40,7 @@ const App: React.FC = () => {
               </>}
             />
             <Route path='/products/:id' element={<ProductDetail />} />
+            <Route path='/login' element={<Login />} />
           </Route>
         </Routes>
       </Suspense>

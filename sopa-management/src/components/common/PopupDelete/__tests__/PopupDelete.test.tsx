@@ -6,7 +6,7 @@ import { render } from '@testing-library/react';
 import PopupDelete from '..';
 
 // Constants
-import { VALIDATE_MESSAGE } from '../../../../constants/validate';
+import { CONFIRM_MESSAGE } from '../../../../constants/validate';
 
 describe('PopupDelete component', () => {
   const props = {
@@ -19,7 +19,7 @@ describe('PopupDelete component', () => {
   });
 
   test('should render PopupDelete component', () => {
-    const { getByTestId } = render(<PopupDelete title={VALIDATE_MESSAGE.CONFIRM_DELETE} {...props} />);
+    const { getByTestId } = render(<PopupDelete title={CONFIRM_MESSAGE.CONFIRM_DELETE} {...props} />);
     expect(getByTestId('popup-delete')).toBeInTheDocument();
   });
 

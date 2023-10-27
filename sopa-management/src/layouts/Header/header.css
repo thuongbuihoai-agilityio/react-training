@@ -1,6 +1,7 @@
 .header {
   width: var(--w-extra-large);
   margin: 20px auto 0;
+  position: relative;
 }
 
 .header,
@@ -12,5 +13,15 @@
 }
 
 .header-user {
-  margin: 0 24px;
+  position: absolute;
+  top: 3px;
+  left: 93%;
+}
+
+.header-btn {
+  margin-left: 12px;
+}
+
+.header-text {
+  margin-right: 50px;
 }

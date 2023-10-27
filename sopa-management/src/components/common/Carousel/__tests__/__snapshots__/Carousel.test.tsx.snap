@@ -12,7 +12,7 @@ exports[`Carousel component matches snapshot 1`] = `
       <input
         aria-hidden="true"
         checked=""
-        class="carousel-open"
+        class="carousel-open input input-"
         data-testid="input"
         hidden=""
         id="carousel-1"
@@ -33,7 +33,7 @@ exports[`Carousel component matches snapshot 1`] = `
       </figure>
       <input
         aria-hidden="true"
-        class="carousel-open"
+        class="carousel-open input input-"
         data-testid="input"
         hidden=""
         id="carousel-2"
@@ -54,7 +54,7 @@ exports[`Carousel component matches snapshot 1`] = `
       </figure>
       <input
         aria-hidden="true"
-        class="carousel-open"
+        class="carousel-open input input-"
         data-testid="input"
         hidden=""
         id="carousel-3"

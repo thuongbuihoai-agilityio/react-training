@@ -4,7 +4,7 @@ exports[`Input component Matches snapshot 1`] = `
 <div>
   <input
     aria-hidden="true"
-    class=""
+    class=" input input-"
     data-testid="input"
     id=""
     name=""

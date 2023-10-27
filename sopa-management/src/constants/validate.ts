@@ -1,7 +1,16 @@
-const VALIDATE_MESSAGE = {
+const CONFIRM_MESSAGE = {
   CONFIRM_DELETE: 'Are you sure you want to delete?'
 }
 
+const ERROR_MESSAGES = {
+  REQUIRED: 'This field is required',
+  EMAIL_FORMAT: 'Wrong email format',
+  EMAIL_INCORRECT: 'Email is incorrect',
+  PASSWORD_FORMAT: 'Password must be more than 6 characters',
+  PASSWORD_INCORRECT: 'Password is incorrect',
+}
+
 export {
-  VALIDATE_MESSAGE
+  CONFIRM_MESSAGE,
+  ERROR_MESSAGES,
 };

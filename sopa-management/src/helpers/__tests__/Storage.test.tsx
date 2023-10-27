@@ -29,7 +29,7 @@ describe('localStorage functions', () => {
 
   test('should clear localStorage', () => {
     localStorage[STORAGE_KEY.CART_KEY] = STORAGE_KEY.CART_KEY;
-    clearStorage();
+    clearStorage(STORAGE_KEY.CART_KEY);
     expect(localStorage[STORAGE_KEY.CART_KEY]).toBeUndefined();
   });
 });
