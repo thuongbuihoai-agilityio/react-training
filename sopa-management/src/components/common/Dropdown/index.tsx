@@ -20,8 +20,7 @@ interface DropdownProps {
   value?: string;
   isHref?: boolean;
   className?: string;
-  onLogout?: () => void;
-  closeDropdown?: () => void;
+  onClick?: () => void;
 }
 
 const Dropdown: React.FC<DropdownProps> = ({
@@ -29,45 +28,37 @@ const Dropdown: React.FC<DropdownProps> = ({
   isHref,
   value,
   className = '',
-  onLogout = () => {},
-  closeDropdown = () => {}
-}) => {
-  const handleToggle = () => {
-    closeDropdown(),
-    onLogout();
-  };
-
-  return (
-    <div data-testid='dropdown' className={`${className} custom-dropdown`}>
-      <input type='checkbox' id='my-dropdown' value='' name='my-checkbox' />
-      {isHref ? (
-        <Link
-          to='/login'
-          className='dropdown-link'
-          onClick={handleToggle}
+  onClick = () => {},
+}) => (
+  <div data-testid='dropdown' className={`${className} custom-dropdown`}>
+    <input type='checkbox' id='my-dropdown' value='' name='my-checkbox' />
+    {isHref ? (
+      <Link
+        to='/login'
+        className='dropdown-link'
+        onClick={onClick}
+      >
+        Logout
+      </Link>
+    ) : (
+      <>
+        <label
+          htmlFor='my-dropdown'
+          data-toggle='dropdown'
+          className='dropdown-label'
         >
-          Logout
-        </Link>
-      ) : (
-        <>
-          <label
-            htmlFor='my-dropdown'
-            data-toggle='dropdown'
-            className='dropdown-label'
-          >
-            {value}
-          </label>
-          <ul className='dropdown-list'>
-            {data.map((item: SizeType) => (
-              <li key={item.key} value={item.label} className='dropdown-option'>
-                {item.label}
-              </li>
-            ))}
-          </ul>
-        </>
-      )}
-    </div>
-  );
-}
+          {value}
+        </label>
+        <ul className='dropdown-list'>
+          {data.map((item: SizeType) => (
+            <li key={item.key} value={item.label} className='dropdown-option'>
+              {item.label}
+            </li>
+          ))}
+        </ul>
+      </>
+    )}
+  </div>
+);
 
 export default memo(Dropdown);

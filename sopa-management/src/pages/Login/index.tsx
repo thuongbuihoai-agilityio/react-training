@@ -9,11 +9,7 @@ import {
 import { useNavigate } from 'react-router-dom';
 
 // Components
-import Input,
-{
-  InputTheme,
-  InputType
-} from '../../components/common/Input';
+import Input from '../../components/common/Input';
 import Button,
 {
   ButtonType
@@ -91,6 +87,16 @@ const Login: React.FC = () => {
     }
   };
 
+  const {
+    style: styleEmail,
+    theme: themeEmail
+  } = checkValidationStyles(isIncorrectEmail, errors.email, isDirty);
+
+  const {
+    style: stylePassword,
+    theme: themePassword
+  } = checkValidationStyles(isIncorrectPassword, errors.password, isDirty)
+
   return (
     <form onSubmit={handleSubmit(onSubmit)} className='form'>
       <Text text='Login' type={SizeType.extraMedium} />
@@ -108,24 +114,10 @@ const Login: React.FC = () => {
                   register('email');
                   emailRef.current = e;
                 }}
-                style={checkValidationStyles(
-                  isIncorrectEmail,
-                  errors.email,
-                  isDirty,
-                  InputType.error,
-                  InputType.info,
-                  InputType.default
-                )}
-                theme={checkValidationStyles(
-                  isIncorrectEmail,
-                  errors.email,
-                  isDirty,
-                  InputTheme.error,
-                  InputTheme.info,
-                  InputTheme.default
-                )}
+                style={styleEmail}
+                theme={themeEmail}
               />
-              {errors.email && <Text text={(errors.email.message)} className='form-error' />}
+              {errors?.email && <Text text={(errors?.email?.message)} className='form-error' />}
               {isIncorrectEmail && <Text text={ERROR_MESSAGES.EMAIL_INVALID} className='form-error' />}
             </div>
           )}
@@ -143,24 +135,10 @@ const Login: React.FC = () => {
                   register('password');
                   passwordRef.current = e;
                 }}
-                style={checkValidationStyles(
-                  isIncorrectPassword,
-                  errors.password,
-                  isDirty,
-                  InputType.error,
-                  InputType.info,
-                  InputType.default
-                )}
-                theme={checkValidationStyles(
-                  isIncorrectPassword,
-                  errors.password,
-                  isDirty,
-                  InputTheme.error,
-                  InputTheme.info,
-                  InputTheme.default
-                )}
+                style={stylePassword}
+                theme={themePassword}
               />
-              {errors.password && <Text text={(errors.password.message)} className='form-error' />}
+              {errors?.password && <Text text={(errors?.password?.message)} className='form-error' />}
               {isIncorrectPassword && <Text text={ERROR_MESSAGES.PASSWORD_INVALID} className='form-error' />}
             </div>
           )}

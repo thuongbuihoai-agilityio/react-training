@@ -2,9 +2,9 @@ import { create } from 'zustand';
 import { Account } from '../../interfaces/account';
 
 interface AccountType {
+  accounts: Account[];
   isIncorrectEmail: boolean;
   isIncorrectPassword: boolean;
-  accounts: Account[];
   setAccounts: (value: Account[]) => void;
   setIsIncorrectEmail: (value: boolean) => void;
   setIsIncorrectPassword: (value: boolean) => void;

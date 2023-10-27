@@ -18,7 +18,9 @@
 }
 
 .form-error {
+  text-align: left;
   color: var(--border-tertiary);
-  font-size: 14px;
+  font-size: var(--text-sm);
   margin-top: 3px;
+  padding-left: var(--py-extra-base);
 }

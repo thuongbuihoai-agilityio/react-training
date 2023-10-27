@@ -17,12 +17,14 @@ import { clearStorage } from '../../../helpers/storage';
 
 // Constants
 import { STORAGE_KEY } from '../../../constants/common';
+import { useNavigate } from 'react-router-dom';
 
 interface LogoutProps {
   className?: string;
 }
 
 const Logout: React.FC<LogoutProps> = ({ className = '' }) => {
+  const navigate = useNavigate()
   const [showDropdown, setShowDropdown] = useState<boolean>(false);
 
   const handleToggle = useCallback(() => {
@@ -31,8 +33,13 @@ const Logout: React.FC<LogoutProps> = ({ className = '' }) => {
 
   const handleLogout = () => {
     clearStorage(STORAGE_KEY.TOKEN);
-    window.location.href = '/login';
+    navigate('/login');
   }
+
+  const handleToggleItem = useCallback(() => {
+    handleToggle();
+    handleLogout();
+  }, [showDropdown]);
 
   return (
     <div className={`${className} account`} data-testid='logout'>
@@ -45,8 +52,7 @@ const Logout: React.FC<LogoutProps> = ({ className = '' }) => {
         <Dropdown
           isHref
           className='account-dropdown'
-          onLogout={handleLogout}
-          closeDropdown={handleToggle}
+          onClick={handleToggleItem}
         />
       )}
     </div>

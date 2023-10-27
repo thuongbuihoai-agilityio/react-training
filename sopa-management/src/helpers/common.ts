@@ -1,6 +1,12 @@
 import { FieldError } from 'react-hook-form';
+
+// Interfaces
 import { Account } from '../interfaces/account';
 import { Product } from '../interfaces/product';
+import {
+  InputTheme,
+  InputType
+} from '../components/common/Input';
 
 // Flattens an array of arrays into a single array
 export const flattenArray = <T>(pages: T[][]): T[] => {
@@ -47,9 +53,9 @@ export const checkValidationStyles = (
   serverError: boolean,
   rules: FieldError | undefined,
   isDirty: boolean,
-  typeError: string,
-  typeInfo: string,
-  typeDefault: string
 ) => {
-  return serverError || rules ? typeError : isDirty ? typeInfo : typeDefault;
+  const style = serverError || rules ? InputType.error : isDirty ? InputType.info : InputType.default;
+  const theme = serverError || rules ? InputTheme.error : isDirty ? InputTheme.info : InputTheme.default
+
+  return { style, theme };
 };
