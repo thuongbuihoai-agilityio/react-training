@@ -12,7 +12,7 @@ exports[`Counter component matches snapshot 1`] = `
     />
     <input
       aria-hidden="true"
-      class=""
+      class=" counter-input input-"
       data-testid="input"
       id=""
       name=""
