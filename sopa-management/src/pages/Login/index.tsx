@@ -37,17 +37,17 @@ import {
   checkPassword,
   checkValidationStyles
 } from '../../helpers/common';
+import { VALIDATE } from '../../helpers/validate';
 
 // Stores
 import { useAccountStore } from '../../stores/login';
 
 // Constants
 import { STORAGE_KEY } from '../../constants/common';
+import { ERROR_MESSAGES } from '../../constants/validate';
 
 // Styles
 import './login.css';
-import { VALIDATE } from '../../helpers/validate';
-import { ERROR_MESSAGES } from '../../constants/validate';
 
 const Login: React.FC = () => {
   const navigate = useNavigate();
