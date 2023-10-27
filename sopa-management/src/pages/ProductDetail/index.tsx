@@ -1,11 +1,23 @@
-import { memo, useCallback } from 'react';
+import {
+  memo,
+  useCallback
+} from 'react';
 import { useParams } from 'react-router-dom';
 
 // Components
-import Text, { SizeType } from '../../components/common/Text';
-import Price, { PriceType } from '../../components/common/Price';
+import Text,
+{
+  SizeType
+} from '../../components/common/Text';
+import Price,
+{
+  PriceType
+} from '../../components/common/Price';
 import Dropdown from '../../components/common/Dropdown';
-import Button, { ButtonType } from '../../components/common/Button';
+import Button,
+{
+  ButtonType
+} from '../../components/common/Button';
 import Rating from '../../components/Rating';
 import RatingStar from '../../components/Rating/RatingStar';
 
@@ -26,7 +38,14 @@ const ProductDetail = () => {
   // use useParams to get id
   const { id } = useParams();
   const { data: product, isLoading } = useFetchProductDetail(id);
-  const { name, image, color, price, description } = product;
+  const {
+    name,
+    image,
+    color,
+    price,
+    description,
+    size
+  } = product;
 
   const addToCart = useCartStore((state) => state.addToCart);
 
@@ -62,7 +81,7 @@ const ProductDetail = () => {
               className='detail-text-size'
               type={SizeType.extraRegular}
             />
-            <Dropdown dataSize={SIZE} />
+            <Dropdown value={size} data={SIZE} />
           </div>
           <Button
             children={`Add to bag $${price}`}
