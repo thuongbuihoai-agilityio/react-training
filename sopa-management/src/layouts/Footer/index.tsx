@@ -1,28 +1,28 @@
 import { memo } from 'react';
 
 // Components
-import Image from '../../components/common/Image';
+import Image from '@components/common/Image';
 import Text,
 {
   ThemeType
-} from '../../components/common/Text';
+} from '@components/common/Text';
 import Button,
 {
   ButtonType
-} from '../../components/common/Button';
+} from '@components/common/Button';
 import Menu,
 {
   MenuTheme
-} from '../../components/common/Menu';
-import Social from '../../components/common/Social';
+} from '@components/common/Menu';
+import Social from '@components/common/Social';
 
 // Constants
 import {
   MENU_EVERYTHING_ELSE,
   MENU_PRODUCTS,
   MENU_SUPPORT
-} from '../../constants/common';
-import { IMAGE } from '../../constants/image';
+} from '@constants/common';
+import { IMAGE } from '@constants/image';
 
 // Styles
 import './footer.css';

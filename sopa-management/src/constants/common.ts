@@ -1,5 +1,5 @@
-import { MenuType } from "../components/common/Menu";
-import { Product } from "../interfaces/product";
+import { MenuType } from "@components/common/Menu";
+import { Product } from "@interfaces/product";
 
 const SIZE = [
   {

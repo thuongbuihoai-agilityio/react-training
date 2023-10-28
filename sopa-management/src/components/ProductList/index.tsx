@@ -1,15 +1,15 @@
 import { memo } from 'react';
 
 // Hooks
-import { useInfiniteProducts } from '../../hooks/useQuery';
+import { useInfiniteProducts } from '@hooks/useQuery';
 
 // Components
 import ProductCard from './ProductCard';
 import Button,
 {
   ButtonType
-} from '../common/Button';
-import Loading from '../common/Loading';
+} from '@common/Button';
+import Loading from '@common/Loading';
 
 // Styles
 import './productList.css';

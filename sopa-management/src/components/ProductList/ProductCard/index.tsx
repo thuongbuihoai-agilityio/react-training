@@ -1,10 +1,10 @@
 import { memo } from 'react';
 
 // Components
-import Card from '../../common/Card';
+import Card from '@common/Card';
 
 // Interfaces
-import { Product } from '../../../interfaces/product';
+import { Product } from '@interfaces/product';
 
 // Styles
 import './productCard.css';

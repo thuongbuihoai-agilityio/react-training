@@ -1,16 +1,16 @@
 import { create } from 'zustand';
 
 // Interfaces
-import { Product } from '../../interfaces/product';
+import { Product } from '@interfaces/product';
 
 // Helpers
 import {
   getStorage,
   setStorage
-} from '../../helpers/storage';
+} from '@helpers/storage';
 
 // Constants
-import { STORAGE_KEY } from '../../constants/common';
+import { STORAGE_KEY } from '@constants/common';
 
 type CartType = {
   carts: Product[];

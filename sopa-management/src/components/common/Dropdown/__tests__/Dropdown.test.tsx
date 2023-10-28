@@ -3,10 +3,10 @@ import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
 
 // Components
-import Dropdown from '..';
+import Dropdown from '@common/Dropdown';
 
 // Constants
-import { SIZE } from '../../../../constants/common';
+import { SIZE } from '@constants/common';
 
 describe('Dropdown component', () => {
   test('should render Dropdown component', () => {

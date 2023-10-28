@@ -1,4 +1,7 @@
-import React, { ButtonHTMLAttributes, memo } from 'react';
+import React, {
+  ButtonHTMLAttributes,
+  memo
+} from 'react';
 
 // Styles
 import './button.css';

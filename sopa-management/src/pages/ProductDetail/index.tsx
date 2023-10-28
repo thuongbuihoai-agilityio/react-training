@@ -8,31 +8,31 @@ import { useParams } from 'react-router-dom';
 import Text,
 {
   SizeType
-} from '../../components/common/Text';
+} from '@components/common/Text';
 import Price,
 {
   PriceType
-} from '../../components/common/Price';
-import Dropdown from '../../components/common/Dropdown';
+} from '@components/common/Price';
+import Dropdown from '@components/common/Dropdown';
 import Button,
 {
   ButtonType
-} from '../../components/common/Button';
-import Rating from '../../components/Rating';
-import RatingStar from '../../components/Rating/RatingStar';
+} from '@components/common/Button';
+import Rating from '@components/Rating';
+import RatingStar from '@components/Rating/RatingStar';
 
 // Hooks
-import { useFetchProductDetail } from '../../hooks/useQuery';
+import { useFetchProductDetail } from '@hooks/useQuery';
 
 // Constants
-import { SIZE } from '../../constants/common';
+import { SIZE } from '@constants/common';
 
 // Stores
-import { useCartStore } from '../../stores/cart';
+import { useCartStore } from '@stores/cart';
 
 // Styles
 import './productDetail.css';
-import Loading from '../../components/common/Loading';
+import Loading from '@components/common/Loading';
 
 const ProductDetail = () => {
   // use useParams to get id

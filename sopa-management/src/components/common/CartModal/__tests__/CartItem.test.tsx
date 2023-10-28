@@ -6,7 +6,7 @@ import { render } from '@testing-library/react';
 import CartItem from '../CartItem';
 
 // Mocks
-import { MOCK_PRODUCT } from '../../../../__mocks__/product';
+import { MOCK_PRODUCT } from '@mocks/product';
 
 describe('CartItem component', () => {
   const props = {

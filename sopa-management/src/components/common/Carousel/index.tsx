@@ -1,20 +1,20 @@
 // Images
-import { IMAGE } from '../../../constants/image';
+import { IMAGE } from '@constants/image';
 
 // Components
 import Button,
 {
   ButtonType
-} from '../Button';
-import Image from '../Image';
-import Input from '../Input';
+} from '@common/Button';
+import Image from '@common/Image';
+import Input from '@common/Input';
 import Text,
 {
   SizeType
-} from '../Text';
+} from '@common/Text';
 
 // Constants
-import { CAROUSEL_BULLET } from '../../../constants/common';
+import { CAROUSEL_BULLET } from '@constants/common';
 
 // Styles
 import './carousel.css';

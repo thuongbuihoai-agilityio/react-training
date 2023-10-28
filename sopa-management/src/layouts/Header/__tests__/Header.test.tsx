@@ -2,10 +2,10 @@
 import '@testing-library/jest-dom';
 
 // Components
-import Header from '..';
+import Header from '@layouts/Header';
 
 // Helpers
-import { renderRouterTest } from '../../../helpers/testUtils';
+import { renderRouterTest } from '@helpers/testUtils';
 
 describe('Header component', () => {
   test('should render Header component', () => {

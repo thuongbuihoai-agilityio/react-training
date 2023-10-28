@@ -1,8 +1,8 @@
 // Mocks
-import { MOCK_PRODUCTS } from '../../__mocks__/product';
+import { MOCK_PRODUCTS } from '@mocks/product';
 
 // Interface
-import { Product } from '../../interfaces/product';
+import { Product } from '@interfaces/product';
 
 // Helpers
 import { totalPrices } from '../common';

@@ -2,13 +2,13 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { BrowserRouter } from 'react-router-dom';
 
 // Components
-import Menu, { MenuTheme } from '.';
+import Menu, { MenuTheme } from '@common/Menu';
 
 // Constants
 import {
   MENU_EVERYTHING_ELSE,
   MENU_HEADER
-} from '../../../constants/common';
+} from '@constants/common';
 
 const meta: Meta<typeof Menu> = {
   component: Menu,

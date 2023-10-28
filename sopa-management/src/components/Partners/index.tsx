@@ -9,7 +9,7 @@ import {
 import Text,
 {
   SizeType
-} from '../common/Text';
+} from '@common/Text';
 
 // Styles
 import './partners.css';

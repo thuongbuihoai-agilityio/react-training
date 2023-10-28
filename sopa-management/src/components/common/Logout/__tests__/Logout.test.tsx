@@ -3,7 +3,7 @@ import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
 
 // Components
-import Logout from '..';
+import Logout from '@common/Logout';
 
 describe('Logout component', () => {
   test('should render Logout component', () => {

@@ -5,10 +5,10 @@ import '@testing-library/jest-dom';
 import ProductCard from '../ProductCard';
 
 // Helpers
-import { renderRouterTest } from '../../../helpers/testUtils';
+import { renderRouterTest } from '@helpers/testUtils';
 
 // Mocks
-import { MOCK_PRODUCTS } from '../../../__mocks__/product';
+import { MOCK_PRODUCTS } from '@mocks/product';
 
 describe('ProductList component', () => {
   test('should render ProductList component', () => {

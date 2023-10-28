@@ -3,7 +3,7 @@ import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
 
 // Components
-import Counter from '..';
+import Counter from '@common/Counter';
 
 describe('Counter component', () => {
   const props = {

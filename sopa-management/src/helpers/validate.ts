@@ -1,5 +1,5 @@
-import { REGEX } from "../constants/regex"
-import { ERROR_MESSAGES } from "../constants/validate"
+import { REGEX } from "@constants/regex"
+import { ERROR_MESSAGES } from "@constants/validate"
 
 // Validate
 export const VALIDATE = {

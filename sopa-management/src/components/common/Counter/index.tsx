@@ -1,11 +1,11 @@
 import { memo } from 'react';
 
 // Components
-import Button, { ButtonType } from '../Button';
+import Button, { ButtonType } from '@common/Button';
+import Input from '../Input';
 
 // Styles
 import './counter.css';
-import Input from '../Input';
 
 interface CounterProps {
   value: number;

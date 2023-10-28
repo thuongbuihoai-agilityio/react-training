@@ -8,28 +8,28 @@ import {
 import { Trash } from '../../../../../public/images/icons';
 
 // Interfaces
-import { Product } from '../../../../interfaces/product';
+import { Product } from '@interfaces/product';
 
 // Components
 import Button,
 {
   ButtonType
-} from '../../Button';
+} from '@common/Button';
 import Price,
 {
   PriceType
-} from '../../Price';
+} from '@common/Price';
 import Text,
 {
   ThemeType
-} from '../../Text';
-import Counter from '../../Counter';
-import Image from '../../Image';
-import PopupDelete from '../../PopupDelete';
+} from '@common/Text';
+import Counter from '@common/Counter';
+import Image from '@common/Image';
+import PopupDelete from '@common/PopupDelete';
 
 // Stores
-import { useCartStore } from '../../../../stores/cart';
-import { CONFIRM_MESSAGE } from '../../../../constants/validate';
+import { useCartStore } from '@stores/cart';
+import { CONFIRM_MESSAGE } from '@constants/validate';
 
 // Constants
 

@@ -5,12 +5,12 @@ import { Link } from 'react-router-dom';
 import Text,
 {
   ThemeType
-} from '../../common/Text';
+} from '@common/Text';
 import Price,
 {
   PriceType
-} from '../../common/Price';
-import Image from '../Image';
+} from '@common/Price';
+import Image from '@common/Image';
 
 // Styles
 import './card.css';

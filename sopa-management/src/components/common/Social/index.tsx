@@ -12,7 +12,7 @@ import {
 import Text,
 {
   ThemeType
-} from '../Text';
+} from '@common/Text';
 
 // Styles
 import './social.css';

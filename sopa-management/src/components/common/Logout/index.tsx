@@ -4,20 +4,20 @@ import React,
   useCallback,
   useState
 } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 // Components
-import Button, { ButtonType } from '../Button';
-import Dropdown from '../Dropdown';
+import Button, { ButtonType } from '@common/Button';
+import Dropdown from '@common/Dropdown';
 
 // Public
 import { User } from '../../../../public/images/icons';
 
 // Helpers
-import { clearStorage } from '../../../helpers/storage';
+import { clearStorage } from '@helpers/storage';
 
 // Constants
-import { STORAGE_KEY } from '../../../constants/common';
-import { useNavigate } from 'react-router-dom';
+import { STORAGE_KEY } from '@constants/common';
 
 interface LogoutProps {
   className?: string;

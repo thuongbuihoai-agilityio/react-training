@@ -2,13 +2,13 @@
 import '@testing-library/jest-dom';
 
 // Constants
-import { IMAGE } from '../../../../constants/image';
+import { IMAGE } from '@constants/image';
 
 // Helpers
-import { renderRouterTest } from '../../../../helpers/testUtils';
+import { renderRouterTest } from '@helpers/testUtils';
 
 // Components
-import Image from '..';
+import Image from '@common/Image';
 
 describe('Image component', () => {
   test('should render Image component', () => {

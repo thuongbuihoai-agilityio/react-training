@@ -5,25 +5,25 @@ import {
 } from 'react';
 
 // Components
-import Image from '../../components/common/Image';
+import Image from '@components/common/Image';
 import Menu,
 {
   MenuTheme
-} from '../../components/common/Menu';
+} from '@components/common/Menu';
 import Button,
 {
   ButtonType
-} from '../../components/common/Button';
+} from '@components/common/Button';
 import Text,
 {
   SizeType
-} from '../../components/common/Text';
-import CartModal from '../../components/common/CartModal';
-import Logout from '../../components/common/Logout';
+} from '@components/common/Text';
+import CartModal from '@components/common/CartModal';
+import Logout from '@components/common/Logout';
 
 // Constants
-import { IMAGE } from '../../constants/image';
-import { MENU_HEADER } from '../../constants/common';
+import { IMAGE } from '@constants/image';
+import { MENU_HEADER } from '@constants/common';
 
 // Images
 import { ShoppingBag } from '../../../public/images/icons';

@@ -1,12 +1,12 @@
 import { FieldError } from 'react-hook-form';
 
 // Interfaces
-import { Account } from '../interfaces/account';
-import { Product } from '../interfaces/product';
+import { Account } from '@interfaces/account';
+import { Product } from '@interfaces/product';
 import {
   InputTheme,
   InputType
-} from '../components/common/Input';
+} from '@components/common/Input';
 
 // Flattens an array of arrays into a single array
 export const flattenArray = <T>(pages: T[][]): T[] => {

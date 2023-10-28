@@ -10,38 +10,38 @@ import {
 import { useNavigate } from 'react-router-dom';
 
 // Components
-import Input from '../../components/common/Input';
+import Input from '@components/common/Input';
 import Button,
 {
   ButtonType
-} from '../../components/common/Button';
+} from '@components/common/Button';
 import Text,
 {
   SizeType
-} from '../../components/common/Text';
+} from '@components/common/Text';
 
 // Hooks
-import { useFetchUser } from '../../hooks/useQuery';
+import { useFetchUser } from '@hooks/useQuery';
 
 // Interfaces
-import { Account } from '../../interfaces/account';
+import { Account } from '@interfaces/account';
 
 // Helpers
-import { setStorage } from '../../helpers/storage';
+import { setStorage } from '@helpers/storage';
 import {
   checkEmail,
   checkLogin,
   checkPassword,
   checkValidationStyles
-} from '../../helpers/common';
-import { VALIDATE } from '../../helpers/validate';
+} from '@helpers/common';
+import { VALIDATE } from '@helpers/validate';
 
 // Stores
-import { useAccountStore } from '../../stores/login';
+import { useAccountStore } from '@stores/login';
 
 // Constants
-import { STORAGE_KEY } from '../../constants/common';
-import { ERROR_MESSAGES } from '../../constants/validate';
+import { STORAGE_KEY } from '@constants/common';
+import { ERROR_MESSAGES } from '@constants/validate';
 
 // Styles
 import './login.css';

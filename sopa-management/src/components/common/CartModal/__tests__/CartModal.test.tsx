@@ -3,10 +3,10 @@ import '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event';
 
 // Helpers
-import { renderRouterTest } from '../../../../helpers/testUtils';
+import { renderRouterTest } from '@helpers/testUtils';
 
 // Components
-import CartModal from '../index';
+import CartModal from '@common/CartModal';
 
 describe('Modal component', () => {
   test('Should render Modal component by default', () => {
