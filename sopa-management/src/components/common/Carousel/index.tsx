@@ -62,7 +62,7 @@ const Carousel: React.FC = () => (
       />
       <figure className='carousel-item'>
         <Image
-          url={IMAGE.banner3}
+          url={IMAGE.banner}
           alt={IMAGE.altBanner}
           width={1170}
           height={657}

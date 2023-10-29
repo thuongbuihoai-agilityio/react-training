@@ -9,7 +9,6 @@ export const IMAGE = {
   blackWhiteShoes: '/images/products/black-white-shoes.png',
   banner: '/images/banner.webp',
   banner2: '/images/banner-2.webp',
-  banner3: '/images/banner-3.webp',
   altLogo: 'This is logo sopa',
   altBlackShoes: 'This is black shoes',
   altBlueShoes: 'This is blue shoes',

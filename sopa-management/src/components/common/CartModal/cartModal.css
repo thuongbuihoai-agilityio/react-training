@@ -17,6 +17,8 @@
 }
 
 .cart-image-item {
+  width: var(--w-extra-small);
+  height: var(--h-extra-normal);
   border-radius: var(--rounded-secondary);
   border: 1px solid var(--border-primary);
   background: var(--light);

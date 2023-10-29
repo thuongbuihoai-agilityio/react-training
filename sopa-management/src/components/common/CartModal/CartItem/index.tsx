@@ -72,8 +72,8 @@ const CartItem: React.FC<CartItemProps> = ({
             className='cart-image-item'
             url={cartItem?.image?.url}
             alt={cartItem.image.alt}
-            width={479}
-            height={198}
+            width={130}
+            height={130}
           />
         </figure>
         <div className='cart-description'>

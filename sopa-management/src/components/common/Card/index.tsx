@@ -41,7 +41,7 @@ const Card: React.FC<CardProps> = ({
             href={href}
             url={src}
             alt={alt}
-            width={321}
+            width={322}
             height={130}
             className='card-image-item'
           />
