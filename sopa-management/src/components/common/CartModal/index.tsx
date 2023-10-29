@@ -41,6 +41,7 @@ const CartModal: React.FC<CartModalProps> = ({
         <div className='cart-header'>
           <Text text='Cart' className='cart-text' />
           <Button
+            ariaLabel='Close'
             children={<Close />}
             type={ButtonType.btnIconPrimary}
             onClick={onToggleModal}

@@ -32,16 +32,16 @@ exports[`Modal component Matches snapshot 1`] = `
             <path
               d="M18 6L6 18"
               stroke="#02021D"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
             />
             <path
               d="M6 6L18 18"
               stroke="#02021D"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
             />
           </svg>
         </button>

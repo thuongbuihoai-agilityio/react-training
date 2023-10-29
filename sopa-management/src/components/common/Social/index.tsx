@@ -19,9 +19,14 @@ import './social.css';
 
 const Social: React.FC = () => {
   return (
-    <ul data-testId='social' className='social-list'>
+    <ul data-testid='social' className='social-list'>
       <li className='social-item'>
-        <Link title='twitter' to='https://twitter.com' className='social-link'>
+        <Link
+          title='twitter'
+          to='https://twitter.com'
+          className='social-link'
+          aria-label='link to twitter'
+        >
           <Twitter />
         </Link>
         <Text text='Twitter' type={ThemeType.light} />
@@ -31,6 +36,7 @@ const Social: React.FC = () => {
           title='instagram'
           to='https://instagram.com'
           className='social-link'
+          aria-label='link to instagram'
         >
           <Instagram />
         </Link>
@@ -41,6 +47,7 @@ const Social: React.FC = () => {
           title='facebook'
           to='https://facebook.com'
           className='social-link'
+          aria-label='link to facebook'
         >
           <Facebook />
         </Link>

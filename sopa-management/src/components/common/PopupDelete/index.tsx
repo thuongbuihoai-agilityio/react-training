@@ -25,11 +25,13 @@ const PopupDelete: React.FC<PopupDeleteProps> = ({
     <Text text={title} type={ThemeType.light} />
     <div className='popup-btn'>
       <Button
+        ariaLabel='Cancel'
         children='Cancel'
         className='popup-cancel'
         onClick={onCancel}
       />
       <Button
+        ariaLabel='Delete'
         children='Delete'
         className='popup-delete'
         onClick={onDelete}

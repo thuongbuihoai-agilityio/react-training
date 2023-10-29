@@ -17,16 +17,18 @@ import './productList.css';
 const ProductList: React.FC = () => {
   const { data, fetchNextPage, hasNextPage, isLoading, isFetchingNextPage } =
     useInfiniteProducts();
+  console.log('BASE_URL', import.meta.env.VITE_BASE_URL);
 
   return (
-    <div data-testId='product' className='product'>
+    <div data-testid='product' className='product'>
       {isLoading ? (
         <Loading />
       ) : (
         <>
-          <div data-testId='product-list' className='product-list'>
-            {data?.pages?.map((page) =>
+          <div data-testid='product-list' className='product-list'>
+            {data?.pages?.map((page, index) =>
                 <ProductCard
+                  key={index}
                   data={page}
                 />
             )}
@@ -34,6 +36,7 @@ const ProductList: React.FC = () => {
           <div className='product-btn'>
             {hasNextPage && (
               <Button
+                ariaLabel='Show more'
                 children={isFetchingNextPage ? 'Loading more...' : 'Show More'}
                 type={ButtonType.primary}
                 onClick={() => fetchNextPage()}

@@ -44,6 +44,7 @@ const Logout: React.FC<LogoutProps> = ({ className = '' }) => {
   return (
     <div className={`${className} account`} data-testid='logout'>
       <Button
+        ariaLabel='User'
         children={<User />}
         type={ButtonType.btnIconPrimary}
         onClick={handleToggle}

@@ -19,14 +19,16 @@ const Counter: React.FC<CounterProps> = ({
   onDecrement
 }) => {
   return (
-    <div data-testId='counter' className='counter'>
+    <div data-testid='counter' className='counter'>
       <Button
+        ariaLabel='Decrement'
         type={ButtonType.btnIconPrimary}
         className='counter-minus'
         onClick={onDecrement}
       />
       <Input type='number' classNameInput='counter-input' value={value} />
       <Button
+        ariaLabel='Increment'
         type={ButtonType.btnIconPrimary}
         className='counter-plus'
         onClick={onIncrement}

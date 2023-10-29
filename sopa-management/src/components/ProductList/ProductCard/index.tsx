@@ -10,7 +10,7 @@ import { Product } from '@interfaces/product';
 import './productCard.css';
 
 interface ProductCardProps {
-  key?: string;
+  key?: number;
   data: Product[];
 }
 

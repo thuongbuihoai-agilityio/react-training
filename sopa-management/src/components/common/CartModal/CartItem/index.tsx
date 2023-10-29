@@ -68,7 +68,13 @@ const CartItem: React.FC<CartItemProps> = ({
     <div data-testid='cart-item' className='cart-item'>
       <div className='cart-info'>
         <figure className='cart-image'>
-          <Image className='cart-image-item' url={cartItem?.image?.url} />
+          <Image
+            className='cart-image-item'
+            url={cartItem?.image?.url}
+            alt={cartItem.image.alt}
+            width={479}
+            height={198}
+          />
         </figure>
         <div className='cart-description'>
           <Text text={cartItem.name} className='cart-text' />
@@ -89,6 +95,7 @@ const CartItem: React.FC<CartItemProps> = ({
               onIncrement={handleIncrement}
             />
             <Button
+              ariaLabel='Trash'
               children={<Trash />}
               type={ButtonType.btnIconSecondary}
               className='cart-btn'

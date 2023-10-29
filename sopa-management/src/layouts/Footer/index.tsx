@@ -31,13 +31,20 @@ const Footer = () => (
   <div data-testid='footer' className='footer'>
     <div className='footer-content'>
       <div className='footer-email'>
-        <Image href='/' url={IMAGE.whiteLogo} alt={IMAGE.whiteLogo} />
+        <Image
+          href='/'
+          url={IMAGE.whiteLogo}
+          alt={IMAGE.whiteLogo}
+          width={180}
+          height={36}
+        />
         <Text
           text='Stay informed about Sopa with our latest releases and founder news.'
           type={ThemeType.light}
           className='footer-text'
         />
         <Button
+          ariaLabel='Enter email here for updates'
           children='Enter email here for updates'
           type={ButtonType.btnOutlineSecondary}
         />

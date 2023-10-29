@@ -36,6 +36,7 @@ const Dropdown: React.FC<DropdownProps> = ({
       <Link
         to='/login'
         className='dropdown-link'
+        aria-label='link to login page'
         onClick={onClick}
       >
         Logout

@@ -156,7 +156,12 @@ const Login: React.FC = () => {
             </div>
           )}
         />
-        <Button children='Login' type={ButtonType.tertiary} submit='submit' />
+        <Button
+          ariaLabel='Login'
+          children='Login'
+          type={ButtonType.tertiary}
+          submit='submit'
+        />
       </div>
     </form>
   );

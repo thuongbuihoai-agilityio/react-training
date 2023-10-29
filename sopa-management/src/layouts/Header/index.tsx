@@ -41,10 +41,17 @@ const Header = () => {
   return (
     <>
       <div data-testid='header' className='header'>
-        <Image href='/' url={IMAGE.blackLogo} alt={IMAGE.blackLogo} />
+        <Image
+          href='/'
+          url={IMAGE.blackLogo}
+          alt={IMAGE.blackLogo}
+          width={144}
+          height={24}
+        />
         <div className='header-menu'>
           <Menu menuList={MENU_HEADER} type={MenuTheme.horizontal} />
           <Button
+            ariaLabel='Shoe Finder Quiz'
             children='Shoe Finder Quiz'
             type={ButtonType.btnOutlinePrimary}
           />
@@ -56,6 +63,7 @@ const Header = () => {
             className='header-text' />
           <Logout className='header-user' />
           <Button
+            ariaLabel='Shopping bag'
             children={<ShoppingBag />}
             type={ButtonType.btnIconPrimary}
             onClick={handleToggleModal}

@@ -84,6 +84,7 @@ const ProductDetail = () => {
             <Dropdown value={size} data={SIZE} />
           </div>
           <Button
+            ariaLabel='Add to bag'
             children={`Add to bag $${price}`}
             type={ButtonType.secondary}
             className='detail-btn'
