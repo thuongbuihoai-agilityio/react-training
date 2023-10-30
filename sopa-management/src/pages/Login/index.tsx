@@ -109,7 +109,7 @@ const Login: React.FC = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className='form'>
+    <form onSubmit={handleSubmit(onSubmit)} className='form' data-testid='login'>
       <Text text='Login' type={SizeType.extraMedium} />
       <div className='form-input'>
         <Controller

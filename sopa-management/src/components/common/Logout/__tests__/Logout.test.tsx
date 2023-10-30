@@ -1,18 +1,20 @@
 // Libs
 import '@testing-library/jest-dom';
-import { render } from '@testing-library/react';
 
 // Components
 import Logout from '@common/Logout';
 
+// Helpers
+import { renderRouterTest } from '../../../../helpers/testUtils';
+
 describe('Logout component', () => {
   test('should render Logout component', () => {
-    const { getByTestId } = render(<Logout />);
+    const { getByTestId } = renderRouterTest(<Logout />);
     expect(getByTestId('logout')).toBeInTheDocument();
   });
 
   test('matches snapshot', () => {
-    const { asFragment } = render(<Logout />);
+    const { asFragment } = renderRouterTest(<Logout />);
     expect(asFragment()).toMatchSnapshot();
   });
 });

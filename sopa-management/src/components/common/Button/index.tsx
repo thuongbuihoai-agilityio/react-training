@@ -36,7 +36,7 @@ const Button: React.FC<ButtonProps> = ({
   submit,
   className = '',
   onClick = () => {},
-  onSubmit = () => {}
+  onSubmit
 }) => (
   <button
     data-testid='button'

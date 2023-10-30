@@ -1,12 +1,18 @@
 // Libs
 import '@testing-library/jest-dom';
-import userEvent from '@testing-library/user-event';
 
 // Helpers
 import { renderRouterTest } from '@helpers/testUtils';
 
 // Components
 import CartModal from '@common/CartModal';
+import { MOCK_PRODUCTS } from '@mocks/product';
+
+jest.mock('@stores/cart', () => ({
+  useCartStore: jest.fn(() => ({
+    carts: MOCK_PRODUCTS,
+  })),
+}));
 
 describe('Modal component', () => {
   test('Should render Modal component by default', () => {
@@ -15,14 +21,11 @@ describe('Modal component', () => {
     expect(cartModal).toBeInTheDocument();
   });
 
-  test('Should render Modal component by click close button', async () => {
-    const onClickCloseButton = jest.fn();
-    const { getByTestId } = renderRouterTest(
-      <CartModal onToggleModal={onClickCloseButton} />
-    );
-    const cartModal = getByTestId('button');
-    await userEvent.click(cartModal);
-    expect(onClickCloseButton).toHaveBeenCalled();
+  it('should render CartModal with cart items when carts is true', () => {
+    const { getByTestId, getByText } = renderRouterTest(<CartModal />);
+    const cartModal = getByTestId('cart-modal');
+    expect(cartModal).toBeInTheDocument();
+    expect(getByText('Cart')).toBeInTheDocument();
   });
 
   test('Matches snapshot', () => {

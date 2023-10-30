@@ -62,4 +62,12 @@ describe('useCartStore', () => {
     act(() => result.current.decreaseQuantity());
     expect(useCartStore.getState().decreaseQuantity('1'))
   });
+
+  test('should deleteCart is called', () => {
+    const { result } = renderHook(() => useCartStore());
+
+    act(() => result.current.deleteCart('1'));
+
+    expect(result.current.carts).toEqual([]);
+  });
 });
