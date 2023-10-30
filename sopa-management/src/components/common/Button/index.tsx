@@ -1,4 +1,7 @@
-import React, { ButtonHTMLAttributes, memo } from 'react';
+import React, {
+  ButtonHTMLAttributes,
+  memo
+} from 'react';
 
 // Styles
 import './button.css';
@@ -15,6 +18,7 @@ export enum ButtonType {
 }
 
 interface ButtonProps {
+  ariaLabel?: string;
   children?: string | JSX.Element;
   type?: ButtonType;
   disable?: boolean;
@@ -25,16 +29,18 @@ interface ButtonProps {
 }
 
 const Button: React.FC<ButtonProps> = ({
+  ariaLabel = '',
   children = '',
   type = ButtonType.default,
   disable = false,
   submit,
   className = '',
   onClick = () => {},
-  onSubmit = () => {}
+  onSubmit
 }) => (
   <button
     data-testid='button'
+    aria-label={ariaLabel}
     className={`${className} btn btn-${type}`}
     disabled={disable}
     type={submit}

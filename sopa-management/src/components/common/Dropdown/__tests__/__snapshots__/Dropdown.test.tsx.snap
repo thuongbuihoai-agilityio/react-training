@@ -3,31 +3,42 @@
 exports[`Dropdown component matches snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="custom-dropdown"
+    class=" custom-dropdown"
     data-testid="dropdown"
   >
-    <select
-      class="dropdown"
+    <input
+      id="my-dropdown"
+      name="my-checkbox"
+      type="checkbox"
+      value=""
+    />
+    <label
+      class="dropdown-label"
+      data-toggle="dropdown"
+      for="my-dropdown"
+    />
+    <ul
+      class="dropdown-list"
     >
-      <option
-        class="option"
+      <li
+        class="dropdown-option"
         value="Small"
       >
         Small
-      </option>
-      <option
-        class="option"
+      </li>
+      <li
+        class="dropdown-option"
         value="Medium"
       >
         Medium
-      </option>
-      <option
-        class="option"
+      </li>
+      <li
+        class="dropdown-option"
         value="Large"
       >
         Large
-      </option>
-    </select>
+      </li>
+    </ul>
   </div>
 </DocumentFragment>
 `;

@@ -28,26 +28,20 @@ const Menu: React.FC<MenuProps> = memo(
     value,
     type,
     className
-  }) => {
-    const renderMenuHeader = (list: MenuType[]) => {
-      return list.map((item) => (
-        <li className={`${className} menu-item-${type}`} key={item.key}>
-          <Link to='#'>{item.label}</Link>
-        </li>
-      ));
-    };
-
-    return (
-      <div data-testid='menu' className='menu'>
-        <ul className={`${className} menu-list-${type}`}>
-          {MenuTheme.vertical && (
-            <p className={`menu-main-${type}`}>{value}</p>
-          )}
-          {renderMenuHeader(menuList)}
-        </ul>
-      </div>
-    );
-  }
+  }) => (
+    <div data-testid='menu' className='menu'>
+      <ul className={`${className} menu-list-${type}`}>
+        {MenuTheme.vertical && (
+          <li className={`menu-main-${type}`}>{value}</li>
+        )}
+        {menuList.map((item) => (
+          <li className={`${className} menu-item-${type}`} key={item.key}>
+            <Link to='#' aria-label={item.label}>{item.label}</Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
 );
 
 export default Menu;

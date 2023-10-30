@@ -16,19 +16,7 @@ describe('App component', () => {
         <App />
       </Router>
     );
-    expect(screen.getByTestId('header')).toBeInTheDocument();
-  });
-
-  test('rendering a product list component that uses useLocation', () => {
-    const history = createMemoryHistory();
-    const route = '/products';
-    history.push(route);
-    render(
-      <Router location={history.location} navigator={history}>
-        <App />
-      </Router>
-    );
-    expect(screen.getByTestId('header')).toBeInTheDocument();
+    expect(screen.getByTestId('loading-page')).toBeInTheDocument();
   });
 
   test('rendering a product detail component that uses useLocation', () => {
@@ -40,7 +28,19 @@ describe('App component', () => {
         <App />
       </Router>
     );
-    expect(screen.getByTestId('header')).toBeInTheDocument();
+    expect(screen.getByTestId('loading-page')).toBeInTheDocument();
+  });
+
+  test('rendering a login page component that uses useLocation', () => {
+    const history = createMemoryHistory();
+    const route = '/login';
+    history.push(route);
+    render(
+      <Router location={history.location} navigator={history}>
+        <App />
+      </Router>
+    );
+    expect(screen.getByTestId('loading-page')).toBeInTheDocument();
   });
 
   test('matches snapshot', () => {

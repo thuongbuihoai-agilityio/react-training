@@ -1,9 +1,15 @@
 @font-face {
-  font-family: "rubik";
+  font-family: 'rubik';
   src: url(../../assets/fonts/rubik/Rubik-Regular.ttf);
+  font-display: swap;
 }
 
 @font-face {
-  font-family: "noto-serif-lao";
+  font-family: 'noto-serif-lao';
   src: url(../../assets/fonts/notoSerifLao/NotoSerifLao_Condensed-Regular.ttf);
+  font-display: swap;
+}
+
+html {
+  font-family: 'rubik';
 }

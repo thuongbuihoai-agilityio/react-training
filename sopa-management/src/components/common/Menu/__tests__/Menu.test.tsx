@@ -2,13 +2,13 @@
 import '@testing-library/jest-dom';
 
 // Helpers
-import { renderRouterTest } from '../../../../helpers/testUtils';
+import { renderRouterTest } from '@helpers/testUtils';
 
 // Components
-import Menu from '../index';
+import Menu from '@common/Menu';
 
 // Constants
-import { MENU_HEADER } from '../../../../constants/common';
+import { MENU_HEADER } from '@constants/common';
 
 describe('Menu component', () => {
   test('Should render Menu component by default', () => {

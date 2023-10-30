@@ -1,6 +1,6 @@
 // Mocks
-import { MOCK_PRODUCTS } from '../../__mocks__/product';
-import { STORAGE_KEY } from '../../constants/common';
+import { MOCK_PRODUCTS } from '@mocks/product';
+import { STORAGE_KEY } from '@constants/common';
 
 // Helpers
 import {
@@ -29,7 +29,7 @@ describe('localStorage functions', () => {
 
   test('should clear localStorage', () => {
     localStorage[STORAGE_KEY.CART_KEY] = STORAGE_KEY.CART_KEY;
-    clearStorage();
+    clearStorage(STORAGE_KEY.CART_KEY);
     expect(localStorage[STORAGE_KEY.CART_KEY]).toBeUndefined();
   });
 });

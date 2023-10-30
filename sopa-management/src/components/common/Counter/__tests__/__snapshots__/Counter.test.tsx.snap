@@ -7,20 +7,22 @@ exports[`Counter component matches snapshot 1`] = `
     data-testid="counter"
   >
     <button
+      aria-label="Decrement"
       class="counter-minus btn btn-icon-primary"
       data-testid="button"
     />
-    <div
-      class="input-wrapper"
-      data-testid="input-value"
-    >
-      <input
-        class="counter-input input-number"
-        placeholder=""
-        value="2"
-      />
-    </div>
+    <input
+      aria-hidden="true"
+      class=" counter-input input-"
+      data-testid="input"
+      id=""
+      name=""
+      placeholder=""
+      type="number"
+      value="2"
+    />
     <button
+      aria-label="Increment"
       class="counter-plus btn btn-icon-primary"
       data-testid="button"
     />

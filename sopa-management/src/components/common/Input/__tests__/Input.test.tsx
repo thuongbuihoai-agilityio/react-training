@@ -6,20 +6,20 @@ import {
 import '@testing-library/jest-dom';
 
 // Components
-import Input from '../index';
+import Input from '@common/Input';
 
 describe('Input component', () => {
   test('Should render Input component', () => {
     const { getByTestId } = render(
       <Input type='text' placeholder='Enter email...' />
     );
-    const inputValue = getByTestId('input-value');
+    const inputValue = getByTestId('input');
     expect(inputValue).toBeInTheDocument();
   });
 
   test('Should render Input component by default', () => {
     const { getByTestId } = render(<Input />);
-    const inputValue = getByTestId('input-value');
+    const inputValue = getByTestId('input');
     expect(inputValue).toBeInTheDocument();
   });
 

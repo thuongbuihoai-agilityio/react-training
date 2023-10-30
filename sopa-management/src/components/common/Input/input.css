@@ -12,10 +12,12 @@
 
 .input-info {
   border: 1px solid var(--border-secondary);
+  color: var(--border-secondary);
 }
 
 .input-error {
   border: 1px solid var(--border-tertiary);
+  color: var(--border-tertiary);
 }
 
 .label {

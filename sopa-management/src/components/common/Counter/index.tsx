@@ -1,11 +1,11 @@
 import { memo } from 'react';
 
 // Components
-import Button, { ButtonType } from '../Button';
+import Button, { ButtonType } from '@common/Button';
+import Input from '../Input';
 
 // Styles
 import './counter.css';
-import Input from '../Input';
 
 interface CounterProps {
   value: number;
@@ -19,14 +19,16 @@ const Counter: React.FC<CounterProps> = ({
   onDecrement
 }) => {
   return (
-    <div data-testId='counter' className='counter'>
+    <div data-testid='counter' className='counter'>
       <Button
+        ariaLabel='Decrement'
         type={ButtonType.btnIconPrimary}
         className='counter-minus'
         onClick={onDecrement}
       />
       <Input type='number' classNameInput='counter-input' value={value} />
       <Button
+        ariaLabel='Increment'
         type={ButtonType.btnIconPrimary}
         className='counter-plus'
         onClick={onIncrement}

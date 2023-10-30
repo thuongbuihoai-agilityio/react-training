@@ -1,5 +1,5 @@
-import { MenuType } from "../components/common/Menu";
-import { Product } from "../interfaces/product";
+import { MenuType } from "@components/common/Menu";
+import { Product } from "@interfaces/product";
 
 const SIZE = [
   {
@@ -14,13 +14,6 @@ const SIZE = [
     key: "3",
     label: "Large",
   }
-];
-
-const USER = [
-  {
-    key: "1",
-    label: "Logout"
-  },
 ];
 
 const MENU_HEADER: MenuType[] = [
@@ -143,12 +136,31 @@ const INITIAL_PRODUCT: Product = {
 }
 
 const STORAGE_KEY = {
-  CART_KEY: 'cart'
+  CART_KEY: 'cart',
+  TOKEN: 'token',
 };
 
+const CAROUSEL_BULLET = [
+  {
+    key: '1',
+    htmlFor: 'carousel-1',
+    className: 'carousel-bullet'
+  },
+  {
+    key: '2',
+    htmlFor: 'carousel-2',
+    className: 'carousel-bullet'
+  },
+  {
+    key: '3',
+    htmlFor: 'carousel-3',
+    className: 'carousel-bullet'
+  }
+];
+
 export {
+  CAROUSEL_BULLET,
   SIZE,
-  USER,
   MENU_HEADER,
   MENU_PRODUCTS,
   MENU_SUPPORT,

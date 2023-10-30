@@ -9,40 +9,44 @@ import { useParams } from 'react-router-dom';
 import Text,
 {
   SizeType
-} from '../../components/common/Text';
-import Price from '../../components/common/Price';
-import Dropdown from '../../components/common/Dropdown';
+} from '@components/common/Text';
+import Price,
+{
+  PriceType
+} from '@components/common/Price';
+import Dropdown from '@components/common/Dropdown';
 import Button,
 {
   ButtonType
-} from '../../components/common/Button';
-
-// Images
-import { Star } from '../../../public/images/icons';
+} from '@components/common/Button';
+import Rating from '@components/Rating';
+import RatingStar from '@components/Rating/RatingStar';
 
 // Hooks
-import { useFetchProductDetail } from '../../hooks/useQuery';
+import { useFetchProductDetail } from '@hooks/useQuery';
 
 // Constants
-import { SIZE } from '../../constants/common';
+import { SIZE } from '@constants/common';
 
 // Stores
-import { useCartStore } from '../../stores/cart';
+import { useCartStore } from '@stores/cart';
 
 // Styles
 import './productDetail.css';
-import Toast, { ToastType } from '../../components/Toast';
+import Toast, { ToastType } from '@components/Toast';
+import Loading from '@components/common/Loading';
 
 const ProductDetail = () => {
   // use useParams to get id
   const { id } = useParams();
-  const { data: product } = useFetchProductDetail(id);
+  const { data: product, isLoading } = useFetchProductDetail(id);
   const {
     name,
     image,
     color,
     price,
-    description
+    description,
+    size
   } = product;
   const [toast, setToast] = useState<boolean>(false)
   const addToCart = useCartStore((state) => state.addToCart);
@@ -54,46 +58,50 @@ const ProductDetail = () => {
   const handleAddToCart = useCallback(() => {
     addToCart(product);
     handleShowToast();
-  }, [name, toast]);
+  }, [name]);
 
-  return (
+  return isLoading ? (
+    <Loading />
+  ) : (
     <div data-testid='detail' className='detail'>
-      <figure>
-        <img className='detail-image' src={image.url} alt={image.alt} />
-      </figure>
-      <div className='detail-info'>
-        <div className='detail-name'>
-          <div className='detail-description'>
-            <Text text={name} type={SizeType.regular} />
-            <div className='detail-rating'>
-              <Star />
-              <Star />
-              <Star />
-              <Star />
-              <Star />
-              <Text text='4.7(3205)' type={SizeType.normal} />
+      <div className='detail-product'>
+        <figure>
+          <img className='detail-image' src={image.url} alt={image.alt} />
+        </figure>
+        <div className='detail-info'>
+          <div className='detail-name'>
+            <div className='detail-description'>
+              <Text text={name} type={SizeType.regular} />
+              <RatingStar
+                value='4.7(3205)'
+                type={SizeType.normal}
+                className='detail-rating'
+                classNameStar='rating-star'
+              />
             </div>
+            <Price value={price} type={PriceType.tertiary} />
           </div>
-          <Price value={price} />
-        </div>
-        <Text text={`Color: ${color}`} type={SizeType.extraRegular} />
-        <div className='detail-size'>
-          <Text
-            text='Size'
-            className='detail-text-size'
-            type={SizeType.extraRegular}
+          <Text text={`Color: ${color}`} type={SizeType.extraRegular} />
+          <div className='detail-size'>
+            <Text
+              text='Size'
+              className='detail-text-size'
+              type={SizeType.extraRegular}
+            />
+            <Dropdown value={size} data={SIZE} />
+          </div>
+          <Button
+            ariaLabel='Add to bag'
+            children={`Add to bag $${price}`}
+            type={ButtonType.secondary}
+            className='detail-btn'
+            onClick={handleAddToCart}
           />
-          <Dropdown data={SIZE} />
+          <Text className='detail-description' text={description} />
         </div>
-        <Button
-          children={`Add to bag $${price}`}
-          type={ButtonType.secondary}
-          className='detail-btn'
-          onClick={handleAddToCart}
-        />
-        <Text type={SizeType.extraRegular} text={description} />
       </div>
       {toast && <Toast title='Success' message='OK' type={ToastType.success} />}
+      <Rating />
     </div>
   );
 };

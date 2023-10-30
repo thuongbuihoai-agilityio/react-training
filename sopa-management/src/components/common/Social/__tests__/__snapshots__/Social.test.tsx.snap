@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Logo component matches snapshot 1`] = `
+exports[`Social component matches snapshot 1`] = `
 <DocumentFragment>
   <ul
     class="social-list"
@@ -10,6 +10,7 @@ exports[`Logo component matches snapshot 1`] = `
       class="social-item"
     >
       <a
+        aria-label="link to twitter"
         class="social-link"
         href="https://twitter.com"
         title="twitter"
@@ -41,6 +42,7 @@ exports[`Logo component matches snapshot 1`] = `
       class="social-item"
     >
       <a
+        aria-label="link to instagram"
         class="social-link"
         href="https://instagram.com"
         title="instagram"
@@ -86,6 +88,7 @@ exports[`Logo component matches snapshot 1`] = `
       class="social-item"
     >
       <a
+        aria-label="link to facebook"
         class="social-link"
         href="https://facebook.com"
         title="facebook"

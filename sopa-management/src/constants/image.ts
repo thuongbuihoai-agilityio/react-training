@@ -7,6 +7,8 @@ export const IMAGE = {
   greenShoes: '/images/products/green-shoes.png',
   whiteShoes: '/images/products/white-shoes.png',
   blackWhiteShoes: '/images/products/black-white-shoes.png',
+  banner: '/images/banner.webp',
+  banner2: '/images/banner-2.webp',
   altLogo: 'This is logo sopa',
   altBlackShoes: 'This is black shoes',
   altBlueShoes: 'This is blue shoes',
@@ -14,4 +16,5 @@ export const IMAGE = {
   altGreenShoes: 'This is green shoes',
   altWhiteShoes: 'This is white shoes',
   altBlackWhiteShoes: 'This is back white shoes',
+  altBanner: 'This is banner',
 };

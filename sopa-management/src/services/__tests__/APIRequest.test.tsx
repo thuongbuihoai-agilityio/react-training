@@ -1,12 +1,12 @@
 // Mocks
 import mockAxios from "jest-mock-axios";
-import { MOCK_PRODUCTS } from "../../__mocks__/product";
+import { MOCK_PRODUCTS } from "@mocks/product";
 
 // Services
-import { getData } from "../APIRequest";
+import { getData } from "@services/APIRequest";
 
 // Constants
-import { PRODUCT_URL } from "../../constants/url";
+import { PRODUCT_URL } from "@constants/url";
 
 describe("fetch api", () => {
   afterEach(() => {

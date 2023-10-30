@@ -3,24 +3,26 @@ import { AxiosError } from 'axios';
 
 
 // Constants
-import { QUERY_KEYS } from '../constants/keyQuery';
-import { PRODUCT_URL } from '../constants/url';
+import { QUERY_KEYS } from '@constants/keyQuery';
+import { ACCOUNT_URL, PRODUCT_URL } from '@constants/url';
 import {
   INITIAL_PRODUCT,
   LIMIT_PRODUCTS
-} from '../constants/common';
+} from '@constants/common';
 
 // Interfaces
-import { Product } from '../interfaces/product';
+import { Product } from '@interfaces/product';
 
 // Services
-import { getData } from '../services/APIRequest';
+import { getData } from '@services/APIRequest';
 
 // Stores
-import { useProductStore } from '../stores/product';
+import { useProductStore } from '@stores/product';
 
 // Helpers
-import { flattenArray } from '../helpers/common';
+import { flattenArray } from '@helpers/common';
+import { Account } from '@interfaces/account';
+import { useAccountStore } from '@stores/login';
 
 /**
  * @description Fetch product by id
@@ -58,5 +60,19 @@ export const useInfiniteProducts = () => {
       const result = flattenArray(pages);
       setProducts(result);
     }
+  });
+};
+
+/**
+ * @description Fetch user
+ * @returns
+ */
+export const useFetchUser = () => {
+  const { setAccounts } = useAccountStore();
+
+  return useQuery<Account[], AxiosError>({
+    queryKey: [QUERY_KEYS.ACCOUNTS],
+    queryFn: () => getData(ACCOUNT_URL),
+    onSuccess: (data) => setAccounts(data),
   });
 };

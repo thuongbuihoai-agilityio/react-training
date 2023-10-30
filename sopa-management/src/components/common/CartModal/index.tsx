@@ -4,28 +4,28 @@ import { memo } from 'react';
 import { Close } from '../../../../public/images/icons';
 
 // Components
-import Text from '../Text';
+import Text from '@common/Text';
 import Button,
 {
   ButtonType
-} from '../Button';
+} from '@common/Button';
 import Price,
 {
   PriceType
-} from '../Price';
+} from '@common/Price';
+import CartItem from './CartItem';
 
 // Interfaces
-import { Product } from '../../../interfaces/product';
+import { Product } from '@interfaces/product';
 
 // Helpers
-import { totalPrices } from '../../../helpers/common';
+import { totalPrices } from '@helpers/common';
 
 // Stores
-import { useCartStore } from '../../../stores/cart';
+import { useCartStore } from '@stores/cart';
 
 // Styles
 import './cartModal.css';
-import CartItem from './CartItem';
 
 interface CartModalProps {
   onToggleModal?: () => void;
@@ -41,6 +41,7 @@ const CartModal: React.FC<CartModalProps> = ({
         <div className='cart-header'>
           <Text text='Cart' className='cart-text' />
           <Button
+            ariaLabel='Close'
             children={<Close />}
             type={ButtonType.btnIconPrimary}
             onClick={onToggleModal}

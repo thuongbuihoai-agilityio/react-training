@@ -3,16 +3,16 @@ import { renderHook } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
 
 // Stores
-import { useCartStore } from '../cart';
+import { useCartStore } from '@stores/cart';
 
 // Mocks
-import { MOCK_PRODUCT } from '../../__mocks__/product';
+import { MOCK_PRODUCT } from '@mocks/product';
 
 // Constants
-import { STORAGE_KEY } from '../../constants/common';
+import { STORAGE_KEY } from '@constants/common';
 
 // Helpers
-import { getStorage } from '../../helpers/storage';
+import { getStorage } from '@helpers/storage';
 
 describe('useCartStore', () => {
   beforeEach(() => {
@@ -61,5 +61,13 @@ describe('useCartStore', () => {
     useCartStore.getState().decreaseQuantity('2');
     act(() => result.current.decreaseQuantity());
     expect(useCartStore.getState().decreaseQuantity('1'))
+  });
+
+  test('should deleteCart is called', () => {
+    const { result } = renderHook(() => useCartStore());
+
+    act(() => result.current.deleteCart('1'));
+
+    expect(result.current.carts).toEqual([]);
   });
 });
