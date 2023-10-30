@@ -10,6 +10,7 @@ import {
   Suspense,
   lazy
 } from 'react';
+import { Toaster } from "react-hot-toast";
 
 // Styles
 import './styles/main.css';
@@ -43,6 +44,8 @@ const App: React.FC = () => {
           </Route>
         </Routes>
       </Suspense>
+      {/* Toaster: library show message */}
+      <Toaster position='top-right' />
     </QueryClientProvider>
   );
 };

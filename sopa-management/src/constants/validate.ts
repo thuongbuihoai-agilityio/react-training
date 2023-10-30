@@ -1,4 +1,6 @@
 const CONFIRM_MESSAGE = {
+  ADD_SUCCESS: 'Add product to cart successfully',
+  DELETE_SUCCESS: 'Delete product to cart successfully',
   CONFIRM_DELETE: 'Are you sure you want to delete?'
 }
 

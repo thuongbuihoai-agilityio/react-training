@@ -26,7 +26,6 @@ import Text,
 import Counter from '@common/Counter';
 import Image from '@common/Image';
 import PopupDelete from '@common/PopupDelete';
-import Toast, { ToastType } from '../../../Toast';
 
 // Stores
 import { useCartStore } from '@stores/cart';
@@ -117,7 +116,6 @@ const CartItem: React.FC<CartItemProps> = ({
                 onDelete={handleDeleteCart}
               />
             )}
-            {toast && <Toast title='Success' message='Xoas' type={ToastType.success} />}
           </div>
         </div>
       </div>
