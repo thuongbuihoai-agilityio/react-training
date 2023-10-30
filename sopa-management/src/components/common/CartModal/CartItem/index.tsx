@@ -61,8 +61,6 @@ const CartItem: React.FC<CartItemProps> = ({
   }, [openModalConfirm]);
 
   const handleDeleteCart = useCallback(() => {
-    if (!openModalConfirm) {
-    }
     deleteCart(cartItem.id);
   }, [cartItem]);
 
