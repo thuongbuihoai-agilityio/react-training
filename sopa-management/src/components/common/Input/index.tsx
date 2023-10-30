@@ -63,7 +63,7 @@ const Input = React.forwardRef<HTMLInputElement, IconProps>(
           <input
             id={id}
             ref={ref}
-            aria-aria-labelledby={ariaLabelledby}
+            aria-labelledby={ariaLabelledby}
             name={name}
             hidden={hidden}
             checked={checked}
@@ -80,7 +80,7 @@ const Input = React.forwardRef<HTMLInputElement, IconProps>(
           data-testid='input'
           id={id}
           name={name}
-          aria-aria-labelledby={ariaLabelledby}
+          aria-labelledby={ariaLabelledby}
           hidden={hidden}
           defaultChecked={checked}
           type={type}
