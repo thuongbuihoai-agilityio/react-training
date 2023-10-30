@@ -7,18 +7,18 @@ exports[`ProductList component matches snapshot 1`] = `
     data-testid="product"
   >
     <div
-      class="loading-container"
-      data-testid="loading-page"
+      class="product-list"
+      data-testid="product-list"
+    />
+    <div
+      class="product-btn"
     >
-      <div
-        class="circle"
-      />
-      <div
-        class="circle"
-      />
-      <div
-        class="circle"
-      />
+      <button
+        class=" btn btn-primary"
+        data-testid="button"
+      >
+        Show More
+      </button>
     </div>
   </div>
 </div>
