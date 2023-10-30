@@ -2,7 +2,7 @@
 import '@testing-library/jest-dom';
 
 // Components
-import Logout from '..';
+import Logout from '@common/Logout';
 
 // Helpers
 import { renderRouterTest } from '../../../../helpers/testUtils';

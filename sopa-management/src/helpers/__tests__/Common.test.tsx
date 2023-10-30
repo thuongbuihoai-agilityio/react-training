@@ -1,13 +1,13 @@
 // Mocks
-import { MOCK_ACCOUNTS } from '../../__mocks__/account';
-import { MOCK_PRODUCTS } from '../../__mocks__/product';
+import { MOCK_ACCOUNTS } from '@mocks/account';
+import { MOCK_PRODUCTS } from '@mocks/product';
 import {
   InputTheme,
   InputType
-} from '../../components/common/Input';
+} from '@components/common/Input';
 
 // Interface
-import { Product } from '../../interfaces/product';
+import { Product } from '@interfaces/product';
 
 // Helpers
 import {

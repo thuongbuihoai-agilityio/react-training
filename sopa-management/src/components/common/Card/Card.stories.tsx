@@ -2,10 +2,10 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { BrowserRouter } from 'react-router-dom';
 
 // Constants
-import { IMAGE } from '../../../constants/image';
+import { IMAGE } from '@constants/image';
 
 // Components
-import Card from '.';
+import Card from '@common/Card';
 
 const meta: Meta<typeof Card> = {
   component: Card,

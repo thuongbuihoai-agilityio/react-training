@@ -1,15 +1,15 @@
 import { memo } from 'react';
 
 // Hooks
-import { useInfiniteProducts } from '../../hooks/useQuery';
+import { useInfiniteProducts } from '@hooks/useQuery';
 
 // Components
 import ProductCard from './ProductCard';
 import Button,
 {
   ButtonType
-} from '../common/Button';
-import Loading from '../common/Loading';
+} from '@common/Button';
+import Loading from '@common/Loading';
 
 // Styles
 import './productList.css';
@@ -19,14 +19,15 @@ const ProductList: React.FC = () => {
     useInfiniteProducts();
 
   return (
-    <div data-testId='product' className='product'>
+    <div data-testid='product' className='product'>
       {isLoading ? (
         <Loading />
       ) : (
         <>
-          <div data-testId='product-list' className='product-list'>
-            {data?.pages?.map((page) =>
+          <div data-testid='product-list' className='product-list'>
+            {data?.pages?.map((page, index) =>
                 <ProductCard
+                  key={index}
                   data={page}
                 />
             )}
@@ -34,6 +35,7 @@ const ProductList: React.FC = () => {
           <div className='product-btn'>
             {hasNextPage && (
               <Button
+                ariaLabel='Show more'
                 children={isFetchingNextPage ? 'Loading more...' : 'Show More'}
                 type={ButtonType.primary}
                 onClick={() => fetchNextPage()}

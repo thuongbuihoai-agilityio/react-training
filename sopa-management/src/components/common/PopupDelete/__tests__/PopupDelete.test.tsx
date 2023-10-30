@@ -3,10 +3,10 @@ import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
 
 // Components
-import PopupDelete from '..';
+import PopupDelete from '@common/PopupDelete';
 
 // Constants
-import { CONFIRM_MESSAGE } from '../../../../constants/validate';
+import { CONFIRM_MESSAGE } from '@constants/validate';
 
 describe('PopupDelete component', () => {
   const props = {

@@ -13,13 +13,17 @@ exports[`Footer component matches snapshot 1`] = `
         class="footer-email"
       >
         <a
+          aria-label="link to home page"
           data-testid="image-link"
           href="/"
         >
           <img
             alt="/images/logos/white-logo.svg"
             class=""
+            height="36"
+            sizes=""
             src="/images/logos/white-logo.svg"
+            width="180"
           />
         </a>
         <p
@@ -29,6 +33,7 @@ exports[`Footer component matches snapshot 1`] = `
           Stay informed about Sopa with our latest releases and founder news.
         </p>
         <button
+          aria-label="Enter email here for updates"
           class=" btn btn-out-line-secondary"
           data-testid="button"
         >
@@ -42,15 +47,16 @@ exports[`Footer component matches snapshot 1`] = `
         <ul
           class="undefined menu-list-vertical"
         >
-          <p
+          <li
             class="menu-main-vertical"
           >
             Products
-          </p>
+          </li>
           <li
             class="undefined menu-item-vertical"
           >
             <a
+              aria-label="Model-000"
               href="/"
             >
               Model-000
@@ -60,6 +66,7 @@ exports[`Footer component matches snapshot 1`] = `
             class="undefined menu-item-vertical"
           >
             <a
+              aria-label="Model-001"
               href="/"
             >
               Model-001
@@ -69,6 +76,7 @@ exports[`Footer component matches snapshot 1`] = `
             class="undefined menu-item-vertical"
           >
             <a
+              aria-label="Laces"
               href="/"
             >
               Laces
@@ -78,6 +86,7 @@ exports[`Footer component matches snapshot 1`] = `
             class="undefined menu-item-vertical"
           >
             <a
+              aria-label="Masks"
               href="/"
             >
               Masks
@@ -87,6 +96,7 @@ exports[`Footer component matches snapshot 1`] = `
             class="undefined menu-item-vertical"
           >
             <a
+              aria-label="No-show Socks"
               href="/"
             >
               No-show Socks
@@ -96,6 +106,7 @@ exports[`Footer component matches snapshot 1`] = `
             class="undefined menu-item-vertical"
           >
             <a
+              aria-label="Crew Socks"
               href="/"
             >
               Crew Socks
@@ -105,6 +116,7 @@ exports[`Footer component matches snapshot 1`] = `
             class="undefined menu-item-vertical"
           >
             <a
+              aria-label="Gift Cards"
               href="/"
             >
               Gift Cards
@@ -119,15 +131,16 @@ exports[`Footer component matches snapshot 1`] = `
         <ul
           class="undefined menu-list-vertical"
         >
-          <p
+          <li
             class="menu-main-vertical"
           >
             Support
-          </p>
+          </li>
           <li
             class="undefined menu-item-vertical"
           >
             <a
+              aria-label="Help Center"
               href="/"
             >
               Help Center
@@ -137,6 +150,7 @@ exports[`Footer component matches snapshot 1`] = `
             class="undefined menu-item-vertical"
           >
             <a
+              aria-label="FAQs"
               href="/"
             >
               FAQs
@@ -146,6 +160,7 @@ exports[`Footer component matches snapshot 1`] = `
             class="undefined menu-item-vertical"
           >
             <a
+              aria-label="Order"
               href="/"
             >
               Order
@@ -155,6 +170,7 @@ exports[`Footer component matches snapshot 1`] = `
             class="undefined menu-item-vertical"
           >
             <a
+              aria-label="Order Status"
               href="/"
             >
               Order Status
@@ -164,6 +180,7 @@ exports[`Footer component matches snapshot 1`] = `
             class="undefined menu-item-vertical"
           >
             <a
+              aria-label="Returns & Exchanges"
               href="/"
             >
               Returns & Exchanges
@@ -173,6 +190,7 @@ exports[`Footer component matches snapshot 1`] = `
             class="undefined menu-item-vertical"
           >
             <a
+              aria-label="Contact Us"
               href="/"
             >
               Contact Us
@@ -187,15 +205,16 @@ exports[`Footer component matches snapshot 1`] = `
         <ul
           class="undefined menu-list-vertical"
         >
-          <p
+          <li
             class="menu-main-vertical"
           >
             Everything Else
-          </p>
+          </li>
           <li
             class="undefined menu-item-vertical"
           >
             <a
+              aria-label="Community"
               href="/"
             >
               Community
@@ -205,6 +224,7 @@ exports[`Footer component matches snapshot 1`] = `
             class="undefined menu-item-vertical"
           >
             <a
+              aria-label="Why Sopa"
               href="/"
             >
               Why Sopa
@@ -214,6 +234,7 @@ exports[`Footer component matches snapshot 1`] = `
             class="undefined menu-item-vertical"
           >
             <a
+              aria-label="About"
               href="/"
             >
               About
@@ -223,6 +244,7 @@ exports[`Footer component matches snapshot 1`] = `
             class="undefined menu-item-vertical"
           >
             <a
+              aria-label="Discount Program"
               href="/"
             >
               Discount Program
@@ -232,6 +254,7 @@ exports[`Footer component matches snapshot 1`] = `
             class="undefined menu-item-vertical"
           >
             <a
+              aria-label="Sopa Blog"
               href="/"
             >
               Sopa Blog
@@ -241,6 +264,7 @@ exports[`Footer component matches snapshot 1`] = `
             class="undefined menu-item-vertical"
           >
             <a
+              aria-label="Sopa Ambassadors"
               href="/"
             >
               Sopa Ambassadors
@@ -259,6 +283,7 @@ exports[`Footer component matches snapshot 1`] = `
             class="social-item"
           >
             <a
+              aria-label="link to twitter"
               class="social-link"
               href="https://twitter.com"
               title="twitter"
@@ -290,6 +315,7 @@ exports[`Footer component matches snapshot 1`] = `
             class="social-item"
           >
             <a
+              aria-label="link to instagram"
               class="social-link"
               href="https://instagram.com"
               title="instagram"
@@ -335,6 +361,7 @@ exports[`Footer component matches snapshot 1`] = `
             class="social-item"
           >
             <a
+              aria-label="link to facebook"
               class="social-link"
               href="https://facebook.com"
               title="facebook"

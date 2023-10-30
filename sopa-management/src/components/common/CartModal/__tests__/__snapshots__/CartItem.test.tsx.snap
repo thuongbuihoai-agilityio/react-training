@@ -13,7 +13,7 @@ exports[`CartItem component matches snapshot 1`] = `
         class="cart-image"
       >
         <img
-          alt=""
+          alt="This is black shoes"
           class="cart-image-item"
           data-testid="image"
           src="/images/products/black-shoes.png"
@@ -48,6 +48,7 @@ exports[`CartItem component matches snapshot 1`] = `
             data-testid="counter"
           >
             <button
+              aria-label="Decrement"
               class="counter-minus btn btn-icon-primary"
               data-testid="button"
             />
@@ -62,11 +63,13 @@ exports[`CartItem component matches snapshot 1`] = `
               value="3"
             />
             <button
+              aria-label="Increment"
               class="counter-plus btn btn-icon-primary"
               data-testid="button"
             />
           </div>
           <button
+            aria-label="Trash"
             class="cart-btn btn btn-icon-secondary"
             data-testid="button"
           >

@@ -3,7 +3,7 @@ import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
 
 // Components
-import Carousel from '..';
+import Carousel from '@common/Carousel';
 
 describe('Carousel component', () => {
   test('should render Carousel component', () => {

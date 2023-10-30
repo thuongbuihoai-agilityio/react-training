@@ -3,7 +3,7 @@ import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 // Components
-import Partners from '..';
+import Partners from '@components/Partners';
 
 describe('Partners component', () => {
   test('should render Partners component with type is default', () => {

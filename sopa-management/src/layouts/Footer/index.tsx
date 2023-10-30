@@ -1,28 +1,28 @@
 import { memo } from 'react';
 
 // Components
-import Image from '../../components/common/Image';
+import Image from '@components/common/Image';
 import Text,
 {
   ThemeType
-} from '../../components/common/Text';
+} from '@components/common/Text';
 import Button,
 {
   ButtonType
-} from '../../components/common/Button';
+} from '@components/common/Button';
 import Menu,
 {
   MenuTheme
-} from '../../components/common/Menu';
-import Social from '../../components/common/Social';
+} from '@components/common/Menu';
+import Social from '@components/common/Social';
 
 // Constants
 import {
   MENU_EVERYTHING_ELSE,
   MENU_PRODUCTS,
   MENU_SUPPORT
-} from '../../constants/common';
-import { IMAGE } from '../../constants/image';
+} from '@constants/common';
+import { IMAGE } from '@constants/image';
 
 // Styles
 import './footer.css';
@@ -31,13 +31,20 @@ const Footer = () => (
   <div data-testid='footer' className='footer'>
     <div className='footer-content'>
       <div className='footer-email'>
-        <Image href='/' url={IMAGE.whiteLogo} alt={IMAGE.whiteLogo} />
+        <Image
+          href='/'
+          url={IMAGE.whiteLogo}
+          alt={IMAGE.whiteLogo}
+          width={180}
+          height={36}
+        />
         <Text
           text='Stay informed about Sopa with our latest releases and founder news.'
           type={ThemeType.light}
           className='footer-text'
         />
         <Button
+          ariaLabel='Enter email here for updates'
           children='Enter email here for updates'
           type={ButtonType.btnOutlineSecondary}
         />

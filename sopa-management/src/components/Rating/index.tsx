@@ -1,7 +1,7 @@
 import { memo } from 'react';
 
 // Components
-import Text, { SizeType } from '../common/Text';
+import Text, { SizeType } from '@common/Text';
 import RatingStar from './RatingStar';
 
 // Styles

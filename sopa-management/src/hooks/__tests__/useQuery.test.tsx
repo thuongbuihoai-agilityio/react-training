@@ -8,8 +8,8 @@ import {
 } from 'react-query';
 
 // Mocks
-import mockAxios from '../../__mocks__/axios';
-import { MOCK_PRODUCTS } from '../../__mocks__/product';
+import mockAxios from '@mocks/axios';
+import { MOCK_PRODUCTS } from '@mocks/product';
 
 // Hooks
 import { useInfiniteProducts } from '../useQuery';

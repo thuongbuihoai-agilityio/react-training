@@ -5,12 +5,12 @@ import { Link } from 'react-router-dom';
 import Text,
 {
   ThemeType
-} from '../../common/Text';
+} from '@common/Text';
 import Price,
 {
   PriceType
-} from '../../common/Price';
-import Image from '../Image';
+} from '@common/Price';
+import Image from '@common/Image';
 
 // Styles
 import './card.css';
@@ -37,10 +37,17 @@ const Card: React.FC<CardProps> = ({
     <div data-testid='card' className='card'>
       <div className='card-item'>
         <figure className='card-image'>
-          <Image href={href} url={src} alt={alt} className='card-image-item' />
+          <Image
+            href={href}
+            url={src}
+            alt={alt}
+            width={322}
+            height={130}
+            className='card-image-item'
+          />
         </figure>
         <div className='card-info'>
-          <Link to={href} className='card-name'>
+          <Link to={href} className='card-name' aria-label={name}>
             {name}
           </Link>
           <div className='card-description'>

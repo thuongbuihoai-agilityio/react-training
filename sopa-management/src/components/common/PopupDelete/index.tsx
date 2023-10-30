@@ -1,11 +1,11 @@
 import { memo } from 'react';
 
 // Components
-import Button from '../Button';
+import Button from '@common/Button';
 import Text,
 {
   ThemeType
-} from '../Text';
+} from '@common/Text';
 
 // Styles
 import './popup.css';
@@ -25,11 +25,13 @@ const PopupDelete: React.FC<PopupDeleteProps> = ({
     <Text text={title} type={ThemeType.light} />
     <div className='popup-btn'>
       <Button
+        ariaLabel='Cancel'
         children='Cancel'
         className='popup-cancel'
         onClick={onCancel}
       />
       <Button
+        ariaLabel='Delete'
         children='Delete'
         className='popup-delete'
         onClick={onDelete}

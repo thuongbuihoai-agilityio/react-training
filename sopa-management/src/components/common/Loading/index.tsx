@@ -1,4 +1,6 @@
 import React from 'react';
+
+// Styles
 import './loading.css';
 
 const Loading: React.FC = () => (

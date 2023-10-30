@@ -14,12 +14,14 @@ exports[`PopupDelete component matches snapshot 1`] = `
       class="popup-btn"
     >
       <button
+        aria-label="Cancel"
         class="popup-cancel btn btn-"
         data-testid="button"
       >
         Cancel
       </button>
       <button
+        aria-label="Delete"
         class="popup-delete btn btn-"
         data-testid="button"
       >

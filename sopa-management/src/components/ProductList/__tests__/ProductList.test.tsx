@@ -1,16 +1,19 @@
 // Libs
 import '@testing-library/jest-dom';
-import { waitFor, screen } from '@testing-library/react';
+import {
+  waitFor,
+  screen
+} from '@testing-library/react';
 
 // Components
-import ProductList from '..';
+import ProductList from '@components/ProductList';
 
 // Mocks
-import { MOCK_PRODUCTS } from '../../../__mocks__/product';
-import mockAxios from '../../../__mocks__/axios';
+import { MOCK_PRODUCTS } from '@mocks/product';
+import mockAxios from '@mocks/axios';
 
 // Helpers
-import { renderWithRouterAndQuery } from '../../../helpers/testUtils';
+import { renderWithRouterAndQuery } from '@helpers/testUtils';
 
 mockAxios.get.mockResolvedValue({ data: MOCK_PRODUCTS });
 

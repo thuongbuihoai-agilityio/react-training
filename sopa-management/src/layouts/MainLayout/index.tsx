@@ -5,14 +5,14 @@ import {
 } from 'react-router-dom';
 
 //  Components
-import Header from '../Header';
-import Footer from '../Footer';
+import Header from '@layouts/Header';
+import Footer from '@layouts/Footer';
 
 // Helpers
-import { getStorage } from '../../helpers/storage';
+import { getStorage } from '@helpers/storage';
 
 // Constants
-import { STORAGE_KEY } from '../../constants/common';
+import { STORAGE_KEY } from '@constants/common';
 
 const MainLayout = (): JSX.Element => {
   const navigate = useNavigate();

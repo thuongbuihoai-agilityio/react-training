@@ -7,13 +7,17 @@ exports[`App component matches snapshot 1`] = `
     data-testid="header"
   >
     <a
+      aria-label="link to home page"
       data-testid="image-link"
       href="/"
     >
       <img
         alt="/images/logos/black-logo.svg"
         class=""
+        height="24"
+        sizes=""
         src="/images/logos/black-logo.svg"
+        width="144"
       />
     </a>
     <div
@@ -26,13 +30,14 @@ exports[`App component matches snapshot 1`] = `
         <ul
           class="undefined menu-list-horizontal"
         >
-          <p
+          <li
             class="menu-main-horizontal"
           />
           <li
             class="undefined menu-item-horizontal"
           >
             <a
+              aria-label="Men"
               href="/"
             >
               Men
@@ -42,6 +47,7 @@ exports[`App component matches snapshot 1`] = `
             class="undefined menu-item-horizontal"
           >
             <a
+              aria-label="Women"
               href="/"
             >
               Women
@@ -51,6 +57,7 @@ exports[`App component matches snapshot 1`] = `
             class="undefined menu-item-horizontal"
           >
             <a
+              aria-label="Accessories"
               href="/"
             >
               Accessories
@@ -60,6 +67,7 @@ exports[`App component matches snapshot 1`] = `
             class="undefined menu-item-horizontal"
           >
             <a
+              aria-label="About"
               href="/"
             >
               About
@@ -68,6 +76,7 @@ exports[`App component matches snapshot 1`] = `
         </ul>
       </div>
       <button
+        aria-label="Shoe Finder Quiz"
         class=" btn btn-out-line-primary"
         data-testid="button"
       >
@@ -88,6 +97,7 @@ exports[`App component matches snapshot 1`] = `
         data-testid="logout"
       >
         <button
+          aria-label="User"
           class=" btn btn-icon-primary"
           data-testid="button"
         >
@@ -116,6 +126,7 @@ exports[`App component matches snapshot 1`] = `
         </button>
       </div>
       <button
+        aria-label="Shopping bag"
         class="header-btn btn btn-icon-primary"
         data-testid="button"
       >
@@ -219,7 +230,7 @@ exports[`App component matches snapshot 1`] = `
           alt="This is banner"
           class=""
           data-testid="image"
-          src="/images/banner-3.webp"
+          src="/images/banner.webp"
         />
       </figure>
       <ul
@@ -255,6 +266,7 @@ exports[`App component matches snapshot 1`] = `
         Step inside, for comfort and magic await you.
       </p>
       <button
+        aria-label="Show now"
         class=" btn btn-primary"
         data-testid="button"
       >
@@ -361,13 +373,17 @@ exports[`App component matches snapshot 1`] = `
         class="footer-email"
       >
         <a
+          aria-label="link to home page"
           data-testid="image-link"
           href="/"
         >
           <img
             alt="/images/logos/white-logo.svg"
             class=""
+            height="36"
+            sizes=""
             src="/images/logos/white-logo.svg"
+            width="180"
           />
         </a>
         <p
@@ -377,6 +393,7 @@ exports[`App component matches snapshot 1`] = `
           Stay informed about Sopa with our latest releases and founder news.
         </p>
         <button
+          aria-label="Enter email here for updates"
           class=" btn btn-out-line-secondary"
           data-testid="button"
         >
@@ -390,15 +407,16 @@ exports[`App component matches snapshot 1`] = `
         <ul
           class="undefined menu-list-vertical"
         >
-          <p
+          <li
             class="menu-main-vertical"
           >
             Products
-          </p>
+          </li>
           <li
             class="undefined menu-item-vertical"
           >
             <a
+              aria-label="Model-000"
               href="/"
             >
               Model-000
@@ -408,6 +426,7 @@ exports[`App component matches snapshot 1`] = `
             class="undefined menu-item-vertical"
           >
             <a
+              aria-label="Model-001"
               href="/"
             >
               Model-001
@@ -417,6 +436,7 @@ exports[`App component matches snapshot 1`] = `
             class="undefined menu-item-vertical"
           >
             <a
+              aria-label="Laces"
               href="/"
             >
               Laces
@@ -426,6 +446,7 @@ exports[`App component matches snapshot 1`] = `
             class="undefined menu-item-vertical"
           >
             <a
+              aria-label="Masks"
               href="/"
             >
               Masks
@@ -435,6 +456,7 @@ exports[`App component matches snapshot 1`] = `
             class="undefined menu-item-vertical"
           >
             <a
+              aria-label="No-show Socks"
               href="/"
             >
               No-show Socks
@@ -444,6 +466,7 @@ exports[`App component matches snapshot 1`] = `
             class="undefined menu-item-vertical"
           >
             <a
+              aria-label="Crew Socks"
               href="/"
             >
               Crew Socks
@@ -453,6 +476,7 @@ exports[`App component matches snapshot 1`] = `
             class="undefined menu-item-vertical"
           >
             <a
+              aria-label="Gift Cards"
               href="/"
             >
               Gift Cards
@@ -467,15 +491,16 @@ exports[`App component matches snapshot 1`] = `
         <ul
           class="undefined menu-list-vertical"
         >
-          <p
+          <li
             class="menu-main-vertical"
           >
             Support
-          </p>
+          </li>
           <li
             class="undefined menu-item-vertical"
           >
             <a
+              aria-label="Help Center"
               href="/"
             >
               Help Center
@@ -485,6 +510,7 @@ exports[`App component matches snapshot 1`] = `
             class="undefined menu-item-vertical"
           >
             <a
+              aria-label="FAQs"
               href="/"
             >
               FAQs
@@ -494,6 +520,7 @@ exports[`App component matches snapshot 1`] = `
             class="undefined menu-item-vertical"
           >
             <a
+              aria-label="Order"
               href="/"
             >
               Order
@@ -503,6 +530,7 @@ exports[`App component matches snapshot 1`] = `
             class="undefined menu-item-vertical"
           >
             <a
+              aria-label="Order Status"
               href="/"
             >
               Order Status
@@ -512,6 +540,7 @@ exports[`App component matches snapshot 1`] = `
             class="undefined menu-item-vertical"
           >
             <a
+              aria-label="Returns & Exchanges"
               href="/"
             >
               Returns & Exchanges
@@ -521,6 +550,7 @@ exports[`App component matches snapshot 1`] = `
             class="undefined menu-item-vertical"
           >
             <a
+              aria-label="Contact Us"
               href="/"
             >
               Contact Us
@@ -535,15 +565,16 @@ exports[`App component matches snapshot 1`] = `
         <ul
           class="undefined menu-list-vertical"
         >
-          <p
+          <li
             class="menu-main-vertical"
           >
             Everything Else
-          </p>
+          </li>
           <li
             class="undefined menu-item-vertical"
           >
             <a
+              aria-label="Community"
               href="/"
             >
               Community
@@ -553,6 +584,7 @@ exports[`App component matches snapshot 1`] = `
             class="undefined menu-item-vertical"
           >
             <a
+              aria-label="Why Sopa"
               href="/"
             >
               Why Sopa
@@ -562,6 +594,7 @@ exports[`App component matches snapshot 1`] = `
             class="undefined menu-item-vertical"
           >
             <a
+              aria-label="About"
               href="/"
             >
               About
@@ -571,6 +604,7 @@ exports[`App component matches snapshot 1`] = `
             class="undefined menu-item-vertical"
           >
             <a
+              aria-label="Discount Program"
               href="/"
             >
               Discount Program
@@ -580,6 +614,7 @@ exports[`App component matches snapshot 1`] = `
             class="undefined menu-item-vertical"
           >
             <a
+              aria-label="Sopa Blog"
               href="/"
             >
               Sopa Blog
@@ -589,6 +624,7 @@ exports[`App component matches snapshot 1`] = `
             class="undefined menu-item-vertical"
           >
             <a
+              aria-label="Sopa Ambassadors"
               href="/"
             >
               Sopa Ambassadors
@@ -607,6 +643,7 @@ exports[`App component matches snapshot 1`] = `
             class="social-item"
           >
             <a
+              aria-label="link to twitter"
               class="social-link"
               href="https://twitter.com"
               title="twitter"
@@ -638,6 +675,7 @@ exports[`App component matches snapshot 1`] = `
             class="social-item"
           >
             <a
+              aria-label="link to instagram"
               class="social-link"
               href="https://instagram.com"
               title="instagram"
@@ -683,6 +721,7 @@ exports[`App component matches snapshot 1`] = `
             class="social-item"
           >
             <a
+              aria-label="link to facebook"
               class="social-link"
               href="https://facebook.com"
               title="facebook"

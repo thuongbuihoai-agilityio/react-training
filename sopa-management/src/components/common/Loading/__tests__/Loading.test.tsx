@@ -2,7 +2,7 @@ import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 // Loading
-import Loading from '..';
+import Loading from '@common/Loading';
 
 describe('Loading component', () => {
   test('should render loading component', () => {

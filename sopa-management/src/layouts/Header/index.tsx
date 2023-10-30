@@ -5,25 +5,25 @@ import {
 } from 'react';
 
 // Components
-import Image from '../../components/common/Image';
+import Image from '@components/common/Image';
 import Menu,
 {
   MenuTheme
-} from '../../components/common/Menu';
+} from '@components/common/Menu';
 import Button,
 {
   ButtonType
-} from '../../components/common/Button';
+} from '@components/common/Button';
 import Text,
 {
   SizeType
-} from '../../components/common/Text';
-import CartModal from '../../components/common/CartModal';
-import Logout from '../../components/common/Logout';
+} from '@components/common/Text';
+import CartModal from '@components/common/CartModal';
+import Logout from '@components/common/Logout';
 
 // Constants
-import { IMAGE } from '../../constants/image';
-import { MENU_HEADER } from '../../constants/common';
+import { IMAGE } from '@constants/image';
+import { MENU_HEADER } from '@constants/common';
 
 // Images
 import { ShoppingBag } from '../../../public/images/icons';
@@ -41,10 +41,17 @@ const Header = () => {
   return (
     <>
       <div data-testid='header' className='header'>
-        <Image href='/' url={IMAGE.blackLogo} alt={IMAGE.blackLogo} />
+        <Image
+          href='/'
+          url={IMAGE.blackLogo}
+          alt={IMAGE.blackLogo}
+          width={144}
+          height={24}
+        />
         <div className='header-menu'>
           <Menu menuList={MENU_HEADER} type={MenuTheme.horizontal} />
           <Button
+            ariaLabel='Shoe Finder Quiz'
             children='Shoe Finder Quiz'
             type={ButtonType.btnOutlinePrimary}
           />
@@ -56,6 +63,7 @@ const Header = () => {
             className='header-text' />
           <Logout className='header-user' />
           <Button
+            ariaLabel='Shopping bag'
             children={<ShoppingBag />}
             type={ButtonType.btnIconPrimary}
             onClick={handleToggleModal}

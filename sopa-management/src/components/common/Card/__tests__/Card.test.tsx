@@ -2,13 +2,13 @@
 import '@testing-library/jest-dom';
 
 // Mocks
-import { MOCK_PRODUCT } from '../../../../__mocks__/product';
+import { MOCK_PRODUCT } from '@mocks/product';
 
 // Components
-import Card from '..';
+import Card from '@common/Card';
 
 // Helpers
-import { renderRouterTest } from '../../../../helpers/testUtils';
+import { renderRouterTest } from '@helpers/testUtils';
 
 describe('Card component', () => {
   test('should render Card component', () => {
