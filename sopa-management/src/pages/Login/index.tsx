@@ -117,7 +117,7 @@ const Login: React.FC = () => {
           control={control}
           rules={VALIDATE.email}
           render={({ field }) => (
-            <div aria-hidden='true' className='form-email'>
+            <div className='form-email'>
               <Input
                 {...field}
                 label='Email'
@@ -139,7 +139,7 @@ const Login: React.FC = () => {
           control={control}
           rules={VALIDATE.password}
           render={({ field }) => (
-            <div aria-hidden='true' className='form-password'>
+            <div className='form-password'>
               <Input
                 {...field}
                 label='Password'
