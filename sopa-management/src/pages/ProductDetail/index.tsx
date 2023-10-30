@@ -1,11 +1,23 @@
-import { memo, useCallback, useState } from 'react';
+import {
+  memo,
+  useCallback
+} from 'react';
 import { useParams } from 'react-router-dom';
 
 // Components
-import Text, { SizeType } from '@components/common/Text';
-import Price, { PriceType } from '@components/common/Price';
+import Text,
+{
+  SizeType
+} from '@components/common/Text';
+import Price,
+{
+  PriceType
+} from '@components/common/Price';
 import Dropdown from '@components/common/Dropdown';
-import Button, { ButtonType } from '@components/common/Button';
+import Button,
+{
+  ButtonType
+} from '@components/common/Button';
 import Rating from '@components/Rating';
 import RatingStar from '@components/Rating/RatingStar';
 
@@ -26,17 +38,19 @@ const ProductDetail = () => {
   // use useParams to get id
   const { id } = useParams();
   const { data: product, isLoading } = useFetchProductDetail(id);
-  const { name, image, color, price, description, size } = product;
-  const [toast, setToast] = useState<boolean>(false);
-  const addToCart = useCartStore((state) => state.addToCart);
+  const {
+    name,
+    image,
+    color,
+    price,
+    description,
+    size
+  } = product;
 
-  const handleShowToast = useCallback(() => {
-    setToast(!toast);
-  }, [toast]);
+  const addToCart = useCartStore((state) => state.addToCart);
 
   const handleAddToCart = useCallback(() => {
     addToCart(product);
-    handleShowToast();
   }, [name]);
 
   return (

@@ -41,17 +41,12 @@ const CartItem: React.FC<CartItemProps> = ({
   cartItem
 }) => {
   const [openModalConfirm, setOpenModalConfirm] = useState<boolean>(false);
-  const [toast, setToast] = useState<boolean>(false)
 
   const {
     increaseQuantity,
     decreaseQuantity,
     deleteCart
   } = useCartStore();
-
-   const handleShowToast = useCallback(() => {
-    setToast(!toast);
-  }, [toast]);
 
   const handleIncrement = useCallback(() => {
     increaseQuantity(cartItem.id)
@@ -67,10 +62,9 @@ const CartItem: React.FC<CartItemProps> = ({
 
   const handleDeleteCart = useCallback(() => {
     if (!openModalConfirm) {
-      handleShowToast();
     }
     deleteCart(cartItem.id);
-  }, []);
+  }, [cartItem]);
 
   return (
     <div data-testid='cart-item' className='cart-item'>
