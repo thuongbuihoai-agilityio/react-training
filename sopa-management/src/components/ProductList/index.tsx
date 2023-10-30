@@ -17,7 +17,6 @@ import './productList.css';
 const ProductList: React.FC = () => {
   const { data, fetchNextPage, hasNextPage, isLoading, isFetchingNextPage } =
     useInfiniteProducts();
-  console.log('BASE_URL', import.meta.env.VITE_BASE_URL);
 
   return (
     <div data-testid='product' className='product'>

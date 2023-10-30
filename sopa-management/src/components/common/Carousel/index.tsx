@@ -51,6 +51,7 @@ const Carousel: React.FC = () => (
           alt={IMAGE.altBanner}
           width={1170}
           height={657}
+          size='50vw'
         />
       </figure>
       <Input

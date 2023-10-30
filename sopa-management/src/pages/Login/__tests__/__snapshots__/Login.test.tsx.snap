@@ -60,6 +60,7 @@ exports[`Login component matches snapshot 1`] = `
         </div>
       </div>
       <button
+        aria-label="Login"
         class=" btn btn-tertiary"
         data-testid="button"
         type="submit"

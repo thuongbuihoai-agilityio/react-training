@@ -19,6 +19,7 @@ exports[`Modal component Matches snapshot 1`] = `
           Cart
         </p>
         <button
+          aria-label="Close"
           class=" btn btn-icon-primary"
           data-testid="button"
         >
@@ -32,16 +33,16 @@ exports[`Modal component Matches snapshot 1`] = `
             <path
               d="M18 6L6 18"
               stroke="#02021D"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
             />
             <path
               d="M6 6L18 18"
               stroke="#02021D"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
             />
           </svg>
         </button>
@@ -60,7 +61,7 @@ exports[`Modal component Matches snapshot 1`] = `
               class="cart-image"
             >
               <img
-                alt=""
+                alt="This is black shoes"
                 class="cart-image-item"
                 data-testid="image"
                 src="/images/products/black-shoes.png"
@@ -95,6 +96,7 @@ exports[`Modal component Matches snapshot 1`] = `
                   data-testid="counter"
                 >
                   <button
+                    aria-label="Decrement"
                     class="counter-minus btn btn-icon-primary"
                     data-testid="button"
                   />
@@ -109,11 +111,13 @@ exports[`Modal component Matches snapshot 1`] = `
                     value="2"
                   />
                   <button
+                    aria-label="Increment"
                     class="counter-plus btn btn-icon-primary"
                     data-testid="button"
                   />
                 </div>
                 <button
+                  aria-label="Trash"
                   class="cart-btn btn btn-icon-secondary"
                   data-testid="button"
                 >
@@ -176,7 +180,7 @@ exports[`Modal component Matches snapshot 1`] = `
               class="cart-image"
             >
               <img
-                alt=""
+                alt="This is blue shoes"
                 class="cart-image-item"
                 data-testid="image"
                 src="/images/products/blue-shoes.png"
@@ -211,6 +215,7 @@ exports[`Modal component Matches snapshot 1`] = `
                   data-testid="counter"
                 >
                   <button
+                    aria-label="Decrement"
                     class="counter-minus btn btn-icon-primary"
                     data-testid="button"
                   />
@@ -225,11 +230,13 @@ exports[`Modal component Matches snapshot 1`] = `
                     value="1"
                   />
                   <button
+                    aria-label="Increment"
                     class="counter-plus btn btn-icon-primary"
                     data-testid="button"
                   />
                 </div>
                 <button
+                  aria-label="Trash"
                   class="cart-btn btn btn-icon-secondary"
                   data-testid="button"
                 >

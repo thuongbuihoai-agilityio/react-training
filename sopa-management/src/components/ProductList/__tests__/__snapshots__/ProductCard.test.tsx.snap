@@ -17,13 +17,17 @@ exports[`ProductList component matches snapshot 1`] = `
           class="card-image"
         >
           <a
+            aria-label="link to home page"
             data-testid="image-link"
             href="/products/1"
           >
             <img
               alt="This is black shoes"
               class="card-image-item"
+              height="130"
+              sizes=""
               src="/images/products/black-shoes.png"
+              width="322"
             />
           </a>
         </figure>
@@ -31,6 +35,7 @@ exports[`ProductList component matches snapshot 1`] = `
           class="card-info"
         >
           <a
+            aria-label="Black shoes"
             class="card-name"
             href="/products/1"
           >
@@ -67,13 +72,17 @@ exports[`ProductList component matches snapshot 1`] = `
           class="card-image"
         >
           <a
+            aria-label="link to home page"
             data-testid="image-link"
             href="/products/2"
           >
             <img
               alt="This is blue shoes"
               class="card-image-item"
+              height="130"
+              sizes=""
               src="/images/products/blue-shoes.png"
+              width="322"
             />
           </a>
         </figure>
@@ -81,6 +90,7 @@ exports[`ProductList component matches snapshot 1`] = `
           class="card-info"
         >
           <a
+            aria-label="Blue shoes"
             class="card-name"
             href="/products/2"
           >

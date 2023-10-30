@@ -13,7 +13,7 @@ exports[`CartItem component matches snapshot 1`] = `
         class="cart-image"
       >
         <img
-          alt=""
+          alt="This is black shoes"
           class="cart-image-item"
           data-testid="image"
           src="/images/products/black-shoes.png"
@@ -48,6 +48,7 @@ exports[`CartItem component matches snapshot 1`] = `
             data-testid="counter"
           >
             <button
+              aria-label="Decrement"
               class="counter-minus btn btn-icon-primary"
               data-testid="button"
             />
@@ -62,11 +63,13 @@ exports[`CartItem component matches snapshot 1`] = `
               value="3"
             />
             <button
+              aria-label="Increment"
               class="counter-plus btn btn-icon-primary"
               data-testid="button"
             />
           </div>
           <button
+            aria-label="Trash"
             class="cart-btn btn btn-icon-secondary"
             data-testid="button"
           >
@@ -80,30 +83,30 @@ exports[`CartItem component matches snapshot 1`] = `
               <path
                 d="M2.5 5H4.16667H17.5"
                 stroke="#02021D"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
               />
               <path
                 d="M15.8334 5.00033V16.667C15.8334 17.109 15.6578 17.5329 15.3453 17.8455C15.0327 18.1581 14.6088 18.3337 14.1667 18.3337H5.83341C5.39139 18.3337 4.96746 18.1581 4.6549 17.8455C4.34234 17.5329 4.16675 17.109 4.16675 16.667V5.00033M6.66675 5.00033V3.33366C6.66675 2.89163 6.84234 2.46771 7.1549 2.15515C7.46746 1.84259 7.89139 1.66699 8.33341 1.66699H11.6667C12.1088 1.66699 12.5327 1.84259 12.8453 2.15515C13.1578 2.46771 13.3334 2.89163 13.3334 3.33366V5.00033"
                 stroke="#02021D"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
               />
               <path
                 d="M8.33325 9.16699V14.167"
                 stroke="#02021D"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
               />
               <path
                 d="M11.6667 9.16699V14.167"
                 stroke="#02021D"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
               />
             </svg>
           </button>

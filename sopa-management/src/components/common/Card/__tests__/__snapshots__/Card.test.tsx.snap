@@ -13,13 +13,17 @@ exports[`Card component matches snapshot 1`] = `
         class="card-image"
       >
         <a
+          aria-label="link to home page"
           data-testid="image-link"
           href="/"
         >
           <img
             alt=""
             class="card-image-item"
+            height="130"
+            sizes=""
             src="/images/products/black-shoes.png"
+            width="322"
           />
         </a>
       </figure>
@@ -27,6 +31,7 @@ exports[`Card component matches snapshot 1`] = `
         class="card-info"
       >
         <a
+          aria-label="Black shoes"
           class="card-name"
           href="/"
         >
