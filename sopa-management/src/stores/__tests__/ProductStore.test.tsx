@@ -4,19 +4,19 @@ import {
 } from '@testing-library/react';
 
 // Mocks
-import { MOCK_PRODUCTS } from '../../../__mocks__/product';
+import { MOCK_PRODUCTS } from '../../__mocks__/product';
 
 // Hooks
-import { useProductStore } from '..';
+import { useProductStore } from '../product';
 
 describe('Test useProductStore', () => {
-  it('Initial value of useProductStore', () => {
+  test('Initial value of useProductStore', () => {
     const { result } = renderHook(() => useProductStore());
 
     expect(result.current.products).toEqual([]);
   });
 
-  it('Should change value of products when set products value', () => {
+  test('Should change value of products when set products value', () => {
     const { result } = renderHook(() => useProductStore());
 
     expect(result.current.products).toEqual([]);
