@@ -1,6 +1,7 @@
 import {
   memo,
-  useCallback
+  useCallback,
+  useState
 } from 'react';
 import { useParams } from 'react-router-dom';
 
@@ -37,6 +38,7 @@ import Loading from '@components/common/Loading';
 const ProductDetail = () => {
   // use useParams to get id
   const { id } = useParams();
+  const [selectedValue, setSelectedValue] = useState('');
   const { data: product, isLoading } = useFetchProductDetail(id);
   const {
     name,
@@ -50,8 +52,12 @@ const ProductDetail = () => {
   const addToCart = useCartStore((state) => state.addToCart);
 
   const handleAddToCart = useCallback(() => {
-    addToCart(product);
-  }, [name]);
+    addToCart(product, selectedValue);
+  }, [name, selectedValue]);
+
+  const handleSelect = useCallback((value?: string) => {
+    setSelectedValue(value as string);
+  }, [selectedValue]);
 
   return (
     <div data-testid='detail' className='detail'>
@@ -83,7 +89,11 @@ const ProductDetail = () => {
                   className='detail-text-size'
                   type={SizeType.extraRegular}
                 />
-                <Dropdown value={size} data={SIZE} />
+                <Dropdown
+                  data={SIZE}
+                  value={selectedValue || size}
+                  onSetValue={(value?: string) => handleSelect(value)}
+                />
               </div>
               <Button
                 ariaLabel='Add to bag'
