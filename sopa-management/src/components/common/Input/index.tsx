@@ -66,7 +66,6 @@ const Input = React.forwardRef<HTMLInputElement, IconProps>(
             checked={checked}
             value={value}
             placeholder={placeholder}
-            aria-hidden='true'
             className={`${classNameInput} input-${style}`}
             onChange={onChange}
             onBlur={onBlur}
