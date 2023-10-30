@@ -7,13 +7,17 @@ exports[`Header component matches snapshot 1`] = `
     data-testid="header"
   >
     <a
+      aria-label="link to home page"
       data-testid="image-link"
       href="/"
     >
       <img
         alt="/images/logos/black-logo.svg"
         class=""
+        height="24"
+        sizes=""
         src="/images/logos/black-logo.svg"
+        width="144"
       />
     </a>
     <div
@@ -26,13 +30,14 @@ exports[`Header component matches snapshot 1`] = `
         <ul
           class="undefined menu-list-horizontal"
         >
-          <p
+          <li
             class="menu-main-horizontal"
           />
           <li
             class="undefined menu-item-horizontal"
           >
             <a
+              aria-label="Men"
               href="/"
             >
               Men
@@ -42,6 +47,7 @@ exports[`Header component matches snapshot 1`] = `
             class="undefined menu-item-horizontal"
           >
             <a
+              aria-label="Women"
               href="/"
             >
               Women
@@ -51,6 +57,7 @@ exports[`Header component matches snapshot 1`] = `
             class="undefined menu-item-horizontal"
           >
             <a
+              aria-label="Accessories"
               href="/"
             >
               Accessories
@@ -60,6 +67,7 @@ exports[`Header component matches snapshot 1`] = `
             class="undefined menu-item-horizontal"
           >
             <a
+              aria-label="About"
               href="/"
             >
               About
@@ -68,6 +76,7 @@ exports[`Header component matches snapshot 1`] = `
         </ul>
       </div>
       <button
+        aria-label="Shoe Finder Quiz"
         class=" btn btn-out-line-primary"
         data-testid="button"
       >
@@ -88,6 +97,7 @@ exports[`Header component matches snapshot 1`] = `
         data-testid="logout"
       >
         <button
+          aria-label="User"
           class=" btn btn-icon-primary"
           data-testid="button"
         >
@@ -116,6 +126,7 @@ exports[`Header component matches snapshot 1`] = `
         </button>
       </div>
       <button
+        aria-label="Shopping bag"
         class="header-btn btn btn-icon-primary"
         data-testid="button"
       >

@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { Account } from '../../interfaces/account';
+import { Account } from '@interfaces/account';
 
 interface AccountType {
   accounts: Account[];

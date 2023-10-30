@@ -3,7 +3,7 @@ import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 // Components
-import Rating from '..';
+import Rating from '@components/Rating';
 
 describe('Rating component', () => {
   test('should render Rating component with type is default', () => {

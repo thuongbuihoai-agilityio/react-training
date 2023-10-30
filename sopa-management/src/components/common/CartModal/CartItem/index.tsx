@@ -8,28 +8,28 @@ import {
 import { Trash } from '../../../../../public/images/icons';
 
 // Interfaces
-import { Product } from '../../../../interfaces/product';
+import { Product } from '@interfaces/product';
 
 // Components
 import Button,
 {
   ButtonType
-} from '../../Button';
+} from '@common/Button';
 import Price,
 {
   PriceType
-} from '../../Price';
+} from '@common/Price';
 import Text,
 {
   ThemeType
-} from '../../Text';
-import Counter from '../../Counter';
-import Image from '../../Image';
-import PopupDelete from '../../PopupDelete';
+} from '@common/Text';
+import Counter from '@common/Counter';
+import Image from '@common/Image';
+import PopupDelete from '@common/PopupDelete';
 
 // Stores
-import { useCartStore } from '../../../../stores/cart';
-import { CONFIRM_MESSAGE } from '../../../../constants/validate';
+import { useCartStore } from '@stores/cart';
+import { CONFIRM_MESSAGE } from '@constants/validate';
 
 // Constants
 
@@ -68,7 +68,13 @@ const CartItem: React.FC<CartItemProps> = ({
     <div data-testid='cart-item' className='cart-item'>
       <div className='cart-info'>
         <figure className='cart-image'>
-          <Image className='cart-image-item' url={cartItem?.image?.url} />
+          <Image
+            className='cart-image-item'
+            url={cartItem?.image?.url}
+            alt={cartItem.image.alt}
+            width={130}
+            height={130}
+          />
         </figure>
         <div className='cart-description'>
           <Text text={cartItem.name} className='cart-text' />
@@ -89,6 +95,7 @@ const CartItem: React.FC<CartItemProps> = ({
               onIncrement={handleIncrement}
             />
             <Button
+              ariaLabel='Trash'
               children={<Trash />}
               type={ButtonType.btnIconSecondary}
               className='cart-btn'

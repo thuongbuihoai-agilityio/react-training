@@ -2,10 +2,10 @@
 import '@testing-library/jest-dom';
 
 // Components
-import Footer from '..';
+import Footer from '@layouts/Footer';
 
 // Helpers
-import { renderRouterTest } from '../../../helpers/testUtils';
+import { renderRouterTest } from '@helpers/testUtils';
 
 describe('Footer component', () => {
   test('should render Footer component', () => {

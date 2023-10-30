@@ -1,20 +1,20 @@
 // Images
-import { IMAGE } from '../../../constants/image';
+import { IMAGE } from '@constants/image';
 
 // Components
 import Button,
 {
   ButtonType
-} from '../Button';
-import Image from '../Image';
-import Input from '../Input';
+} from '@common/Button';
+import Image from '@common/Image';
+import Input from '@common/Input';
 import Text,
 {
   SizeType
-} from '../Text';
+} from '@common/Text';
 
 // Constants
-import { CAROUSEL_BULLET } from '../../../constants/common';
+import { CAROUSEL_BULLET } from '@constants/common';
 
 // Styles
 import './carousel.css';
@@ -31,7 +31,12 @@ const Carousel: React.FC = () => (
         checked
       />
       <figure className='carousel-item'>
-        <Image url={IMAGE.banner} alt={IMAGE.altBanner} />
+        <Image
+          url={IMAGE.banner}
+          alt={IMAGE.altBanner}
+          width={1170}
+          height={657}
+        />
       </figure>
       <Input
         className='carousel-open'
@@ -41,7 +46,13 @@ const Carousel: React.FC = () => (
         hidden
       />
       <figure className='carousel-item'>
-        <Image url={IMAGE.banner2} alt={IMAGE.altBanner} />
+        <Image
+          url={IMAGE.banner2}
+          alt={IMAGE.altBanner}
+          width={1170}
+          height={657}
+          size='50vw'
+        />
       </figure>
       <Input
         className='carousel-open'
@@ -51,7 +62,12 @@ const Carousel: React.FC = () => (
         hidden
       />
       <figure className='carousel-item'>
-        <Image url={IMAGE.banner3} alt={IMAGE.altBanner} />
+        <Image
+          url={IMAGE.banner}
+          alt={IMAGE.altBanner}
+          width={1170}
+          height={657}
+        />
       </figure>
       <ul className='carousel-indicators'>
         {CAROUSEL_BULLET.map((item) => (
@@ -67,7 +83,7 @@ const Carousel: React.FC = () => (
         type={SizeType.large}
         className='carousel-heading'
       />
-      <Button children='Show now' type={ButtonType.primary} />
+      <Button ariaLabel='Show now' children='Show now' type={ButtonType.primary} />
     </div>
   </div>
 );

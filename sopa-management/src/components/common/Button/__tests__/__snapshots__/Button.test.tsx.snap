@@ -3,6 +3,7 @@
 exports[`Button component Matches snapshot 1`] = `
 <div>
   <button
+    aria-label=""
     class=" btn btn-"
     data-testid="button"
   >

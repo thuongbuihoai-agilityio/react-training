@@ -7,7 +7,7 @@ import Text,
 {
   SizeType,
   ThemeType
-} from '../index';
+} from '@common/Text';
 
 describe('Text component', () => {
   test('Should render Text component with size is normal', () => {

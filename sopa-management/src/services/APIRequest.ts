@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { LIMIT_PRODUCTS } from '../constants/common';
+import { LIMIT_PRODUCTS } from '@constants/common';
 
 /**
  * @param { string } url 

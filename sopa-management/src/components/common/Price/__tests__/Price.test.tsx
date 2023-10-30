@@ -3,7 +3,10 @@ import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 // Components
-import Price, { PriceType } from '..';
+import Price,
+{
+  PriceType
+} from '@common/Price';
 
 describe('Price component', () => {
   test('should render price component with type is default', () => {

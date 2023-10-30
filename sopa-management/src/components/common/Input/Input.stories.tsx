@@ -6,7 +6,7 @@ import Input,
 {
   InputTheme,
   InputType
-} from '.';
+} from '@common/Input';
 
 const meta: Meta<typeof Input> = {
   component: Input,

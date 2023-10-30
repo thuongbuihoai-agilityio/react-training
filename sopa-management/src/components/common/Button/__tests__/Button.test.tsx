@@ -7,7 +7,7 @@ import '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event';
 
 // Components
-import Button, { ButtonType } from '../index';
+import Button, { ButtonType } from '@common/Button';
 
 // Images
 import { Trash } from '../../../../../public/images/icons';

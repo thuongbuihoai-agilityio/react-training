@@ -6,7 +6,7 @@ import {
 import '@testing-library/jest-dom';
 
 // Components
-import Input from '../index';
+import Input from '@common/Input';
 
 describe('Input component', () => {
   test('Should render Input component', () => {

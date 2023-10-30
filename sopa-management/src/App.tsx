@@ -16,13 +16,13 @@ import './styles/main.css';
 
 // Components
 
-import MainLayout from './layouts/MainLayout';
-import Loading from './components/common/Loading';
-import Partners from './components/Partners';
-import Carousel from './components/common/Carousel';
-const ProductList = lazy(() => import('./components/ProductList'));
-const ProductDetail = lazy(() => import('./pages/ProductDetail'));
-const Login = lazy(() => import('./pages/Login'));
+import MainLayout from '@layouts/MainLayout';
+import Loading from '@components/common/Loading';
+import Partners from '@components/Partners';
+import Carousel from '@components/common/Carousel';
+const ProductList = lazy(() => import('@components/ProductList'));
+const ProductDetail = lazy(() => import('@pages/ProductDetail'));
+const Login = lazy(() => import('@pages/Login'));
 
 const App: React.FC = () => {
   const queryClient = new QueryClient();

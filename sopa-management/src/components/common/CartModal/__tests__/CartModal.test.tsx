@@ -2,13 +2,13 @@
 import '@testing-library/jest-dom';
 
 // Helpers
-import { renderRouterTest } from '../../../../helpers/testUtils';
+import { renderRouterTest } from '@helpers/testUtils';
 
 // Components
-import CartModal from '../index';
-import { MOCK_PRODUCTS } from '../../../../__mocks__/product';
+import CartModal from '@common/CartModal';
+import { MOCK_PRODUCTS } from '@mocks/product';
 
-jest.mock('../../../../stores/cart', () => ({
+jest.mock('@stores/cart', () => ({
   useCartStore: jest.fn(() => ({
     carts: MOCK_PRODUCTS,
   })),

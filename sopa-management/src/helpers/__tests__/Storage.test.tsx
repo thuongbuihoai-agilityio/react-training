@@ -1,6 +1,6 @@
 // Mocks
-import { MOCK_PRODUCTS } from '../../__mocks__/product';
-import { STORAGE_KEY } from '../../constants/common';
+import { MOCK_PRODUCTS } from '@mocks/product';
+import { STORAGE_KEY } from '@constants/common';
 
 // Helpers
 import {
