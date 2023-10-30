@@ -125,6 +125,7 @@ const Login: React.FC = () => {
                   register('email');
                   emailRef.current = e;
                 }}
+                ariaLabelledby='Email'
                 style={styleEmail}
                 theme={themeEmail}
                 onBlur={resetErrors}
@@ -147,6 +148,7 @@ const Login: React.FC = () => {
                   register('password');
                   passwordRef.current = e;
                 }}
+                ariaLabelledby='Password'
                 style={stylePassword}
                 theme={themePassword}
                 onBlur={resetErrors}

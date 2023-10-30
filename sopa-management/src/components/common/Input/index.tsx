@@ -17,6 +17,7 @@ export enum InputTheme {
 
 interface IconProps {
   id?: string;
+  ariaLabelledby?: string;
   name?: string;
   hidden?: boolean;
   checked?: boolean;
@@ -38,6 +39,7 @@ const Input = React.forwardRef<HTMLInputElement, IconProps>(
     {
       id = '',
       name = '',
+      ariaLabelledby = '',
       hidden = false,
       checked = false,
       value,
@@ -61,11 +63,13 @@ const Input = React.forwardRef<HTMLInputElement, IconProps>(
           <input
             id={id}
             ref={ref}
+            aria-aria-labelledby={ariaLabelledby}
             name={name}
             hidden={hidden}
             checked={checked}
             value={value}
             placeholder={placeholder}
+            aria-hidden='true'
             className={`${classNameInput} input-${style}`}
             onChange={onChange}
             onBlur={onBlur}
@@ -76,11 +80,13 @@ const Input = React.forwardRef<HTMLInputElement, IconProps>(
           data-testid='input'
           id={id}
           name={name}
+          aria-aria-labelledby={ariaLabelledby}
           hidden={hidden}
           defaultChecked={checked}
           type={type}
           value={value}
           placeholder={placeholder}
+          aria-hidden='true'
           className={`${className} ${classNameInput} input-${style}`}
         />
       )}
