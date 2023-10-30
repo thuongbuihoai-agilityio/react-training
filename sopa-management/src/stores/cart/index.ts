@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import toast from "react-hot-toast";
 
 // Interfaces
 import { Product } from '@interfaces/product';
@@ -11,6 +12,7 @@ import {
 
 // Constants
 import { STORAGE_KEY } from '@constants/common';
+import { CONFIRM_MESSAGE } from '@constants/validate';
 
 type CartType = {
   carts: Product[];
@@ -34,6 +36,7 @@ export const useCartStore = create<CartType>()((set) => ({
       );
       setStorage(STORAGE_KEY.CART_KEY, updatedCart);
       set({ carts: updatedCart });
+      toast.success(CONFIRM_MESSAGE.ADD_SUCCESS)
     } else {
       const updatedCart = [
         ...currentCart,
@@ -41,6 +44,7 @@ export const useCartStore = create<CartType>()((set) => ({
       ] as Product[];
       setStorage(STORAGE_KEY.CART_KEY, updatedCart);
       set({ carts: updatedCart });
+      toast.success(CONFIRM_MESSAGE.ADD_SUCCESS)
     }
   },
 
@@ -69,5 +73,6 @@ export const useCartStore = create<CartType>()((set) => ({
     const updatedCart = currentCart.filter((item: Product) => item.id !== id);
     setStorage(STORAGE_KEY.CART_KEY, updatedCart);
     set({ carts: updatedCart });
+    toast.success(CONFIRM_MESSAGE.DELETE_SUCCESS)
   },
 }));

@@ -53,47 +53,51 @@ const ProductDetail = () => {
     addToCart(product);
   }, [name]);
 
-  return isLoading ? (
-    <Loading />
-  ) : (
+  return (
     <div data-testid='detail' className='detail'>
-      <div className='detail-product'>
-        <figure>
-          <img className='detail-image' src={image.url} alt={image.alt} />
-        </figure>
-        <div className='detail-info'>
-          <div className='detail-name'>
-            <div className='detail-description'>
-              <Text text={name} type={SizeType.regular} />
-              <RatingStar
-                value='4.7(3205)'
-                type={SizeType.normal}
-                className='detail-rating'
-                classNameStar='rating-star'
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <>
+          <div className='detail-product'>
+            <figure>
+              <img className='detail-image' src={image.url} alt={image.alt} />
+            </figure>
+            <div className='detail-info'>
+              <div className='detail-name'>
+                <div className='detail-description'>
+                  <Text text={name} type={SizeType.regular} />
+                  <RatingStar
+                    value='4.7(3205)'
+                    type={SizeType.normal}
+                    className='detail-rating'
+                    classNameStar='rating-star'
+                  />
+                </div>
+                <Price value={price} type={PriceType.tertiary} />
+              </div>
+              <Text text={`Color: ${color}`} type={SizeType.extraRegular} />
+              <div className='detail-size'>
+                <Text
+                  text='Size'
+                  className='detail-text-size'
+                  type={SizeType.extraRegular}
+                />
+                <Dropdown value={size} data={SIZE} />
+              </div>
+              <Button
+                ariaLabel='Add to bag'
+                children={`Add to bag $${price}`}
+                type={ButtonType.secondary}
+                className='detail-btn'
+                onClick={handleAddToCart}
               />
+              <Text className='detail-description' text={description} />
             </div>
-            <Price value={price} type={PriceType.tertiary} />
           </div>
-          <Text text={`Color: ${color}`} type={SizeType.extraRegular} />
-          <div className='detail-size'>
-            <Text
-              text='Size'
-              className='detail-text-size'
-              type={SizeType.extraRegular}
-            />
-            <Dropdown value={size} data={SIZE} />
-          </div>
-          <Button
-            ariaLabel='Add to bag'
-            children={`Add to bag $${price}`}
-            type={ButtonType.secondary}
-            className='detail-btn'
-            onClick={handleAddToCart}
-          />
-          <Text className='detail-description' text={description} />
-        </div>
-      </div>
-      <Rating />
+          <Rating />
+        </>
+      )}
     </div>
   );
 };

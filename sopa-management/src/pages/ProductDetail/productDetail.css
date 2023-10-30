@@ -2,6 +2,7 @@
   padding: var(--px-extra-normal) var(--py-medium);
   margin: 0 auto;
   width: var(--w-extra-large);
+  min-height: 100vh;
 }
 
 .detail-product {
