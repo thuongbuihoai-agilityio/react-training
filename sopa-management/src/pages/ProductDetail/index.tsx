@@ -66,8 +66,8 @@ const ProductDetail = () => {
       ) : (
         <>
           <div className='detail-product'>
-            <figure>
-              <img className='detail-image' src={image.url} alt={image.alt} />
+            <figure className='detail-image'>
+              <img src={image.url} alt={image.alt} />
             </figure>
             <div className='detail-info'>
               <div className='detail-name'>
