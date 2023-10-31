@@ -24,7 +24,7 @@ describe('useCartStore', () => {
     const product = MOCK_PRODUCT;
 
     act(() => {
-      result.current.addToCart(product);
+      result.current.addToCart(product, 'small');
     });
 
     const storedCart = getStorage(STORAGE_KEY.CART_KEY);
@@ -38,7 +38,7 @@ describe('useCartStore', () => {
     const product = MOCK_PRODUCT;
 
     act(() => {
-      result.current.addToCart(product);
+      result.current.addToCart(product, 'small');
     });
 
     const storedCart = getStorage(STORAGE_KEY.CART_KEY);

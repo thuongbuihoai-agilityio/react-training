@@ -22,18 +22,21 @@ exports[`Dropdown component matches snapshot 1`] = `
     >
       <li
         class="dropdown-option"
+        id="my-dropdown"
         value="Small"
       >
         Small
       </li>
       <li
         class="dropdown-option"
+        id="my-dropdown"
         value="Medium"
       >
         Medium
       </li>
       <li
         class="dropdown-option"
+        id="my-dropdown"
         value="Large"
       >
         Large

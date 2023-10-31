@@ -21,6 +21,7 @@ interface DropdownProps {
   isHref?: boolean;
   className?: string;
   onClick?: () => void;
+  onSetValue?: (value?: string) => void;
 }
 
 const Dropdown: React.FC<DropdownProps> = ({
@@ -28,7 +29,8 @@ const Dropdown: React.FC<DropdownProps> = ({
   isHref,
   value,
   className = '',
-  onClick = () => {},
+  onClick,
+  onSetValue = () => {}
 }) => (
   <div data-testid='dropdown' className={`${className} custom-dropdown`}>
     <input type='checkbox' id='my-dropdown' value='' name='my-checkbox' />
@@ -52,7 +54,13 @@ const Dropdown: React.FC<DropdownProps> = ({
         </label>
         <ul className='dropdown-list'>
           {data.map((item: SizeType) => (
-            <li key={item.key} value={item.label} className='dropdown-option'>
+            <li
+              id='my-dropdown'
+              key={item.key}
+              value={item.label}
+              className='dropdown-option'
+              onClick={() => onSetValue(item.label)}
+            >
               {item.label}
             </li>
           ))}

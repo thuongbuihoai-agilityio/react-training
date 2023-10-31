@@ -65,7 +65,6 @@ const Input = React.forwardRef<HTMLInputElement, IconProps>(
             ref={ref}
             aria-labelledby={ariaLabelledby}
             name={name}
-            hidden={hidden}
             checked={checked}
             value={value}
             placeholder={placeholder}
