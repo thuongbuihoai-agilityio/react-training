@@ -106,7 +106,6 @@ exports[`Modal component Matches snapshot 1`] = `
                     data-testid="input"
                     id=""
                     name=""
-                    placeholder=""
                     type="number"
                     value="2"
                   />
@@ -225,7 +224,6 @@ exports[`Modal component Matches snapshot 1`] = `
                     data-testid="input"
                     id=""
                     name=""
-                    placeholder=""
                     type="number"
                     value="1"
                   />

@@ -24,16 +24,14 @@ exports[`Login component matches snapshot 1`] = `
         >
           <label
             class="label label-"
+            for="email"
           >
             Email
           </label>
           <input
-            aria-hidden="true"
             class="input input-"
-            id=""
+            id="email"
             name="email"
-            placeholder=""
-            value=""
           />
         </div>
       </div>
@@ -46,16 +44,14 @@ exports[`Login component matches snapshot 1`] = `
         >
           <label
             class="label label-"
+            for="password"
           >
             Password
           </label>
           <input
-            aria-hidden="true"
             class="input input-"
-            id=""
+            id="password"
             name="password"
-            placeholder=""
-            value=""
           />
         </div>
       </div>

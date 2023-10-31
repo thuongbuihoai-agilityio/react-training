@@ -27,7 +27,7 @@
 
 .card-name {
   color: var(--dark);
-  font-size: var(--text-base);
+  font-size: var(--text-extra-sm);
   line-height: var(--leading-primary);
   font-weight: var(--font-medium);
   text-decoration: none;

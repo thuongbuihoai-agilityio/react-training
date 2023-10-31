@@ -25,7 +25,7 @@ interface IconProps {
   type?: string;
   style?: string;
   theme?: string;
-  placeholder?: string;
+  htmlFor?: string;
   classNameInput?: string;
   classNameLabel?: string;
   className?: string;
@@ -45,28 +45,28 @@ const Input = React.forwardRef<HTMLInputElement, IconProps>(
       type = '',
       theme = InputTheme.default,
       style = InputType.default,
-      placeholder = '',
+      htmlFor = '',
       classNameInput = 'input',
       classNameLabel = 'label',
       className = '',
       onChange = () => {},
-      onBlur = () => {},
+      onBlur = () => {}
     },
     ref
   ) => (
     <>
       {label ? (
         <div data-testid='input-value' className='input-wrapper'>
-          <label className={`${classNameLabel} label-${theme}`}>{label}</label>
+          <label
+            htmlFor={htmlFor}
+            className={`${classNameLabel} label-${theme}`}
+          >
+            {label}
+          </label>
           <input
             id={id}
             ref={ref}
             name={name}
-            hidden={hidden}
-            checked={checked}
-            value={value}
-            placeholder={placeholder}
-            aria-hidden='true'
             className={`${classNameInput} input-${style}`}
             onChange={onChange}
             onBlur={onBlur}
@@ -81,7 +81,6 @@ const Input = React.forwardRef<HTMLInputElement, IconProps>(
           defaultChecked={checked}
           type={type}
           value={value}
-          placeholder={placeholder}
           aria-hidden='true'
           className={`${className} ${classNameInput} input-${style}`}
         />

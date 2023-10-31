@@ -46,10 +46,12 @@
 
 .cart-color {
   margin: 16px 0 12px;
+  font-size: var(--text-regular);
 }
 
 .cart-size {
   margin-bottom: 24px;
+  font-size: var(--text-regular);
 }
 
 .cart-btn {
