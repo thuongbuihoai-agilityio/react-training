@@ -5,3 +5,8 @@
 .product-btn {
   text-align: center;
 }
+
+.product-item-btn {
+  font-family: 'rubik';
+  font-size: var(--text-extra-sm);
+}

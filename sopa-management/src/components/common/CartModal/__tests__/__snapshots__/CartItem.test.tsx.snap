@@ -58,7 +58,6 @@ exports[`CartItem component matches snapshot 1`] = `
               data-testid="input"
               id=""
               name=""
-              placeholder=""
               type="number"
               value="3"
             />
