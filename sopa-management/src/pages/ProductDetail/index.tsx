@@ -52,7 +52,7 @@ const ProductDetail = () => {
   const addToCart = useCartStore((state) => state.addToCart);
 
   const handleAddToCart = useCallback(() => {
-    addToCart(product, selectedValue);
+    addToCart(product, (selectedValue || size));
   }, [name, selectedValue]);
 
   const handleSelect = useCallback((value?: string) => {
