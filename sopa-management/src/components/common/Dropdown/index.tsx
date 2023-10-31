@@ -1,8 +1,14 @@
-import React, { memo } from 'react';
+import React,
+{
+  memo,
+  useCallback,
+  useState
+} from 'react';
 import { Link } from 'react-router-dom';
 
 // Styles
 import './dropdown.css';
+import Text from '../Text';
 
 export type SizeType = {
   key?: string;
@@ -21,6 +27,7 @@ interface DropdownProps {
   isHref?: boolean;
   className?: string;
   onClick?: () => void;
+  onSetValue?: (value?: string) => void;
 }
 
 const Dropdown: React.FC<DropdownProps> = ({
@@ -28,38 +35,51 @@ const Dropdown: React.FC<DropdownProps> = ({
   isHref,
   value,
   className = '',
-  onClick = () => {},
-}) => (
-  <div data-testid='dropdown' className={`${className} custom-dropdown`}>
-    <input type='checkbox' id='my-dropdown' value='' name='my-checkbox' />
-    {isHref ? (
-      <Link
-        to='/login'
-        className='dropdown-link'
-        aria-label='link to login page'
-        onClick={onClick}
-      >
-        Logout
-      </Link>
-    ) : (
-      <>
-        <label
-          htmlFor='my-dropdown'
-          data-toggle='dropdown'
-          className='dropdown-label'
-        >
-          {value}
-        </label>
-        <ul className='dropdown-list'>
-          {data.map((item: SizeType) => (
-            <li key={item.key} value={item.label} className='dropdown-option'>
-              {item.label}
-            </li>
-          ))}
-        </ul>
-      </>
-    )}
-  </div>
-);
+  onClick,
+  onSetValue = () => {}
+}) => {
+  const [openDropdown, setOpenDropdown] = useState<boolean>(false);
 
+  const handleToggle = useCallback(() => {
+    setOpenDropdown(!openDropdown);
+  }, [openDropdown]);
+
+  return (
+    <div
+      data-testid='dropdown'
+      className={`${className} custom-dropdown`}
+      onClick={handleToggle}
+    >
+      {isHref ? (
+        <Link
+          to='/login'
+          className='dropdown-link'
+          aria-label='link to login page'
+          onClick={onClick}
+        >
+          Logout
+        </Link>
+      ) : (
+        <>
+          <Text text={value} className='dropdown-label' />
+          {openDropdown && (
+            <ul className='dropdown-list'>
+              {data.map((item: SizeType) => (
+                <li
+                  id='my-dropdown'
+                  key={item.key}
+                  value={item.label}
+                  className='dropdown-option'
+                  onClick={() => onSetValue(item.label)}
+                >
+                  {item.label}
+                </li>
+              ))}
+            </ul>
+          )}
+        </>
+      )}
+    </div>
+  );
+};
 export default memo(Dropdown);

@@ -3,6 +3,7 @@ import {
   Outlet,
   useNavigate
 } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
 
 //  Components
 import Header from '@layouts/Header';
@@ -29,6 +30,8 @@ const MainLayout = (): JSX.Element => {
       <Header />
       <Outlet />
       <Footer />
+      {/* Toaster: library show message */}
+      <Toaster position='top-right' />
     </>
   );
 };

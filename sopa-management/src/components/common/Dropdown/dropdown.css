@@ -6,11 +6,6 @@
   border: 1px solid var(--border-primary);
 }
 
-.custom-dropdown > input[type="checkbox"] {
-  position: absolute;
-  left: -100vw;
-}
-
 .dropdown-label,
 .custom-dropdown > a[role="button"],
 .custom-dropdown > .dropdown-link {
@@ -38,11 +33,11 @@
   list-style: none;
   border-radius: var(--rounded-tiny);
   margin-top: 3px;
-  left: -100vw;
   z-index: 1;
   width: 100%;
   background: var(--light);
   border: 1px solid var(--border-primary);
+  padding: 3px 0;
 }
 
 .dropdown-option {
@@ -56,11 +51,6 @@
 .dropdown-option:focus {
   background: var(--border-primary);
   cursor: pointer;
-}
-
-.custom-dropdown > input[type="checkbox"]:checked ~ ul,
-.dropdown-list:target {
-  left: 0;
 }
 
 .dropdown-link {

@@ -26,7 +26,6 @@ const Login = lazy(() => import('@pages/Login'));
 
 const App: React.FC = () => {
   const queryClient = new QueryClient();
-
   return (
     <QueryClientProvider client={queryClient}>
       <Suspense fallback={<Loading />}>

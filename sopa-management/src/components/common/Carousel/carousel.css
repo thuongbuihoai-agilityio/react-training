@@ -22,7 +22,7 @@
   font-weight: var(--font-bold);
   line-height: 74px;
   margin-bottom: 40px;
-  width: 520px;
+  width: 570px;
 }
 
 .carousel-open:checked + .carousel-item {

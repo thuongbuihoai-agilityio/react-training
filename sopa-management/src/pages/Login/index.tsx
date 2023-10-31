@@ -120,7 +120,9 @@ const Login: React.FC = () => {
             <div className='form-email'>
               <Input
                 {...field}
+                id='email'
                 label='Email'
+                htmlFor='email'
                 ref={(e) => {
                   register('email');
                   emailRef.current = e;
@@ -142,7 +144,9 @@ const Login: React.FC = () => {
             <div className='form-password'>
               <Input
                 {...field}
+                id='password'
                 label='Password'
+                htmlFor='password'
                 ref={(e) => {
                   register('password');
                   passwordRef.current = e;
