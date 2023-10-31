@@ -9,7 +9,6 @@ import { renderWithRouterAndQuery } from '../../../helpers/testUtils';
 import { fireEvent, screen, waitFor } from '@testing-library/react';
 import { checkLogin } from '@helpers/common';
 import { MOCK_ACCOUNTS } from '@mocks/account';
-import { useNavigate } from 'react-router-dom';
 
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),
@@ -40,6 +39,9 @@ describe('Login component', () => {
   });
 
   test("should not display error when value is valid", async () => {
+    const mockNavigate = jest.fn();
+    jest.spyOn(require('react-router-dom'), 'useNavigate').mockReturnValue(mockNavigate);
+
     renderWithRouterAndQuery(<Login />);
 
     fireEvent.input(screen.getByRole("textbox", { name: /email/i }), {
@@ -57,7 +59,7 @@ describe('Login component', () => {
     fireEvent.submit(screen.getByRole("button"));
     expect(screen.getByRole("textbox", { name: /email/i })).toHaveValue("example@gmail.com")
     expect(screen.getByRole("textbox", { name: /password/i })).toHaveValue("123456")
-    await waitFor(() => expect(useNavigate).toHaveBeenCalledWith('/'));
+    await waitFor(() => expect(mockNavigate).toHaveBeenCalledWith('/'));
   })
 
   test('matches snapshot', () => {
