@@ -8,7 +8,6 @@ exports[`Input component Matches snapshot 1`] = `
     data-testid="input"
     id=""
     name=""
-    placeholder="Your email..."
     type="text"
     value=""
   />

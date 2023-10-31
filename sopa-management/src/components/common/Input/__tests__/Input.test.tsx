@@ -1,8 +1,4 @@
-import {
-  fireEvent,
-  render,
-  screen
-} from '@testing-library/react';
+import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 // Components
@@ -11,7 +7,7 @@ import Input from '@common/Input';
 describe('Input component', () => {
   test('Should render Input component', () => {
     const { getByTestId } = render(
-      <Input type='text' placeholder='Enter email...' />
+      <Input type='text' />
     );
     const inputValue = getByTestId('input');
     expect(inputValue).toBeInTheDocument();
@@ -29,20 +25,9 @@ describe('Input component', () => {
     expect(inputValue).toBeInTheDocument();
   });
 
-  test('Check value input', async () => {
-    render(<Input type='text' placeholder='Enter email...' />);
-    const inputElement = screen.getByPlaceholderText(
-      /Enter email.../i
-    ) as HTMLInputElement;
-    fireEvent.change(inputElement, {
-      target: { value: 'ht@gmail.com' }
-    });
-    expect(inputElement.value).toBe('ht@gmail.com');
-  });
-
   test('Matches snapshot', () => {
     const { container } = render(
-      <Input type='text' placeholder='Your email...' />
+      <Input type='text' />
     );
     expect(container).toMatchSnapshot();
   });

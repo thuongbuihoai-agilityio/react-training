@@ -36,6 +36,7 @@ const ProductList: React.FC = () => {
             {hasNextPage && (
               <Button
                 ariaLabel='Show more'
+                className='product-item-btn'
                 children={isFetchingNextPage ? 'Loading more...' : 'Show More'}
                 type={ButtonType.primary}
                 onClick={() => fetchNextPage()}

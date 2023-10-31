@@ -17,7 +17,6 @@ exports[`Carousel component matches snapshot 1`] = `
         hidden=""
         id="carousel-1"
         name="carousel"
-        placeholder=""
         type="radio"
         value=""
       />
@@ -38,7 +37,6 @@ exports[`Carousel component matches snapshot 1`] = `
         hidden=""
         id="carousel-2"
         name="carousel"
-        placeholder=""
         type="radio"
         value=""
       />
@@ -59,7 +57,6 @@ exports[`Carousel component matches snapshot 1`] = `
         hidden=""
         id="carousel-3"
         name="carousel"
-        placeholder=""
         type="radio"
         value=""
       />
