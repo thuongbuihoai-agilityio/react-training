@@ -35,7 +35,7 @@ const Button: React.FC<ButtonProps> = ({
   disable = false,
   submit,
   className = '',
-  onClick = () => {},
+  onClick,
   onSubmit
 }) => (
   <button

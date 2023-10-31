@@ -14,7 +14,8 @@ exports[`ProductList component matches snapshot 1`] = `
       class="product-btn"
     >
       <button
-        class=" btn btn-primary"
+        aria-label="Show more"
+        class="product-item-btn btn btn-primary"
         data-testid="button"
       >
         Show More

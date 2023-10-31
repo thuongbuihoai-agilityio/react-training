@@ -16,13 +16,19 @@
   justify-content: space-between;
 }
 
-.cart-image-item {
-  width: var(--w-extra-small);
+.cart-image {
+  margin-right: 20px;
+  min-width: var(--w-extra-small);
   height: var(--h-extra-normal);
   border-radius: var(--rounded-secondary);
   border: 1px solid var(--border-primary);
-  background: var(--light);
-  margin-right: 20px;
+  background-color: var(--bg-primary);
+}
+
+.cart-image-item {
+  object-fit: contain;
+  width: var(--w-extra-small);
+  height: var(--h-extra-normal);
 }
 
 .card-body {

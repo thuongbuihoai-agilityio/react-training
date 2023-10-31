@@ -20,6 +20,7 @@ import MainLayout from '@layouts/MainLayout';
 import Loading from '@components/common/Loading';
 import Partners from '@components/Partners';
 import Carousel from '@components/common/Carousel';
+import ErrorBoundary from '@components/ErrorBoundary';
 const ProductList = lazy(() => import('@components/ProductList'));
 const ProductDetail = lazy(() => import('@pages/ProductDetail'));
 const Login = lazy(() => import('@pages/Login'));
@@ -29,19 +30,21 @@ const App: React.FC = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <Suspense fallback={<Loading />}>
-        <Routes>
-          <Route element={<MainLayout />}>
-            <Route path='/' element={
-              <>
-                <Carousel />
-                <Partners />
-                <ProductList />
-              </>}
-            />
-            <Route path='/products/:id' element={<ProductDetail />} />
-            <Route path='/login' element={<Login />} />
-          </Route>
-        </Routes>
+        <ErrorBoundary fallback={<p>Something went wrong</p>}>
+          <Routes>
+            <Route element={<MainLayout />}>
+              <Route path='/' element={
+                <>
+                  <Carousel />
+                  <Partners />
+                  <ProductList />
+                </>}
+              />
+              <Route path='/products/:id' element={<ProductDetail />} />
+              <Route path='/login' element={<Login />} />
+            </Route>
+          </Routes>
+        </ErrorBoundary>
       </Suspense>
     </QueryClientProvider>
   );

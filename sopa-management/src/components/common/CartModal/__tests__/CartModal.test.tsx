@@ -21,7 +21,7 @@ describe('Modal component', () => {
     expect(cartModal).toBeInTheDocument();
   });
 
-  it('should render CartModal with cart items when carts is true', () => {
+  test('should render CartModal with cart items when carts is true', () => {
     const { getByTestId, getByText } = renderRouterTest(<CartModal />);
     const cartModal = getByTestId('cart-modal');
     expect(cartModal).toBeInTheDocument();
