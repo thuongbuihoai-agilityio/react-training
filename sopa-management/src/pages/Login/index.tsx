@@ -94,6 +94,8 @@ const Login: React.FC = () => {
     const checkCorrectPassword = checkPassword(data, password);
 
     if (checkLogin(data, email, password)) {
+      console.log('run here');
+      
       navigate('/');
       setStorage(STORAGE_KEY.TOKEN, {
         email,

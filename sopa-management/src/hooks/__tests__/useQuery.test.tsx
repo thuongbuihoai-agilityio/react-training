@@ -26,7 +26,7 @@ describe('Test useInfiniteProducts', () => {
 
     await waitFor(() => {
       expect(result.current.isSuccess).toEqual(true);
-      expect(result.current.data?.pages[0]).toEqual(MOCK_PRODUCTS);
+      expect(result.current.data[0]).toEqual(MOCK_PRODUCTS);
     });
   });
 });

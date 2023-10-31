@@ -18,14 +18,14 @@ const ProductList: React.FC = () => {
   const { data, fetchNextPage, hasNextPage, isLoading, isFetchingNextPage } =
     useInfiniteProducts();
 
-  return (
+    return (
     <div data-testid='product' className='product'>
       {isLoading ? (
         <Loading />
       ) : (
         <>
           <div data-testid='product-list' className='product-list'>
-            {data?.pages?.map((page, index) =>
+            {data?.map((page, index) =>
                 <ProductCard
                   key={index}
                   data={page}

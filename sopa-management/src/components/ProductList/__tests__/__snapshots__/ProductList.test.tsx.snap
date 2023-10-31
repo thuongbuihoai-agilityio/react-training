@@ -7,19 +7,18 @@ exports[`ProductList component matches snapshot 1`] = `
     data-testid="product"
   >
     <div
-      class="product-list"
-      data-testid="product-list"
-    />
-    <div
-      class="product-btn"
+      class="loading-container"
+      data-testid="loading-page"
     >
-      <button
-        aria-label="Show more"
-        class="product-item-btn btn btn-primary"
-        data-testid="button"
-      >
-        Show More
-      </button>
+      <div
+        class="circle"
+      />
+      <div
+        class="circle"
+      />
+      <div
+        class="circle"
+      />
     </div>
   </div>
 </div>

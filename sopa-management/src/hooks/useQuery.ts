@@ -47,7 +47,7 @@ export const useFetchProductDetail = (id?: string) => {
 export const useInfiniteProducts = () => {
   const { setProducts } = useProductStore();
 
-  return useInfiniteQuery<Product[], AxiosError>({
+  const { data, ...rest } =  useInfiniteQuery<Product[], AxiosError>({
     queryKey: [QUERY_KEYS.PRODUCTS],
     queryFn: ({ pageParam = 1 }) => getData(PRODUCT_URL, pageParam),
     getNextPageParam: (lastPage, pages) => {
@@ -61,6 +61,11 @@ export const useInfiniteProducts = () => {
       setProducts(result);
     }
   });
+
+  return {
+    data: data?.pages || [],
+    ...rest
+  }
 };
 
 /**
