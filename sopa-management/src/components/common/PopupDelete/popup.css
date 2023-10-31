@@ -3,13 +3,13 @@
   background-color: var(--text-secondary);
   padding: var(--px-normal);
   bottom: 60px;
-  left: 60px;
-  width: 215px;
+  left: 40px;
+  width: 245px;
 }
 
 .popup-btn {
   text-align: center;
-  margin-top: 5px;
+  margin-top: 15px;
 }
 
 .popup-cancel {
@@ -19,7 +19,7 @@
 }
 
 .popup-delete {
-  background-color: var(--text-quaternary);
+  background-color: var(--text-primary);
   border: none;
   border-radius: 3px;
 }

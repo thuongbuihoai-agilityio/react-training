@@ -10,8 +10,12 @@
 }
 
 .detail-image {
-  width: var(--w-x-large);
+  display: flex;
+  align-items: center;
+  min-width: var(--w-x-large);
   height: var(--h-extra-large);
+  background-color: var(--bg-primary);
+  justify-content: center;
 }
 
 .detail-info {
@@ -42,7 +46,7 @@
 }
 
 .detail-btn {
-  margin-bottom: 24px;
+  margin: 0 0 24px 1px;
 }
 
 .detail-description {
