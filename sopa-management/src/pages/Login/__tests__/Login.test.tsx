@@ -17,20 +17,8 @@ jest.mock('react-router-dom', () => ({
 
 jest.mock('@helpers/common', () => ({
   ...jest.requireActual('@helpers/common'),
-  checkLogin: jest.fn((data, email, password) => {
-    return ({
-      data,
-      email,
-      password
-    })
-  }),
+  checkLogin: jest.fn(),
 }));
-
-(checkLogin as jest.Mock).mockReturnValue({
-  data: MOCK_ACCOUNTS,
-  email: 'example@gmail.com',
-  password: '123456'
-})
 
 describe('Login component', () => {
   test('should render Login component', () => {
@@ -38,29 +26,68 @@ describe('Login component', () => {
     expect(getByTestId('login')).toBeInTheDocument();
   });
 
-  test("should not display error when value is valid", async () => {
+  test('should not display error when value is valid', async () => {
     const mockNavigate = jest.fn();
-    jest.spyOn(require('react-router-dom'), 'useNavigate').mockReturnValue(mockNavigate);
+    (checkLogin as jest.Mock).mockReturnValue({
+      data: MOCK_ACCOUNTS,
+      email: 'example@gmail.com',
+      password: '123456'
+    });
+
+    jest
+      .spyOn(require('react-router-dom'), 'useNavigate')
+      .mockReturnValue(mockNavigate);
 
     renderWithRouterAndQuery(<Login />);
 
-    fireEvent.input(screen.getByRole("textbox", { name: /email/i }), {
+    fireEvent.input(screen.getByRole('textbox', { name: /email/i }), {
       target: {
-        value: "example@gmail.com",
-      },
-    })
+        value: 'example@gmail.com'
+      }
+    });
 
-    fireEvent.input(screen.getByRole("textbox", { name: /password/i }), {
+    fireEvent.input(screen.getByRole('textbox', { name: /password/i }), {
       target: {
-        value: "123456",
-      },
-    })
+        value: '123456'
+      }
+    });
 
-    fireEvent.submit(screen.getByRole("button"));
-    expect(screen.getByRole("textbox", { name: /email/i })).toHaveValue("example@gmail.com")
-    expect(screen.getByRole("textbox", { name: /password/i })).toHaveValue("123456")
+    fireEvent.submit(screen.getByRole('button'));
+    expect(screen.getByRole('textbox', { name: /email/i })).toHaveValue(
+      'example@gmail.com'
+    );
+    expect(screen.getByRole('textbox', { name: /password/i })).toHaveValue(
+      '123456'
+    );
     await waitFor(() => expect(mockNavigate).toHaveBeenCalledWith('/'));
-  })
+  });
+
+  test('should display error when value is invalid', async () => {
+    const mockNavigate = jest.fn();
+    (checkLogin as jest.Mock).mockReturnValue(false);
+
+    jest
+      .spyOn(require('react-router-dom'), 'useNavigate')
+      .mockReturnValue(mockNavigate);
+
+    renderWithRouterAndQuery(<Login />);
+
+    fireEvent.input(screen.getByRole('textbox', { name: /email/i }), {
+      target: {
+        value: 'examples@gmail.com'
+      }
+    });
+
+    fireEvent.input(screen.getByRole('textbox', { name: /password/i }), {
+      target: {
+        value: '1234567'
+      }
+    });
+
+    fireEvent.submit(screen.getByRole('button'));
+
+    await waitFor(() => expect(mockNavigate).not.toHaveBeenCalledWith('/'));
+  });
 
   test('matches snapshot', () => {
     const { container } = renderWithRouterAndQuery(<Login />);
