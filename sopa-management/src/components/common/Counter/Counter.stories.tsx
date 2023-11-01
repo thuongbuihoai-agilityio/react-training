@@ -12,5 +12,7 @@ export default meta;
 type Story = StoryObj<typeof Counter>;
 
 export const CounterDefault: Story = {
-  args: {}
+  args: {
+    value: 1,
+  }
 };

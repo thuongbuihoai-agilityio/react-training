@@ -51,7 +51,7 @@ describe('useCartStore', () => {
     const { result } = renderHook(() => useCartStore());
 
     useCartStore.getState().increaseQuantity('1');
-    act(() => result.current.increaseQuantity());
+    act(() => result.current.increaseQuantity('1'));
     expect(useCartStore.getState().increaseQuantity('2'))
   });
 
@@ -59,7 +59,7 @@ describe('useCartStore', () => {
     const { result } = renderHook(() => useCartStore());
 
     useCartStore.getState().decreaseQuantity('2');
-    act(() => result.current.decreaseQuantity());
+    act(() => result.current.decreaseQuantity('2'));
     expect(useCartStore.getState().decreaseQuantity('1'))
   });
 

@@ -12,7 +12,7 @@
 - [UI](https://www.figma.com/file/szgvNWlyqFUqgDTDTeLl9p/SOPA-E-Commerce-Website-UI-KIT-(Community)?type=design&node-id=10-2&mode=design&t=hPieyB5mLcmMJZQk-0)
 
 ## TIMELINE
-- Estimate time: (16/10/2023 - 26/10/2023) [9 working days](https://docs.google.com/document/d/1XpJJAkSAbfo5S5jrJW0uuXG6SwhtP1zD/edit)
+- Estimate time: (16/10/2023 - 26/10/2023) [10 working days](https://docs.google.com/document/d/1XpJJAkSAbfo5S5jrJW0uuXG6SwhtP1zD/edit)
 
 ## TEAM SIZE
 - 1 dev
@@ -66,14 +66,14 @@
 ```
 
 ```
-- create .env.development file:
-- VITE_PUBLIC_ENDPOINTS=https://652be6d0d0d1df5273eee18f.mockapi.io
+- create .env file:
+- VITE_BASE_URL=https://652be6d0d0d1df5273eee18f.mockapi.io
 ```
 
 ```
 - Install dependencies : pnpm install
 - Run app: pnpm dev
-- Open on web: http://localhost:3000/
+- Open on web: http://127.0.0.1:5173/
 - Run storybook: pnpm storybook
 - View story book on web: http://localhost:6006/
 ```
