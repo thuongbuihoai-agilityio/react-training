@@ -24,6 +24,7 @@
     /* Config alias path*/
     "baseUrl": "./",
     "paths": {
+      "@assets/*": ["src/assets/*"],
       "@interfaces/*": ["src/interfaces/*"],
       "@components/*": ["src/components/*"],
       "@common/*": ["src/components/common/*"],

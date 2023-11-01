@@ -10,7 +10,7 @@ import userEvent from '@testing-library/user-event';
 import Button, { ButtonType } from '@common/Button';
 
 // Images
-import { Trash } from '../../../../../public/images/icons';
+import { Trash } from '@assets/icons';
 
 describe('Button component', () => {
   test("Should render Button component with type 'default'", async () => {

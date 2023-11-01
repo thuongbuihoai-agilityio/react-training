@@ -1,7 +1,7 @@
 import { memo } from 'react';
 
 // Images
-import { Close } from '../../../public/images/icons';
+import { Close } from '@assets/icons';
 
 // Components
 import Text from '@common/Text';

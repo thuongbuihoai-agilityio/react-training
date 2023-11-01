@@ -4,7 +4,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import Button, { ButtonType } from '.';
 
 // Images
-import { Trash } from '../../../../public/images/icons';
+import { Trash } from '@assets/icons';
 
 const meta: Meta<typeof Button> = {
   component: Button

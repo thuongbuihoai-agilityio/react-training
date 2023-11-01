@@ -5,7 +5,7 @@ import {
 } from 'react';
 
 // Images
-import { Trash } from '../../../../public/images/icons';
+import { Trash } from '@assets/icons';
 
 // Interfaces
 import { Product } from '@interfaces/product';

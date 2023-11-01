@@ -11,7 +11,7 @@ import Button, { ButtonType } from '@common/Button';
 import Dropdown from '@common/Dropdown';
 
 // Public
-import { User } from '../../../../public/images/icons';
+import { User } from '@assets/icons';
 
 // Helpers
 import { clearStorage } from '@helpers/storage';

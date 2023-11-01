@@ -1,7 +1,7 @@
 import { memo } from 'react';
 
 // Components
-import { Star } from '../../../../../public/images/icons';
+import { Star } from '@assets/icons';
 import Text from '@common/Text';
 
 interface RatingStart {

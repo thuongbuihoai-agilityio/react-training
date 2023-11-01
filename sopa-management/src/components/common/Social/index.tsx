@@ -6,7 +6,7 @@ import {
   Facebook,
   Instagram,
   Twitter
-} from '../../../../public/images/icons';
+} from '@assets/icons';
 
 // Components
 import Text,

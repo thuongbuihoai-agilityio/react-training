@@ -26,7 +26,7 @@ import { IMAGE } from '@constants/image';
 import { MENU_HEADER } from '@constants/common';
 
 // Images
-import { ShoppingBag } from '../../../public/images/icons';
+import { ShoppingBag } from '@assets/icons';
 
 // Styles
 import './header.css';
