@@ -10,6 +10,7 @@ const config: Config.InitialOptions = {
   moduleNameMapper: {
     '^@root(.*)$': '<rootDir>/src$1',
     '^@/(.*)$': '<rootDir>/src/$1',
+    '^@assets(.*)$': '<rootDir>/src/assets$1',
     '^@components(.*)$': '<rootDir>/src/components$1',
     '^@common(.*)$': '<rootDir>/src/components/common$1',
     '^@constants(.*)$': '<rootDir>/src/constants$1',
