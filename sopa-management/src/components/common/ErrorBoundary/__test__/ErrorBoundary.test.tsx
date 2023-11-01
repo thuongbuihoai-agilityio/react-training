@@ -3,7 +3,7 @@ import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 // Components
-import ErrorBoundary from '@components/ErrorBoundary';
+import ErrorBoundary from '@components/common/ErrorBoundary';
 
 describe('Testing ErrorBoundary class', () => {
   it('Should render children when there is no error', () => {

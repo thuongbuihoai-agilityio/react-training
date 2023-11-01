@@ -20,7 +20,7 @@ import MainLayout from '@layouts/MainLayout';
 import Loading from '@components/common/Loading';
 import Partners from '@components/Partners';
 import Carousel from '@components/common/Carousel';
-import ErrorBoundary from '@components/ErrorBoundary';
+import ErrorBoundary from '@components/common/ErrorBoundary';
 const ProductList = lazy(() => import('@components/ProductList'));
 const ProductDetail = lazy(() => import('@pages/ProductDetail'));
 const Login = lazy(() => import('@pages/Login'));
