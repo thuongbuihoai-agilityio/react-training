@@ -4,18 +4,23 @@ import {
   waitFor,
   screen
 } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
 // Components
 import ProductList from '@components/ProductList';
 
-// Mocks
-import { MOCK_PRODUCTS } from '@mocks/product';
-import mockAxios from '@mocks/axios';
-
 // Helpers
 import { renderWithRouterAndQuery } from '@helpers/testUtils';
 
-mockAxios.get.mockResolvedValue({ data: MOCK_PRODUCTS });
+const fetchNextPage = jest.fn();
+jest.mock('@hooks/useQuery', () => ({
+  useInfiniteProducts: () => ({
+    fetchNextPage,
+    hasNextPage: true,
+    isLoading: false,
+    isFetchingNextPage: false,
+  }),
+}));
 
 describe('ProductList component', () => {
   test('should render ProductList component', () => {
@@ -30,6 +35,15 @@ describe('ProductList component', () => {
     await waitFor(() => screen.getByTestId('product-list'));
     expect(screen.queryByText('Loading...')).not.toBeInTheDocument();
     expect(getByTestId('product-list')).toBeInTheDocument();
+  });
+
+  test('calls fetchNextPage on button click', async () => {
+    renderWithRouterAndQuery(<ProductList />);
+
+    const showMoreButton =  screen.getByText('Show More');
+    await userEvent.click(showMoreButton);
+
+    await waitFor(() => expect(fetchNextPage).toHaveBeenCalled());
   });
 
   test('matches snapshot', () => {

@@ -14,4 +14,6 @@ const getData = async <T>(url: string, pageParam: number = 1): Promise<T> => {
   return response.data;
 };
 
-export { getData };
+const api = { getData };
+
+export { api };

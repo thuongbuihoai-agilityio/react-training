@@ -87,8 +87,8 @@ const Login: React.FC = () => {
   } = checkValidationStyles(isIncorrectPassword, errors.password, isDirty);
 
   const onSubmit = async () => {
-    const email = emailRef.current?.value || '';
-    const password = passwordRef.current?.value || '';
+    const email = emailRef.current?.value;
+    const password = passwordRef.current?.value;
 
     const checkCorrectEmail = checkEmail(data, email);
     const checkCorrectPassword = checkPassword(data, password);

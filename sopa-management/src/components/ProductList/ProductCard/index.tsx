@@ -18,7 +18,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
   data,
 }) => (
   <div className='product-card' data-testid='product-card'>
-    {data.map((product) => (
+    {data?.map((product) => (
       <Card
         key={product.id}
         href={`products/${product.id}`}

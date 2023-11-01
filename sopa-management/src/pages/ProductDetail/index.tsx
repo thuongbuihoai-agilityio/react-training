@@ -1,7 +1,7 @@
 import {
   memo,
   useCallback,
-  useState
+useState
 } from 'react';
 import { useParams } from 'react-router-dom';
 
@@ -38,7 +38,7 @@ import Loading from '@components/common/Loading';
 const ProductDetail = () => {
   // use useParams to get id
   const { id } = useParams();
-  const [selectedValue, setSelectedValue] = useState('');
+const [selectedValue, setSelectedValue] = useState('');
   const { data: product, isLoading } = useFetchProductDetail(id);
   const {
     name,
@@ -65,7 +65,7 @@ const ProductDetail = () => {
         <Loading />
       ) : (
         <>
-          <div className='detail-product'>
+          <div data-testid='product-detail' className='detail-product'>
             <figure className='detail-image'>
               <img src={image.url} alt={image.alt} />
             </figure>
