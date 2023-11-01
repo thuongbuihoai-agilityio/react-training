@@ -8,6 +8,7 @@ import {
   Controller
 } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 // Components
 import Input from '@components/common/Input';
@@ -41,7 +42,7 @@ import { useAccountStore } from '@stores/login';
 
 // Constants
 import { STORAGE_KEY } from '@constants/common';
-import { ERROR_MESSAGES } from '@constants/validate';
+import { CONFIRM_MESSAGE, ERROR_MESSAGES } from '@constants/validate';
 
 // Styles
 import './login.css';
@@ -100,6 +101,7 @@ const Login: React.FC = () => {
         password
       });
 
+      toast.success(CONFIRM_MESSAGE.LOGIN_SUCCESS);
       setIsIncorrectEmail(!!checkCorrectEmail);
       setIsIncorrectPassword(!!checkCorrectPassword)
     } else {

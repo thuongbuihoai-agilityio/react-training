@@ -4,7 +4,7 @@ import { memo } from 'react';
 import { Close } from '@assets/icons';
 
 // Components
-import Text from '@common/Text';
+import Text, { SizeType } from '@common/Text';
 import Button,
 {
   ButtonType
@@ -48,12 +48,21 @@ const CartModal: React.FC<CartModalProps> = ({
           />
         </div>
         <div className='card-body'>
-          {carts?.map((cartItem: Product) => (
-            <CartItem
-              key={cartItem.id}
-              cartItem={cartItem}
+          {carts.length
+          ? <>
+              {carts?.map((cartItem: Product) => (
+                <CartItem
+                  key={cartItem.id}
+                  cartItem={cartItem}
+                />
+              ))}
+            </>
+          : <Text
+              text='No products in cart'
+              type={SizeType.extraRegular}
+              className='cart-message'
             />
-          ))}
+          }
         </div>
         <hr />
         <div className='cart-footer'>

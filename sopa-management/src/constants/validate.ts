@@ -1,7 +1,8 @@
 const CONFIRM_MESSAGE = {
   ADD_SUCCESS: 'Add product to cart successfully',
   DELETE_SUCCESS: 'Delete product in cart successfully',
-  CONFIRM_DELETE: 'Are you sure you want to delete?'
+  CONFIRM_DELETE: 'Are you sure you want to delete?',
+  LOGIN_SUCCESS: 'Login successfully'
 }
 
 const ERROR_MESSAGES = {

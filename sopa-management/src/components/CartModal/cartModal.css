@@ -74,6 +74,10 @@
   line-height: var(--leading-primary);
 }
 
+.cart-message {
+  color: var(--border-tertiary);
+}
+
 .overlay {
   position: fixed;
   z-index: 5;
