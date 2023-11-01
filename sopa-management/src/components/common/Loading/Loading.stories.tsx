@@ -11,6 +11,6 @@ const meta: Meta<typeof Loading> = {
 export default meta;
 type Story = StoryObj<typeof Loading>;
 
-export const DropdownSize: Story = {
+export const LoadingDefault: Story = {
   args: {}
 };

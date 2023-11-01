@@ -1,4 +1,4 @@
-const BASE_URL = 'https://652be6d0d0d1df5273eee18f.mockapi.io';
+const BASE_URL = process.env.VITE_BASE_URL;
 const PRODUCT_URL = `${BASE_URL}/products`;
 const ACCOUNT_URL = `${BASE_URL}/accounts`;
 

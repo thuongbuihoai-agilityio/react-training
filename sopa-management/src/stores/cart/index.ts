@@ -17,9 +17,9 @@ import { CONFIRM_MESSAGE } from '@constants/validate';
 type CartType = {
   carts: Product[];
   addToCart: (product: Product, size: string) => void;
-  increaseQuantity: (id?: string) => void;
-  decreaseQuantity: (id?: string) => void;
-  deleteCart: (id?: string) => void;
+  increaseQuantity: (id: string) => void;
+  decreaseQuantity: (id: string) => void;
+  deleteCart: (id: string) => void;
 };
 
 export const useCartStore = create<CartType>()((set) => ({
@@ -50,7 +50,7 @@ export const useCartStore = create<CartType>()((set) => ({
     }
   },
 
-  increaseQuantity: (id?: string) => {
+  increaseQuantity: (id: string) => {
     const currentCart = getStorage(STORAGE_KEY.CART_KEY) || [];
     const updatedCart = currentCart.map((item: Product) =>
       item.id === id ? { ...item, quantity: item.quantity + 1 } : item
@@ -59,7 +59,7 @@ export const useCartStore = create<CartType>()((set) => ({
     set({ carts: updatedCart });
   },
 
-  decreaseQuantity: (id?: string) => {
+  decreaseQuantity: (id: string) => {
     const currentCart = getStorage(STORAGE_KEY.CART_KEY) || [];
     const updatedCart = currentCart.map((item: Product) =>
       item.id === id && item.quantity > 1
@@ -70,7 +70,7 @@ export const useCartStore = create<CartType>()((set) => ({
     set({ carts: updatedCart });
   },
 
-  deleteCart: (id?: string) => {
+  deleteCart: (id: string) => {
     const currentCart = getStorage(STORAGE_KEY.CART_KEY) || [];
     const updatedCart = currentCart.filter((item: Product) => item.id !== id);
     setStorage(STORAGE_KEY.CART_KEY, updatedCart);

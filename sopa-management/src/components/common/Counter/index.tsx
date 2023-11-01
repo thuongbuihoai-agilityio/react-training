@@ -17,24 +17,22 @@ const Counter: React.FC<CounterProps> = ({
   value,
   onIncrement,
   onDecrement
-}) => {
-  return (
-    <div data-testid='counter' className='counter'>
-      <Button
-        ariaLabel='Decrement'
-        type={ButtonType.btnIconPrimary}
-        className='counter-minus'
-        onClick={onDecrement}
-      />
-      <Input type='number' classNameInput='counter-input' value={value} />
-      <Button
-        ariaLabel='Increment'
-        type={ButtonType.btnIconPrimary}
-        className='counter-plus'
-        onClick={onIncrement}
-      />
-    </div>
-  );
-};
+}) => (
+  <div data-testid='counter' className='counter'>
+    <Button
+      ariaLabel='Decrement'
+      type={ButtonType.btnIconPrimary}
+      className='counter-minus'
+      onClick={onDecrement}
+    />
+    <Input type='number' classNameInput='counter-input' value={value} />
+    <Button
+      ariaLabel='Increment'
+      type={ButtonType.btnIconPrimary}
+      className='counter-plus'
+      onClick={onIncrement}
+    />
+  </div>
+);
 
 export default memo(Counter);

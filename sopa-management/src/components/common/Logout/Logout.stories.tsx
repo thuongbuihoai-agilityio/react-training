@@ -18,6 +18,6 @@ const meta: Meta<typeof Logout> = {
 export default meta;
 type Story = StoryObj<typeof Logout>;
 
-export const DropdownSize: Story = {
+export const LogoutDefault: Story = {
   args: {}
 };
