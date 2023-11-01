@@ -5,7 +5,7 @@ import '@testing-library/jest-dom';
 import { MOCK_PRODUCT } from '@mocks/product';
 
 // Components
-import Card from '@common/Card';
+import Card from '@components/Card';
 
 // Helpers
 import { renderRouterTest } from '@helpers/testUtils';

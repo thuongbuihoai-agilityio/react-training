@@ -5,7 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { IMAGE } from '@constants/image';
 
 // Components
-import Card from '@common/Card';
+import Card from '@components/Card';
 
 const meta: Meta<typeof Card> = {
   component: Card,

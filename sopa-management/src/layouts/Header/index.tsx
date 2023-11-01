@@ -18,7 +18,7 @@ import Text,
 {
   SizeType
 } from '@components/common/Text';
-import CartModal from '@components/common/CartModal';
+import CartModal from '@components/CartModal';
 import Logout from '@components/common/Logout';
 
 // Constants
