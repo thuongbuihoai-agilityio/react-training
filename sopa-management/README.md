@@ -71,6 +71,11 @@
 ```
 
 ```
+- email: example@gmail.com
+- password: 123456
+```
+
+```
 - Install dependencies : pnpm install
 - Run app: pnpm dev
 - Open on web: http://127.0.0.1:5173/
