@@ -3,7 +3,7 @@ import {
   Esquire,
   HumansOfNewYork,
   Vogua
-} from '../../../public/images/icons';
+} from '../../../../public/images/icons';
 
 // Components
 import Text,

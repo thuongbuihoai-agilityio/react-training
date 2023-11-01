@@ -1,7 +1,7 @@
 import { memo } from 'react';
 
 // Components
-import Card from '@common/Card';
+import Card from '@components/Card';
 
 // Interfaces
 import { Product } from '@interfaces/product';

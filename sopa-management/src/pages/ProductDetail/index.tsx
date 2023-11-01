@@ -19,8 +19,8 @@ import Button,
 {
   ButtonType
 } from '@components/common/Button';
-import Rating from '@components/Rating';
-import RatingStar from '@components/Rating/RatingStar';
+import Rating from '@common/Rating';
+import RatingStar from '@common/Rating/RatingStar';
 
 // Hooks
 import { useFetchProductDetail } from '@hooks/useQuery';

@@ -5,7 +5,7 @@ import '@testing-library/jest-dom';
 import { renderRouterTest } from '@helpers/testUtils';
 
 // Components
-import CartModal from '@common/CartModal';
+import CartModal from '@components/CartModal';
 import { MOCK_PRODUCTS } from '@mocks/product';
 
 jest.mock('@stores/cart', () => ({
