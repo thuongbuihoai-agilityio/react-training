@@ -5,7 +5,7 @@
 .menu-item-horizontal {
   list-style: none;
   font-size: var(--text-sm);
-  margin-right: 24px;
+  margin-right: var(--m-extra-medium);
 }
 
 .menu-item-horizontal > a {
@@ -15,7 +15,7 @@
 }
 
 .menu-main-vertical {
-  margin-bottom: 20px;
+  margin-bottom: var(--m-medium);
 }
 
 .menu-list-vertical {
@@ -26,7 +26,7 @@
 .menu-item-vertical {
   list-style: none;
   font-size: var(--text-sm);
-  margin-bottom: 20px;
+  margin-bottom: var(--m-medium);
 }
 
 .menu-item-vertical > a,

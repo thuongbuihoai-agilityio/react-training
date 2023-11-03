@@ -1,6 +1,6 @@
 .header {
   width: var(--w-extra-large);
-  margin: 20px auto 0;
+  margin: var(--m-medium) auto 0;
   position: relative;
 }
 
@@ -19,9 +19,9 @@
 }
 
 .header-btn {
-  margin-left: 12px;
+  margin-left: var(--m-regular);
 }
 
 .header-text {
-  margin-right: 50px;
+  margin-right: var(--m-3xl);
 }

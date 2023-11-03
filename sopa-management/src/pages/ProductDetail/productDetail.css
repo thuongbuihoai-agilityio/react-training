@@ -19,22 +19,22 @@
 }
 
 .detail-info {
-  margin-left: 30px;
+  margin-left: var(--m-large);
 }
 
 .detail-name {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 30px;
+  margin-bottom: var(--m-large);
 }
 
 .detail-size {
-  margin: 30px 0;
+  margin: var(--m-large) 0;
 }
 
 .detail-text-size {
-  margin-bottom: 12px;
+  margin-bottom: var(--m-regular);
 }
 
 .detail-rating {
@@ -42,11 +42,11 @@
   align-items: center;
   width: 192px;
   justify-content: space-between;
-  margin-top: 8px;
+  margin-top: var(--m-normal);
 }
 
 .detail-btn {
-  margin: 0 0 24px 1px;
+  margin: 0 0 var(--m-extra-medium) 1px;
 }
 
 .detail-description {

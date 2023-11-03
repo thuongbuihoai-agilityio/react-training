@@ -10,17 +10,17 @@
 }
 
 .form-email {
-  margin: 60px 0 24px;
+  margin: var(--m-4xl) 0 var(--m-extra-medium);
 }
 
 .form-password {
-  margin-bottom: 24px;
+  margin-bottom: var(--m-extra-medium);
 }
 
 .form-error {
   text-align: left;
   color: var(--border-tertiary);
   font-size: var(--text-sm);
-  margin-top: 3px;
+  margin-top: var(--m-tiny);
   padding-left: var(--py-extra-base);
 }

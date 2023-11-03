@@ -3,12 +3,12 @@
   height: var(--h-large);
   border-radius: var(--rounded-primary);
   background: var(--bg-primary);
-  margin-bottom: 30px;
+  margin-bottom: var(--m-large);
 }
 
 .card-image {
   text-align: center;
-  margin-top: 80px;
+  margin-top: var(--m-5xl);
 }
 
 .card-item {
@@ -21,7 +21,7 @@
 
 .card-description {
   display: flex;
-  margin-top: 8px;
+  margin-top: var(--m-normal);
   justify-content: space-between;
 }
 
@@ -31,4 +31,8 @@
   line-height: var(--leading-primary);
   font-weight: var(--font-medium);
   text-decoration: none;
+}
+
+.card-image-item {
+  object-fit: cover;
 }

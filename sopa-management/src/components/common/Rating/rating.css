@@ -1,18 +1,18 @@
 .rating {
   width: var(--w-extra-large);
-  margin: 160px auto;
+  margin: var(--m-8xl) auto;
   text-align: center;
 }
 
 .rating-info {
   width: 600px;
   font-size: var(--text-regular);
-  margin: 40px auto 48px;
+  margin: var(--m-xl) auto var(--m-2xl);
 }
 
 .rating-point {
   font-size: 56px;
-  font-family: 'noto-serif-lao';
+  font-family: 'var(--font-secondary)';
   font-weight: var(--font-bold);
 }
 
@@ -24,14 +24,14 @@
 }
 
 .rating-vote {
-  margin: 24px auto;
+  margin: var(--m-extra-medium) auto;
 }
 
 .rating-star {
-  margin-right: 8px;
+  margin-right: var(--m-normal);
 }
 
 .rating-review {
   line-height: 18px;
-  margin-bottom: 40px;
+  margin-bottom: var(--m-xl);
 }

@@ -20,7 +20,7 @@
 .text-extra-medium {
   font-size: var(--text-extra-medium);
   line-height: var(--leading-tertiary);
-  font-family: 'noto-serif-lao';
+  font-family: 'var(--font-secondary)';
   font-weight: var(--font-bold);
 }
 
