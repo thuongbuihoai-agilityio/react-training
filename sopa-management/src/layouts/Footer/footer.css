@@ -11,15 +11,15 @@
 }
 
 .footer-email {
-  margin-top: 15px;
+  margin-top: var(--m-extra-regular);
   width: var(--w-base);
 }
 
 .footer-text {
-  margin: 40px 0 32px;
+  margin: var(--m-xl) 0 var(--m-large);
   line-height: var(--leading-primary);
 }
 
 .footer-social {
-  margin-top: 90px;
+  margin-top: var(--m-5xl);
 }

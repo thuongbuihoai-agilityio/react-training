@@ -18,6 +18,10 @@
   --text-extra-medium: 48px;
   --text-large: 66px;
 
+  /* Fonts */
+  --font-primary: 'rubik';
+  --font-secondary: 'notoSerifLao';
+
   /* Font weight */
   --font-medium: 500;
   --font-semi-bold: 600;
@@ -58,6 +62,27 @@
   --py-extra-normal: 35px;
   --py-base: 100px;
   --py-medium: 135px;
+
+  /* Margin */
+  --m-tiny: 3px;
+  --m-small: 4px;
+  --m-extra-small: 5px;
+  --m-normal: 8px;
+  --m-extra-normal: 10px;
+  --m-regular: 12px;
+  --m-extra-regular: 16px;
+  --m-medium: 20px;
+  --m-extra-medium: 24px;
+  --m-large: 30px;
+  --m-extra-large: 32px;
+  --m-xl: 40px;
+  --m-2xl: 48px;
+  --m-3xl: 50px;
+  --m-4xl: 60px;
+  --m-5xl: 80px;
+  --m-5xl: 90px;
+  --m-7xl: 110px;
+  --m-8xl: 160px;
 
   /* Width */
   --w-tiny: 20px;

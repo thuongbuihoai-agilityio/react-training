@@ -1,7 +1,7 @@
 .popup {
   position: absolute;
   background-color: var(--light);
-  margin-right: 10px;
+  margin-right: var(--m-extra-normal);
   border-radius: var(--rounded-primary);
   padding: var(--px-extra-normal);
   top: 40%;
@@ -11,7 +11,7 @@
 
 .popup-btn {
   text-align: center;
-  margin-top: 30px;
+  margin-top: var(--m-large);
 }
 
 .popup-cancel,
@@ -22,7 +22,7 @@
 }
 
 .popup-cancel {
-  margin-right: 5px;
+  margin-right: var(--m-extra-small);
 }
 
 .popup-delete {

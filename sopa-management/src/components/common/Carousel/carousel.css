@@ -1,7 +1,7 @@
 .carousel {
   position: relative;
   width: var(--w-extra-large);
-  margin: 50px auto 32px;
+  margin: var(--m-3xl) auto var(--m-extra-large);
 }
 
 .carousel-inner {
@@ -18,10 +18,10 @@
 
 .carousel-heading {
   color: var(--light);
-  font-family: 'noto-serif-lao';
+  font-family: 'var(--font-secondary)';
   font-weight: var(--font-bold);
   line-height: 74px;
-  margin-bottom: 40px;
+  margin-bottom: var(--m-xl);
   width: 570px;
 }
 
@@ -74,7 +74,7 @@
 
 .carousel-indicators li {
   display: inline-block;
-  margin: 0 4px;
+  margin: 0 var(--m-small);
 }
 
 .carousel-bullet {
@@ -83,7 +83,7 @@
   height: 10px;
   border-radius: 50%;
   background-color: var(--light);
-  margin: 0 1px 10px;
+  margin: 0 1px var(--m-extra-normal);
   cursor: pointer;
 }
 
