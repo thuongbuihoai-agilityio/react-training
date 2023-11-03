@@ -1,15 +1,12 @@
-// Images
-import {
-  Esquire,
-  HumansOfNewYork,
-  Vogua
-} from '@assets/icons';
-
 // Components
 import Text,
 {
   SizeType
 } from '@common/Text';
+import Icon,
+{
+  IconType
+} from '../Icon';
 
 // Styles
 import './partners.css';
@@ -22,9 +19,9 @@ const Partners = () => (
       className='partners-heading'
     />
     <div className='partners-image'>
-      <Vogua />
-      <Esquire />
-      <HumansOfNewYork />
+      <Icon iconName={IconType.vogua} />
+      <Icon iconName={IconType.esquire} />
+      <Icon iconName={IconType.human} />
     </div>
   </div>
 );

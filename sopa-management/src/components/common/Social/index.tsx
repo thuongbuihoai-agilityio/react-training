@@ -1,13 +1,6 @@
 import { memo } from 'react';
 import { Link } from 'react-router-dom';
 
-// Images
-import {
-  Facebook,
-  Instagram,
-  Twitter
-} from '@assets/icons';
-
 // Components
 import Text,
 {
@@ -16,6 +9,7 @@ import Text,
 
 // Styles
 import './social.css';
+import Icon, { IconType } from '../Icon';
 
 const Social = () => {
   return (
@@ -27,7 +21,7 @@ const Social = () => {
           className='social-link'
           aria-label='link to twitter'
         >
-          <Twitter />
+          <Icon iconName={IconType.twitter} />
         </Link>
         <Text text='Twitter' type={ThemeType.light} />
       </li>
@@ -38,7 +32,7 @@ const Social = () => {
           className='social-link'
           aria-label='link to instagram'
         >
-          <Instagram />
+          <Icon iconName={IconType.instagram} />
         </Link>
         <Text text='Instagram' type={ThemeType.light} />
       </li>
@@ -49,7 +43,7 @@ const Social = () => {
           className='social-link'
           aria-label='link to facebook'
         >
-          <Facebook />
+          <Icon iconName={IconType.facebook} />
         </Link>
         <Text text='Facebook' type={ThemeType.light} />
       </li>

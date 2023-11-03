@@ -1,8 +1,5 @@
 import { memo } from 'react';
 
-// Images
-import { Close } from '@assets/icons';
-
 // Components
 import Text, { SizeType } from '@common/Text';
 import Button,
@@ -26,6 +23,7 @@ import { useCartStore } from '@stores/cart';
 
 // Styles
 import './cartModal.css';
+import Icon, { IconType } from '@components/common/Icon';
 
 interface CartModalProps {
   onToggleModal?: () => void;
@@ -42,7 +40,7 @@ const CartModal = ({
           <Text text='Cart' className='cart-text' />
           <Button
             ariaLabel='Close'
-            children={<Close />}
+            children={<Icon iconName={IconType.close} />}
             type={ButtonType.btnIconPrimary}
             onClick={onToggleModal}
           />

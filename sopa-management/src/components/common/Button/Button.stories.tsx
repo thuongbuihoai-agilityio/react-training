@@ -2,9 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 // Components
 import Button, { ButtonType } from '.';
-
-// Images
-import { Trash } from '@assets/icons';
+import Icon, { IconType } from '../Icon';
 
 const meta: Meta<typeof Button> = {
   component: Button
@@ -51,14 +49,14 @@ export const ButtonOutLineSecondary: Story = {
 export const ButtonIconPrimary: Story = {
   args: {
     type: ButtonType.btnIconPrimary,
-    children: <Trash />
+    children: <Icon iconName={IconType.trash} />
   }
 };
 
 export const ButtonIconSecondary: Story = {
   args: {
     type: ButtonType.btnIconSecondary,
-    children: <Trash />
+    children: <Icon iconName={IconType.trash} />
   }
 };
 

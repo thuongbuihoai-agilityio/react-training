@@ -4,9 +4,6 @@ import {
   useState
 } from 'react';
 
-// Images
-import { Trash } from '@assets/icons';
-
 // Interfaces
 import { Product } from '@interfaces/product';
 
@@ -30,6 +27,7 @@ import PopupDelete from '@common/PopupDelete';
 // Stores
 import { useCartStore } from '@stores/cart';
 import { CONFIRM_MESSAGE } from '@constants/validate';
+import Icon, { IconType } from '@components/common/Icon';
 
 // Constants
 
@@ -67,7 +65,7 @@ const CartItem = ({
   return (
     <div data-testid='cart-item' className='cart-item'>
       <div className='cart-info'>
-        <figure className='cart-image'>
+        <div className='cart-image'>
           <Image
             className='cart-image-item'
             url={cartItem?.image?.url}
@@ -75,7 +73,7 @@ const CartItem = ({
             width={130}
             height={130}
           />
-        </figure>
+        </div>
         <div className='cart-description'>
           <Text text={cartItem.name} className='cart-text' />
           <Text
@@ -96,7 +94,7 @@ const CartItem = ({
             />
             <Button
               ariaLabel='Trash'
-              children={<Trash />}
+              children={<Icon iconName={IconType.trash} />}
               type={ButtonType.btnIconSecondary}
               className='cart-btn'
               onClick={handleOpenModalConfirm}

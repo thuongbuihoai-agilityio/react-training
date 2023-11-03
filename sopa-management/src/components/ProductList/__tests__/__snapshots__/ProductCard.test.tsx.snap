@@ -13,7 +13,7 @@ exports[`ProductList component matches snapshot 1`] = `
       <div
         class="card-item"
       >
-        <figure
+        <div
           class="card-image"
         >
           <a
@@ -30,7 +30,7 @@ exports[`ProductList component matches snapshot 1`] = `
               width="322"
             />
           </a>
-        </figure>
+        </div>
         <div
           class="card-info"
         >
@@ -68,7 +68,7 @@ exports[`ProductList component matches snapshot 1`] = `
       <div
         class="card-item"
       >
-        <figure
+        <div
           class="card-image"
         >
           <a
@@ -85,7 +85,7 @@ exports[`ProductList component matches snapshot 1`] = `
               width="322"
             />
           </a>
-        </figure>
+        </div>
         <div
           class="card-info"
         >

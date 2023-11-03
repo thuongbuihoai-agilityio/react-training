@@ -9,14 +9,12 @@ import { useNavigate } from 'react-router-dom';
 import Button, { ButtonType } from '@common/Button';
 import Dropdown from '@common/Dropdown';
 
-// Public
-import { User } from '@assets/icons';
-
 // Helpers
 import { clearStorage } from '@helpers/storage';
 
 // Constants
 import { STORAGE_KEY } from '@constants/common';
+import Icon, { IconType } from '../Icon';
 
 interface LogoutProps {
   className?: string;
@@ -44,7 +42,7 @@ const Logout = ({ className = '' }: LogoutProps) => {
     <div className={`${className} account`} data-testid='logout'>
       <Button
         ariaLabel='User'
-        children={<User />}
+        children={<Icon iconName={IconType.user} />}
         type={ButtonType.btnIconPrimary}
         onClick={handleToggle}
       />
