@@ -67,6 +67,7 @@ const Input = React.forwardRef<HTMLInputElement, IconProps>(
             id={id}
             ref={ref}
             name={name}
+            type={type}
             className={`${classNameInput} input-${style}`}
             onChange={onChange}
             onBlur={onBlur}

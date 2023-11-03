@@ -46,7 +46,7 @@ describe('Login component', () => {
       }
     });
 
-    fireEvent.input(screen.getByRole('textbox', { name: /password/i }), {
+    fireEvent.input(screen.getByLabelText ('Password', {selector: 'input'}), {
       target: {
         value: '123456'
       }
@@ -56,7 +56,7 @@ describe('Login component', () => {
     expect(screen.getByRole('textbox', { name: /email/i })).toHaveValue(
       'example@gmail.com'
     );
-    expect(screen.getByRole('textbox', { name: /password/i })).toHaveValue(
+    expect(screen.getByLabelText ('Password', {selector: 'input'})).toHaveValue(
       '123456'
     );
     await waitFor(() => expect(mockNavigate).toHaveBeenCalledWith('/'));
@@ -78,7 +78,7 @@ describe('Login component', () => {
       }
     });
 
-    fireEvent.input(screen.getByRole('textbox', { name: /password/i }), {
+    fireEvent.input(screen.getByLabelText ('Password', {selector: 'input'}), {
       target: {
         value: '1234567'
       }

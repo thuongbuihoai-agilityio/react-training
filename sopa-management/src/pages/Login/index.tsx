@@ -149,6 +149,7 @@ const Login = () => {
                 id='password'
                 label='Password'
                 htmlFor='password'
+                type='password'
                 ref={(e) => {
                   register('password');
                   passwordRef.current = e;
