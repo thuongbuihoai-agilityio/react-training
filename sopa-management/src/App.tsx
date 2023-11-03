@@ -5,6 +5,9 @@ import { Suspense } from 'react';
 // Styles
 import './styles/main.css';
 
+// Constants
+import { ERROR_MESSAGES } from '@constants/validate';
+
 // Components
 import MainLayout from '@layouts/MainLayout';
 import Loading from '@components/common/Loading';
@@ -15,7 +18,7 @@ const App = () => {
   const queryClient = new QueryClient();
 
   return (
-    <ErrorBoundary fallback={<p>Something went wrong</p>}>
+    <ErrorBoundary fallback={<p>{ERROR_MESSAGES.ERROR_BOUNDARY}</p>}>
       <Routes>
         <Route element={<MainLayout />}>
           {Routers.map(({ path, element }: RouteObject) => (
