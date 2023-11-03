@@ -134,7 +134,7 @@ const Login = () => {
                 onBlur={resetErrors}
               />
               {errors?.email && <Text text={(errors.email.message)} className='form-error' />}
-              {isIncorrectEmail && <Text text={ERROR_MESSAGES.EMAIL_INCORRECT} className='form-error' />}
+              {isIncorrectEmail && <Text text={ERROR_MESSAGES.EMAIL_NOT_EXIST} className='form-error' />}
             </div>
           )}
         />
