@@ -8,7 +8,7 @@ const CONFIRM_MESSAGE = {
 const ERROR_MESSAGES = {
   REQUIRED: 'This field is required',
   EMAIL_FORMAT: 'Wrong email format',
-  EMAIL_INCORRECT: 'Email is incorrect',
+  EMAIL_NOT_EXIST: 'Email does not exist',
   PASSWORD_FORMAT: 'Password must be more than 6 characters',
   PASSWORD_INCORRECT: 'Password is incorrect',
   ERROR_BOUNDARY: 'Something went wrong',

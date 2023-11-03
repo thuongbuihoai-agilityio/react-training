@@ -1,25 +1,30 @@
 .popup {
   position: absolute;
-  background-color: var(--text-secondary);
-  padding: var(--px-normal);
-  bottom: 60px;
-  left: 40px;
+  background-color: var(--light);
+  margin-right: 10px;
+  border-radius: var(--rounded-primary);
+  padding: var(--px-extra-normal);
+  top: 40%;
+  right: 100%;
   width: 245px;
 }
 
 .popup-btn {
   text-align: center;
-  margin-top: 15px;
+  margin-top: 30px;
+}
+
+.popup-cancel,
+.popup-delete {
+  padding: 10px 20px;
+  border: none;
+  border-radius:  var(--rounded-tertiary);
 }
 
 .popup-cancel {
   margin-right: 5px;
-  border: none;
-  border-radius: 3px;
 }
 
 .popup-delete {
   background-color: var(--text-primary);
-  border: none;
-  border-radius: 3px;
 }

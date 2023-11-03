@@ -7,7 +7,7 @@ exports[`PopupDelete component matches snapshot 1`] = `
     data-testid="popup-delete"
   >
     <p
-      class=" text-light"
+      class=" text-"
       data-testid="text"
     />
     <div

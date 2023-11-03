@@ -2,10 +2,7 @@ import { memo } from 'react';
 
 // Components
 import Button from '@common/Button';
-import Text,
-{
-  ThemeType
-} from '@common/Text';
+import Text from '@common/Text';
 
 // Styles
 import './popup.css';
@@ -22,7 +19,7 @@ const PopupDelete = ({
   onDelete,
 }: PopupDeleteProps) => (
   <div data-testid='popup-delete' className='popup'>
-    <Text text={title} type={ThemeType.light} />
+    <Text text={title} />
     <div className='popup-btn'>
       <Button
         ariaLabel='Cancel'
