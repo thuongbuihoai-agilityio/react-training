@@ -1,8 +1,11 @@
 import { memo } from 'react';
 
 // Components
-import { Star } from '@assets/icons';
 import Text from '@common/Text';
+import Icon,
+{
+  IconType
+} from '@components/common/Icon';
 
 interface RatingStart {
   value?: string;
@@ -19,11 +22,11 @@ const RatingStar = ({
 }: RatingStart) => (
   <div className={`${className}`}>
     <div data-testid='rating-star' className={`${classNameStar}`}>
-      <Star />
-      <Star />
-      <Star />
-      <Star />
-      <Star />
+      <Icon iconName={IconType.star} />
+      <Icon iconName={IconType.star} />
+      <Icon iconName={IconType.star} />
+      <Icon iconName={IconType.star} />
+      <Icon iconName={IconType.star} />
     </div>
     <Text
       text={value}

@@ -36,7 +36,7 @@ const Card = ({
   return (
     <div data-testid='card' className='card'>
       <div className='card-item'>
-        <figure className='card-image'>
+        <div className='card-image'>
           <Image
             href={href}
             url={src}
@@ -45,7 +45,7 @@ const Card = ({
             height={130}
             className='card-image-item'
           />
-        </figure>
+        </div>
         <div className='card-info'>
           <Link to={href} className='card-name' aria-label={name}>
             {name}

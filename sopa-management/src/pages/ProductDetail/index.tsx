@@ -66,9 +66,9 @@ const [selectedValue, setSelectedValue] = useState('');
       ) : (
         <>
           <div data-testid='product-detail' className='detail-product'>
-            <figure className='detail-image'>
+            <div className='detail-image'>
               <img src={image.url} alt={image.alt} />
-            </figure>
+            </div>
             <div className='detail-info'>
               <div className='detail-name'>
                 <div className='detail-description'>

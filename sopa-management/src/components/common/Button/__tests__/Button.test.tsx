@@ -8,9 +8,7 @@ import userEvent from '@testing-library/user-event';
 
 // Components
 import Button, { ButtonType } from '@common/Button';
-
-// Images
-import { Trash } from '@assets/icons';
+import Icon, { IconType } from '@components/common/Icon';
 
 describe('Button component', () => {
   test("Should render Button component with type 'default'", async () => {
@@ -49,7 +47,7 @@ describe('Button component', () => {
   test("Should render Button component with type 'btnIconPrimary'", async () => {
     render(
       <Button
-        children={<Trash />}
+        children={<Icon iconName={IconType.trash} />}
         type={ButtonType.btnIconPrimary}
       />
     );
@@ -61,7 +59,7 @@ describe('Button component', () => {
   test("Should render Button component with type 'btnIconSecondary'", async () => {
     render(
       <Button
-        children={<Trash />}
+        children={<Icon iconName={IconType.trash} />}
         type={ButtonType.btnIconSecondary}
       />
     );

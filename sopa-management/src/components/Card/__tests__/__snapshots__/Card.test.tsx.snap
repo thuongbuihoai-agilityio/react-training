@@ -9,7 +9,7 @@ exports[`Card component matches snapshot 1`] = `
     <div
       class="card-item"
     >
-      <figure
+      <div
         class="card-image"
       >
         <a
@@ -26,7 +26,7 @@ exports[`Card component matches snapshot 1`] = `
             width="322"
           />
         </a>
-      </figure>
+      </div>
       <div
         class="card-info"
       >

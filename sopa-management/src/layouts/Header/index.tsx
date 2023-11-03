@@ -25,11 +25,9 @@ import Logout from '@components/common/Logout';
 import { IMAGE } from '@constants/image';
 import { MENU_HEADER } from '@constants/common';
 
-// Images
-import { ShoppingBag } from '@assets/icons';
-
 // Styles
 import './header.css';
+import Icon, { IconType } from '@components/common/Icon';
 
 const Header = () => {
   const [toggleModal, setToggleModal] = useState<boolean>(false);
@@ -64,7 +62,7 @@ const Header = () => {
           <Logout className='header-user' />
           <Button
             ariaLabel='Shopping bag'
-            children={<ShoppingBag />}
+            children={<Icon iconName={IconType.bag} />}
             type={ButtonType.btnIconPrimary}
             onClick={handleToggleModal}
             className='header-btn'
