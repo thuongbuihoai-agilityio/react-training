@@ -1,5 +1,4 @@
-import React,
-{
+import {
   memo,
   useCallback,
   useState
@@ -23,7 +22,7 @@ interface LogoutProps {
   className?: string;
 }
 
-const Logout: React.FC<LogoutProps> = ({ className = '' }) => {
+const Logout = ({ className = '' }: LogoutProps) => {
   const navigate = useNavigate()
   const [showDropdown, setShowDropdown] = useState<boolean>(false);
 

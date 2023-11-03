@@ -19,7 +19,7 @@ import { CAROUSEL_BULLET } from '@constants/common';
 // Styles
 import './carousel.css';
 
-const Carousel: React.FC = () => (
+const Carousel = () => (
   <div data-testid='carousel' className='carousel'>
     <div className='carousel-inner'>
       <Input

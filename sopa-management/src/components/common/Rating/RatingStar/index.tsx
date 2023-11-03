@@ -11,12 +11,12 @@ interface RatingStart {
   classNameStar?: string;
 }
 
-const RatingStar: React.FC<RatingStart> = ({
+const RatingStar = ({
   className,
   classNameStar,
   value,
   type
-}) => (
+}: RatingStart) => (
   <div className={`${className}`}>
     <div data-testid='rating-star' className={`${classNameStar}`}>
       <Star />

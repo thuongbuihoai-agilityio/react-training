@@ -1,52 +1,40 @@
-import {
-  QueryClient,
-  QueryClientProvider
-} from 'react-query';
-import {
-  Route,
-  Routes
-} from 'react-router-dom';
-import {
-  Suspense,
-  lazy
-} from 'react';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import { Route, RouteObject, Routes } from 'react-router-dom';
+import { Suspense } from 'react';
 
 // Styles
 import './styles/main.css';
 
-// Components
+// Constants
+import { ERROR_MESSAGES } from '@constants/validate';
 
+// Components
 import MainLayout from '@layouts/MainLayout';
 import Loading from '@components/common/Loading';
-import Partners from '@components/common/Partners';
-import Carousel from '@components/common/Carousel';
 import ErrorBoundary from '@components/common/ErrorBoundary';
-const ProductList = lazy(() => import('@components/ProductList'));
-const ProductDetail = lazy(() => import('@pages/ProductDetail'));
-const Login = lazy(() => import('@pages/Login'));
+import { Routers } from './routes';
 
-const App: React.FC = () => {
+const App = () => {
   const queryClient = new QueryClient();
+
   return (
-    <QueryClientProvider client={queryClient}>
-      <Suspense fallback={<Loading />}>
-        <ErrorBoundary fallback={<p>Something went wrong</p>}>
-          <Routes>
-            <Route element={<MainLayout />}>
-              <Route path='/' element={
-                <>
-                  <Carousel />
-                  <Partners />
-                  <ProductList />
-                </>}
-              />
-              <Route path='/products/:id' element={<ProductDetail />} />
-              <Route path='/login' element={<Login />} />
-            </Route>
-          </Routes>
-        </ErrorBoundary>
-      </Suspense>
-    </QueryClientProvider>
+    <ErrorBoundary fallback={<p>{ERROR_MESSAGES.ERROR_BOUNDARY}</p>}>
+      <Routes>
+        <Route element={<MainLayout />}>
+          {Routers.map(({ path, element }: RouteObject) => (
+            <Route
+              key={path}
+              path={path}
+              element={
+                <QueryClientProvider client={queryClient}>
+                  <Suspense fallback={<Loading />}>{element}</Suspense>
+                </QueryClientProvider>
+              }
+            />
+          ))}
+        </Route>
+      </Routes>
+    </ErrorBoundary>
   );
 };
 

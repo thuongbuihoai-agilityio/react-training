@@ -1,5 +1,4 @@
-import React,
-{
+import {
   memo,
   useCallback,
   useState
@@ -30,14 +29,14 @@ interface DropdownProps {
   onSetValue?: (value?: string) => void;
 }
 
-const Dropdown: React.FC<DropdownProps> = ({
+const Dropdown = ({
   data = [],
   isHref,
   value,
   className = '',
   onClick,
   onSetValue = () => {}
-}) => {
+}: DropdownProps) => {
   const [openDropdown, setOpenDropdown] = useState<boolean>(false);
 
   const handleToggle = useCallback(() => {

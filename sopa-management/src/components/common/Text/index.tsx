@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import { memo } from 'react';
 import './text.css';
 
 export enum SizeType {
@@ -25,11 +25,11 @@ interface TextProps {
   className?: string;
 }
 
-const Text: React.FC<TextProps> = ({
+const Text = ({
   text = 'Sopa',
   type = SizeType.default,
   className = ''
-}) => (
+}: TextProps) => (
   <p data-testid='text' className={`${className} text-${type}`}>
     {text}
   </p>

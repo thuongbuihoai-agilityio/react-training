@@ -13,11 +13,11 @@ interface CounterProps {
   onDecrement: () => void;
 }
 
-const Counter: React.FC<CounterProps> = ({
+const Counter = ({
   value,
   onIncrement,
   onDecrement
-}) => (
+}: CounterProps) => (
   <div data-testid='counter' className='counter'>
     <Button
       ariaLabel='Decrement'

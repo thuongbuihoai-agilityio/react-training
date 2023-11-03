@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import { memo } from 'react';
 
 // Styles
 import './price.css';
@@ -16,11 +16,11 @@ interface PriceProps {
   className?: string;
 }
 
-const Price: React.FC<PriceProps> = ({
-  value = '',
+const Price = ({
+  value = 0,
   type = PriceType.default,
   className = ''
-}) => (
+}: PriceProps) => (
   <p data-testid='price' className={`${className} price-${type}`}>
     ${value}
   </p>

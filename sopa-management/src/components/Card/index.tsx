@@ -25,14 +25,14 @@ interface CardProps {
   alt?: string;
 }
 
-const Card: React.FC<CardProps> = ({
+const Card = ({
   name = '',
   color = '',
   price = 0,
   href,
   src,
   alt = ''
-}) => {
+}: CardProps) => {
   return (
     <div data-testid='card' className='card'>
       <div className='card-item'>

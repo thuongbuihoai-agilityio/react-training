@@ -11,6 +11,7 @@ const ERROR_MESSAGES = {
   EMAIL_INCORRECT: 'Email is incorrect',
   PASSWORD_FORMAT: 'Password must be more than 6 characters',
   PASSWORD_INCORRECT: 'Password is incorrect',
+  ERROR_BOUNDARY: 'Something went wrong',
 }
 
 export {

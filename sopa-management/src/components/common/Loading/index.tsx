@@ -1,9 +1,7 @@
-import React from 'react';
-
 // Styles
 import './loading.css';
 
-const Loading: React.FC = () => (
+const Loading = () => (
   <div data-testid='loading-page' className='loading-container'>
     <div className='circle'></div>
     <div className='circle'></div>

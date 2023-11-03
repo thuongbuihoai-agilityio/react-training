@@ -30,9 +30,9 @@ import './cartModal.css';
 interface CartModalProps {
   onToggleModal?: () => void;
 }
-const CartModal: React.FC<CartModalProps> = ({
+const CartModal = ({
   onToggleModal,
-}) => {
+}: CartModalProps) => {
   const { carts } = useCartStore();
 
   return (

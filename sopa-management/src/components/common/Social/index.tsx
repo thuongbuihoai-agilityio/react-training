@@ -17,7 +17,7 @@ import Text,
 // Styles
 import './social.css';
 
-const Social: React.FC = () => {
+const Social = () => {
   return (
     <ul data-testid='social' className='social-list'>
       <li className='social-item'>

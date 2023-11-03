@@ -47,7 +47,7 @@ import { CONFIRM_MESSAGE, ERROR_MESSAGES } from '@constants/validate';
 // Styles
 import './login.css';
 
-const Login: React.FC = () => {
+const Login = () => {
   const navigate = useNavigate();
 
   const emailRef = useRef<HTMLInputElement | null>(null);
