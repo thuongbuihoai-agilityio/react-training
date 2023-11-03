@@ -14,7 +14,7 @@ import Loading from '@common/Loading';
 // Styles
 import './productList.css';
 
-const ProductList: React.FC = () => {
+const ProductList = () => {
   const { data, fetchNextPage, hasNextPage, isLoading, isFetchingNextPage } =
     useInfiniteProducts();
 

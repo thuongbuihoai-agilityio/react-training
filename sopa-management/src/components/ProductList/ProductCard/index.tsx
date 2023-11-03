@@ -14,9 +14,9 @@ interface ProductCardProps {
   data: Product[];
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({
+const ProductCard = ({
   data,
-}) => (
+}: ProductCardProps) => (
   <div className='product-card' data-testid='product-card'>
     {data?.map((product) => (
       <Card

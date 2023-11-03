@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import { memo } from 'react';
 import { Link } from 'react-router-dom';
 
 // Styles
@@ -22,13 +22,13 @@ export interface MenuProps {
   className?: string;
 }
 
-const Menu: React.FC<MenuProps> = memo(
+const Menu = memo(
   ({
     menuList,
     value,
     type,
     className
-  }) => (
+  }: MenuProps) => (
     <div data-testid='menu' className='menu'>
       <ul className={`${className} menu-list-${type}`}>
         {MenuTheme.vertical && (

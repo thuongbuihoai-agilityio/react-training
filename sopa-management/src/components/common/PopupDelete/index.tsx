@@ -16,11 +16,11 @@ interface PopupDeleteProps {
   onDelete: () => void;
 }
 
-const PopupDelete: React.FC<PopupDeleteProps> = ({
+const PopupDelete = ({
   title = '',
   onCancel,
   onDelete,
-}) => (
+}: PopupDeleteProps) => (
   <div data-testid='popup-delete' className='popup'>
     <Text text={title} type={ThemeType.light} />
     <div className='popup-btn'>

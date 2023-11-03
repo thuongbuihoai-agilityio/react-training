@@ -1,4 +1,4 @@
-import React, {
+import {
   ButtonHTMLAttributes,
   memo
 } from 'react';
@@ -28,7 +28,7 @@ interface ButtonProps {
   onSubmit?: () => void;
 }
 
-const Button: React.FC<ButtonProps> = ({
+const Button = ({
   ariaLabel = '',
   children = '',
   type = ButtonType.default,
@@ -37,7 +37,7 @@ const Button: React.FC<ButtonProps> = ({
   className = '',
   onClick,
   onSubmit
-}) => (
+}: ButtonProps) => (
   <button
     data-testid='button'
     aria-label={ariaLabel}

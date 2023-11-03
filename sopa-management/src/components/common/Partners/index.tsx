@@ -14,7 +14,7 @@ import Text,
 // Styles
 import './partners.css';
 
-const Partners: React.FC = () => (
+const Partners = () => (
   <div data-testid='partners' className='partners'>
     <Text
       text='“These are the most thoughtfully designed sneakers on the market.”'

@@ -1,5 +1,5 @@
 // Libs
-import React, { memo } from 'react';
+import { memo } from 'react';
 import { Link } from 'react-router-dom';
 
 interface ImageProps {
@@ -12,7 +12,7 @@ interface ImageProps {
   size?: string;
 }
 
-const Image: React.FC<ImageProps> = ({
+const Image = ({
   url = '',
   alt = '',
   href,
@@ -20,7 +20,7 @@ const Image: React.FC<ImageProps> = ({
   width,
   className = '',
   size = ''
-}) =>
+}: ImageProps) =>
   href ? (
     <Link data-testid='image-link' to={href} aria-label='link to home page'>
       <img className={className} src={url} alt={alt} width={width} height={height} sizes={size} />
