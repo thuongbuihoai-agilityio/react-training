@@ -29,12 +29,6 @@ import { Account } from '@interfaces/account';
 
 // Helpers
 import { setStorage } from '@helpers/storage';
-import {
-  checkEmail,
-  checkLogin,
-  checkPassword,
-  checkValidationStyles
-} from '@helpers/common';
 import { VALIDATE } from '@helpers/validate';
 
 // Stores
@@ -46,6 +40,11 @@ import { CONFIRM_MESSAGE, ERROR_MESSAGES } from '@constants/validate';
 
 // Styles
 import './login.css';
+import {
+  CheckType,
+  checkAccount,
+  checkValidationStyles
+} from '@helpers/login';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -91,10 +90,10 @@ const Login = () => {
     const email = emailRef.current?.value;
     const password = passwordRef.current?.value;
 
-    const checkCorrectEmail = checkEmail(data, email);
-    const checkCorrectPassword = checkPassword(data, password);
+    const checkCorrectEmail = checkAccount(data, email, '', CheckType.email);
+    const checkCorrectPassword = checkAccount(data, '', password, CheckType.password);
 
-    if (checkLogin(data, email, password)) {
+    if (checkAccount(data, email, password, CheckType.login)) {
       navigate('/');
       setStorage(STORAGE_KEY.TOKEN, {
         email,
