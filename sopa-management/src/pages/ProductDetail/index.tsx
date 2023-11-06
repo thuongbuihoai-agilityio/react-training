@@ -4,6 +4,7 @@ import {
 useState
 } from 'react';
 import { useParams } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 // Components
 import Text,
@@ -21,19 +22,20 @@ import Button,
 } from '@components/common/Button';
 import Rating from '@common/Rating';
 import RatingStar from '@common/Rating/RatingStar';
+import Loading from '@components/common/Loading';
 
 // Hooks
 import { useFetchProductDetail } from '@hooks/useQuery';
 
 // Constants
 import { SIZE } from '@constants/common';
+import { CONFIRM_MESSAGE } from '@constants/validate';
 
 // Stores
 import { useCartStore } from '@stores/cart';
 
 // Styles
 import './productDetail.css';
-import Loading from '@components/common/Loading';
 
 const ProductDetail = () => {
   // use useParams to get id
@@ -53,6 +55,7 @@ const [selectedValue, setSelectedValue] = useState('');
 
   const handleAddToCart = useCallback(() => {
     addToCart(product, (selectedValue || size));
+    toast.success(CONFIRM_MESSAGE.ADD_SUCCESS);
   }, [name, selectedValue]);
 
   const handleSelect = useCallback((value?: string) => {

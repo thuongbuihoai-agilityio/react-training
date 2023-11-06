@@ -1,5 +1,4 @@
 import { create } from 'zustand';
-import toast from "react-hot-toast";
 
 // Interfaces
 import { Product } from '@interfaces/product';
@@ -12,13 +11,12 @@ import {
 
 // Constants
 import { STORAGE_KEY } from '@constants/common';
-import { CONFIRM_MESSAGE } from '@constants/validate';
+import { QuantityType } from '@interfaces/cart';
 
 type CartType = {
   carts: Product[];
   addToCart: (product: Product, size: string) => void;
-  increaseQuantity: (id: string) => void;
-  decreaseQuantity: (id: string) => void;
+  updateQuantity: (id: string, quantityType: QuantityType) => void;
   deleteCart: (id: string) => void;
 };
 
@@ -30,42 +28,37 @@ export const useCartStore = create<CartType>()((set) => ({
       (item: Product) => item.id === product.id && item.size === size
     );
 
+    let updatedCart;
     if (existingProduct) {
-      const updatedCart = currentCart.map((item: Product) =>
+      updatedCart = currentCart.map((item: Product) =>
         item.id === product.id && item.size === size
           ? { ...item, quantity: item.quantity + 1 }
           : item
       );
-      setStorage(STORAGE_KEY.CART_KEY, updatedCart);
-      set({ carts: updatedCart });
-      toast.success(CONFIRM_MESSAGE.ADD_SUCCESS);
     } else {
-      const updatedCart = [
-        ...currentCart,
-        { ...product, quantity: 1, size: size }
-      ];
-      setStorage(STORAGE_KEY.CART_KEY, updatedCart);
-      set({ carts: updatedCart });
-      toast.success(CONFIRM_MESSAGE.ADD_SUCCESS)
+      updatedCart = [...currentCart, { ...product, quantity: 1, size: size }];
     }
-  },
 
-  increaseQuantity: (id: string) => {
-    const currentCart = getStorage(STORAGE_KEY.CART_KEY) || [];
-    const updatedCart = currentCart.map((item: Product) =>
-      item.id === id ? { ...item, quantity: item.quantity + 1 } : item
-    );
     setStorage(STORAGE_KEY.CART_KEY, updatedCart);
     set({ carts: updatedCart });
   },
 
-  decreaseQuantity: (id: string) => {
+  updateQuantity: (id: string, quantityType: QuantityType) => {
     const currentCart = getStorage(STORAGE_KEY.CART_KEY) || [];
-    const updatedCart = currentCart.map((item: Product) =>
-      item.id === id && item.quantity > 1
-        ? { ...item, quantity: item.quantity - 1 }
-        : item
-    );
+    const updatedCart = currentCart.map((item: Product) => {
+      switch (quantityType) {
+        case QuantityType.increment:
+          return item.id === id
+            ? { ...item, quantity: item.quantity + 1 }
+            : item;
+        case QuantityType.decrement:
+          return item.id === id && item.quantity > 1
+            ? { ...item, quantity: item.quantity - 1 }
+            : item;
+        default:
+          return item;
+      }
+    });
     setStorage(STORAGE_KEY.CART_KEY, updatedCart);
     set({ carts: updatedCart });
   },
@@ -75,6 +68,5 @@ export const useCartStore = create<CartType>()((set) => ({
     const updatedCart = currentCart.filter((item: Product) => item.id !== id);
     setStorage(STORAGE_KEY.CART_KEY, updatedCart);
     set({ carts: updatedCart });
-    toast.success(CONFIRM_MESSAGE.DELETE_SUCCESS)
-  },
+  }
 }));
