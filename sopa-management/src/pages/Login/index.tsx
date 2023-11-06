@@ -28,7 +28,10 @@ import Text,
 import { useFetchUser } from '@hooks/useQuery';
 
 // Interfaces
-import { Account } from '@interfaces/account';
+import {
+  Account,
+  CheckType
+} from '@interfaces/account';
 
 // Helpers
 import { setStorage } from '@helpers/storage';
@@ -44,7 +47,6 @@ import { CONFIRM_MESSAGE, ERROR_MESSAGES } from '@constants/validate';
 // Styles
 import './login.css';
 import {
-  CheckType,
   checkAccount,
   checkValidationStyles
 } from '@helpers/login';

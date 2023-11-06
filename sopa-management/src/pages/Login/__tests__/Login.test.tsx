@@ -13,9 +13,11 @@ import {
 } from '@testing-library/react';
 import { MOCK_ACCOUNTS } from '@mocks/account';
 import {
-  CheckType,
   checkAccount
 } from '@helpers/login';
+
+// Interfaces
+import { CheckType } from '@interfaces/account';
 
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),
