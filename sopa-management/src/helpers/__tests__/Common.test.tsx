@@ -28,6 +28,6 @@ describe('Test common', () => {
   test('should calculate the total prices correctly', () => {
     const carts = MOCK_PRODUCTS;
     const result = totalPrices(carts);
-    expect(result).toBe(2 * 87 + 1 * 45);
+    expect(result).toBe(219);
   });
 });
