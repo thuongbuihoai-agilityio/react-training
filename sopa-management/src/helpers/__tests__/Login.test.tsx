@@ -55,12 +55,6 @@ describe('Test Login', () => {
     );
   });
 
-  test('should throw an error for an invalid check type', () => {
-    expect(() => {
-      checkAccount(MOCK_ACCOUNTS, 'example@example.com', 'password');
-    }).toThrow('Invalid check type');
-  });
-
   test('checkValidationStyles should return the correct style and theme error', () => {
     const serverError = true;
     const rules = { type: 'required', message: 'This field is required' };

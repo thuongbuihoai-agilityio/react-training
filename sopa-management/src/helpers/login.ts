@@ -12,16 +12,19 @@ export const checkAccount = (
   password?: string,
   checkType?: CheckType,
 ) => {
-  switch (checkType) {
-    case CheckType.login:
-      return data?.some((user: Account) => user.email === email && user.password === password);
-    case CheckType.email:
-      return data?.some((user: Account) => user.email === email);
-    case CheckType.password:
-      return data?.some((user: Account) => user.password === password);
-    default:
-      throw new Error('Invalid check type');
-  }
+  return data?.some((user: Account) => {
+    const checkEmail = user.email === email;
+    const checkPassword = user.password === password;
+    const checkLogin = checkType === CheckType.login && checkEmail && checkPassword;
+
+    if (checkLogin
+      || checkType === CheckType.email && checkEmail
+      || checkType === CheckType.password && checkPassword
+    ) {
+      return true;
+    }
+    return false;
+  })
 };
 
 export const checkValidationStyles = (
