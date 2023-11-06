@@ -22,10 +22,13 @@ import Text,
 {
   ThemeType
 } from '@common/Text';
+import Icon,
+{
+  IconType
+} from '@components/common/Icon';
 import Counter from '@common/Counter';
 import Image from '@common/Image';
 import PopupDelete from '@common/PopupDelete';
-import Icon, { IconType } from '@components/common/Icon';
 
 // Stores
 import { useCartStore } from '@stores/cart';
