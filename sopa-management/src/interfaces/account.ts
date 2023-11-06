@@ -3,3 +3,9 @@ export interface Account {
   email: string;
   password: string;
 };
+
+export interface LoginType {
+  default: '',
+  info: 'info',
+  error: 'error'
+};

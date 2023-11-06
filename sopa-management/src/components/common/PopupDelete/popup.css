@@ -1,11 +1,10 @@
 .popup {
   position: absolute;
   background-color: var(--light);
-  margin-right: var(--m-extra-normal);
   border-radius: var(--rounded-primary);
   padding: var(--px-extra-normal);
   top: 40%;
-  right: 100%;
+  right: var(--w-extra-large);
   width: 245px;
 }
 

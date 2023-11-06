@@ -11,7 +11,10 @@ import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 
 // Components
-import Input from '@components/common/Input';
+import Input,
+{
+  InputType
+} from '@components/common/Input';
 import Button,
 {
   ButtonType
@@ -78,13 +81,11 @@ const Login = () => {
 
   const {
     style: styleEmail,
-    theme: themeEmail
-  } = checkValidationStyles(isIncorrectEmail, errors.email, isDirty);
+  } = checkValidationStyles(isIncorrectEmail, errors.email, isDirty, InputType);
 
   const {
     style: stylePassword,
-    theme: themePassword
-  } = checkValidationStyles(isIncorrectPassword, errors.password, isDirty);
+  } = checkValidationStyles(isIncorrectPassword, errors.password, isDirty, InputType);
 
   const onSubmit = async () => {
     const email = emailRef.current?.value;
@@ -129,7 +130,7 @@ const Login = () => {
                   emailRef.current = e;
                 }}
                 style={styleEmail}
-                theme={themeEmail}
+                theme={styleEmail}
                 onBlur={resetErrors}
               />
               {errors?.email && <Text text={(errors.email.message)} className='form-error' />}
@@ -154,7 +155,7 @@ const Login = () => {
                   passwordRef.current = e;
                 }}
                 style={stylePassword}
-                theme={themePassword}
+                theme={stylePassword}
                 onBlur={resetErrors}
               />
               {errors?.password && <Text text={(errors.password.message)} className='form-error' />}
@@ -164,7 +165,7 @@ const Login = () => {
         />
         <Button
           ariaLabel='Login'
-          children='Login'
+          children={'Login'}
           type={ButtonType.tertiary}
           submit='submit'
         />

@@ -1,5 +1,7 @@
-import { InputTheme, InputType } from "@components/common/Input";
-import { Account } from "@interfaces/account";
+import {
+  Account,
+  LoginType
+} from "@interfaces/account";
 import { FieldError } from "react-hook-form";
 
 export enum CheckType {
@@ -31,9 +33,10 @@ export const checkValidationStyles = (
   serverError: boolean,
   rules: FieldError | undefined,
   isDirty: boolean,
+  type: LoginType,
 ) => {
-  const style = serverError || rules ? InputType.error : isDirty ? InputType.info : InputType.default;
-  const theme = serverError || rules ? InputTheme.error : isDirty ? InputTheme.info : InputTheme.default
+  const checkIsDirty = isDirty ? type.info : type.default
+  const style = serverError || rules ? type.error : checkIsDirty;
 
-  return { style, theme };
+  return { style };
 };

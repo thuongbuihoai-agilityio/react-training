@@ -6,18 +6,25 @@ import Login from '..';
 
 // Helpers
 import { renderWithRouterAndQuery } from '../../../helpers/testUtils';
-import { fireEvent, screen, waitFor } from '@testing-library/react';
-import { checkLogin } from '@helpers/common';
+import {
+  fireEvent,
+  screen,
+  waitFor
+} from '@testing-library/react';
 import { MOCK_ACCOUNTS } from '@mocks/account';
+import {
+  CheckType,
+  checkAccount
+} from '@helpers/login';
 
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),
   useNavigate: jest.fn(),
 }));
 
-jest.mock('@helpers/common', () => ({
-  ...jest.requireActual('@helpers/common'),
-  checkLogin: jest.fn(),
+jest.mock('@helpers/login', () => ({
+  ...jest.requireActual('@helpers/login'),
+  checkAccount: jest.fn(),
 }));
 
 describe('Login component', () => {
@@ -28,10 +35,11 @@ describe('Login component', () => {
 
   test('should not display error when value is valid', async () => {
     const mockNavigate = jest.fn();
-    (checkLogin as jest.Mock).mockReturnValue({
+    (checkAccount as jest.Mock).mockReturnValue({
       data: MOCK_ACCOUNTS,
       email: 'example@gmail.com',
-      password: '123456'
+      password: '123456',
+      checkType: CheckType
     });
 
     jest
@@ -64,7 +72,7 @@ describe('Login component', () => {
 
   test('should display error when value is invalid', async () => {
     const mockNavigate = jest.fn();
-    (checkLogin as jest.Mock).mockReturnValue(false);
+    (checkAccount as jest.Mock).mockReturnValue(false);
 
     jest
       .spyOn(require('react-router-dom'), 'useNavigate')
