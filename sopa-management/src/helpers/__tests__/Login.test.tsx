@@ -3,10 +3,12 @@ import { InputType } from '@components/common/Input';
 
 // Helpers
 import {
-  CheckType,
   checkAccount,
   checkValidationStyles
 } from '@helpers/login';
+
+// Interfaces
+import { CheckType } from '@interfaces/account';
 
 // Mocks
 import { MOCK_ACCOUNTS } from '@mocks/account';
