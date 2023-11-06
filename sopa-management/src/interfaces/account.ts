@@ -9,3 +9,9 @@ export interface LoginType {
   info: 'info',
   error: 'error'
 };
+
+export enum CheckType {
+  login = 'login',
+  email = 'email',
+  password = 'password'
+}

@@ -1,14 +1,9 @@
 import {
   Account,
+  CheckType,
   LoginType
 } from "@interfaces/account";
 import { FieldError } from "react-hook-form";
-
-export enum CheckType {
-  login = 'login',
-  email = 'email',
-  password = 'password'
-}
 
 // Check login
 export const checkAccount = (
