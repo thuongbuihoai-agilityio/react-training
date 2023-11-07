@@ -40,7 +40,7 @@ import './productDetail.css';
 const ProductDetail = () => {
   // use useParams to get id
   const { id } = useParams();
-const [selectedValue, setSelectedValue] = useState('');
+  const [selectedValue, setSelectedValue] = useState('');
   const { data: product, isLoading } = useFetchProductDetail(id);
   const {
     name,
