@@ -1,5 +1,4 @@
 // Libs
-import { memo } from 'react';
 import { Link } from 'react-router-dom';
 
 interface ImageProps {
@@ -29,4 +28,4 @@ const Image = ({
     <img data-testid='image' className={className} src={url} alt={alt} />
   );
 
-export default memo(Image);
+export default Image;

@@ -1,4 +1,3 @@
-import { memo } from 'react';
 import { Link } from 'react-router-dom';
 
 // Components
@@ -51,4 +50,4 @@ const Social = () => {
   );
 };
 
-export default memo(Social);
+export default Social;

@@ -1,5 +1,4 @@
 import {
-  memo,
   useCallback,
   useState
 } from 'react';
@@ -57,4 +56,4 @@ const Logout = ({ className = '' }: LogoutProps) => {
   );
 };
 
-export default memo(Logout);
+export default Logout;

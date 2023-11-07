@@ -1,5 +1,4 @@
 import {
-  memo,
   useCallback,
   useState
 } from 'react';
@@ -121,4 +120,4 @@ const CartItem = ({
   );
 };
 
-export default memo(CartItem);
+export default CartItem;

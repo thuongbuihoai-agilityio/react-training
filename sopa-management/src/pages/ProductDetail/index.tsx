@@ -53,10 +53,10 @@ const [selectedValue, setSelectedValue] = useState('');
 
   const addToCart = useCartStore((state) => state.addToCart);
 
-  const handleAddToCart = useCallback(() => {
+  const handleAddToCart = () => {
     addToCart(product, (selectedValue || size));
     toast.success(CONFIRM_MESSAGE.ADD_SUCCESS);
-  }, [name, selectedValue]);
+  };
 
   const handleSelect = useCallback((value?: string) => {
     setSelectedValue(value as string);

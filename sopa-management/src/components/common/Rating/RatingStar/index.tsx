@@ -1,5 +1,3 @@
-import { memo } from 'react';
-
 // Components
 import Text from '@common/Text';
 import Icon,
@@ -35,4 +33,4 @@ const RatingStar = ({
   </div>
 );
 
-export default memo(RatingStar);
+export default RatingStar;
