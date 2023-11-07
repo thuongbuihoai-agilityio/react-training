@@ -14,6 +14,9 @@ import { STORAGE_KEY } from '@constants/common';
 // Helpers
 import { getStorage } from '@helpers/storage';
 
+// Interfaces
+import { QuantityType } from '@interfaces/cart';
+
 describe('useCartStore', () => {
   beforeEach(() => {
     (localStorage as any) = {};
@@ -50,17 +53,17 @@ describe('useCartStore', () => {
   test('should increase product quantity in cart', () => {
     const { result } = renderHook(() => useCartStore());
 
-    useCartStore.getState().increaseQuantity('1');
-    act(() => result.current.increaseQuantity('1'));
-    expect(useCartStore.getState().increaseQuantity('2'))
+    useCartStore.getState().updateQuantity('1', QuantityType.increment);
+    act(() => result.current.updateQuantity('1', QuantityType.increment));
+    expect(useCartStore.getState().updateQuantity('2', QuantityType.increment))
   });
 
   test('should decrement product quantity in cart', () => {
     const { result } = renderHook(() => useCartStore());
 
-    useCartStore.getState().decreaseQuantity('2');
-    act(() => result.current.decreaseQuantity('2'));
-    expect(useCartStore.getState().decreaseQuantity('1'))
+    useCartStore.getState().updateQuantity('2', QuantityType.decrement);
+    act(() => result.current.updateQuantity('2', QuantityType.decrement));
+    expect(useCartStore.getState().updateQuantity('1', QuantityType.decrement))
   });
 
   test('should deleteCart is called', () => {

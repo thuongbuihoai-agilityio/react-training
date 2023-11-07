@@ -3,9 +3,11 @@ import {
   useCallback,
   useState
 } from 'react';
+import toast from 'react-hot-toast';
 
 // Interfaces
 import { Product } from '@interfaces/product';
+import { QuantityType } from '@interfaces/cart';
 
 // Components
 import Button,
@@ -20,6 +22,10 @@ import Text,
 {
   ThemeType
 } from '@common/Text';
+import Icon,
+{
+  IconType
+} from '@components/common/Icon';
 import Counter from '@common/Counter';
 import Image from '@common/Image';
 import PopupDelete from '@common/PopupDelete';
@@ -27,31 +33,27 @@ import PopupDelete from '@common/PopupDelete';
 // Stores
 import { useCartStore } from '@stores/cart';
 import { CONFIRM_MESSAGE } from '@constants/validate';
-import Icon, { IconType } from '@components/common/Icon';
-
-// Constants
 
 interface CartItemProps {
-  key?: string;
   cartItem: Product;
 }
+
 const CartItem = ({
   cartItem
 }: CartItemProps) => {
   const [openModalConfirm, setOpenModalConfirm] = useState<boolean>(false);
 
   const {
-    increaseQuantity,
-    decreaseQuantity,
+    updateQuantity,
     deleteCart
   } = useCartStore();
 
   const handleIncrement = useCallback(() => {
-    increaseQuantity(cartItem.id)
+    updateQuantity(cartItem.id, QuantityType.increment)
   }, [cartItem]);
 
   const handleDecrement = useCallback(() => {
-    decreaseQuantity(cartItem.id)
+    updateQuantity(cartItem.id, QuantityType.decrement)
   }, [cartItem]);
 
   const handleOpenModalConfirm = useCallback(() => {
@@ -60,6 +62,7 @@ const CartItem = ({
 
   const handleDeleteCart = useCallback(() => {
     deleteCart(cartItem.id);
+    toast.success(CONFIRM_MESSAGE.DELETE_SUCCESS);
   }, [cartItem]);
 
   return (
