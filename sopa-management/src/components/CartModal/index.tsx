@@ -1,4 +1,5 @@
 import { memo } from 'react';
+import { useShallow } from 'zustand/react/shallow';
 
 // Components
 import Text, { SizeType } from '@common/Text';
@@ -31,7 +32,9 @@ interface CartModalProps {
 const CartModal = ({
   onToggleModal,
 }: CartModalProps) => {
-  const { carts } = useCartStore();
+  const { carts } = useCartStore(useShallow((state) => ({
+    carts: state.carts,
+  })));
 
   return (
     <div data-testid='cart-modal' className='overlay'>
