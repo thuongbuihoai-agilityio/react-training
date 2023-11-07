@@ -35,7 +35,6 @@ import {
 } from '@interfaces/account';
 
 // Helpers
-import { setStorage } from '@helpers/storage';
 import { VALIDATE } from '@helpers/validate';
 import {
   checkAccount,
@@ -46,7 +45,6 @@ import {
 import { useAccountStore } from '@stores/login';
 
 // Constants
-import { STORAGE_KEY } from '@constants/common';
 import { CONFIRM_MESSAGE, ERROR_MESSAGES } from '@constants/validate';
 
 // Styles
@@ -63,13 +61,15 @@ const Login = () => {
     isIncorrectEmail,
     isIncorrectPassword,
     setIsIncorrectEmail,
-    setIsIncorrectPassword
+    setIsIncorrectPassword,
+    handleLogin,
   } = useAccountStore(
     useShallow((state) => ({
       isIncorrectEmail: state.isIncorrectEmail,
       isIncorrectPassword: state.isIncorrectPassword,
       setIsIncorrectEmail: state.setIsIncorrectEmail,
-      setIsIncorrectPassword: state.setIsIncorrectPassword
+      setIsIncorrectPassword: state.setIsIncorrectPassword,
+      handleLogin: state.handleLogin
     }))
   );
 
@@ -105,29 +105,13 @@ const Login = () => {
 
   const onSubmit = async () => {
     const email = emailRef.current?.value;
-    const password = passwordRef.current?.value;
+    var password = passwordRef.current?.value;
 
-    const checkCorrectEmail = checkAccount(data, email, '', CheckType.email);
-    const checkCorrectPassword = checkAccount(
-      data,
-      '',
-      password,
-      CheckType.password
-    );
+    handleLogin(data, email, password, CheckType.login);
 
     if (checkAccount(data, email, password, CheckType.login)) {
       navigate('/');
-      setStorage(STORAGE_KEY.TOKEN, {
-        email,
-        password
-      });
-
       toast.success(CONFIRM_MESSAGE.LOGIN_SUCCESS);
-      setIsIncorrectEmail(!!checkCorrectEmail);
-      setIsIncorrectPassword(!!checkCorrectPassword);
-    } else {
-      setIsIncorrectEmail(!checkCorrectEmail);
-      setIsIncorrectPassword(!checkCorrectPassword);
     }
   };
 
