@@ -11,7 +11,10 @@ import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 
 // Components
-import Input from '@components/common/Input';
+import Input,
+{
+  InputType
+} from '@components/common/Input';
 import Button,
 {
   ButtonType
@@ -25,16 +28,13 @@ import Text,
 import { useFetchUser } from '@hooks/useQuery';
 
 // Interfaces
-import { Account } from '@interfaces/account';
+import {
+  Account,
+  CheckType
+} from '@interfaces/account';
 
 // Helpers
 import { setStorage } from '@helpers/storage';
-import {
-  checkEmail,
-  checkLogin,
-  checkPassword,
-  checkValidationStyles
-} from '@helpers/common';
 import { VALIDATE } from '@helpers/validate';
 
 // Stores
@@ -46,6 +46,10 @@ import { CONFIRM_MESSAGE, ERROR_MESSAGES } from '@constants/validate';
 
 // Styles
 import './login.css';
+import {
+  checkAccount,
+  checkValidationStyles
+} from '@helpers/login';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -79,22 +83,20 @@ const Login = () => {
 
   const {
     style: styleEmail,
-    theme: themeEmail
-  } = checkValidationStyles(isIncorrectEmail, errors.email, isDirty);
+  } = checkValidationStyles(isIncorrectEmail, errors.email, isDirty, InputType);
 
   const {
     style: stylePassword,
-    theme: themePassword
-  } = checkValidationStyles(isIncorrectPassword, errors.password, isDirty);
+  } = checkValidationStyles(isIncorrectPassword, errors.password, isDirty, InputType);
 
   const onSubmit = async () => {
     const email = emailRef.current?.value;
     const password = passwordRef.current?.value;
 
-    const checkCorrectEmail = checkEmail(data, email);
-    const checkCorrectPassword = checkPassword(data, password);
+    const checkCorrectEmail = checkAccount(data, email, '', CheckType.email);
+    const checkCorrectPassword = checkAccount(data, '', password, CheckType.password);
 
-    if (checkLogin(data, email, password)) {
+    if (checkAccount(data, email, password, CheckType.login)) {
       navigate('/');
       setStorage(STORAGE_KEY.TOKEN, {
         email,
@@ -130,7 +132,7 @@ const Login = () => {
                   emailRef.current = e;
                 }}
                 style={styleEmail}
-                theme={themeEmail}
+                theme={styleEmail}
                 onBlur={resetErrors}
               />
               {errors?.email && <Text text={(errors.email.message)} className='form-error' />}
@@ -155,7 +157,7 @@ const Login = () => {
                   passwordRef.current = e;
                 }}
                 style={stylePassword}
-                theme={themePassword}
+                theme={stylePassword}
                 onBlur={resetErrors}
               />
               {errors?.password && <Text text={(errors.password.message)} className='form-error' />}
@@ -165,7 +167,7 @@ const Login = () => {
         />
         <Button
           ariaLabel='Login'
-          children='Login'
+          children={'Login'}
           type={ButtonType.tertiary}
           submit='submit'
         />
