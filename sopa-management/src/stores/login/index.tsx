@@ -29,7 +29,7 @@ interface AccountType {
   logout: () => void;
 }
 
-export const useAccountStore = create<AccountType>()(
+export const useAuthenticationStores = create<AccountType>()(
   persist(
     (set) => ({
       accounts: [],

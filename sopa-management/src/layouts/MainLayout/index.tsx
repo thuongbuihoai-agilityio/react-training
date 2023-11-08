@@ -11,12 +11,12 @@ import Header from '@layouts/Header';
 import Footer from '@layouts/Footer';
 
 // Stores
-import { useAccountStore } from '@stores/login';
+import { useAuthenticationStores } from '@stores/login';
 
 const MainLayout = (): JSX.Element => {
   const navigate = useNavigate();
 
-  const { accounts } = useAccountStore(
+  const { accounts } = useAuthenticationStores(
     useShallow((state) => ({
       accounts: state.accounts
     }))
