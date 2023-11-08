@@ -45,7 +45,10 @@ import {
 import { useAccountStore } from '@stores/login';
 
 // Constants
-import { CONFIRM_MESSAGE, ERROR_MESSAGES } from '@constants/validate';
+import {
+  CONFIRM_MESSAGE,
+  ERROR_MESSAGES
+} from '@constants/validate';
 
 // Styles
 import './login.css';
@@ -105,7 +108,7 @@ const Login = () => {
 
   const onSubmit = async () => {
     const email = emailRef.current?.value;
-    var password = passwordRef.current?.value;
+    const password = passwordRef.current?.value;
 
     handleLogin(data, email, password, CheckType.login);
 

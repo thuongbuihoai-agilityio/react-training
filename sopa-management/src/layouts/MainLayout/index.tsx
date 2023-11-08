@@ -9,18 +9,15 @@ import { Toaster } from 'react-hot-toast';
 import Header from '@layouts/Header';
 import Footer from '@layouts/Footer';
 
-// Helpers
-import { getStorage } from '@helpers/storage';
-
-// Constants
-import { STORAGE_KEY } from '@constants/common';
+// Stores
+import { useAccountStore } from '@stores/login';
 
 const MainLayout = (): JSX.Element => {
   const navigate = useNavigate();
-  const token = getStorage(STORAGE_KEY.TOKEN);
+  const token = useAccountStore.persist.getOptions().name;
 
   useEffect(() => {
-    if (!token.email) {
+    if (!token) {
       navigate('/login');
     }
   }, []);

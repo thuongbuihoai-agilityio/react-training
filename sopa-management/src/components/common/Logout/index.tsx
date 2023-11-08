@@ -7,13 +7,10 @@ import { useNavigate } from 'react-router-dom';
 // Components
 import Button, { ButtonType } from '@common/Button';
 import Dropdown from '@common/Dropdown';
-
-// Helpers
-import { clearStorage } from '@helpers/storage';
+import Icon, { IconType } from '../Icon';
 
 // Constants
-import { STORAGE_KEY } from '@constants/common';
-import Icon, { IconType } from '../Icon';
+import { useAccountStore } from '@stores/login';
 
 interface LogoutProps {
   className?: string;
@@ -28,7 +25,7 @@ const Logout = ({ className = '' }: LogoutProps) => {
   }, [showDropdown]);
 
   const handleLogout = () => {
-    clearStorage(STORAGE_KEY.TOKEN);
+    useAccountStore.persist.clearStorage()
     navigate('/login');
   }
 

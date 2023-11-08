@@ -1,7 +1,16 @@
 import { create } from 'zustand';
-import { createJSONStorage, persist } from 'zustand/middleware';
-import { Account, CheckType } from '@interfaces/account';
+import { persist } from 'zustand/middleware';
+
+// Interfaces
+import {
+  Account,
+  CheckType
+} from '@interfaces/account';
+
+// Helpers
 import { checkAccount } from '@helpers/login';
+
+// Constants
 import { STORAGE_KEY } from '@constants/common';
 
 interface AccountType {
@@ -65,11 +74,9 @@ export const useAccountStore = create<AccountType>()(
     }),
     {
       name: STORAGE_KEY.TOKEN,
-      storage: createJSONStorage(() => sessionStorage),
-      partialize: (state) => ({ email: state.accounts }),
-      onRehydrateStorage: (state) => {
-        state.handleLogin
-      }
+      partialize: (state) => ({
+        accounts: state.accounts
+      }),
     }
   )
 );
