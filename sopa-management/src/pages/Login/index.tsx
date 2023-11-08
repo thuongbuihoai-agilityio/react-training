@@ -42,7 +42,7 @@ import {
 } from '@helpers/login';
 
 // Stores
-import { useAuthenticationStores } from '@stores/login';
+import { useAuthenticationStore } from '@stores/login';
 
 // Constants
 import {
@@ -66,7 +66,7 @@ const Login = () => {
     setIsIncorrectEmail,
     setIsIncorrectPassword,
     handleLogin,
-  } = useAuthenticationStores(
+  } = useAuthenticationStore(
     useShallow((state) => ({
       isIncorrectEmail: state.isIncorrectEmail,
       isIncorrectPassword: state.isIncorrectPassword,

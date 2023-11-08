@@ -11,7 +11,7 @@ import Dropdown from '@common/Dropdown';
 import Icon, { IconType } from '../Icon';
 
 // Constants
-import { useAuthenticationStores } from '@stores/login';
+import { useAuthenticationStore } from '@stores/login';
 
 interface LogoutProps {
   className?: string;
@@ -20,7 +20,7 @@ interface LogoutProps {
 const Logout = ({ className = '' }: LogoutProps) => {
   const navigate = useNavigate();
 
-  const { logout } = useAuthenticationStores(
+  const { logout } = useAuthenticationStore(
     useShallow((state) => ({
       logout: state.logout
     }))
