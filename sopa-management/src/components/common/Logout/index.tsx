@@ -3,6 +3,7 @@ import {
   useState
 } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useShallow } from 'zustand/react/shallow';
 
 // Components
 import Button, { ButtonType } from '@common/Button';
@@ -17,7 +18,14 @@ interface LogoutProps {
 }
 
 const Logout = ({ className = '' }: LogoutProps) => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+
+  const { logout } = useAccountStore(
+    useShallow((state) => ({
+      logout: state.logout
+    }))
+  );
+
   const [showDropdown, setShowDropdown] = useState<boolean>(false);
 
   const handleToggle = useCallback(() => {
@@ -25,9 +33,9 @@ const Logout = ({ className = '' }: LogoutProps) => {
   }, [showDropdown]);
 
   const handleLogout = () => {
-    useAccountStore.persist.clearStorage()
+    logout();
     navigate('/login');
-  }
+  };
 
   const handleToggleItem = useCallback(() => {
     handleToggle();

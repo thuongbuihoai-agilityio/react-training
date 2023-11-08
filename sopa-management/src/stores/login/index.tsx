@@ -20,12 +20,13 @@ interface AccountType {
   setAccounts: (value: Account[]) => void;
   setIsIncorrectEmail: (value: boolean) => void;
   setIsIncorrectPassword: (value: boolean) => void;
-  handleLogin: (
+  login: (
     data?: Account[],
     email?: string,
     password?: string,
     type?: CheckType
   ) => void;
+  logout: () => void;
 }
 
 export const useAccountStore = create<AccountType>()(
@@ -38,7 +39,7 @@ export const useAccountStore = create<AccountType>()(
       setIsIncorrectEmail: (value) => set(() => ({ isIncorrectEmail: value })),
       setIsIncorrectPassword: (value) =>
         set(() => ({ isIncorrectPassword: value })),
-      handleLogin: (
+      login: (
         data?: Account[],
         email?: string,
         password?: string,
@@ -70,7 +71,8 @@ export const useAccountStore = create<AccountType>()(
             isIncorrectPassword: !checkCorrectPassword
           }));
         }
-      }
+      },
+      logout: () => set((state) => ({...state, accounts: []})),
     }),
     {
       name: STORAGE_KEY.TOKEN,

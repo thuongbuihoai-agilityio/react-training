@@ -72,7 +72,7 @@ const Login = () => {
       isIncorrectPassword: state.isIncorrectPassword,
       setIsIncorrectEmail: state.setIsIncorrectEmail,
       setIsIncorrectPassword: state.setIsIncorrectPassword,
-      handleLogin: state.handleLogin
+      handleLogin: state.login
     }))
   );
 
