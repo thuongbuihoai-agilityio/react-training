@@ -1,11 +1,11 @@
 import { renderHook } from "@testing-library/react";
-import { useAccountStore } from "../login";
+import { useAuthenticationStore } from "../login";
 import { act } from "react-dom/test-utils";
 import { MOCK_ACCOUNTS } from "../../__mocks__/account";
 
-describe('useAccountStore', () => {
+describe('useAuthenticationStore', () => {
   test('should set accounts correctly', () => {
-    const { result } = renderHook(() => useAccountStore());
+    const { result } = renderHook(() => useAuthenticationStore());
     act(() => {
       result.current.setAccounts(MOCK_ACCOUNTS);
     });
@@ -13,7 +13,7 @@ describe('useAccountStore', () => {
   });
 
   test('should set isIncorrectEmail correctly', () => {
-    const { result } = renderHook(() => useAccountStore());
+    const { result } = renderHook(() => useAuthenticationStore());
     act(() => {
       result.current.setIsIncorrectEmail(true);
     });
@@ -21,7 +21,7 @@ describe('useAccountStore', () => {
   });
 
   test('should set isIncorrectPassword correctly', () => {
-    const { result } = renderHook(() => useAccountStore());
+    const { result } = renderHook(() => useAuthenticationStore());
     act(() => {
       result.current.setIsIncorrectPassword(true);
     });

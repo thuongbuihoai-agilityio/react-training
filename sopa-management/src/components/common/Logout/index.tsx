@@ -4,24 +4,29 @@ import {
   useState
 } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useShallow } from 'zustand/react/shallow';
 
 // Components
 import Button, { ButtonType } from '@common/Button';
 import Dropdown from '@common/Dropdown';
-
-// Helpers
-import { clearStorage } from '@helpers/storage';
+import Icon, { IconType } from '../Icon';
 
 // Constants
-import { STORAGE_KEY } from '@constants/common';
-import Icon, { IconType } from '../Icon';
+import { useAuthenticationStore } from '@stores/login';
 
 interface LogoutProps {
   className?: string;
 }
 
 const Logout = ({ className = '' }: LogoutProps) => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+
+  const { logout } = useAuthenticationStore(
+    useShallow((state) => ({
+      logout: state.logout
+    }))
+  );
+
   const [showDropdown, setShowDropdown] = useState<boolean>(false);
 
   const handleToggle = useCallback(() => {
@@ -29,9 +34,9 @@ const Logout = ({ className = '' }: LogoutProps) => {
   }, [showDropdown]);
 
   const handleLogout = () => {
-    clearStorage(STORAGE_KEY.TOKEN);
+    logout();
     navigate('/login');
-  }
+  };
 
   const handleToggleItem = useCallback(() => {
     handleToggle();

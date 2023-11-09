@@ -4,23 +4,26 @@ import {
   useNavigate
 } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
+import { useShallow } from 'zustand/react/shallow';
 
 //  Components
 import Header from '@layouts/Header';
 import Footer from '@layouts/Footer';
 
-// Helpers
-import { getStorage } from '@helpers/storage';
-
-// Constants
-import { STORAGE_KEY } from '@constants/common';
+// Stores
+import { useAuthenticationStore } from '@stores/login';
 
 const MainLayout = (): JSX.Element => {
   const navigate = useNavigate();
-  const token = getStorage(STORAGE_KEY.TOKEN);
+
+  const { accounts } = useAuthenticationStore(
+    useShallow((state) => ({
+      accounts: state.accounts
+    }))
+  );
 
   useEffect(() => {
-    if (!token.email) {
+    if (!accounts) {
       navigate('/login');
     }
   }, []);

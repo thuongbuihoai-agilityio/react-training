@@ -8,6 +8,7 @@ import {
   Controller
 } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
+import { useShallow } from 'zustand/react/shallow';
 import toast from 'react-hot-toast';
 
 // Components
@@ -34,22 +35,23 @@ import {
 } from '@interfaces/account';
 
 // Helpers
-import { setStorage } from '@helpers/storage';
 import { VALIDATE } from '@helpers/validate';
-
-// Stores
-import { useAccountStore } from '@stores/login';
-
-// Constants
-import { STORAGE_KEY } from '@constants/common';
-import { CONFIRM_MESSAGE, ERROR_MESSAGES } from '@constants/validate';
-
-// Styles
-import './login.css';
 import {
   checkAccount,
   checkValidationStyles
 } from '@helpers/login';
+
+// Stores
+import { useAuthenticationStore } from '@stores/login';
+
+// Constants
+import {
+  CONFIRM_MESSAGE,
+  ERROR_MESSAGES
+} from '@constants/validate';
+
+// Styles
+import './login.css';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -63,7 +65,16 @@ const Login = () => {
     isIncorrectPassword,
     setIsIncorrectEmail,
     setIsIncorrectPassword,
-  } = useAccountStore();
+    handleLogin,
+  } = useAuthenticationStore(
+    useShallow((state) => ({
+      isIncorrectEmail: state.isIncorrectEmail,
+      isIncorrectPassword: state.isIncorrectPassword,
+      setIsIncorrectEmail: state.setIsIncorrectEmail,
+      setIsIncorrectPassword: state.setIsIncorrectPassword,
+      handleLogin: state.login
+    }))
+  );
 
   const resetErrors = () => {
     setIsIncorrectEmail(false);
@@ -78,42 +89,41 @@ const Login = () => {
     register,
     handleSubmit,
     control,
-    formState: { errors, isDirty },
+    formState: { errors, isDirty }
   } = useForm<Account>();
 
-  const {
-    style: styleEmail,
-  } = checkValidationStyles(isIncorrectEmail, errors.email, isDirty, InputType);
+  const { style: styleEmail } = checkValidationStyles(
+    isIncorrectEmail,
+    errors.email,
+    isDirty,
+    InputType
+  );
 
-  const {
-    style: stylePassword,
-  } = checkValidationStyles(isIncorrectPassword, errors.password, isDirty, InputType);
+  const { style: stylePassword } = checkValidationStyles(
+    isIncorrectPassword,
+    errors.password,
+    isDirty,
+    InputType
+  );
 
   const onSubmit = async () => {
     const email = emailRef.current?.value;
     const password = passwordRef.current?.value;
 
-    const checkCorrectEmail = checkAccount(data, email, '', CheckType.email);
-    const checkCorrectPassword = checkAccount(data, '', password, CheckType.password);
+    handleLogin(data, email, password, CheckType.login);
 
     if (checkAccount(data, email, password, CheckType.login)) {
       navigate('/');
-      setStorage(STORAGE_KEY.TOKEN, {
-        email,
-        password
-      });
-
       toast.success(CONFIRM_MESSAGE.LOGIN_SUCCESS);
-      setIsIncorrectEmail(!!checkCorrectEmail);
-      setIsIncorrectPassword(!!checkCorrectPassword)
-    } else {
-      setIsIncorrectEmail(!checkCorrectEmail);
-      setIsIncorrectPassword(!checkCorrectPassword)
     }
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className='form' data-testid='login'>
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className='form'
+      data-testid='login'
+    >
       <Text text='Login' type={SizeType.extraMedium} />
       <div className='form-input'>
         <Controller
@@ -135,8 +145,15 @@ const Login = () => {
                 theme={styleEmail}
                 onBlur={resetErrors}
               />
-              {errors?.email && <Text text={(errors.email.message)} className='form-error' />}
-              {isIncorrectEmail && <Text text={ERROR_MESSAGES.EMAIL_NOT_EXIST} className='form-error' />}
+              {errors?.email && (
+                <Text text={errors.email.message} className='form-error' />
+              )}
+              {isIncorrectEmail && (
+                <Text
+                  text={ERROR_MESSAGES.EMAIL_NOT_EXIST}
+                  className='form-error'
+                />
+              )}
             </div>
           )}
         />
@@ -160,8 +177,15 @@ const Login = () => {
                 theme={stylePassword}
                 onBlur={resetErrors}
               />
-              {errors?.password && <Text text={(errors.password.message)} className='form-error' />}
-              {isIncorrectPassword && <Text text={ERROR_MESSAGES.PASSWORD_INCORRECT} className='form-error' />}
+              {errors?.password && (
+                <Text text={errors.password.message} className='form-error' />
+              )}
+              {isIncorrectPassword && (
+                <Text
+                  text={ERROR_MESSAGES.PASSWORD_INCORRECT}
+                  className='form-error'
+                />
+              )}
             </div>
           )}
         />

@@ -22,7 +22,7 @@ import { useProductStore } from '@stores/product';
 // Helpers
 import { flattenArray } from '@helpers/common';
 import { Account } from '@interfaces/account';
-import { useAccountStore } from '@stores/login';
+import { useAuthenticationStore } from '@stores/login';
 
 /**
  * @description Fetch product by id
@@ -73,7 +73,7 @@ export const useInfiniteProducts = () => {
  * @returns
  */
 export const useFetchUser = () => {
-  const { setAccounts } = useAccountStore();
+  const { setAccounts } = useAuthenticationStore();
 
   return useQuery<Account[], AxiosError>({
     queryKey: [QUERY_KEYS.ACCOUNTS],
