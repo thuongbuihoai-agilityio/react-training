@@ -31,8 +31,9 @@ import { useAuthenticationStore } from '@stores/login';
  */
 export const useFetchProductDetail = (id?: string) => {
   const { data, ...rest } = useQuery<Product, AxiosError>({
-    queryKey: [QUERY_KEYS.PRODUCTS + id],
+    queryKey: [QUERY_KEYS.PRODUCT_DETAIL + id],
     queryFn: async () => await api.getData(`${PRODUCT_URL}/${id}`),
+    refetchOnWindowFocus: false
   });
 
   return {
@@ -46,10 +47,11 @@ export const useFetchProductDetail = (id?: string) => {
  */
 export const useInfiniteProducts = () => {
   const { setProducts } = useProductStore();
+  const limit = LIMIT_PRODUCTS;
 
   const { data, ...rest } =  useInfiniteQuery<Product[], AxiosError>({
     queryKey: [QUERY_KEYS.PRODUCTS],
-    queryFn: ({ pageParam = 1 }) => api.getData(PRODUCT_URL, pageParam),
+    queryFn: ({ pageParam = 1 }) => api.getData(`${PRODUCT_URL}?limit=${limit}&page=${pageParam}`),
     getNextPageParam: (lastPage, pages) => {
       const nextPage = pages.length + 1;
       return lastPage?.length > 0 && lastPage?.length === LIMIT_PRODUCTS
@@ -59,7 +61,8 @@ export const useInfiniteProducts = () => {
     onSuccess: ({ pages }) => {
       const result = flattenArray(pages);
       setProducts(result);
-    }
+    },
+    refetchOnWindowFocus: false
   });
 
   return {
@@ -79,5 +82,6 @@ export const useFetchUser = () => {
     queryKey: [QUERY_KEYS.ACCOUNTS],
     queryFn: () => api.getData(ACCOUNT_URL),
     onSuccess: (data) => setAccounts(data),
+    refetchOnWindowFocus: false
   });
 };
