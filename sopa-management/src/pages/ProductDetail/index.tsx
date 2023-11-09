@@ -40,7 +40,7 @@ import './productDetail.css';
 const ProductDetail = () => {
   // use useParams to get id
   const { id } = useParams();
-const [selectedValue, setSelectedValue] = useState('');
+  const [selectedValue, setSelectedValue] = useState('');
   const { data: product, isLoading } = useFetchProductDetail(id);
   const {
     name,
@@ -53,10 +53,10 @@ const [selectedValue, setSelectedValue] = useState('');
 
   const addToCart = useCartStore((state) => state.addToCart);
 
-  const handleAddToCart = useCallback(() => {
+  const handleAddToCart = () => {
     addToCart(product, (selectedValue || size));
     toast.success(CONFIRM_MESSAGE.ADD_SUCCESS);
-  }, [name, selectedValue]);
+  };
 
   const handleSelect = useCallback((value?: string) => {
     setSelectedValue(value as string);

@@ -1,5 +1,3 @@
-import { memo } from 'react';
-
 // Hooks
 import { useInfiniteProducts } from '@hooks/useQuery';
 
@@ -50,4 +48,4 @@ const ProductList = () => {
   );
 };
 
-export default memo(ProductList);
+export default ProductList;

@@ -1,4 +1,3 @@
-import { memo } from 'react';
 import { Link } from 'react-router-dom';
 
 // Styles
@@ -22,26 +21,24 @@ export interface MenuProps {
   className?: string;
 }
 
-const Menu = memo(
-  ({
+const Menu = ({
     menuList,
     value,
     type,
     className
   }: MenuProps) => (
-    <div data-testid='menu' className='menu'>
-      <ul className={`${className} menu-list-${type}`}>
-        {MenuTheme.vertical && (
-          <li className={`menu-main-${type}`}>{value}</li>
-        )}
-        {menuList.map((item) => (
-          <li className={`${className} menu-item-${type}`} key={item.key}>
-            <Link to='#' aria-label={item.label}>{item.label}</Link>
-          </li>
-        ))}
-      </ul>
-    </div>
-  )
-);
+  <div data-testid='menu' className='menu'>
+    <ul className={`${className} menu-list-${type}`}>
+      {MenuTheme.vertical && (
+        <li className={`menu-main-${type}`}>{value}</li>
+      )}
+      {menuList.map((item) => (
+        <li className={`${className} menu-item-${type}`} key={item.key}>
+          <Link to='#' aria-label={item.label}>{item.label}</Link>
+        </li>
+      ))}
+    </ul>
+  </div>
+)
 
 export default Menu;
