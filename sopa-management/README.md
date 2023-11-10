@@ -67,7 +67,7 @@
 
 ```
 - create .env file:
-- VITE_BASE_URL=https://652be6d0d0d1df5273eee18f.mockapi.io
+- VITE_BASE_URL=http://localhost:8000
 ```
 
 ```
