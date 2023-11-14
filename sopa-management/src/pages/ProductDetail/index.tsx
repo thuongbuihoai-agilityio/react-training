@@ -42,10 +42,14 @@ const ProductDetail = () => {
   // use useParams to get id
   const { id } = useParams();
   const [selectedValue, setSelectedValue] = useState('');
+
+  // mutate
   const { mutate: postProduct } = useMutationPostProductToCart();
   const { mutate: putProduct } = useMutationEditProductInCart();
+
   const { data: cartStore } = useFetchCartProduct();
   const { data: product, isLoading } = useFetchProductDetail(id);
+
   const {
     name,
     image,

@@ -1,10 +1,16 @@
-import { useInfiniteQuery, useQuery } from 'react-query';
+import {
+  useInfiniteQuery,
+  useQuery
+} from 'react-query';
 import { AxiosError } from 'axios';
-
 
 // Constants
 import { QUERY_KEYS } from '@constants/keyQuery';
-import { ACCOUNT_URL, CART_URL, PRODUCT_URL } from '@constants/url';
+import {
+  ACCOUNT_URL,
+  CART_URL,
+  PRODUCT_URL
+} from '@constants/url';
 import {
   INITIAL_PRODUCT,
   LIMIT_PRODUCTS
@@ -18,12 +24,12 @@ import { api } from '@services/APIRequest';
 
 // Stores
 import { useProductStore } from '@stores/product';
+import { useAuthenticationStore } from '@stores/login';
+import { useCartStore } from '@stores/cart';
 
 // Helpers
 import { flattenArray } from '@helpers/common';
 import { Account } from '@interfaces/account';
-import { useAuthenticationStore } from '@stores/login';
-import { useCartStore } from '@stores/cart';
 
 /**
  * @description Fetch product by id
