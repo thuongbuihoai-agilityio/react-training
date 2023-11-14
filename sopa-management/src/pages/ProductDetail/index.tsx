@@ -1,4 +1,4 @@
-import { memo, useCallback, useState } from 'react';
+import { memo, useCallback, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import toast from 'react-hot-toast';
 
@@ -37,6 +37,8 @@ import {
   useMutationPostProductToCart
 } from '@hooks/useMutate';
 import { Product } from '@interfaces/product';
+import { useCartStore } from '@stores/cart';
+import { useShallow } from 'zustand/react/shallow';
 
 const ProductDetail = () => {
   // use useParams to get id
@@ -47,7 +49,7 @@ const ProductDetail = () => {
   const { mutate: postProduct } = useMutationPostProductToCart();
   const { mutate: putProduct } = useMutationEditProductInCart();
 
-  const { data: cartStore } = useFetchCartProduct();
+  const { data } = useFetchCartProduct();
   const { data: product, isLoading } = useFetchProductDetail(id);
 
   const {
@@ -59,6 +61,19 @@ const ProductDetail = () => {
     size
   } = product;
 
+  const { carts, setCarts } = useCartStore(
+    useShallow((state) => ({
+      carts: state.carts,
+      setCarts: state.setCarts
+    }))
+  );
+
+  useEffect(() => {
+    if (data) {
+      setCarts(data);
+    }
+  }, [data]);
+
   const handleAddToCart = () => {
     const newData = {
       ...product,
@@ -66,7 +81,7 @@ const ProductDetail = () => {
       size: selectedValue || size
     };
 
-    const currentCart = cartStore || [];
+    const currentCart = carts || [];
     const existingProductIndex = currentCart.findIndex(
       (item: Product) => item.id === product.id
     );
