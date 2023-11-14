@@ -25,7 +25,6 @@ import { api } from '@services/APIRequest';
 // Stores
 import { useProductStore } from '@stores/product';
 import { useAuthenticationStore } from '@stores/login';
-import { useCartStore } from '@stores/cart';
 
 // Helpers
 import { flattenArray } from '@helpers/common';
@@ -98,12 +97,9 @@ export const useFetchUser = () => {
  * @returns
  */
 export const useFetchCartProduct = () => {
-  const { setCarts } = useCartStore();
-
   return useQuery<Product[], AxiosError>({
     queryKey: [QUERY_KEYS.CARTS],
     queryFn: () => api.getData(CART_URL),
-    onSuccess: (data) => setCarts(data),
     refetchOnWindowFocus: false
   });
 };

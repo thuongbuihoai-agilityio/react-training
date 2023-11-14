@@ -36,3 +36,18 @@ export const useMutationEditProductInCart = () => {
     }
   });
 };
+
+
+/**
+ * @description Custom hook delete product
+ */
+export const useMutationDeleteProduct = () => {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: async (id: string) => await api.deleteData(`${CART_URL}/${id}`),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.CARTS] });
+    },
+  });
+};

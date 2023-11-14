@@ -33,7 +33,10 @@ import { useCartStore } from '@stores/cart';
 import { CONFIRM_MESSAGE } from '@constants/validate';
 
 // Hooks
-import { useMutationEditProductInCart } from '@hooks/useMutate';
+import {
+  useMutationDeleteProduct,
+  useMutationEditProductInCart
+} from '@hooks/useMutate';
 
 interface CartItemProps {
   cartItem: Product;
@@ -44,8 +47,8 @@ const CartItem = ({
 }: CartItemProps) => {
   const [openModalConfirm, setOpenModalConfirm] = useState<boolean>(false);
   const { mutate: putProduct } = useMutationEditProductInCart();
-
-  const { deleteCart } = useCartStore();
+  const { mutate: deleteProduct } = useMutationDeleteProduct();
+  const { deleteProductInCart } = useCartStore()
 
   const handleIncrement = useCallback(() => {
     putProduct({
@@ -70,9 +73,16 @@ const CartItem = ({
   }, [openModalConfirm]);
 
   const handleDeleteCart = useCallback(() => {
-    deleteCart(cartItem.id);
-    toast.success(CONFIRM_MESSAGE.DELETE_SUCCESS);
-  }, [cartItem]);
+    deleteProduct(cartItem.id, {
+      onError: (error) => {
+        toast.error((error as { message: string }).message);
+      },
+      onSuccess: () => {
+        deleteProductInCart(cartItem.id)
+        toast.success(CONFIRM_MESSAGE.DELETE_SUCCESS);
+      },
+    });
+  }, []);
 
   return (
     <div data-testid='cart-item' className='cart-item'>

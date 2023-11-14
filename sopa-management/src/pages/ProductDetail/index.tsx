@@ -22,7 +22,6 @@ import Loading from '@components/common/Loading';
 
 // Hooks
 import {
-  useFetchCartProduct,
   useFetchProductDetail
 } from '@hooks/useQuery';
 
@@ -37,6 +36,7 @@ import {
   useMutationPostProductToCart
 } from '@hooks/useMutate';
 import { Product } from '@interfaces/product';
+import { useCartStore } from '@stores/cart';
 
 const ProductDetail = () => {
   // use useParams to get id
@@ -47,7 +47,7 @@ const ProductDetail = () => {
   const { mutate: postProduct } = useMutationPostProductToCart();
   const { mutate: putProduct } = useMutationEditProductInCart();
 
-  const { data: cartStore } = useFetchCartProduct();
+  const carts = useCartStore(state => state.carts);
   const { data: product, isLoading } = useFetchProductDetail(id);
 
   const {
@@ -66,7 +66,7 @@ const ProductDetail = () => {
       size: selectedValue || size
     };
 
-    const currentCart = cartStore || [];
+    const currentCart = carts || [];
     const existingProductIndex = currentCart.findIndex(
       (item: Product) => item.id === product.id
     );

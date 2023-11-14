@@ -33,10 +33,20 @@ const putData = async <T>(id: string, dataEdit: T):Promise<AxiosResponse<T>> => 
   return res;
 };
 
+/**
+ * @param id
+ * @returns
+ */
+const deleteData = async <T>(id: string): Promise<AxiosResponse<T>> => {
+  const res = await axios.delete(id);
+  return res;
+};
+
 const api = {
   getData,
   postData,
-  putData
+  putData,
+  deleteData
 };
 
 export { api };

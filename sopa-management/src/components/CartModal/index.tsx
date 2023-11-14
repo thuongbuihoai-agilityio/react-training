@@ -1,17 +1,14 @@
-import { memo } from 'react';
+import { memo, useEffect } from 'react';
 import { useShallow } from 'zustand/react/shallow';
 
 // Components
 import Text, { SizeType } from '@common/Text';
-import Button,
-{
-  ButtonType
-} from '@common/Button';
-import Price,
-{
-  PriceType
-} from '@common/Price';
+import Button, { ButtonType } from '@common/Button';
+import Price, { PriceType } from '@common/Price';
 import CartItem from './CartItem';
+
+// Hooks
+import { useFetchCartProduct } from '@hooks/useQuery';
 
 // Interfaces
 import { Product } from '@interfaces/product';
@@ -32,9 +29,20 @@ interface CartModalProps {
 const CartModal = ({
   onToggleModal,
 }: CartModalProps) => {
-  const { carts } = useCartStore(useShallow((state) => ({
-    carts: state.carts,
-  })));
+  const { carts, setCarts } = useCartStore(
+    useShallow((state) => ({
+      carts: state.carts,
+      setCarts: state.setCarts
+    }))
+  );
+
+  const { data } = useFetchCartProduct();
+
+  useEffect(() => {
+    if (data) {
+      setCarts(data);
+    }
+  }, [data]);
 
   return (
     <div data-testid='cart-modal' className='overlay'>
@@ -49,21 +57,19 @@ const CartModal = ({
           />
         </div>
         <div className='card-body'>
-          {carts.length
-          ? <>
+          {carts ? (
+            <>
               {carts?.map((cartItem: Product) => (
-                <CartItem
-                  key={cartItem.id}
-                  cartItem={cartItem}
-                />
+                <CartItem key={cartItem.id} cartItem={cartItem} />
               ))}
             </>
-          : <Text
+          ) : (
+            <Text
               text='No products in cart'
               type={SizeType.extraRegular}
               className='cart-message'
             />
-          }
+          )}
         </div>
         <hr />
         <div className='cart-footer'>
