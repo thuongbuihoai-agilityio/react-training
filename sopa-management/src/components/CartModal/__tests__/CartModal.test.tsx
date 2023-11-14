@@ -2,7 +2,7 @@
 import '@testing-library/jest-dom';
 
 // Helpers
-import { renderRouterTest } from '@helpers/testUtils';
+import { renderWithRouterAndQuery } from '@helpers/testUtils';
 
 // Components
 import CartModal from '@components/CartModal';
@@ -16,20 +16,20 @@ jest.mock('@stores/cart', () => ({
 
 describe('Modal component', () => {
   test('Should render Modal component by default', () => {
-    const { getByTestId } = renderRouterTest(<CartModal />);
+    const { getByTestId } = renderWithRouterAndQuery(<CartModal />);
     const cartModal = getByTestId('cart-modal');
     expect(cartModal).toBeInTheDocument();
   });
 
   test('should render CartModal with cart items when carts is true', () => {
-    const { getByTestId, getByText } = renderRouterTest(<CartModal />);
+    const { getByTestId, getByText } = renderWithRouterAndQuery(<CartModal />);
     const cartModal = getByTestId('cart-modal');
     expect(cartModal).toBeInTheDocument();
     expect(getByText('Cart')).toBeInTheDocument();
   });
 
   test('Matches snapshot', () => {
-    const { container } = renderRouterTest(<CartModal />);
+    const { container } = renderWithRouterAndQuery(<CartModal />);
     expect(container).toMatchSnapshot();
   });
 });

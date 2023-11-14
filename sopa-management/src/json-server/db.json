@@ -226,19 +226,6 @@
   ],
   "carts": [
     {
-      "id": "2",
-      "name": "Sopa Derby",
-      "price": 145,
-      "color": "Blue",
-      "image": {
-        "url": "/images/products/blue-shoes.png",
-        "alt": "This is blue shoes"
-      },
-      "size": "Large",
-      "description": "Our goal in designing the super-soft Atoms Crew Socks was to provide a seamless match with your Atoms shoes, enhancing your comfort for everyday wear - making them the perfect socks for your everyday shoes.",
-      "quantity": 2
-    },
-    {
       "id": "4",
       "name": "Sopa Penny loafer",
       "price": 45,
@@ -250,6 +237,19 @@
       "size": "Large",
       "description": "Our goal in designing the super-soft Atoms Crew Socks was to provide a seamless match with your Atoms shoes, enhancing your comfort for everyday wear - making them the perfect socks for your everyday shoes.",
       "quantity": 1
+    },
+    {
+      "id": "5",
+      "name": "Sopa Boat",
+      "price": 123,
+      "color": "White",
+      "image": {
+        "url": "/images/products/white-shoes.png",
+        "alt": "This is white shoes"
+      },
+      "size": "Medium",
+      "description": "Our goal in designing the super-soft Atoms Crew Socks was to provide a seamless match with your Atoms shoes, enhancing your comfort for everyday wear - making them the perfect socks for your everyday shoes.",
+      "quantity": 6
     }
   ]
 }

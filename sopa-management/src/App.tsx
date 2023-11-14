@@ -19,21 +19,19 @@ const App = () => {
 
   return (
     <ErrorBoundary fallback={<p>{ERROR_MESSAGES.ERROR_BOUNDARY}</p>}>
-      <Routes>
-        <Route element={<MainLayout />}>
-          {Routers.map(({ path, element }: RouteObject) => (
-            <Route
-              key={path}
-              path={path}
-              element={
-                <QueryClientProvider client={queryClient}>
-                  <Suspense fallback={<Loading />}>{element}</Suspense>
-                </QueryClientProvider>
-              }
-            />
-          ))}
-        </Route>
-      </Routes>
+      <QueryClientProvider client={queryClient}>
+        <Routes>
+          <Route element={<MainLayout />}>
+            {Routers.map(({ path, element }: RouteObject) => (
+              <Route
+                key={path}
+                path={path}
+                element={<Suspense fallback={<Loading />}>{element}</Suspense>}
+              />
+            ))}
+          </Route>
+        </Routes>
+      </QueryClientProvider>
     </ErrorBoundary>
   );
 };
