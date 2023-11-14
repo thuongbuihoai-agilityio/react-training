@@ -33,7 +33,7 @@ import { CONFIRM_MESSAGE } from '@constants/validate';
 // Styles
 import './productDetail.css';
 import {
-  useMutationEditProduct,
+  useMutationEditProductInCart,
   useMutationPostProductToCart
 } from '@hooks/useMutate';
 import { Product } from '@interfaces/product';
@@ -43,7 +43,7 @@ const ProductDetail = () => {
   const { id } = useParams();
   const [selectedValue, setSelectedValue] = useState('');
   const { mutate: postProduct } = useMutationPostProductToCart();
-  const { mutate: putProduct } = useMutationEditProduct();
+  const { mutate: putProduct } = useMutationEditProductInCart();
   const { data: cartStore } = useFetchCartProduct();
   const { data: product, isLoading } = useFetchProductDetail(id);
   const {

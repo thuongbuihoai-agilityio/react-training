@@ -25,7 +25,7 @@ export const useMutationPostProductToCart = () => {
 /**
  * @description Custom hook edit product
  */
-export const useMutationEditProduct = () => {
+export const useMutationEditProductInCart = () => {
   const queryClient = useQueryClient();
 
   return useMutation({
