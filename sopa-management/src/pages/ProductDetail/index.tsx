@@ -3,16 +3,28 @@ import { useParams } from 'react-router-dom';
 import toast from 'react-hot-toast';
 
 // Components
-import Text, { SizeType } from '@components/common/Text';
-import Price, { PriceType } from '@components/common/Price';
+import Text,
+{
+  SizeType
+} from '@components/common/Text';
+import Price,
+{
+  PriceType
+} from '@components/common/Price';
 import Dropdown from '@components/common/Dropdown';
-import Button, { ButtonType } from '@components/common/Button';
+import Button,
+{
+  ButtonType
+} from '@components/common/Button';
 import Rating from '@common/Rating';
 import RatingStar from '@common/Rating/RatingStar';
 import Loading from '@components/common/Loading';
 
 // Hooks
-import { useFetchCartProduct, useFetchProductDetail } from '@hooks/useQuery';
+import {
+  useFetchCartProduct,
+  useFetchProductDetail
+} from '@hooks/useQuery';
 
 // Constants
 import { SIZE } from '@constants/common';
@@ -34,12 +46,25 @@ const ProductDetail = () => {
   const { mutate: putProduct } = useMutationEditProduct();
   const { data: cartStore } = useFetchCartProduct();
   const { data: product, isLoading } = useFetchProductDetail(id);
-  const { name, image, color, price, description, size } = product;
+  const {
+    name,
+    image,
+    color,
+    price,
+    description,
+    size
+  } = product;
 
-  const handleAddToCart = useCallback(() => {
+  const handleAddToCart = () => {
+    const newData = {
+      ...product,
+      quantity: 1,
+      size: size || selectedValue
+    };
+
     const currentCart = cartStore || [];
     const existingProductIndex = currentCart.findIndex(
-      (item: Product) => item.id === product.id && item.size === size
+      (item: Product) => item.id === product.id || item.size === (size || selectedValue)
     );
 
     if (existingProductIndex !== -1) {
@@ -48,15 +73,11 @@ const ProductDetail = () => {
         quantity: currentCart[existingProductIndex].quantity + 1
       });
     } else {
-      postProduct({
-        ...product,
-        quantity: 1,
-        size
-      });
+      postProduct(newData);
     }
 
     toast.success(CONFIRM_MESSAGE.ADD_SUCCESS);
-  }, [cartStore, product]);
+  };
 
   const handleSelect = useCallback(
     (value?: string) => {

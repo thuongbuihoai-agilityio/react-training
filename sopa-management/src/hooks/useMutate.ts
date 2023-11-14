@@ -15,7 +15,7 @@ export const useMutationPostProductToCart = () => {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: (product) => api.postData(CART_URL, product),
+    mutationFn: (product: Product) => api.postData(CART_URL, product),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.CARTS] });
     }

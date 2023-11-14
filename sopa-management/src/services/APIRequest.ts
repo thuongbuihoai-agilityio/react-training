@@ -19,7 +19,7 @@ const getData = async <T>(url: string): Promise<T> => {
 const postData = async <T>(url: string, newData: T):Promise<AxiosResponse<T>> => {
   const res = await axios.post(url, newData);
 
-  return res.data;
+  return res;
 };
 
 /**
