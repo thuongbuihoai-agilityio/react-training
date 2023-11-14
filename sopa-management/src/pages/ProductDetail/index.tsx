@@ -63,12 +63,12 @@ const ProductDetail = () => {
     const newData = {
       ...product,
       quantity: 1,
-      size: size || selectedValue
+      size: selectedValue || size
     };
 
     const currentCart = cartStore || [];
     const existingProductIndex = currentCart.findIndex(
-      (item: Product) => item.id === product.id || item.size === (size || selectedValue)
+      (item: Product) => item.id === product.id
     );
 
     if (existingProductIndex !== -1) {
