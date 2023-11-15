@@ -98,10 +98,10 @@ describe('ProductDetail component', () => {
     const detail = getByTestId('detail');
     await userEvent.click(dropdown);
 
-    const option1 = screen.getByText('Medium');
+    const option1 = screen.getByText('Small');
     await userEvent.click(option1);
 
-    expect(detail).toHaveTextContent('Medium');
+    expect(detail).toHaveTextContent('Small');
   });
 
   test('matches snapshot', () => {

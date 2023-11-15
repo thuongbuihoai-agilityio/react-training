@@ -154,7 +154,7 @@ exports[`Modal component Matches snapshot 1`] = `
                 class="cart-size text-highlight-primary"
                 data-testid="text"
               >
-                Size: Small
+                Size: Medium
               </p>
               <div
                 class="card-quantity"
