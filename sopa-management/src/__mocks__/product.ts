@@ -18,7 +18,7 @@ const MOCK_PRODUCTS: Product[] = [
   {
     name: 'Blue shoes',
     price: 45,
-    size: 'Medium',
+    size: 'Small',
     description:
       'Our goal in designing the super-soft Atoms Crew Socks was to provide a seamless match with your Atoms shoes, enhancing your comfort for everyday wear - making them the perfect socks for your everyday shoes.',
     color: 'Blue',
@@ -32,18 +32,19 @@ const MOCK_PRODUCTS: Product[] = [
 ];
 
 const MOCK_PRODUCT: Product = {
-  name: 'Black shoes',
-  price: 87,
-  size: 'Large',
-  description: 'Our goal in designing the super-soft Atoms Crew Socks was to provide a seamless match with your Atoms shoes, enhancing your comfort for everyday wear - making them the perfect socks for your everyday shoes.',
-  color: 'Black',
+  name: 'Blue shoes',
+  price: 45,
+  size: 'Small',
+  description:
+    'Our goal in designing the super-soft Atoms Crew Socks was to provide a seamless match with your Atoms shoes, enhancing your comfort for everyday wear - making them the perfect socks for your everyday shoes.',
+  color: 'Blue',
   image: {
-    url: '/images/products/black-shoes.png',
-    alt: 'This is black shoes'
+    url: '/images/products/blue-shoes.png',
+    alt: 'This is blue shoes'
   },
-  id: '1',
-  quantity: 3
-};
+  id: '2',
+  quantity: 1
+}
 
 export {
   MOCK_PRODUCTS,

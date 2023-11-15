@@ -22,7 +22,7 @@ exports[`Card component matches snapshot 1`] = `
             class="card-image-item"
             height="130"
             sizes=""
-            src="/images/products/black-shoes.png"
+            src="/images/products/blue-shoes.png"
             width="322"
           />
         </a>
@@ -31,11 +31,11 @@ exports[`Card component matches snapshot 1`] = `
         class="card-info"
       >
         <a
-          aria-label="Black shoes"
+          aria-label="Blue shoes"
           class="card-name"
           href="/"
         >
-          Black shoes
+          Blue shoes
         </a>
         <div
           class="card-description"
@@ -44,14 +44,14 @@ exports[`Card component matches snapshot 1`] = `
             class=" text-highlight-primary"
             data-testid="text"
           >
-            Black
+            Blue
           </p>
           <p
             class=" price-primary"
             data-testid="price"
           >
             $
-            87
+            45
           </p>
         </div>
       </div>

@@ -69,7 +69,7 @@ const CartModal = ({
           />
         </div>
         <div className='card-body'>
-          {carts ? (
+          {carts.length ? (
             <>
               {carts?.map((cartItem: Product) => (
                 <CartItem key={cartItem.id} cartItem={cartItem} />

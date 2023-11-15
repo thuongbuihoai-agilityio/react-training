@@ -13,10 +13,10 @@ exports[`CartItem component matches snapshot 1`] = `
         class="cart-image"
       >
         <img
-          alt="This is black shoes"
+          alt="This is blue shoes"
           class="cart-image-item"
           data-testid="image"
-          src="/images/products/black-shoes.png"
+          src="/images/products/blue-shoes.png"
         />
       </div>
       <div
@@ -26,19 +26,19 @@ exports[`CartItem component matches snapshot 1`] = `
           class="cart-text text-"
           data-testid="text"
         >
-          Black shoes
+          Blue shoes
         </p>
         <p
           class="cart-color text-highlight-primary"
           data-testid="text"
         >
-          Color: Black
+          Color: Blue
         </p>
         <p
           class="cart-size text-highlight-primary"
           data-testid="text"
         >
-          Size: Large
+          Size: Small
         </p>
         <div
           class="card-quantity"
@@ -59,7 +59,7 @@ exports[`CartItem component matches snapshot 1`] = `
               id=""
               name=""
               type="number"
-              value="3"
+              value="1"
             />
             <button
               aria-label="Increment"
@@ -84,7 +84,7 @@ exports[`CartItem component matches snapshot 1`] = `
       class="cart-price price-tertiary"
       data-testid="price"
     >
-      $87
+      $45
     </p>
   </div>
 </DocumentFragment>

@@ -14,8 +14,8 @@ exports[`ProductDetail component matches snapshot 1`] = `
         class="detail-image"
       >
         <img
-          alt="This is black shoes"
-          src="/images/products/black-shoes.png"
+          alt="This is blue shoes"
+          src="/images/products/blue-shoes.png"
         />
       </div>
       <div
@@ -31,7 +31,7 @@ exports[`ProductDetail component matches snapshot 1`] = `
               class=" text-regular"
               data-testid="text"
             >
-              Black shoes
+              Blue shoes
             </p>
             <div
               class="detail-rating"
@@ -74,14 +74,14 @@ exports[`ProductDetail component matches snapshot 1`] = `
             data-testid="price"
           >
             $
-            87
+            45
           </p>
         </div>
         <p
           class=" text-extra-regular"
           data-testid="text"
         >
-          Color: Black
+          Color: Blue
         </p>
         <div
           class="detail-size"
@@ -100,7 +100,7 @@ exports[`ProductDetail component matches snapshot 1`] = `
               class="dropdown-label text-"
               data-testid="text"
             >
-              Large
+              Small
             </p>
           </div>
         </div>
@@ -109,7 +109,7 @@ exports[`ProductDetail component matches snapshot 1`] = `
           class="detail-btn btn btn-secondary"
           data-testid="button"
         >
-          Add to bag $87
+          Add to bag $45
         </button>
         <p
           class="detail-description text-"
