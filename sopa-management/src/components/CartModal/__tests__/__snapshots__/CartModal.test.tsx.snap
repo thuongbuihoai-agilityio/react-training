@@ -225,8 +225,9 @@ exports[`Modal component Matches snapshot 1`] = `
       </div>
       <button
         aria-label=""
-        class="cart-update btn btn-"
+        class="cart-disable btn btn-"
         data-testid="button"
+        disabled=""
       >
         Update
       </button>
