@@ -4,8 +4,14 @@ import toast from 'react-hot-toast';
 
 // Components
 import Text, { SizeType } from '@common/Text';
-import Button, { ButtonType } from '@common/Button';
-import Price, { PriceType } from '@common/Price';
+import Button,
+{
+  ButtonType
+} from '@common/Button';
+import Price,
+{
+  PriceType
+} from '@common/Price';
 import Icon, { IconType } from '@components/common/Icon';
 import CartItem from './CartItem';
 
@@ -69,19 +75,21 @@ const CartModal = ({
           />
         </div>
         <div className='card-body'>
-          {carts.length ? (
-            <>
-              {carts?.map((cartItem: Product) => (
-                <CartItem key={cartItem.id} cartItem={cartItem} />
-              ))}
-            </>
-          ) : (
-            <Text
-              text='No products in cart'
-              type={SizeType.extraRegular}
-              className='cart-message'
-            />
-          )}
+          {carts.length
+            ? <>
+                {carts?.map((cartItem: Product) => (
+                  <CartItem
+                    key={cartItem.id}
+                    cartItem={cartItem}
+                  />
+                ))}
+              </>
+            : <Text
+                text='No products in cart'
+                type={SizeType.extraRegular}
+                className='cart-message'
+              />
+            }
         </div>
         <hr />
         <div className='cart-footer'>
