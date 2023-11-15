@@ -1,6 +1,7 @@
-import { memo, useCallback, useState } from 'react';
+import { memo, useCallback, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import toast from 'react-hot-toast';
+import { shallow } from 'zustand/shallow';
 
 // Components
 import Text,
@@ -25,18 +26,23 @@ import {
   useFetchCartProduct,
   useFetchProductDetail
 } from '@hooks/useQuery';
+import {
+  useMutationEditProductInCart,
+  useMutationPostProductToCart
+} from '@hooks/useMutate';
 
 // Constants
 import { SIZE } from '@constants/common';
 import { CONFIRM_MESSAGE } from '@constants/validate';
 
+// Interfaces
+import { Product } from '@interfaces/product';
+
+// Stores
+import { useCartStore } from '@stores/cart';
+
 // Styles
 import './productDetail.css';
-import {
-  useMutationEditProductInCart,
-  useMutationPostProductToCart
-} from '@hooks/useMutate';
-import { Product } from '@interfaces/product';
 
 const ProductDetail = () => {
   // use useParams to get id
@@ -47,7 +53,7 @@ const ProductDetail = () => {
   const { mutate: postProduct } = useMutationPostProductToCart();
   const { mutate: putProduct } = useMutationEditProductInCart();
 
-  const { data: cartStore } = useFetchCartProduct();
+  const { data } = useFetchCartProduct();
   const { data: product, isLoading } = useFetchProductDetail(id);
 
   const {
@@ -59,6 +65,21 @@ const ProductDetail = () => {
     size
   } = product;
 
+  const [carts, setCarts, addToCart] = useCartStore(
+    (state) => [
+      state.cart,
+      state.setCart,
+      state.addToCart
+    ],
+    shallow
+  );
+
+  useEffect(() => {
+    if (data) {
+      setCarts(data);
+    }
+  }, [data]);
+
   const handleAddToCart = () => {
     const newData = {
       ...product,
@@ -66,18 +87,29 @@ const ProductDetail = () => {
       size: selectedValue || size
     };
 
-    const currentCart = cartStore || [];
+    const currentCart = carts || [];
     const existingProductIndex = currentCart.findIndex(
       (item: Product) => item.id === product.id
     );
 
     if (existingProductIndex !== -1) {
-      putProduct({
-        ...currentCart[existingProductIndex],
-        quantity: currentCart[existingProductIndex].quantity + 1
-      });
+      putProduct(
+        {
+          ...currentCart[existingProductIndex],
+          quantity: currentCart[existingProductIndex].quantity + 1
+        },
+        {
+          onSuccess: () => {
+            addToCart(product, selectedValue || size);
+          }
+        }
+      );
     } else {
-      postProduct(newData);
+      postProduct(newData, {
+        onSuccess: () => {
+          addToCart(product, selectedValue || size);
+        }
+      });
     }
 
     toast.success(CONFIRM_MESSAGE.ADD_SUCCESS);
