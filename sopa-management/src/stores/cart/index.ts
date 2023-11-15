@@ -45,23 +45,25 @@ export const useCartStore = create<CartType>()((set) => ({
   },
 
   updateQuantity: (id: string, quantityType: QuantityType) => {
-    const currentCart = getStorage(STORAGE_KEY.CART_KEY) || [];
-    const updatedCart = currentCart.map((item: Product) => {
-      switch (quantityType) {
-        case QuantityType.increment:
-          return item.id === id
-            ? { ...item, quantity: item.quantity + 1 }
-            : item;
-        case QuantityType.decrement:
-          return item.id === id && item.quantity > 1
-            ? { ...item, quantity: item.quantity - 1 }
-            : item;
-        default:
-          return item;
-      }
-    });
-    setStorage(STORAGE_KEY.CART_KEY, updatedCart);
-    set({ cart: updatedCart });
+    set((state) => {
+      const currentCart = state.cart || [];
+      const updatedCart = currentCart.map((item: Product) => {
+        switch (quantityType) {
+          case QuantityType.increment:
+            return item.id === id
+              ? { ...item, quantity: item.quantity + 1 }
+              : item;
+          case QuantityType.decrement:
+            return item.id === id && item.quantity > 1
+              ? { ...item, quantity: item.quantity - 1 }
+              : item;
+          default:
+            return item;
+        }
+      });
+      set({ cart: updatedCart });
+      return { cart: updatedCart };
+    })
   },
 
   deleteCart: (id: string) => {
