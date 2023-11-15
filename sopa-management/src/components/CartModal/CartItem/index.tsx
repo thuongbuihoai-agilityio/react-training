@@ -36,10 +36,12 @@ import { CONFIRM_MESSAGE } from '@constants/validate';
 
 interface CartItemProps {
   cartItem: Product;
+  onChangeQuantity?: () => void;
 }
 
 const CartItem = ({
-  cartItem
+  cartItem,
+  onChangeQuantity = () => {}
 }: CartItemProps) => {
   const [openModalConfirm, setOpenModalConfirm] = useState<boolean>(false);
 
@@ -52,11 +54,13 @@ const CartItem = ({
   );
 
   const handleIncrement = useCallback(() => {
-    updateQuantity(cartItem.id, QuantityType.increment)
+    updateQuantity(cartItem.id, QuantityType.increment);
+    onChangeQuantity();
   }, [cartItem]);
 
   const handleDecrement = useCallback(() => {
-    updateQuantity(cartItem.id, QuantityType.decrement)
+    updateQuantity(cartItem.id, QuantityType.decrement);
+    onChangeQuantity();
   }, [cartItem]);
 
   const handleOpenModalConfirm = useCallback(() => {

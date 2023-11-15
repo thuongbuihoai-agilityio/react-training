@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { memo, useCallback, useState } from 'react';
 import { shallow } from 'zustand/shallow';
 import toast from 'react-hot-toast';
 
@@ -42,6 +42,11 @@ const CartModal = ({
 }: CartModalProps) => {
   const [carts] = useCartStore((state) => [state.cart], shallow);
   const { mutate: putProduct } = useMutationEditProductInCart();
+  const [checkChangesQuantity, setCheckChangesQuantity] = useState(false);
+
+  const handleCheckChangeQuantity = useCallback(() => {
+    setCheckChangesQuantity(!checkChangesQuantity)
+  }, [checkChangesQuantity])
 
   const handleUpdateProduct = async (products: Product[]) => {
     const updatedProducts = [];
@@ -76,20 +81,21 @@ const CartModal = ({
         </div>
         <div className='card-body'>
           {carts.length
-          ? <>
-              {carts?.map((cartItem: Product) => (
-                <CartItem
-                  key={cartItem.id}
-                  cartItem={cartItem}
-                />
-              ))}
-            </>
-          : <Text
-              text='No products in cart'
-              type={SizeType.extraRegular}
-              className='cart-message'
-            />
-          }
+            ? <>
+                {carts?.map((cartItem: Product) => (
+                  <CartItem
+                    key={cartItem.id}
+                    cartItem={cartItem}
+                    onChangeQuantity={handleCheckChangeQuantity}
+                  />
+                ))}
+              </>
+            : <Text
+                text='No products in cart'
+                type={SizeType.extraRegular}
+                className='cart-message'
+              />
+            }
         </div>
         <hr />
         <div className='cart-footer'>
@@ -98,7 +104,8 @@ const CartModal = ({
         </div>
         <Button
           children='Update'
-          className='cart-update'
+          className={checkChangesQuantity ? 'cart-update' : 'cart-disable'}
+          disable={!checkChangesQuantity}
           onClick={() => handleUpdateProduct(carts)}
         />
       </div>
