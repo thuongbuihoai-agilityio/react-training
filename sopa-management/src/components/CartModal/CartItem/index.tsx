@@ -3,9 +3,11 @@ import {
   useState
 } from 'react';
 import toast from 'react-hot-toast';
+import { shallow } from 'zustand/shallow';
 
 // Interfaces
 import { Product } from '@interfaces/product';
+import { QuantityType } from '@interfaces/cart';
 
 // Components
 import Button,
@@ -32,9 +34,6 @@ import PopupDelete from '@common/PopupDelete';
 import { useCartStore } from '@stores/cart';
 import { CONFIRM_MESSAGE } from '@constants/validate';
 
-// Hooks
-import { useMutationEditProductInCart } from '@hooks/useMutate';
-
 interface CartItemProps {
   cartItem: Product;
 }
@@ -43,26 +42,21 @@ const CartItem = ({
   cartItem
 }: CartItemProps) => {
   const [openModalConfirm, setOpenModalConfirm] = useState<boolean>(false);
-  const { mutate: putProduct } = useMutationEditProductInCart();
 
-  const { deleteCart } = useCartStore();
+  const [updateQuantity, deleteCart] = useCartStore(
+    (state) => [
+      state.updateQuantity,
+      state.deleteCart
+    ],
+    shallow
+  );
 
   const handleIncrement = useCallback(() => {
-    putProduct({
-      ...cartItem,
-      quantity: cartItem.quantity + 1
-    });
+    updateQuantity(cartItem.id, QuantityType.increment)
   }, [cartItem]);
 
   const handleDecrement = useCallback(() => {
-    const checkQuantity = cartItem.quantity > 1
-      ? cartItem.quantity - 1
-      : cartItem.quantity;
-
-    putProduct({
-      ...cartItem,
-      quantity: checkQuantity
-    });
+    updateQuantity(cartItem.id, QuantityType.decrement)
   }, [cartItem]);
 
   const handleOpenModalConfirm = useCallback(() => {

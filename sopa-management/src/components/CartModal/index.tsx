@@ -1,5 +1,6 @@
 import { memo } from 'react';
 import { shallow } from 'zustand/shallow';
+import toast from 'react-hot-toast';
 
 // Components
 import Text, { SizeType } from '@common/Text';
@@ -22,6 +23,13 @@ import { totalPrices } from '@helpers/common';
 // Stores
 import { useCartStore } from '@stores/cart';
 
+// Constants
+import { CONFIRM_MESSAGE } from '@constants/validate';
+
+
+// Hooks
+import { useMutationEditProductInCart } from '@hooks/useMutate';
+
 // Styles
 import './cartModal.css';
 import Icon, { IconType } from '@components/common/Icon';
@@ -33,6 +41,26 @@ const CartModal = ({
   onToggleModal
 }: CartModalProps) => {
   const [carts] = useCartStore((state) => [state.cart], shallow);
+  const { mutate: putProduct } = useMutationEditProductInCart();
+
+  const handleUpdateProduct = async (products: Product[]) => {
+    const updatedProducts = [];
+    for (const product of products) {
+      const updatedProduct = await putProduct({
+        ...product,
+        quantity: product.quantity
+      },
+      {
+        onError: (error) => {
+          toast.error((error as { message: string }).message);
+        },
+        onSuccess: () => {
+          updatedProducts.push(updatedProduct);
+          toast.success(CONFIRM_MESSAGE.UPDATE_SUCCESS);
+        },
+      });
+    }
+  };
 
   return (
     <div data-testid='cart-modal' className='overlay'>
@@ -68,6 +96,11 @@ const CartModal = ({
           <Text text='Subtotal' className='cart-text' />
           <Price value={totalPrices(carts)} type={PriceType.tertiary} />
         </div>
+        <Button
+          children='Update'
+          className='cart-update'
+          onClick={() => handleUpdateProduct(carts)}
+        />
       </div>
     </div>
   );
