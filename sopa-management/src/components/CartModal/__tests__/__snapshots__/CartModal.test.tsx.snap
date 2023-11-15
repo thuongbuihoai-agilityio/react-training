@@ -223,6 +223,13 @@ exports[`Modal component Matches snapshot 1`] = `
           219
         </p>
       </div>
+      <button
+        aria-label=""
+        class="cart-update btn btn-"
+        data-testid="button"
+      >
+        Update
+      </button>
     </div>
   </div>
 </div>

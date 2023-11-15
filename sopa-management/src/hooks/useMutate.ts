@@ -1,7 +1,6 @@
-import { useMutation, useQueryClient } from 'react-query';
+import { useMutation } from 'react-query';
 
 // Constants
-import { QUERY_KEYS } from '@constants/keyQuery';
 import { CART_URL } from '@constants/url';
 
 // Services
@@ -12,13 +11,9 @@ import { Product } from '@interfaces/product';
  * @description Custom hook post product
  */
 export const useMutationPostProductToCart = () => {
-  const queryClient = useQueryClient();
-
   return useMutation({
-    mutationFn: (product: Product) => api.postData(CART_URL, product),
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.CARTS] });
-    }
+    mutationFn: async (product: Product) =>
+      await api.postData(CART_URL, product),
   });
 };
 
@@ -26,14 +21,9 @@ export const useMutationPostProductToCart = () => {
  * @description Custom hook edit product
  */
 export const useMutationEditProductInCart = () => {
-  const queryClient = useQueryClient();
-
   return useMutation({
-    mutationFn: (product: Product) =>
-      api.putData(`${CART_URL}/${product.id}`, product),
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.CARTS] });
-    }
+    mutationFn: async (product: Product) =>
+      await api.putData(`${CART_URL}/${product.id}`, product),
   });
 };
 
@@ -42,12 +32,8 @@ export const useMutationEditProductInCart = () => {
  * @description Custom hook delete product
  */
 export const useMutationDeleteProduct = () => {
-  const queryClient = useQueryClient();
-
   return useMutation({
-    mutationFn: async (id: string) => await api.deleteData(`${CART_URL}/${id}`),
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.CARTS] });
-    },
+    mutationFn: async (id: string) =>
+      await api.deleteData(`${CART_URL}/${id}`),
   });
 };

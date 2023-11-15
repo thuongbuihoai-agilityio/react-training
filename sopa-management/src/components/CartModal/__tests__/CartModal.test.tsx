@@ -8,13 +8,16 @@ import { renderWithRouterAndQuery } from '@helpers/testUtils';
 import CartModal from '@components/CartModal';
 import { MOCK_PRODUCTS } from '@mocks/product';
 
-jest.mock('@stores/cart', () => ({
-  useCartStore: jest.fn(() => ({
-    carts: MOCK_PRODUCTS,
-  })),
-}));
+// Stores
+import { useCartStore } from '@stores/cart';
 
 describe('Modal component', () => {
+  beforeEach(() => {
+    useCartStore.setState({
+      cart: MOCK_PRODUCTS,
+    });
+  });
+
   test('Should render Modal component by default', () => {
     const { getByTestId } = renderWithRouterAndQuery(<CartModal />);
     const cartModal = getByTestId('cart-modal');

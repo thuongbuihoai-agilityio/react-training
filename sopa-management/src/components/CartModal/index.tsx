@@ -1,14 +1,13 @@
-import { memo, useEffect } from 'react';
-import { useShallow } from 'zustand/react/shallow';
+import { memo } from 'react';
+import { shallow } from 'zustand/shallow';
+import toast from 'react-hot-toast';
 
 // Components
 import Text, { SizeType } from '@common/Text';
 import Button, { ButtonType } from '@common/Button';
 import Price, { PriceType } from '@common/Price';
+import Icon, { IconType } from '@components/common/Icon';
 import CartItem from './CartItem';
-
-// Hooks
-import { useFetchCartProduct } from '@hooks/useQuery';
 
 // Interfaces
 import { Product } from '@interfaces/product';
@@ -19,30 +18,43 @@ import { totalPrices } from '@helpers/common';
 // Stores
 import { useCartStore } from '@stores/cart';
 
+// Constants
+import { CONFIRM_MESSAGE } from '@constants/validate';
+
+
+// Hooks
+import { useMutationEditProductInCart } from '@hooks/useMutate';
+
 // Styles
 import './cartModal.css';
-import Icon, { IconType } from '@components/common/Icon';
 
 interface CartModalProps {
   onToggleModal?: () => void;
 }
 const CartModal = ({
-  onToggleModal,
+  onToggleModal
 }: CartModalProps) => {
-  const { carts, setCarts } = useCartStore(
-    useShallow((state) => ({
-      carts: state.carts,
-      setCarts: state.setCarts
-    }))
-  );
+  const [carts] = useCartStore((state) => [state.cart], shallow);
+  const { mutate: putProduct } = useMutationEditProductInCart();
 
-  const { data } = useFetchCartProduct();
-
-  useEffect(() => {
-    if (data) {
-      setCarts(data);
+  const handleUpdateProduct = async (products: Product[]) => {
+    const updatedProducts = [];
+    for (const product of products) {
+      const updatedProduct = await putProduct({
+        ...product,
+        quantity: product.quantity
+      },
+      {
+        onError: (error) => {
+          toast.error((error as { message: string }).message);
+        },
+        onSuccess: () => {
+          updatedProducts.push(updatedProduct);
+          toast.success(CONFIRM_MESSAGE.UPDATE_SUCCESS);
+        },
+      });
     }
-  }, [data]);
+  };
 
   return (
     <div data-testid='cart-modal' className='overlay'>
@@ -76,6 +88,11 @@ const CartModal = ({
           <Text text='Subtotal' className='cart-text' />
           <Price value={totalPrices(carts)} type={PriceType.tertiary} />
         </div>
+        <Button
+          children='Update'
+          className='cart-update'
+          onClick={() => handleUpdateProduct(carts)}
+        />
       </div>
     </div>
   );
