@@ -32,7 +32,7 @@ interface CartModalProps {
 const CartModal = ({
   onToggleModal
 }: CartModalProps) => {
-  const [carts] = useCartStore((state) => [state.cart], shallow);
+  const [cart] = useCartStore((state) => [state.cart], shallow);
 
   return (
     <div data-testid='cart-modal' className='overlay'>
@@ -47,9 +47,9 @@ const CartModal = ({
           />
         </div>
         <div className='card-body'>
-          {carts.length
+          {cart.length
           ? <>
-              {carts?.map((cartItem: Product) => (
+              {cart?.map((cartItem: Product) => (
                 <CartItem
                   key={cartItem.id}
                   cartItem={cartItem}
@@ -66,7 +66,7 @@ const CartModal = ({
         <hr />
         <div className='cart-footer'>
           <Text text='Subtotal' className='cart-text' />
-          <Price value={totalPrices(carts)} type={PriceType.tertiary} />
+          <Price value={totalPrices(cart)} type={PriceType.tertiary} />
         </div>
       </div>
     </div>
