@@ -44,7 +44,6 @@ const config: Config.InitialOptions = {
     '!<rootDir>/*.config.js',
     '!<rootDir>/coverage/**',
     '!<rootDir>/public/**',
-    '!**/src/layouts/MainLayout/**',
     '!**/*.config.ts'
   ]
 };
