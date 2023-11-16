@@ -8,7 +8,7 @@ import {
   Controller
 } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
-import { useShallow } from 'zustand/react/shallow';
+import { shallow } from 'zustand/shallow';
 import toast from 'react-hot-toast';
 
 // Components
@@ -60,20 +60,21 @@ const Login = () => {
   const passwordRef = useRef<HTMLInputElement | null>(null);
 
   const { data } = useFetchUser();
-  const {
+  const [
     isIncorrectEmail,
     isIncorrectPassword,
     setIsIncorrectEmail,
     setIsIncorrectPassword,
-    handleLogin,
-  } = useAuthenticationStore(
-    useShallow((state) => ({
-      isIncorrectEmail: state.isIncorrectEmail,
-      isIncorrectPassword: state.isIncorrectPassword,
-      setIsIncorrectEmail: state.setIsIncorrectEmail,
-      setIsIncorrectPassword: state.setIsIncorrectPassword,
-      handleLogin: state.login
-    }))
+    handleLogin
+  ] = useAuthenticationStore(
+    (state) => [
+      state.isIncorrectEmail,
+      state.isIncorrectPassword,
+      state.setIsIncorrectEmail,
+      state.setIsIncorrectPassword,
+      state.login
+    ],
+    shallow
   );
 
   const resetErrors = () => {

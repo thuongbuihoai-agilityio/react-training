@@ -9,7 +9,7 @@ exports[`Header component matches snapshot 1`] = `
     <a
       aria-label="link to home page"
       data-testid="image-link"
-      href="/"
+      href="/login"
     >
       <img
         alt="/images/logos/black-logo.svg"

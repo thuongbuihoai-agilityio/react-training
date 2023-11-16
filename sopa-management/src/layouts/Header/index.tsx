@@ -28,9 +28,20 @@ import { MENU_HEADER } from '@constants/common';
 // Styles
 import './header.css';
 import Icon, { IconType } from '@components/common/Icon';
+import { useAuthenticationStore } from '@stores/login';
+import { shallow } from 'zustand/shallow';
 
 const Header = () => {
   const [toggleModal, setToggleModal] = useState<boolean>(false);
+
+  const [accounts] = useAuthenticationStore(
+    (state) => [
+      state.accounts,
+    ],
+    shallow
+  );
+
+  const imageHref = accounts.length === 0 ? '/login' : '/';
 
   const handleToggleModal = useCallback(() => {
     setToggleModal(!toggleModal);
@@ -40,7 +51,7 @@ const Header = () => {
     <>
       <div data-testid='header' className='header'>
         <Image
-          href='/'
+          href={imageHref}
           url={IMAGE.blackLogo}
           alt={IMAGE.blackLogo}
           width={144}
