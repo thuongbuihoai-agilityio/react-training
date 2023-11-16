@@ -1,5 +1,4 @@
 import { memo, useCallback, useState } from 'react';
-import { shallow } from 'zustand/shallow';
 import toast from 'react-hot-toast';
 
 // Components
@@ -21,9 +20,6 @@ import { Product } from '@interfaces/product';
 // Helpers
 import { totalPrices } from '@helpers/common';
 
-// Stores
-import { useCartStore } from '@stores/cart';
-
 // Constants
 import { CONFIRM_MESSAGE } from '@constants/validate';
 
@@ -35,12 +31,13 @@ import { useMutationEditProductInCart } from '@hooks/useMutate';
 import './cartModal.css';
 
 interface CartModalProps {
+  carts: Product[];
   onToggleModal?: () => void;
 }
 const CartModal = ({
+  carts,
   onToggleModal
 }: CartModalProps) => {
-  const [carts] = useCartStore((state) => [state.cart], shallow);
   const { mutate: putProduct } = useMutationEditProductInCart();
   const [checkChangesQuantity, setCheckChangesQuantity] = useState(false);
 
