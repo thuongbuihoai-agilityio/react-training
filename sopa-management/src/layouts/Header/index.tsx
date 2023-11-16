@@ -7,22 +7,19 @@ import {
 import { shallow } from 'zustand/shallow';
 
 // Components
-import Image from '@components/common/Image';
-import Menu,
-{
-  MenuTheme
-} from '@components/common/Menu';
-import Button,
-{
-  ButtonType
-} from '@components/common/Button';
-import Text,
-{
-  SizeType
-} from '@components/common/Text';
+import {
+  Button,
+  ButtonType,
+  Icon,
+  IconType,
+  Image,
+  Logout,
+  Menu,
+  MenuTheme,
+  SizeType,
+  Text
+} from '@components/common';
 import CartModal from '@components/CartModal';
-import Logout from '@components/common/Logout';
-import Icon, { IconType } from '@components/common/Icon';
 
 // Constants
 import { IMAGE } from '@constants/image';
@@ -43,9 +40,7 @@ const Header = () => {
   const [toggleModal, setToggleModal] = useState<boolean>(false);
 
   const [authenticated] = useAuthenticationStore(
-    (state) => [
-      state.authenticated,
-    ],
+    (state) => [state.authenticated],
     shallow
   );
   const imageHref = authenticated === false ? '/login' : '/';
@@ -55,10 +50,7 @@ const Header = () => {
   }, [toggleModal]);
 
   const [carts, setCarts] = useCartStore(
-    (state) => [
-      state.cart,
-      state.setCart,
-    ],
+    (state) => [state.cart, state.setCart],
     shallow
   );
 
@@ -87,10 +79,7 @@ const Header = () => {
           />
         </div>
         <div className='header-support'>
-          <Text
-            text='Support'
-            type={SizeType.normal}
-            className='header-text' />
+          <Text text='Support' type={SizeType.normal} className='header-text' />
           <Logout className='header-user' />
           <Button
             ariaLabel='Shopping bag'
@@ -101,8 +90,9 @@ const Header = () => {
           />
         </div>
       </div>
-      {toggleModal &&
-        <CartModal carts={carts} onToggleModal={handleToggleModal} />}
+      {toggleModal && (
+        <CartModal carts={carts} onToggleModal={handleToggleModal} />
+      )}
     </>
   );
 };

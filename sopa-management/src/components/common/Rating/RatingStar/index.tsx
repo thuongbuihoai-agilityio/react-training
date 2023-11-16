@@ -1,11 +1,11 @@
 import { memo } from 'react';
 
 // Components
-import Text from '@common/Text';
-import Icon,
-{
-  IconType
-} from '@components/common/Icon';
+import {
+  Icon,
+  IconType,
+  Text
+} from '@components/common';
 
 interface RatingStart {
   value?: string;

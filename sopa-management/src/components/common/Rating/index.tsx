@@ -1,6 +1,9 @@
 // Components
-import Text, { SizeType } from '@common/Text';
-import RatingStar from './RatingStar';
+import {
+  RatingStar,
+  SizeType,
+  Text
+} from '@components/common';
 
 // Styles
 import './rating.css';

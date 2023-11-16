@@ -10,34 +10,26 @@ import { Product } from '@interfaces/product';
 import { QuantityType } from '@interfaces/cart';
 
 // Components
-import Button,
-{
-  ButtonType
-} from '@common/Button';
-import Price,
-{
-  PriceType
-} from '@common/Price';
-import Text,
-{
+import {
+  Button,
+  ButtonType,
+  Counter,
+  Icon,
+  IconType,
+  Image,
+  PopupDelete,
+  Price,
+  PriceType,
+  Text,
   ThemeType
-} from '@common/Text';
-import Icon,
-{
-  IconType
-} from '@components/common/Icon';
-import Counter from '@common/Counter';
-import Image from '@common/Image';
-import PopupDelete from '@common/PopupDelete';
+} from '@components/common';
 
 // Stores
 import { useCartStore } from '@stores/cart';
 import { CONFIRM_MESSAGE } from '@constants/validate';
 
 // Hooks
-import {
-  useMutationDeleteProduct,
-} from '@hooks/useMutate';
+import { useMutationDeleteProduct } from '@hooks/useMutate';
 
 interface CartItemProps {
   cartItem: Product;
@@ -52,10 +44,7 @@ const CartItem = ({
   const { mutate: deleteProduct } = useMutationDeleteProduct();
 
   const [updateQuantity, deleteProductInCart] = useCartStore(
-    (state) => [
-      state.updateQuantity,
-      state.deleteProductInCart
-    ],
+    (state) => [state.updateQuantity, state.deleteProductInCart],
     shallow
   );
 
@@ -79,9 +68,9 @@ const CartItem = ({
         toast.error((error as { message: string }).message);
       },
       onSuccess: () => {
-        deleteProductInCart(cartItem.id)
+        deleteProductInCart(cartItem.id);
         toast.success(CONFIRM_MESSAGE.DELETE_SUCCESS);
-      },
+      }
     });
   }, []);
 

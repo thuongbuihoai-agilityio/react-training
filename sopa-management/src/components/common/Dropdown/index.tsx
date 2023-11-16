@@ -5,9 +5,11 @@ import {
 } from 'react';
 import { Link } from 'react-router-dom';
 
+// Components
+import { Text } from '@components/common';
+
 // Styles
 import './dropdown.css';
-import Text from '../Text';
 
 export type SizeType = {
   key?: string;

@@ -2,12 +2,12 @@
 import { useInfiniteProducts } from '@hooks/useQuery';
 
 // Components
+import {
+  Button,
+  ButtonType,
+  Loading
+} from '@components/common';
 import ProductCard from './ProductCard';
-import Button,
-{
-  ButtonType
-} from '@common/Button';
-import Loading from '@common/Loading';
 
 // Styles
 import './productList.css';

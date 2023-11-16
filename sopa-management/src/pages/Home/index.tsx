@@ -1,6 +1,8 @@
 import ProductList from '@components/ProductList';
-import Carousel from '@components/common/Carousel';
-import Partners from '@components/common/Partners';
+import {
+  Carousel,
+  Partners
+} from '@components/common';
 
 const Home = () => (
   <>

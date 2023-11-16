@@ -4,27 +4,21 @@ import toast from 'react-hot-toast';
 import { shallow } from 'zustand/shallow';
 
 // Components
-import Text,
-{
-  SizeType
-} from '@components/common/Text';
-import Price,
-{
-  PriceType
-} from '@components/common/Price';
-import Dropdown from '@components/common/Dropdown';
-import Button,
-{
-  ButtonType
-} from '@components/common/Button';
-import Rating from '@common/Rating';
-import RatingStar from '@common/Rating/RatingStar';
-import Loading from '@components/common/Loading';
+import {
+  Button,
+  ButtonType,
+  Dropdown,
+  Loading,
+  Price,
+  PriceType,
+  Rating,
+  RatingStar,
+  SizeType,
+  Text
+} from '@components/common';
 
 // Hooks
-import {
-  useFetchProductDetail
-} from '@hooks/useQuery';
+import { useFetchProductDetail } from '@hooks/useQuery';
 import {
   useMutationEditProductInCart,
   useMutationPostProductToCart

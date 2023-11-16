@@ -1,14 +1,12 @@
 import { Link } from 'react-router-dom';
 
 // Components
-import Text,
-{
+import {
+  Icon,
+  IconType,
+  Text,
   ThemeType
-} from '@common/Text';
-import Icon,
-{
-  IconType
-} from '../Icon';
+} from '@components/common';
 
 // Styles
 import './social.css';

@@ -1,8 +1,10 @@
 import { memo } from 'react';
 
 // Components
-import Button from '@common/Button';
-import Text from '@common/Text';
+import {
+  Button,
+  Text
+} from '@components/common';
 
 // Styles
 import './popup.css';
