@@ -6,11 +6,16 @@
   width: var(--w-normal);
 }
 
-.counter-minus {
+.counter-minus,
+.counter-minus-disable {
   height: 44px;
   position: absolute;
   z-index: 2;
   left: 20px;
+}
+
+.counter-minus-disable {
+  cursor: not-allowed;
 }
 
 .counter-plus {
@@ -20,6 +25,7 @@
 }
 
 .counter-minus:before,
+.counter-minus-disable:before,
 .counter-plus:before,
 .counter-plus:after {
   content: '';

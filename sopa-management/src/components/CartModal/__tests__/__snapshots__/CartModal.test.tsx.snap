@@ -165,8 +165,9 @@ exports[`Modal component Matches snapshot 1`] = `
                 >
                   <button
                     aria-label="Decrement"
-                    class="counter-minus btn btn-icon-primary"
+                    class="counter-minus-disable btn btn-icon-primary"
                     data-testid="button"
+                    disabled=""
                   />
                   <input
                     aria-hidden="true"

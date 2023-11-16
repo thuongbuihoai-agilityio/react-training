@@ -1,4 +1,4 @@
-import { memo, useCallback, useEffect, useState } from 'react';
+import { memo, useCallback, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import { shallow } from 'zustand/shallow';
@@ -23,7 +23,6 @@ import Loading from '@components/common/Loading';
 
 // Hooks
 import {
-  useFetchCartProduct,
   useFetchProductDetail
 } from '@hooks/useQuery';
 import {
@@ -53,7 +52,6 @@ const ProductDetail = () => {
   const { mutate: postProduct } = useMutationPostProductToCart();
   const { mutate: putProduct } = useMutationEditProductInCart();
 
-  const { data } = useFetchCartProduct();
   const { data: product, isLoading } = useFetchProductDetail(id);
 
   const {
@@ -65,20 +63,13 @@ const ProductDetail = () => {
     size
   } = product;
 
-  const [carts, setCarts, addToCart] = useCartStore(
+  const [carts, addToCart] = useCartStore(
     (state) => [
       state.cart,
-      state.setCart,
       state.addToCart
     ],
     shallow
   );
-
-  useEffect(() => {
-    if (data) {
-      setCarts(data);
-    }
-  }, [data]);
 
   const handleAddToCart = () => {
     const newData = {

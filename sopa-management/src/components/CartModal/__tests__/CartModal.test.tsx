@@ -19,20 +19,20 @@ describe('Modal component', () => {
   });
 
   test('Should render Modal component by default', () => {
-    const { getByTestId } = renderWithRouterAndQuery(<CartModal />);
+    const { getByTestId } = renderWithRouterAndQuery(<CartModal carts={MOCK_PRODUCTS} />);
     const cartModal = getByTestId('cart-modal');
     expect(cartModal).toBeInTheDocument();
   });
 
   test('should render CartModal with cart items when carts is true', () => {
-    const { getByTestId, getByText } = renderWithRouterAndQuery(<CartModal />);
+    const { getByTestId, getByText } = renderWithRouterAndQuery(<CartModal carts={MOCK_PRODUCTS} />);
     const cartModal = getByTestId('cart-modal');
     expect(cartModal).toBeInTheDocument();
     expect(getByText('Cart')).toBeInTheDocument();
   });
 
   test('Matches snapshot', () => {
-    const { container } = renderWithRouterAndQuery(<CartModal />);
+    const { container } = renderWithRouterAndQuery(<CartModal carts={MOCK_PRODUCTS} />);
     expect(container).toMatchSnapshot();
   });
 });
