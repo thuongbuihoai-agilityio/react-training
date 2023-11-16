@@ -14,6 +14,7 @@
     "test-coverage": "jest --coverage",
     "pre-commit-lint": "pnpm lint-staged",
     "prepare": "cd .. && husky install sopa-management/.husky",
+    "server": "json-server --watch --port 8000 src/json-server/db.json",
     "pre-push-lint": "rm -rf storybook-static/ && pnpm build-storybook -s public && vite build"
   },
   "dependencies": {

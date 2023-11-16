@@ -51,7 +51,7 @@ export const useInfiniteProducts = () => {
 
   const { data, ...rest } =  useInfiniteQuery<Product[], AxiosError>({
     queryKey: [QUERY_KEYS.PRODUCTS],
-    queryFn: ({ pageParam = 1 }) => api.getData(`${PRODUCT_URL}?limit=${limit}&page=${pageParam}`),
+    queryFn: ({ pageParam = 1 }) => api.getData(`${PRODUCT_URL}?_limit=${limit}&_page=${pageParam}`),
     getNextPageParam: (lastPage, pages) => {
       const nextPage = pages.length + 1;
       return lastPage?.length > 0 && lastPage?.length === LIMIT_PRODUCTS

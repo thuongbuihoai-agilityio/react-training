@@ -16,7 +16,7 @@ describe("fetch api", () => {
   test("get product item should call", async () => {
     mockAxios.get.mockResolvedValueOnce({ data: MOCK_PRODUCTS });
     const result = await api.getData(PRODUCT_URL);
-    expect(mockAxios.get).toHaveBeenCalledWith(`${PRODUCT_URL}?limit=6&page=1`);
+    expect(mockAxios.get).toHaveBeenCalledWith(PRODUCT_URL);
     expect(result).toEqual(MOCK_PRODUCTS);
   });
 });
