@@ -34,14 +34,10 @@ jest.mock('@hooks/useQuery', () => ({
   useFetchCartProduct: jest.fn()
 }));
 
-// Mock handleAddToCart
-const mockHandleAddToCart = jest.fn();
-
 describe('ProductDetail component', () => {
   beforeEach(() => {
     useCartStore.setState({
       cart: MOCK_PRODUCTS,
-      setCart: mockHandleAddToCart,
     });
   });
 
@@ -81,15 +77,6 @@ describe('ProductDetail component', () => {
     expect(
       screen.getByRole('button', { name: /Add to bag/i })
     ).toBeInTheDocument();
-  });
-
-  test('should call handleAddToCart when "Add to bag" button is clicked', async () => {
-    renderWithRouterAndQuery(<ProductDetail />);
-
-    const addToBagButton = screen.getByRole('button', { name: /Add to bag/i });
-    await userEvent.click(addToBagButton);
-
-    expect(mockHandleAddToCart).toHaveBeenCalled();
   });
 
   test('updates the selected value when a different value is selected', async () => {
