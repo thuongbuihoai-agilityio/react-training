@@ -16,17 +16,15 @@ import { useAuthenticationStore } from '@stores/login';
 const MainLayout = (): JSX.Element => {
   const navigate = useNavigate();
 
-  const [accounts] = useAuthenticationStore(
+  const [authenticated] = useAuthenticationStore(
     (state) => [
-      state.accounts,
+      state.authenticated,
     ],
     shallow
   );
 
-  console.log('account main', accounts);
   useEffect(() => {
-    if (accounts.length === 0) {
-      console.log('run', accounts);
+    if (authenticated === false) {
       navigate('/login');
     }
   }, []);

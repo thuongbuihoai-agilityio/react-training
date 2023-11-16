@@ -42,14 +42,13 @@ const Header = () => {
   const { data } = useFetchCartProduct();
   const [toggleModal, setToggleModal] = useState<boolean>(false);
 
-  const [accounts] = useAuthenticationStore(
+  const [authenticated] = useAuthenticationStore(
     (state) => [
-      state.accounts,
+      state.authenticated,
     ],
     shallow
   );
-
-  const imageHref = accounts.length === 0 ? '/login' : '/';
+  const imageHref = authenticated === false ? '/login' : '/';
 
   const handleToggleModal = useCallback(() => {
     setToggleModal(!toggleModal);
