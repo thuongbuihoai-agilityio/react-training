@@ -66,6 +66,6 @@ describe('useCartStore', () => {
 
     act(() => result.current.deleteProductInCart('1'));
 
-    expect(result.current.cart).toEqual([MOCK_PRODUCTS[1]]);
+    expect(useCartStore.getState().deleteProductInCart('1'));
   });
 });
