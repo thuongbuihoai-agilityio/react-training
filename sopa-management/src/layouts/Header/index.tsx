@@ -48,7 +48,7 @@ const Header = () => {
     ],
     shallow
   );
-  const imageHref = authenticated === false ? '/login' : '/';
+  const imageHref = authenticated ? '/' : '/login';
 
   const handleToggleModal = useCallback(() => {
     setToggleModal(!toggleModal);

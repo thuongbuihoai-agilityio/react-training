@@ -15,7 +15,7 @@ import { STORAGE_KEY } from '@constants/common';
 
 interface AccountType {
   accounts: Account[];
-  authenticated: Boolean;
+  authenticated: boolean;
   isIncorrectEmail: boolean;
   isIncorrectPassword: boolean;
   setAccounts: (value: Account[]) => void;

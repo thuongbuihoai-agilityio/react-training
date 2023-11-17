@@ -24,7 +24,7 @@ const MainLayout = (): JSX.Element => {
   );
 
   useEffect(() => {
-    if (authenticated === false) {
+    if (!authenticated) {
       navigate('/login');
     }
   }, []);
