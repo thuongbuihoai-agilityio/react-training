@@ -4,7 +4,7 @@ import {
   useState
 } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useShallow } from 'zustand/react/shallow';
+import { shallow } from 'zustand/shallow';
 
 // Components
 import Button, { ButtonType } from '@common/Button';
@@ -21,10 +21,11 @@ interface LogoutProps {
 const Logout = ({ className = '' }: LogoutProps) => {
   const navigate = useNavigate();
 
-  const { logout } = useAuthenticationStore(
-    useShallow((state) => ({
-      logout: state.logout
-    }))
+  const [logout] = useAuthenticationStore(
+    (state) => [
+      state.logout,
+    ],
+    shallow
   );
 
   const [showDropdown, setShowDropdown] = useState<boolean>(false);
@@ -34,6 +35,7 @@ const Logout = ({ className = '' }: LogoutProps) => {
   }, [showDropdown]);
 
   const handleLogout = () => {
+    useAuthenticationStore.persist.clearStorage();
     logout();
     navigate('/login');
   };

@@ -15,6 +15,7 @@ import { STORAGE_KEY } from '@constants/common';
 
 interface AccountType {
   accounts: Account[];
+  authenticated: boolean;
   isIncorrectEmail: boolean;
   isIncorrectPassword: boolean;
   setAccounts: (value: Account[]) => void;
@@ -33,6 +34,7 @@ export const useAuthenticationStore = create<AccountType>()(
   persist(
     (set) => ({
       accounts: [],
+      authenticated: false,
       isIncorrectEmail: false,
       isIncorrectPassword: false,
       setAccounts: (data: Account[]) => set(() => ({ accounts: data })),
@@ -62,7 +64,8 @@ export const useAuthenticationStore = create<AccountType>()(
           set((state) => ({
             ...state,
             isIncorrectEmail: !!checkCorrectEmail,
-            isIncorrectPassword: !!checkCorrectPassword
+            isIncorrectPassword: !!checkCorrectPassword,
+            authenticated: true
           }));
         } else {
           set((state) => ({
@@ -72,12 +75,12 @@ export const useAuthenticationStore = create<AccountType>()(
           }));
         }
       },
-      logout: () => set((state) => ({...state, accounts: []})),
+      logout: () => set((state) => ({ ...state, authenticated: false }))
     }),
     {
       name: STORAGE_KEY.TOKEN,
       partialize: (state) => ({
-        accounts: state.accounts
+        authenticated: state.authenticated
       }),
     }
   )

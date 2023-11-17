@@ -7,6 +7,6 @@
 }
 
 .product-item-btn {
-  font-family: 'rubik';
+  font-family: 'var(--font-primary)';
   font-size: var(--text-extra-sm);
 }

@@ -33,6 +33,7 @@ import { useFetchCartProduct } from '@hooks/useQuery';
 
 // Stores
 import { useCartStore } from '@stores/cart';
+import { useAuthenticationStore } from '@stores/login';
 
 // Styles
 import './header.css';
@@ -40,6 +41,14 @@ import './header.css';
 const Header = () => {
   const { data } = useFetchCartProduct();
   const [toggleModal, setToggleModal] = useState<boolean>(false);
+
+  const [authenticated] = useAuthenticationStore(
+    (state) => [
+      state.authenticated,
+    ],
+    shallow
+  );
+  const imageHref = authenticated ? '/' : '/login';
 
   const handleToggleModal = useCallback(() => {
     setToggleModal(!toggleModal);
@@ -63,7 +72,7 @@ const Header = () => {
     <>
       <div data-testid='header' className='header'>
         <Image
-          href='/'
+          href={imageHref}
           url={IMAGE.blackLogo}
           alt={IMAGE.blackLogo}
           width={144}

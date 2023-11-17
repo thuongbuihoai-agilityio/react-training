@@ -4,7 +4,7 @@ import {
   useNavigate
 } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
-import { useShallow } from 'zustand/react/shallow';
+import { shallow } from 'zustand/shallow';
 
 //  Components
 import Header from '@layouts/Header';
@@ -16,14 +16,15 @@ import { useAuthenticationStore } from '@stores/login';
 const MainLayout = (): JSX.Element => {
   const navigate = useNavigate();
 
-  const { accounts } = useAuthenticationStore(
-    useShallow((state) => ({
-      accounts: state.accounts
-    }))
+  const [authenticated] = useAuthenticationStore(
+    (state) => [
+      state.authenticated,
+    ],
+    shallow
   );
 
   useEffect(() => {
-    if (!accounts) {
+    if (!authenticated) {
       navigate('/login');
     }
   }, []);
