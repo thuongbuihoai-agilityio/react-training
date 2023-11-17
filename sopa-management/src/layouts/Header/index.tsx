@@ -1,8 +1,10 @@
 import {
   memo,
   useCallback,
+  useEffect,
   useState
 } from 'react';
+import { shallow } from 'zustand/shallow';
 
 // Components
 import Image from '@components/common/Image';
@@ -20,21 +22,42 @@ import Text,
 } from '@components/common/Text';
 import CartModal from '@components/CartModal';
 import Logout from '@components/common/Logout';
+import Icon, { IconType } from '@components/common/Icon';
 
 // Constants
 import { IMAGE } from '@constants/image';
 import { MENU_HEADER } from '@constants/common';
 
+// Hooks
+import { useFetchCartProduct } from '@hooks/useQuery';
+
+// Stores
+import { useCartStore } from '@stores/cart';
+
 // Styles
 import './header.css';
-import Icon, { IconType } from '@components/common/Icon';
 
 const Header = () => {
+  const { data } = useFetchCartProduct();
   const [toggleModal, setToggleModal] = useState<boolean>(false);
 
   const handleToggleModal = useCallback(() => {
     setToggleModal(!toggleModal);
   }, [toggleModal]);
+
+  const [carts, setCarts] = useCartStore(
+    (state) => [
+      state.cart,
+      state.setCart,
+    ],
+    shallow
+  );
+
+  useEffect(() => {
+    if (data) {
+      setCarts(data);
+    }
+  }, [data]);
 
   return (
     <>
@@ -69,7 +92,8 @@ const Header = () => {
           />
         </div>
       </div>
-      {toggleModal && <CartModal onToggleModal={handleToggleModal} />}
+      {toggleModal &&
+        <CartModal carts={carts} onToggleModal={handleToggleModal} />}
     </>
   );
 };

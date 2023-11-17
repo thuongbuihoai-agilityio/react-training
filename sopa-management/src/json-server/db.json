@@ -234,22 +234,22 @@
         "url": "/images/products/green-shoes.png",
         "alt": "This is green shoes"
       },
-      "size": "Medium",
+      "size": "Small",
       "description": "Our goal in designing the super-soft Atoms Crew Socks was to provide a seamless match with your Atoms shoes, enhancing your comfort for everyday wear - making them the perfect socks for your everyday shoes.",
-      "quantity": 3
+      "quantity": 1
     },
     {
-      "id": "2",
-      "name": "Sopa Derby",
-      "price": 145,
-      "color": "Blue",
+      "id": "3",
+      "name": "Sopa loafer",
+      "price": 212,
+      "color": "Gray",
       "image": {
-        "url": "/images/products/blue-shoes.png",
-        "alt": "This is blue shoes"
+        "url": "/images/products/gray-shoes.png",
+        "alt": "This is gray shoes"
       },
       "size": "Small",
       "description": "Our goal in designing the super-soft Atoms Crew Socks was to provide a seamless match with your Atoms shoes, enhancing your comfort for everyday wear - making them the perfect socks for your everyday shoes.",
-      "quantity": 8
+      "quantity": 6
     }
   ]
 }

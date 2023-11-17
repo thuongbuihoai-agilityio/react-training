@@ -1,5 +1,5 @@
-import { memo } from 'react';
-import { shallow } from 'zustand/shallow';
+import { memo, useCallback, useState } from 'react';
+import toast from 'react-hot-toast';
 
 // Components
 import Text, { SizeType } from '@common/Text';
@@ -19,20 +19,50 @@ import { Product } from '@interfaces/product';
 // Helpers
 import { totalPrices } from '@helpers/common';
 
-// Stores
-import { useCartStore } from '@stores/cart';
+// Constants
+import { CONFIRM_MESSAGE } from '@constants/validate';
+
+
+// Hooks
+import { useMutationEditProductInCart } from '@hooks/useMutate';
 
 // Styles
 import './cartModal.css';
 import Icon, { IconType } from '@components/common/Icon';
 
 interface CartModalProps {
+  carts: Product[];
   onToggleModal?: () => void;
 }
 const CartModal = ({
+  carts,
   onToggleModal
 }: CartModalProps) => {
-  const [cart] = useCartStore((state) => [state.cart], shallow);
+  const { mutate: putProduct } = useMutationEditProductInCart();
+  const [checkChangesQuantity, setCheckChangesQuantity] = useState(false);
+
+  const handleCheckChangeQuantity = useCallback(() => {
+    setCheckChangesQuantity(!checkChangesQuantity)
+  }, [checkChangesQuantity])
+
+  const handleUpdateProduct = async (products: Product[]) => {
+    const updatedProducts = [];
+    for (const product of products) {
+      const updatedProduct = await putProduct({
+        ...product,
+        quantity: product.quantity
+      },
+      {
+        onError: (error) => {
+          toast.error((error as { message: string }).message);
+        },
+        onSuccess: () => {
+          updatedProducts.push(updatedProduct);
+          toast.success(CONFIRM_MESSAGE.UPDATE_SUCCESS);
+        },
+      });
+    }
+  };
 
   return (
     <div data-testid='cart-modal' className='overlay'>
@@ -47,27 +77,34 @@ const CartModal = ({
           />
         </div>
         <div className='card-body'>
-          {cart.length
-          ? <>
-              {cart?.map((cartItem: Product) => (
-                <CartItem
-                  key={cartItem.id}
-                  cartItem={cartItem}
-                />
-              ))}
-            </>
-          : <Text
-              text='No products in cart'
-              type={SizeType.extraRegular}
-              className='cart-message'
-            />
-          }
+          {carts.length
+            ? <>
+                {carts?.map((cartItem: Product) => (
+                  <CartItem
+                    key={cartItem.id}
+                    cartItem={cartItem}
+                    onChangeQuantity={handleCheckChangeQuantity}
+                  />
+                ))}
+              </>
+            : <Text
+                text='No products in cart'
+                type={SizeType.extraRegular}
+                className='cart-message'
+              />
+            }
         </div>
         <hr />
         <div className='cart-footer'>
           <Text text='Subtotal' className='cart-text' />
-          <Price value={totalPrices(cart)} type={PriceType.tertiary} />
+          <Price value={totalPrices(carts)} type={PriceType.tertiary} />
         </div>
+        <Button
+          children='Update'
+          className={checkChangesQuantity ? 'cart-update' : 'cart-disable'}
+          disable={!checkChangesQuantity}
+          onClick={() => handleUpdateProduct(carts)}
+        />
       </div>
     </div>
   );

@@ -5,16 +5,16 @@ import '@testing-library/jest-dom';
 import Header from '@layouts/Header';
 
 // Helpers
-import { renderRouterTest } from '@helpers/testUtils';
+import { renderWithRouterAndQuery } from '@helpers/testUtils';
 
 describe('Header component', () => {
   test('should render Header component', () => {
-    const { getByTestId } = renderRouterTest(<Header />);
+    const { getByTestId } = renderWithRouterAndQuery(<Header />);
     expect(getByTestId('header')).toBeInTheDocument();
   });
 
   test('matches snapshot', () => {
-    const { container } = renderRouterTest(<Header />);
+    const { container } = renderWithRouterAndQuery(<Header />);
     expect(container).toMatchSnapshot();
   });
 });

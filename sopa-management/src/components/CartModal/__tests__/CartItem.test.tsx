@@ -1,12 +1,12 @@
 // Libs
 import '@testing-library/jest-dom';
-import { render } from '@testing-library/react';
 
 // Components
 import CartItem from '../CartItem';
 
 // Mocks
 import { MOCK_PRODUCT } from '@mocks/product';
+import { renderWithRouterAndQuery } from '@helpers/testUtils';
 
 describe('CartItem component', () => {
   const props = {
@@ -14,12 +14,12 @@ describe('CartItem component', () => {
     cartItem: MOCK_PRODUCT,
   };
   test('should render CartItem component', () => {
-    const { getByTestId } = render(<CartItem {...props} />);
+    const { getByTestId } = renderWithRouterAndQuery(<CartItem {...props} />);
     expect(getByTestId('cart-item')).toBeInTheDocument();
   });
 
   test('matches snapshot', () => {
-    const { asFragment } = render(<CartItem {...props} />);
+    const { asFragment } = renderWithRouterAndQuery(<CartItem {...props} />);
     expect(asFragment()).toMatchSnapshot();
   });
 });
