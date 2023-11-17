@@ -5,49 +5,48 @@ import { act } from 'react-dom/test-utils';
 // Stores
 import { useCartStore } from '@stores/cart';
 
-// Mocks
-import { MOCK_PRODUCT } from '@mocks/product';
-
-// Constants
-import { STORAGE_KEY } from '@constants/common';
-
-// Helpers
-import { getStorage } from '@helpers/storage';
-
 // Interfaces
 import { QuantityType } from '@interfaces/cart';
+import {
+  MOCK_PRODUCT,
+  MOCK_PRODUCTS
+} from '@mocks/product';
 
 describe('useCartStore', () => {
   beforeEach(() => {
     (localStorage as any) = {};
   });
 
-  test('should add product to cart if it does not already exist', () => {
+  test('Should change value of products when set products value', () => {
     const { result } = renderHook(() => useCartStore());
-    const product = MOCK_PRODUCT;
 
-    act(() => {
-      result.current.addToCart(product, 'small');
-    });
-
-    const storedCart = getStorage(STORAGE_KEY.CART_KEY);
-    const updatedCart = result.current.carts;
-
-    expect(storedCart).toEqual(updatedCart);
+    expect(result.current.cart).toEqual([]);
+    act(() => result.current.setCart(MOCK_PRODUCTS));
+    expect(result.current.cart).toEqual(MOCK_PRODUCTS);
   });
 
-  test('should update product quantity in cart if it already exists', () => {
+  test('should add a product to the cart', () => {
     const { result } = renderHook(() => useCartStore());
     const product = MOCK_PRODUCT;
 
     act(() => {
-      result.current.addToCart(product, 'small');
+      result.current.addToCart(product, 'Small');
     });
 
-    const storedCart = getStorage(STORAGE_KEY.CART_KEY);
-    const updatedCart = result.current.carts;
+    // Check if the cart is updated correctly
+    expect(result.current.cart[0].id).toBe(product.id);
+    expect(result.current.cart[0].size).toBe('Small');
+  });
 
-    expect(storedCart).toEqual(updatedCart);
+  test('should add product to cart if it does not already exist', () => {
+    const { result } = renderHook(() => useCartStore());
+
+    act(() => {
+      result.current.addToCart(MOCK_PRODUCT, 'Small');
+    });
+
+    // Check if the quantity is increased for the existing product
+    expect(result.current.cart[0].quantity).toBe(4);
   });
 
   test('should increase product quantity in cart', () => {
@@ -71,6 +70,6 @@ describe('useCartStore', () => {
 
     act(() => result.current.deleteCart('1'));
 
-    expect(result.current.carts).toEqual([]);
+    expect(result.current.cart).toEqual([]);
   });
 });

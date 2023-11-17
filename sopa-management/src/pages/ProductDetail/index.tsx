@@ -1,10 +1,7 @@
-import {
-  memo,
-  useCallback,
-useState
-} from 'react';
+import { memo, useCallback, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import toast from 'react-hot-toast';
+import { shallow } from 'zustand/shallow';
 
 // Components
 import Text,
@@ -25,11 +22,21 @@ import RatingStar from '@common/Rating/RatingStar';
 import Loading from '@components/common/Loading';
 
 // Hooks
-import { useFetchProductDetail } from '@hooks/useQuery';
+import {
+  useFetchCartProduct,
+  useFetchProductDetail
+} from '@hooks/useQuery';
+import {
+  useMutationEditProductInCart,
+  useMutationPostProductToCart
+} from '@hooks/useMutate';
 
 // Constants
 import { SIZE } from '@constants/common';
 import { CONFIRM_MESSAGE } from '@constants/validate';
+
+// Interfaces
+import { Product } from '@interfaces/product';
 
 // Stores
 import { useCartStore } from '@stores/cart';
@@ -41,7 +48,14 @@ const ProductDetail = () => {
   // use useParams to get id
   const { id } = useParams();
   const [selectedValue, setSelectedValue] = useState('');
+
+  // mutate
+  const { mutate: postProduct } = useMutationPostProductToCart();
+  const { mutate: putProduct } = useMutationEditProductInCart();
+
+  const { data } = useFetchCartProduct();
   const { data: product, isLoading } = useFetchProductDetail(id);
+
   const {
     name,
     image,
@@ -51,16 +65,62 @@ const ProductDetail = () => {
     size
   } = product;
 
-  const addToCart = useCartStore((state) => state.addToCart);
+  const [carts, setCarts, addToCart] = useCartStore(
+    (state) => [
+      state.cart,
+      state.setCart,
+      state.addToCart
+    ],
+    shallow
+  );
+
+  useEffect(() => {
+    if (data) {
+      setCarts(data);
+    }
+  }, [data]);
 
   const handleAddToCart = () => {
-    addToCart(product, (selectedValue || size));
+    const newData = {
+      ...product,
+      quantity: 1,
+      size: selectedValue || size
+    };
+
+    const currentCart = carts || [];
+    const existingProductIndex = currentCart.findIndex(
+      (item: Product) => item.id === product.id
+    );
+
+    if (existingProductIndex !== -1) {
+      putProduct(
+        {
+          ...currentCart[existingProductIndex],
+          quantity: currentCart[existingProductIndex].quantity + 1
+        },
+        {
+          onSuccess: () => {
+            addToCart(product, selectedValue || size);
+          }
+        }
+      );
+    } else {
+      postProduct(newData, {
+        onSuccess: () => {
+          addToCart(product, selectedValue || size);
+        }
+      });
+    }
+
     toast.success(CONFIRM_MESSAGE.ADD_SUCCESS);
   };
 
-  const handleSelect = useCallback((value?: string) => {
-    setSelectedValue(value as string);
-  }, [selectedValue]);
+  const handleSelect = useCallback(
+    (value?: string) => {
+      setSelectedValue(value as string);
+    },
+    [selectedValue]
+  );
 
   return (
     <div data-testid='detail' className='detail'>

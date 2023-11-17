@@ -1,10 +1,16 @@
-import { useInfiniteQuery, useQuery } from 'react-query';
+import {
+  useInfiniteQuery,
+  useQuery
+} from 'react-query';
 import { AxiosError } from 'axios';
-
 
 // Constants
 import { QUERY_KEYS } from '@constants/keyQuery';
-import { ACCOUNT_URL, PRODUCT_URL } from '@constants/url';
+import {
+  ACCOUNT_URL,
+  CART_URL,
+  PRODUCT_URL
+} from '@constants/url';
 import {
   INITIAL_PRODUCT,
   LIMIT_PRODUCTS
@@ -18,11 +24,11 @@ import { api } from '@services/APIRequest';
 
 // Stores
 import { useProductStore } from '@stores/product';
+import { useAuthenticationStore } from '@stores/login';
 
 // Helpers
 import { flattenArray } from '@helpers/common';
 import { Account } from '@interfaces/account';
-import { useAuthenticationStore } from '@stores/login';
 
 /**
  * @description Fetch product by id
@@ -82,6 +88,18 @@ export const useFetchUser = () => {
     queryKey: [QUERY_KEYS.ACCOUNTS],
     queryFn: () => api.getData(ACCOUNT_URL),
     onSuccess: (data) => setAccounts(data),
+    refetchOnWindowFocus: false
+  });
+};
+
+/**
+ * @description Fetch cart product
+ * @returns
+ */
+export const useFetchCartProduct = () => {
+  return useQuery<Product[], AxiosError>({
+    queryKey: [QUERY_KEYS.CARTS],
+    queryFn: () => api.getData(CART_URL),
     refetchOnWindowFocus: false
   });
 };

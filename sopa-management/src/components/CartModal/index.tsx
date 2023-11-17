@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { useShallow } from 'zustand/react/shallow';
+import { shallow } from 'zustand/shallow';
 
 // Components
 import Text, { SizeType } from '@common/Text';
@@ -30,11 +30,9 @@ interface CartModalProps {
   onToggleModal?: () => void;
 }
 const CartModal = ({
-  onToggleModal,
+  onToggleModal
 }: CartModalProps) => {
-  const { carts } = useCartStore(useShallow((state) => ({
-    carts: state.carts,
-  })));
+  const [cart] = useCartStore((state) => [state.cart], shallow);
 
   return (
     <div data-testid='cart-modal' className='overlay'>
@@ -49,9 +47,9 @@ const CartModal = ({
           />
         </div>
         <div className='card-body'>
-          {carts.length
+          {cart.length
           ? <>
-              {carts?.map((cartItem: Product) => (
+              {cart?.map((cartItem: Product) => (
                 <CartItem
                   key={cartItem.id}
                   cartItem={cartItem}
@@ -68,7 +66,7 @@ const CartModal = ({
         <hr />
         <div className='cart-footer'>
           <Text text='Subtotal' className='cart-text' />
-          <Price value={totalPrices(carts)} type={PriceType.tertiary} />
+          <Price value={totalPrices(cart)} type={PriceType.tertiary} />
         </div>
       </div>
     </div>

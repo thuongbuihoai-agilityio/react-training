@@ -10,8 +10,17 @@ import ProductDetail from '@pages/ProductDetail';
 import { renderWithRouterAndQuery } from '@helpers/testUtils';
 
 // Mocks
-import { MOCK_PRODUCT } from '@mocks/product';
-import { useFetchProductDetail } from '@hooks/useQuery';
+import {
+  MOCK_PRODUCT,
+  MOCK_PRODUCTS
+} from '@mocks/product';
+
+// Hooks
+import {
+  useFetchCartProduct,
+  useFetchProductDetail
+} from '@hooks/useQuery';
+import { useCartStore } from '@stores/cart';
 
 // Mock useParams
 jest.mock('react-router-dom', () => ({
@@ -21,24 +30,29 @@ jest.mock('react-router-dom', () => ({
 
 // Mock useFetchProductDetail
 jest.mock('@hooks/useQuery', () => ({
-  useFetchProductDetail: jest.fn()
+  useFetchProductDetail: jest.fn(),
+  useFetchCartProduct: jest.fn()
 }));
 
 // Mock handleAddToCart
 const mockHandleAddToCart = jest.fn();
-jest.mock('@stores/cart', () => ({
-  useCartStore: jest.fn((selector) =>
-    selector({
-      addToCart: mockHandleAddToCart
-    })
-  )
-}));
 
 describe('ProductDetail component', () => {
+  beforeEach(() => {
+    useCartStore.setState({
+      cart: MOCK_PRODUCTS,
+      setCart: mockHandleAddToCart,
+    });
+  });
+
   test('should render Loading component', () => {
     (useFetchProductDetail as jest.Mock).mockReturnValue({
       data: MOCK_PRODUCT,
       isLoading: true
+    });
+
+    (useFetchCartProduct as jest.Mock).mockReturnValue({
+      data: MOCK_PRODUCT
     });
 
     const { getByTestId } = renderWithRouterAndQuery(<ProductDetail />);
