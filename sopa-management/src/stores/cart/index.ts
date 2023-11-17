@@ -2,12 +2,6 @@ import { create } from 'zustand';
 
 // Interfaces
 import { Product } from '@interfaces/product';
-
-// Helpers
-import { getStorage, setStorage } from '@helpers/storage';
-
-// Constants
-import { STORAGE_KEY } from '@constants/common';
 import { QuantityType } from '@interfaces/cart';
 
 type CartType = {
@@ -15,7 +9,7 @@ type CartType = {
   setCart: (value: Product[]) => void;
   addToCart: (product: Product, size: string) => void;
   updateQuantity: (id: string, quantityType: QuantityType) => void;
-  deleteCart: (id: string) => void;
+  deleteProductInCart: (id: string) => void;
 };
 
 export const useCartStore = create<CartType>()((set) => ({
@@ -60,10 +54,8 @@ export const useCartStore = create<CartType>()((set) => ({
     });
   },
 
-  deleteCart: (id: string) => {
-    const currentCart = getStorage(STORAGE_KEY.CART_KEY) || [];
-    const updatedCart = currentCart.filter((item: Product) => item.id !== id);
-    setStorage(STORAGE_KEY.CART_KEY, updatedCart);
-    set({ cart: updatedCart });
-  }
+  deleteProductInCart: (id: string) =>
+    set((state) => ({
+      cart: state.cart.filter((product) => product.id !== id)
+    }))
 }));

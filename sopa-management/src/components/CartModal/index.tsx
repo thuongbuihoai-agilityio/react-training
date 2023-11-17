@@ -11,6 +11,7 @@ import Price,
 {
   PriceType
 } from '@common/Price';
+import Icon, { IconType } from '@components/common/Icon';
 import CartItem from './CartItem';
 
 // Interfaces
@@ -28,7 +29,6 @@ import { useMutationEditProductInCart } from '@hooks/useMutate';
 
 // Styles
 import './cartModal.css';
-import Icon, { IconType } from '@components/common/Icon';
 
 interface CartModalProps {
   carts: Product[];

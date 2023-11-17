@@ -37,4 +37,13 @@ describe('fetch api', () => {
     expect(mockAxios.put).toHaveBeenCalledWith(PRODUCT_URL_CALL, MOCK_PRODUCT);
     expect(result).toEqual(MOCK_PRODUCT);
   });
+
+  test('delete product item should call', async () => {
+    const PRODUCT_URL_CALL = PRODUCT_URL + '1';
+    mockAxios.delete.mockResolvedValueOnce(MOCK_PRODUCT);
+    const result = await api.deleteData(PRODUCT_URL_CALL);
+    expect(mockAxios.delete).toHaveBeenCalledWith(PRODUCT_URL_CALL);
+    expect(result).toEqual(MOCK_PRODUCT);
+  });
+
 });

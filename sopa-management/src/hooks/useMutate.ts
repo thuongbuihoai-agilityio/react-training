@@ -26,3 +26,14 @@ export const useMutationEditProductInCart = () => {
       await api.putData(`${CART_URL}/${product.id}`, product),
   });
 };
+
+
+/**
+ * @description Custom hook delete product
+ */
+export const useMutationDeleteProduct = () => {
+  return useMutation({
+    mutationFn: async (id: string) =>
+      await api.deleteData(`${CART_URL}/${id}`),
+  });
+};

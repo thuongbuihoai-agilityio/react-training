@@ -34,6 +34,11 @@ import PopupDelete from '@common/PopupDelete';
 import { useCartStore } from '@stores/cart';
 import { CONFIRM_MESSAGE } from '@constants/validate';
 
+// Hooks
+import {
+  useMutationDeleteProduct,
+} from '@hooks/useMutate';
+
 interface CartItemProps {
   cartItem: Product;
   onChangeQuantity?: () => void;
@@ -44,11 +49,12 @@ const CartItem = ({
   onChangeQuantity = () => {}
 }: CartItemProps) => {
   const [openModalConfirm, setOpenModalConfirm] = useState<boolean>(false);
+  const { mutate: deleteProduct } = useMutationDeleteProduct();
 
-  const [updateQuantity, deleteCart] = useCartStore(
+  const [updateQuantity, deleteProductInCart] = useCartStore(
     (state) => [
       state.updateQuantity,
-      state.deleteCart
+      state.deleteProductInCart
     ],
     shallow
   );
@@ -68,9 +74,16 @@ const CartItem = ({
   }, [openModalConfirm]);
 
   const handleDeleteCart = useCallback(() => {
-    deleteCart(cartItem.id);
-    toast.success(CONFIRM_MESSAGE.DELETE_SUCCESS);
-  }, [cartItem]);
+    deleteProduct(cartItem.id, {
+      onError: (error) => {
+        toast.error((error as { message: string }).message);
+      },
+      onSuccess: () => {
+        deleteProductInCart(cartItem.id)
+        toast.success(CONFIRM_MESSAGE.DELETE_SUCCESS);
+      },
+    });
+  }, []);
 
   return (
     <div data-testid='cart-item' className='cart-item'>

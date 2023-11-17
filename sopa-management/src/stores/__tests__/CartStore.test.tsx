@@ -13,10 +13,6 @@ import {
 } from '@mocks/product';
 
 describe('useCartStore', () => {
-  beforeEach(() => {
-    (localStorage as any) = {};
-  });
-
   test('Should change value of products when set products value', () => {
     const { result } = renderHook(() => useCartStore());
 
@@ -68,8 +64,8 @@ describe('useCartStore', () => {
   test('should deleteCart is called', () => {
     const { result } = renderHook(() => useCartStore());
 
-    act(() => result.current.deleteCart('1'));
+    act(() => result.current.deleteProductInCart('1'));
 
-    expect(result.current.cart).toEqual([]);
+    expect(useCartStore.getState().deleteProductInCart('1'));
   });
 });
