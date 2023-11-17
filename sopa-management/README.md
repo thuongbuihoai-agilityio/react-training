@@ -70,7 +70,7 @@
 
 ```
 - create .env file:
-- VITE_BASE_URL=https://h4p4mz-8080.csb.app
+- VITE_BASE_URL=https://sopa-management.onrender.com
 ```
 
 ```
