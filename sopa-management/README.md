@@ -1,18 +1,21 @@
 # OVERVIEW
 - This document provides a detailed estimate of the React query Practice
 
-## FEATURES
+## FEATURES (10 days)
 - User can login with email, password
 - User can see list products in Home page
 - User can show more products in Home page (offset: 6 products, limit: 3)
 - User can see Product details page when click on each product in Home page
 - User can add/update/delete cart products
 
+## UPDATE FEATURES (4 days)
+- User can add/update/delete cart products with call api
+
 ## DESIGN
 - [UI](https://www.figma.com/file/szgvNWlyqFUqgDTDTeLl9p/SOPA-E-Commerce-Website-UI-KIT-(Community)?type=design&node-id=10-2&mode=design&t=hPieyB5mLcmMJZQk-0)
 
 ## TIMELINE
-- Estimate time: (16/10/2023 - 26/10/2023) [10 working days](https://docs.google.com/document/d/1XpJJAkSAbfo5S5jrJW0uuXG6SwhtP1zD/edit)
+- Estimate time: [14 working days](https://docs.google.com/document/d/1XpJJAkSAbfo5S5jrJW0uuXG6SwhtP1zD/edit)
 
 ## TEAM SIZE
 - 1 dev
@@ -67,7 +70,7 @@
 
 ```
 - create .env file:
-- VITE_BASE_URL=http://localhost:8000
+- VITE_BASE_URL=https://h4p4mz-8080.csb.app
 ```
 
 ```
