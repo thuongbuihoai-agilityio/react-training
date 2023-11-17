@@ -14,7 +14,7 @@
     "test-coverage": "jest --coverage",
     "pre-commit-lint": "pnpm lint-staged",
     "prepare": "cd .. && husky install sopa-management/.husky",
-    "start": "nodemon ./index.js",
+    "start": "nodemon index.js",
     "pre-push-lint": "rm -rf storybook-static/ && pnpm build-storybook -s public && vite build"
   },
   "dependencies": {
