@@ -38,7 +38,7 @@
       "@mocks/*": ["src/__mocks__/*"]
     }
   },
-  "include": ["src"],
+  "include": ["src", "index.js"],
   "types": ["node", "jest", "@testing-library/jest-dom"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
