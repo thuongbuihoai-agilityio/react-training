@@ -4,8 +4,8 @@ const server = jsonServer.create();
 const router = jsonServer.router("db.json");
 const middlewares = jsonServer.defaults();
 
+const port = process.env.VITE_BASE_URL || 8080
+
 server.use(middlewares);
 server.use(router);
-server.listen(8080, () => {
-  console.log("JSON Server is running");
-});
+server.listen(port);
