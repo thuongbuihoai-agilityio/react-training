@@ -1,12 +1,10 @@
 // Components
-import Text,
-{
-  SizeType
-} from '@common/Text';
-import Icon,
-{
-  IconType
-} from '../Icon';
+import {
+  Icon,
+  IconType,
+  SizeType,
+  Text
+} from '@components/common';
 
 // Styles
 import './partners.css';

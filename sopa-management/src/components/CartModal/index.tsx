@@ -2,16 +2,15 @@ import { memo, useCallback, useState } from 'react';
 import toast from 'react-hot-toast';
 
 // Components
-import Text, { SizeType } from '@common/Text';
-import Button,
-{
-  ButtonType
-} from '@common/Button';
-import Price,
-{
-  PriceType
-} from '@common/Price';
-import Icon, { IconType } from '@components/common/Icon';
+import {
+  Button,
+  ButtonType,
+  Icon,
+  IconType,
+  Price,
+  PriceType,
+  Text
+} from '@components/common';
 import CartItem from './CartItem';
 
 // Interfaces
@@ -29,6 +28,7 @@ import { useMutationEditProductInCart } from '@hooks/useMutate';
 
 // Styles
 import './cartModal.css';
+import { SizeType } from '@components/common/Text';
 
 interface CartModalProps {
   carts: Product[];

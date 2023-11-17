@@ -1,8 +1,11 @@
 import { memo } from 'react';
 
 // Components
-import Button, { ButtonType } from '@common/Button';
-import Input from '../Input';
+import {
+  Button,
+  ButtonType,
+  Input
+} from '@components/common';
 
 // Styles
 import './counter.css';

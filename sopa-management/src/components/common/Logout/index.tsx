@@ -7,9 +7,13 @@ import { useNavigate } from 'react-router-dom';
 import { shallow } from 'zustand/shallow';
 
 // Components
-import Button, { ButtonType } from '@common/Button';
-import Dropdown from '@common/Dropdown';
-import Icon, { IconType } from '../Icon';
+import {
+  Button,
+  ButtonType,
+  Dropdown,
+  Icon,
+  IconType
+} from '@components/common';
 
 // Constants
 import { useAuthenticationStore } from '@stores/login';

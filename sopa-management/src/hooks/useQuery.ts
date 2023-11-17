@@ -18,6 +18,7 @@ import {
 
 // Interfaces
 import { Product } from '@interfaces/product';
+import { Account } from '@interfaces/account';
 
 // Services
 import { api } from '@services/APIRequest';
@@ -28,7 +29,6 @@ import { useAuthenticationStore } from '@stores/login';
 
 // Helpers
 import { flattenArray } from '@helpers/common';
-import { Account } from '@interfaces/account';
 
 /**
  * @description Fetch product by id

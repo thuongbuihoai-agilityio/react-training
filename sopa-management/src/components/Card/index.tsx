@@ -2,15 +2,13 @@ import { memo } from 'react';
 import { Link } from 'react-router-dom';
 
 // Components
-import Text,
-{
+import {
+  Image,
+  Price,
+  PriceType,
+  Text,
   ThemeType
-} from '@common/Text';
-import Price,
-{
-  PriceType
-} from '@common/Price';
-import Image from '@common/Image';
+} from '@components/common';
 
 // Styles
 import './card.css';

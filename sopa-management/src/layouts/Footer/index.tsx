@@ -1,20 +1,16 @@
 import { memo } from 'react';
 
 // Components
-import Image from '@components/common/Image';
-import Text,
-{
+import {
+  Button,
+  ButtonType,
+  Image,
+  Menu,
+  MenuTheme,
+  Social,
+  Text,
   ThemeType
-} from '@components/common/Text';
-import Button,
-{
-  ButtonType
-} from '@components/common/Button';
-import Menu,
-{
-  MenuTheme
-} from '@components/common/Menu';
-import Social from '@components/common/Social';
+} from '@components/common';
 
 // Constants
 import {

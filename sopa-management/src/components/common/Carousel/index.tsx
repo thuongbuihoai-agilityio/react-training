@@ -2,16 +2,14 @@
 import { IMAGE } from '@constants/image';
 
 // Components
-import Button,
-{
-  ButtonType
-} from '@common/Button';
-import Image from '@common/Image';
-import Input from '@common/Input';
-import Text,
-{
-  SizeType
-} from '@common/Text';
+import {
+  Button,
+  ButtonType,
+  Image,
+  Input,
+  SizeType,
+  Text,
+} from '@components/common';
 
 // Constants
 import { CAROUSEL_BULLET } from '@constants/common';
@@ -83,7 +81,11 @@ const Carousel = () => (
         type={SizeType.large}
         className='carousel-heading'
       />
-      <Button ariaLabel='Show now' children='Show now' type={ButtonType.primary} />
+      <Button
+        ariaLabel='Show now'
+        children='Show now'
+        type={ButtonType.primary}
+      />
     </div>
   </div>
 );

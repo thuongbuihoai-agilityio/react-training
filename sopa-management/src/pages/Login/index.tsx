@@ -12,18 +12,14 @@ import { shallow } from 'zustand/shallow';
 import toast from 'react-hot-toast';
 
 // Components
-import Input,
-{
-  InputType
-} from '@components/common/Input';
-import Button,
-{
-  ButtonType
-} from '@components/common/Button';
-import Text,
-{
-  SizeType
-} from '@components/common/Text';
+import {
+  Button,
+  ButtonType,
+  Input,
+  InputType,
+  SizeType,
+  Text
+} from '@components/common';
 
 // Hooks
 import { useFetchUser } from '@hooks/useQuery';
