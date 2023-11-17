@@ -42,7 +42,7 @@ const CartModal = ({
   const [checkChangesQuantity, setCheckChangesQuantity] = useState(false);
 
   const handleCheckChangeQuantity = useCallback(() => {
-    setCheckChangesQuantity(!checkChangesQuantity)
+    setCheckChangesQuantity(true)
   }, [checkChangesQuantity])
 
   const handleUpdateProduct = async (products: Product[]) => {
