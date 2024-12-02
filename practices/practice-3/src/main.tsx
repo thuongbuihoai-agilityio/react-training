@@ -4,6 +4,7 @@ import ReactDOM from "react-dom/client";
 import App from "./App/App";
 import { BrowserRouter } from "react-router-dom";
 import { BASE_URL } from "./constants/url";
+import "./wdyr.ts";
 import "./styles/main.css";
 
 axios.defaults.baseURL = BASE_URL;
