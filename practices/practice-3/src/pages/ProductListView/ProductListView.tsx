@@ -1,8 +1,8 @@
 import useSWR from "swr";
 import React, { useContext, useEffect } from "react";
 import Button from "@components/common/Button/Button/Button";
-import ProductListCard from "../ProductListCard/ProductListCard";
 import ScrollButton from "@components/common/Button/ScrollButton/ScrollButton";
+import ProductListCard from "@components/ProductListCard/ProductListCard";
 import { Link } from "react-router-dom";
 import { Product } from "@common-types/product";
 import { DataContext } from "@context/DataContext";

@@ -4,12 +4,15 @@ import InputSearch from "../InputSearch";
 import { DataContext } from "@context/DataContext";
 import { ProductContext } from "@common-types/product";
 import { PRODUCT_MOCKING_LIST } from "@__mocks__/constants/product";
+import { CATEGORY_MOCKING_LIST } from "@__mocks__/constants/categories";
 
 const contextProductMock: ProductContext = {
   products: PRODUCT_MOCKING_LIST,
   dispatch: jest.fn(),
   searchValue: "",
   setSearchValue: jest.fn(),
+  categories: CATEGORY_MOCKING_LIST,
+  setCategories: jest.fn()
 };
 
 describe("InputSearch component", () => {

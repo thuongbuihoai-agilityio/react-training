@@ -1,6 +1,6 @@
 import { ProductContext } from "@common-types/product";
 import { createContext, useMemo, useReducer, useState } from "react";
-import { dataReducer } from "@reducer/dataReducer";
+import { productReducer } from "@reducer/productReducer";
 import { DataState } from "@common-types/data";
 import { CategoryProps } from "@common-types/category";
 
@@ -13,7 +13,7 @@ const DataProvider: React.FC<{children: JSX.Element[] | JSX.Element}> = ({ child
   const [searchValue, setSearchValue] = useState<string>("");
   const [categories, setCategories] = useState<CategoryProps[]>([]);
 
-  const [state, dispatch] = useReducer(dataReducer, initialState);
+  const [state, dispatch] = useReducer(productReducer, initialState);
   const { products } = state;
 
   const value = useMemo(() => ({

@@ -1,0 +1,44 @@
+.product {
+  position: relative;
+  margin: 18px;
+  z-index: 0;
+}
+
+.product,
+.product__image {
+  width: 250px;
+}
+
+.product__image:hover {
+  opacity: 0.5;
+}
+
+.product__image:hover+.btn__delete {
+  display: block;
+}
+
+.productViewPage__link {
+  color: var(--text-master);
+  text-decoration: none;
+}
+
+.productViewPage__title {
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.product__content {
+  text-align: center;
+}
+
+.product__title {
+  font-size: 16px;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.productViewPage__price {
+  color: var(--text-primary);
+  font-weight: bold;
+  margin: 0;
+}

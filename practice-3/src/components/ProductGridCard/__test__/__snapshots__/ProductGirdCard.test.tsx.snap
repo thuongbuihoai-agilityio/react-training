@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Product grid card component matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="product"
+    data-testid="product-grid-card"
+  >
+    <img
+      class="product__image"
+    />
+    <button
+      class="btn btn__delete"
+      data-testid="open-modal-delete"
+    >
+      <i
+        class="fa fa-trash"
+      />
+    </button>
+    <div
+      class="product__content"
+    >
+      <a
+        class="productViewPage__link"
+        href="/products/1"
+      >
+        <h2
+          class="productViewPage__title"
+          data-testid="title-test"
+        >
+          Cheese cake
+        </h2>
+      </a>
+      <p
+        class="productViewPage__price"
+        data-testid="price"
+      >
+        $20
+      </p>
+    </div>
+  </div>
+</DocumentFragment>
+`;

@@ -6,13 +6,17 @@ import Button from "@components/common/Button/Button/Button";
 import { FieldName, FormProps } from "@common-types/form";
 import { Product } from "@common-types/product";
 import { CategoryProps } from "@common-types/category";
-import { ModalCreateProps } from "@common-types/modal";
 import { RULES } from "@constants/rules";
 import { CATEGORIES_URL } from "@constants/url";
 import { getData } from "@helpers/apiHandle";
 import { validate } from "@helpers/validate";
 import { setFieldsValue } from "@helpers/fieldHandle";
 import "../modal.css";
+
+interface ModalCreateProps {
+  hideModalCreate: () => void;
+  createProduct: (dataProduct: Product) => void;
+}
 
 const ModalCreate: React.FC<ModalCreateProps> = ({
   hideModalCreate,

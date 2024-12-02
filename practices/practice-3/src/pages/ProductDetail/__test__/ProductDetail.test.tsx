@@ -12,6 +12,7 @@ import {
 } from "@__mocks__/constants/product";
 import { ProductContext } from "@common-types/product";
 import { DataContext } from "@context/DataContext";
+import { CATEGORY_MOCKING_LIST } from "@__mocks__/constants/categories";
 
 jest.mock("react", () => ({
   ...jest.requireActual("react"),
@@ -23,6 +24,8 @@ const contextProductMock: ProductContext = {
   dispatch: jest.fn(),
   searchValue: "",
   setSearchValue: jest.fn(),
+  categories: CATEGORY_MOCKING_LIST,
+  setCategories: jest.fn()
 };
 
 describe("Product detail component", () => {
