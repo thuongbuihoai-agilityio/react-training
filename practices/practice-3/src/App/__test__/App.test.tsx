@@ -1,5 +1,5 @@
-import {render, screen} from "@testing-library/react";
-import {createMemoryHistory} from "history";
+import { render, screen } from "@testing-library/react";
+import { createMemoryHistory } from "history";
 import { Router } from "react-router-dom";
 import "@testing-library/jest-dom";
 import App from "../App";
@@ -13,9 +13,9 @@ describe("App component", () => {
       <Router location={history.location} navigator={history}>
         <App />
       </Router>
-    )
+    );
     expect(screen.getByTestId("loading-page")).toBeInTheDocument();
-  })
+  });
 
   test("rendering a product list component that uses useLocation", () => {
     const history = createMemoryHistory();
@@ -25,7 +25,7 @@ describe("App component", () => {
       <Router location={history.location} navigator={history}>
         <App />
       </Router>
-    )
+    );
     expect(screen.getByTestId("loading-page")).toBeInTheDocument();
   });
 
@@ -37,9 +37,9 @@ describe("App component", () => {
       <Router location={history.location} navigator={history}>
         <App />
       </Router>
-    )
+    );
     expect(screen.getByTestId("loading-page")).toBeInTheDocument();
-  })
+  });
 
   test("matches snapshot", () => {
     const history = createMemoryHistory();
@@ -50,4 +50,4 @@ describe("App component", () => {
     );
     expect(asFragment()).toMatchSnapshot();
   });
-})
+});

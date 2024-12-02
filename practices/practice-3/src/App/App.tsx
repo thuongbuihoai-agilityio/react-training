@@ -3,23 +3,23 @@ import { memo } from "react";
 import { SWRConfig } from "swr";
 import { Toaster } from "react-hot-toast";
 import { Route, Routes } from "react-router-dom";
-import Categories from "@/components/Categories/Categories";
-import Footer from "@/components/common/Footer/Footer";
-import Header from "@/components/common/Header/Header";
-import Navigation from "@/components/common/Navigation/Navigation";
-import Loading from "@/components/common/Loading/Loading";
-import SearchProvider from "@/context/SearchContext";
-import DataProvider from "@/context/DataContext";
+import Categories from "@components/Categories/Categories";
+import Footer from "@components/common/Footer/Footer";
+import Header from "@components/common/Header/Header";
+import Navigation from "@components/common/Navigation/Navigation";
+import Loading from "@components/common/Loading/Loading";
+import SearchProvider from "@context/SearchContext";
+import DataProvider from "@context/DataContext";
 
 // Lazy-loaded
 const ProductListView = lazy(
-  () => import("@/pages/ProductListView/ProductListView")
+  () => import("@pages/ProductListView/ProductListView")
 );
 const ProductGridView = lazy(
-  () => import("@/pages/ProductGridView/ProductGridView")
+  () => import("@pages/ProductGridView/ProductGridView")
 );
 const ProductDetails = lazy(
-  () => import("@/pages/ProductDetail/ProductDetail")
+  () => import("@pages/ProductDetail/ProductDetail")
 );
 
 const App: React.FC = memo(() => {
