@@ -1,10 +1,15 @@
 import React, { useCallback, useState } from "react";
 import { Link } from "react-router-dom";
-import { ProductItemProps } from "@common-types/product";
+import { Product } from "@common-types/product";
 import Title from "@components/common/Title/Title";
 import Price from "@components/Price/Price";
 import ModalDelete from "@components/Modal/ModalDelete/ModalDelete";
 import "./productGridCard.css";
+
+interface ProductItemProps {
+  product: Product;
+  deleteProduct: (id: string) => void;
+}
 
 const ProductGridCard: React.FC<ProductItemProps> = ({
   product,

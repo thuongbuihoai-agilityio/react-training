@@ -8,7 +8,6 @@ import { FieldName, FormProps } from "@common-types/form";
 import { Product } from "@common-types/product";
 import { RULES } from "@constants/rules";
 import { validate } from "@helpers/validate";
-import { ModalUpdateProps } from "@common-types/modal";
 import { CategoryProps } from "@common-types/category";
 import { SUCCESS_MSG } from "@constants/message";
 import { getData, update } from "@helpers/apiHandle";
@@ -17,6 +16,13 @@ import { CATEGORIES_URL, PRODUCTS_URL } from "@constants/url";
 import { DataContext } from "@context/DataContext";
 import { Action } from "@common-types/data";
 import "../modal.css";
+
+interface ModalUpdateProps {
+  product: Product;
+  hideModalUpdate: () => void;
+  deleteImage: () => void;
+  updateProductDetail: (product: Product) => void;
+}
 
 const ModalUpdate: React.FC<ModalUpdateProps> = ({
   product,

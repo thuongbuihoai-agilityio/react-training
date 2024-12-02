@@ -1,6 +1,16 @@
-import React, { memo } from "react";
-import { InputProps } from "@common-types/input";
+import React, { ChangeEventHandler, memo } from "react";
 import "./inputValue.css"
+
+interface InputProps {
+  id?: string;
+  className?: string;
+  value?: string | number;
+  type?: string;
+  name?: string;
+  min?: number;
+  multiple?: boolean;
+  onChange?: ChangeEventHandler<HTMLInputElement>;
+}
 
 const InputValue: React.FC<InputProps> = memo(({
     id,

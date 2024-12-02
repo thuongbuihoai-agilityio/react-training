@@ -1,5 +1,9 @@
 import React, { memo } from "react";
-import { TitleProps } from "@common-types/title";
+
+interface TitleProps {
+  className?: string;
+  text?: string;
+}
 
 const Text: React.FC<TitleProps> = memo(({ text, className }) => {
   return (
