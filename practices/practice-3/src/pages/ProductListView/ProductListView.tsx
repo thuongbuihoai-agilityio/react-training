@@ -1,4 +1,3 @@
-import useSWR from "swr";
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Product } from "@/types/product";
@@ -9,11 +8,11 @@ import "./productListView.css";
 import { DataContext } from "@/context/DataContext";
 
 const ProductListView: React.FC = () => {
-  const { data } = useContext(DataContext);
+  const { products } = useContext(DataContext);
   return (
     <>
       <div data-testid="view-product-list" className="viewProduct__list">
-        {data?.map((product: Product) => (
+        {products?.map((product: Product) => (
           <div className="viewProduct__item" key={product.id}>
             <ProductListCard product={product} />
           </div>

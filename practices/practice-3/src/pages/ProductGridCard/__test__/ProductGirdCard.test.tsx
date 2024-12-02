@@ -1,4 +1,4 @@
-import { fireEvent, render } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import { createMemoryHistory } from "history";
 import { Router } from "react-router-dom";
@@ -41,14 +41,14 @@ describe("Product grid card component", () => {
   });
 
   test("should delete product when click Yes", () => {
-    const { getByTestId } = render(
+    render(
       <ModalDelete
         id={""}
         hideModalDelete={() => {}}
         deleteProduct={deleteProduct}
       />
     );
-    const hideModal = getByTestId("btn-yes");
+    const hideModal = screen.getByText("Yes");
     fireEvent.click(hideModal);
     expect(deleteProduct).toHaveBeenCalled();
   });
