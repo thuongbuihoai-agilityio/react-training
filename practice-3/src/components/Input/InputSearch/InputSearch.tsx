@@ -1,10 +1,11 @@
 import React, { useContext } from "react";
 import { SearchContext } from "@context/SearchContext";
 import "./inputSearch.css";
+import { DataContext } from "@context/DataContext";
 
 const InputSearch: React.FC = () => {
   // handle search with SearchContext
-  const { setSearchValue } = useContext(SearchContext);
+  const { setSearchValue } = useContext(DataContext);
   const handleSearch = (e: { target: { value: string } }) => {
     // get current name
     const nameLike = { name_like: e.target.value };

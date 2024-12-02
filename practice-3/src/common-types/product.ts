@@ -22,6 +22,7 @@ export interface ProductCardProps {
 
 export interface ProductContext {
   products: Product[];
-  mutate: KeyedMutator<Product[]>;
-  setProducts: (data: Product[]) => void;
+  dispatch: Function,
+  searchValue: string;
+  setSearchValue: Function;
 }
