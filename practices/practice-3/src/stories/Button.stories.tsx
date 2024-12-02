@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "@/components/common/Button/Button";
+import Button from "@/components/common/Button/Button/Button";
 
 export default {
   /* 👇 The title prop is optional.
