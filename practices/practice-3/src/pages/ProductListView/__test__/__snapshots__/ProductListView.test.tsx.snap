@@ -1,5 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Product list view component matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="viewProduct__list"
+    data-testid="view-product-list"
+  />
+  <a
+    class="viewProduct__link"
+    href="/products"
+  >
+    <button
+      class="btn btn__btn btn__secondary"
+    >
+      VIEW ALL PRODUCTS
+    </button>
+  </a>
+</DocumentFragment>
+`;
+
 exports[`ViewProductItem component matches snapshot 1`] = `
 <DocumentFragment>
   <div

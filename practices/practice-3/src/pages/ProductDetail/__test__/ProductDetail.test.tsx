@@ -18,7 +18,7 @@ const productContextMock = {
   setProducts: jest.fn(),
 };
 
-describe("ProductDetail component", () => {
+describe("Product detail component", () => {
   const updateProduct = jest.fn();
   const hideModalUpdate = jest.fn();
   beforeEach(() => {

@@ -1,11 +1,25 @@
 import { act, fireEvent, render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import InputSearch from "../InputSearch";
+import { Action, SearchState } from "@/types/search";
+import { searchReducer } from "@/reducer/searchReducer";
 
 describe("InputSearch component", () => {
   test("should render input search component", () => {
     const { getByTestId } = render(<InputSearch />);
     expect(getByTestId("input-search")).toBeInTheDocument();
+  });
+
+  test("should return new state when dispatch action", () => {
+    const initialState: SearchState = {
+      searchValue: "",
+    }
+    const updateAction = {
+      action: Action.SetSearchValue,
+      payload: "cheese pocket"
+    }
+    const updatedState = searchReducer(initialState, updateAction);
+    expect(updatedState).toEqual(updatedState);
   });
 
   test("display product after inputSearch", async () => {

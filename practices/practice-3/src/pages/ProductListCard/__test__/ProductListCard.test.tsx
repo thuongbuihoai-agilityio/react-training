@@ -5,7 +5,7 @@ import { PRODUCT_MOCKING } from "@/constants/product";
 import { createMemoryHistory } from "history";
 import { Router } from "react-router-dom";
 
-describe("ViewProductItem component", () => {
+describe("Product list card component", () => {
   test("should render productListCard component", () => {
     const history = createMemoryHistory();
     const { getByTestId } = render (
