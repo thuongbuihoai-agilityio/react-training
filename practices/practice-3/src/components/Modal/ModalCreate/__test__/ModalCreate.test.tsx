@@ -6,7 +6,7 @@ import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { useState } from "react";
 import { CATEGORY_MOCKING_LIST } from "@__mocks__/constants/categories";
 import { CATEGORIES_URL } from "@constants/url";
-import { getData } from "@helpers/fetchApi";
+import { getData } from "@helpers/apiHandle";
 
 jest.mock("react", () => ({
   ...jest.requireActual("react"),

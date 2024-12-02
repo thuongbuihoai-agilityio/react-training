@@ -11,7 +11,7 @@ import { validate } from "@helpers/validate";
 import { ModalUpdateProps } from "@common-types/modal";
 import { CategoryProps } from "@common-types/category";
 import { SUCCESS_MSG } from "@constants/message";
-import { getData, update } from "@helpers/fetchApi";
+import { getData, update } from "@helpers/apiHandle";
 import { setFieldsValue } from "@helpers/fieldHandle";
 import { CATEGORIES_URL, PRODUCTS_URL } from "@constants/url";
 import { DataContext } from "@context/DataContext";
@@ -27,9 +27,9 @@ const ModalUpdate: React.FC<ModalUpdateProps> = ({
   const { data } = useSWR(CATEGORIES_URL, getData<CategoryProps[]>);
   const {dispatch} = useContext(DataContext);
   // create state to handle select file image
-  const [selectedFile, setSelectedFile] = useState([]);
+  const [selectedFile, setSelectedFile] = useState<string[]>([]);
   // create state to update product
-  const [productEdit, setProductEdit] = useState(product);
+  const [productEdit, setProductEdit] = useState<Product>(product);
   const updateProduct = async (id: string, productData: Product) => {
     const productEdit: Product = {
       id: productData.id,
@@ -129,7 +129,7 @@ const ModalUpdate: React.FC<ModalUpdateProps> = ({
         newFiles.push(imageSrc)
       }
     }
-    setSelectedFile([...selectedFile, ...newFiles] as never);
+    setSelectedFile([...selectedFile, ...newFiles]);
   }, [selectedFile]);
 
   // handle delete image

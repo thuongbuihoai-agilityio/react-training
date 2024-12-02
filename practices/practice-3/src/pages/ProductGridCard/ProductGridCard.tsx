@@ -10,7 +10,7 @@ const ProductGridCard: React.FC<ProductItemProps> = ({
   product,
   deleteProduct,
 }) => {
-  const [openModalDelete, setOpenModalDelete] = useState(false);
+  const [openModalDelete, setOpenModalDelete] = useState<boolean>(false);
   // handle toggle modal delete
   const toggleModalDelete = useCallback(() => {
     setOpenModalDelete(!openModalDelete);

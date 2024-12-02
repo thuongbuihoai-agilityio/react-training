@@ -10,7 +10,7 @@ import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { createMemoryHistory } from "history";
 import { Link, Router } from "react-router-dom";
 import { CATEGORIES_URL, PRODUCTS_URL } from "@constants/url";
-import { getData } from "@helpers/fetchApi";
+import { getData } from "@helpers/apiHandle";
 import { CATEGORY_MOCKING_LIST } from "@__mocks__/constants/categories";
 import { PRODUCT_MOCKING, PRODUCT_MOCKING_LIST } from "@__mocks__/constants/product";
 import { ProductContext } from "@common-types/product";

@@ -8,7 +8,7 @@ import { Product } from "@common-types/product";
 import { DataContext } from "@context/DataContext";
 import { Action } from "@common-types/data";
 import { PRODUCTS_URL } from "@constants/url";
-import { getData } from "@helpers/fetchApi";
+import { getData } from "@helpers/apiHandle";
 import "./productListView.css";
 
 const ProductListView: React.FC = () => {

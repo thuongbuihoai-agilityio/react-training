@@ -5,7 +5,7 @@ import ModalUpdate from "@components/Modal/ModalUpdate/ModalUpdate";
 import { fireEvent, render, screen } from "@testing-library/react";
 import { useState } from "react";
 import { PRODUCTS_URL } from "@constants/url";
-import { update } from "@helpers/fetchApi";
+import { update } from "@helpers/apiHandle";
 import {
   PRODUCT_MOCKING,
   PRODUCT_MOCKING_LIST,
