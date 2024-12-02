@@ -1,0 +1,5 @@
+.price {
+  color: var(--text-primary);
+  font-weight: bold;
+  margin: 0;
+}

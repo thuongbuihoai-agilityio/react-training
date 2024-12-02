@@ -1,0 +1,79 @@
+.btn {
+  color: var(--text-master);
+  border-color: var(--text-master);
+  border-radius: 3px;
+  background-color: transparent;
+  cursor: pointer;
+  font-family: "Poppins";
+  font-weight: bold;
+}
+
+.btn__primary {
+  display: flex;
+  align-self: center;
+  line-height: 30px;
+  height: 35px;
+}
+
+.btn__secondary {
+  padding: 5px;
+  margin: 0 auto;
+  align-self: center;
+  display: flex;
+}
+
+.btn__secondary:hover,
+.btn__info:hover {
+  color: var(--btn-primary);
+  background-color: var(--bg-view);
+}
+
+.btn__info {
+  margin: 20px;
+}
+
+.btn__update {
+  border: none;
+  color: var(--bg-submit);
+  height: 35px;
+  font-size: larger;
+}
+
+.btn__delete {
+  position: absolute;
+  z-index: 5;
+  top: 3%;
+  right: 5%;
+  color: var(--bg-delete);
+  border: none;
+  font-size: 15px;
+  display: none;
+}
+
+.btn__delete--storybook {
+  color: var(--bg-delete);
+  border: none;
+  font-size: 15px;
+}
+
+.btn__delete:hover {
+  display: block;
+}
+
+.btn__warning,
+.btn__success {
+  border: 1px solid var(--border-btn);
+  margin: 3px;
+}
+
+.btn__success:hover {
+  color: var(--btn-primary);
+  border-color: var(--bg-submit);
+  background-color: var(--bg-submit);
+}
+
+.btn__warning:hover {
+  color: var(--btn-primary);
+  border-color: var(--bg-cancel);
+  background-color: var(--bg-cancel);
+}

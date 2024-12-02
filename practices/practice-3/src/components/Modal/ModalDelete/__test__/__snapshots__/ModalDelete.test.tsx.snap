@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Modal create component matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="modal-delete"
+    data-testid="modal-delete"
+    id="showModal"
+  >
+    <div
+      class="modal-dialog"
+    >
+      <div
+        class="modal-content"
+      >
+        <div
+          class="modal-body"
+        >
+          <span
+            class="modal-title"
+          >
+            Are you sure to delete this product?
+          </span>
+        </div>
+        <div
+          class="modal-footer"
+        >
+          <button
+            class="btn btn__warning"
+          >
+            No
+          </button>
+          <button
+            class="btn btn__success"
+          >
+            Yes
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

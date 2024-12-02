@@ -1,0 +1,22 @@
+.btn__backToTop {
+  position: fixed;
+  bottom: 100px;
+  right: 20px;
+  font-size: 25px;
+  background: var(--text-primary);
+  color: var(--text-link);
+  cursor: pointer;
+  border-radius: 50px;
+  border: none;
+  box-shadow: 0 5px 10px var(--border-btn);
+}
+
+.btn__scroll {
+  font-size: 25px;
+  background: var(--text-primary);
+  color: var(--text-link);
+  cursor: pointer;
+  border-radius: 50px;
+  border: none;
+  box-shadow: 0 5px 10px var(--border-btn);
+}

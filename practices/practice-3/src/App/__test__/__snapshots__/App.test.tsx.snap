@@ -1,0 +1,207 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App component matches snapshot 1`] = `
+<DocumentFragment>
+  <header
+    class="header"
+    data-testid="header"
+  >
+    <div
+      class="header__logo"
+    >
+      <a
+        data-testid="logo"
+        href="/"
+      >
+        <img
+          class="logo"
+        />
+      </a>
+    </div>
+    <div
+      class="header__about"
+    >
+      <div
+        class="menu"
+        data-testid="menu"
+      >
+        <ul
+          class="menu__list"
+        >
+          <li
+            class="menu__item"
+          >
+            <a
+              href="/"
+            >
+              Home
+            </a>
+          </li>
+          <li
+            class="menu__item"
+          >
+            <a
+              href=""
+            >
+              About
+            </a>
+          </li>
+          <li
+            class="menu__item"
+          >
+            <a
+              href=""
+            >
+              Shop
+            </a>
+          </li>
+          <li
+            class="menu__item"
+          >
+            <a
+              href=""
+            >
+              Blog
+            </a>
+          </li>
+          <li
+            class="menu__item"
+          >
+            <a
+              href=""
+            >
+              FAQ
+            </a>
+          </li>
+          <li
+            class="menu__item"
+          >
+            <a
+              href=""
+            >
+              Contact
+            </a>
+          </li>
+        </ul>
+      </div>
+      <button
+        class="btn btn__primary"
+      >
+        ORDER ONLINE
+      </button>
+    </div>
+  </header>
+  <figure>
+    <img
+      alt=""
+      class="header__img"
+    />
+  </figure>
+  <nav
+    class="nav"
+    data-testid="navigation"
+  >
+    <ul
+      class="nav__list"
+    >
+      <li
+        class="nav__item"
+      >
+        <a
+          class="nav__link"
+          href=""
+        >
+          <i
+            class="fa fa-clock"
+          />
+           Mon - Sat: 8AM - 5PM
+        </a>
+      </li>
+      <li
+        class="nav__item"
+      >
+        <a
+          class="nav__link"
+          href=""
+        >
+          <i
+            class="fa fa-phone"
+          />
+           123 456 7890
+        </a>
+      </li>
+    </ul>
+    <div
+      class="search"
+      data-testid="input-search"
+    >
+      <input
+        class="search__text"
+        placeholder="Search item"
+        type="text"
+      />
+    </div>
+  </nav>
+  <div
+    class="categories"
+    data-testid="categories"
+  >
+    <p
+      class="categories__title"
+    >
+      What are you looking for here?
+    </p>
+    <div
+      class="categories"
+      data-testid="category-list"
+    >
+      <ul
+        class="categories__list"
+      >
+        <li
+          class="categories__item active"
+          data-testid="category-item"
+        >
+          All
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div
+    class="viewProduct__list"
+    data-testid="view-product-list"
+  />
+  <a
+    class="viewProduct__link"
+    href="/products"
+  >
+    <button
+      class="btn btn__secondary"
+    >
+      VIEW ALL PRODUCTS
+    </button>
+  </a>
+  <button
+    class="btn__backToTop"
+    data-testid="back-to-top"
+  >
+    <i
+      class="fa fa-arrow-alt-circle-up"
+    />
+  </button>
+  <div />
+  <footer
+    class="footer"
+  >
+    <p
+      class="footer__contact"
+      data-testid="footer"
+    >
+      Copyright © 2022 — Bakery WordPress Theme by Milingona.
+    </p>
+  </footer>
+  <div
+    style="position: fixed; z-index: 9999; top: 16px; left: 16px; right: 16px; bottom: 16px; pointer-events: none;"
+  />
+</DocumentFragment>
+`;

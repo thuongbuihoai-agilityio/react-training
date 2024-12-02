@@ -1,0 +1,37 @@
+.categories {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.categories__title {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.categories__list {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0 40px 0;
+  padding: 0;
+}
+
+.categories__item {
+  list-style: none;
+  cursor: pointer;
+  margin: 0 30px;
+  position: relative;
+  color: var(--text-secondary);
+}
+
+.categories__item:hover {
+  color: var(--text-primary);
+}
+
+.active {
+  color: var(--text-primary);
+}
+
+.categories__item > a {
+  color: var(--text-third);
+  text-decoration: none;
+}

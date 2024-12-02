@@ -1,0 +1,27 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 5;
+  padding: 0 100px;
+  background-color: var(--text-primary);
+}
+
+.nav__list {
+  display: flex;
+  padding: 0;
+}
+
+.nav__item {
+  margin-right: 20px;
+  list-style: none;
+}
+
+.nav__item > a {
+  font-size: 13px;
+  text-decoration: none;
+  color: var(--text-link);
+}
