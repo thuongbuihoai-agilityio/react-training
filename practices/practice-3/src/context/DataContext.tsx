@@ -1,21 +1,24 @@
 import { ProductContext } from "@common-types/product";
 import { createContext, useMemo, useReducer, useState } from "react";
-import { dataReduce, initialState } from "@reducer/dataReducer";
+import { dataReducer } from "@reducer/dataReducer";
+import { DataState } from "@common-types/data";
 
-export const DataContext = createContext<ProductContext>({} as ProductContext);
+const initialState: DataState = {
+  products: [],
+};
+
+const DataContext = createContext<ProductContext>({} as ProductContext);
 const DataProvider: React.FC<{children: JSX.Element[] | JSX.Element}> = ({ children }) => {
-  // const { searchValue } = useContext(SearchContext);
   const [searchValue, setSearchValue] = useState("");
-  const [state, dispatch] = useReducer(dataReduce, initialState);
+  const [state, dispatch] = useReducer(dataReducer, initialState);
   const { products } = state;
-  console.log("products", products);
 
   const value = useMemo(() => ({
     products,
     dispatch,
     searchValue,
     setSearchValue,
-  }), [products]);
+  }), [products, searchValue]);
 
   return (
     <DataContext.Provider value={value}>
@@ -24,4 +27,4 @@ const DataProvider: React.FC<{children: JSX.Element[] | JSX.Element}> = ({ child
   )
 }
 
-export default DataProvider;
+export {DataProvider, DataContext};
