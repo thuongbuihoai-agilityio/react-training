@@ -1,4 +1,4 @@
-import React from "react";
+import { ComponentStory, ComponentMeta } from "@storybook/react";
 import MENU_LIST from "@constants/menu";
 import Menu from "@components/common/Menu/Menu";
 import { BrowserRouter } from "react-router-dom";
@@ -10,14 +10,14 @@ export default {
    */
   title: "Component/Menu",
   component: Menu,
-};
+} as ComponentMeta<typeof Menu>;
 
-const Default: React.FC = () => {
-  return (
-    <BrowserRouter>
-      <Menu menuList={MENU_LIST} />
-    </BrowserRouter>
-  );
+const TemplateMenu: ComponentStory<typeof Menu> = (args) => (
+  <BrowserRouter>
+    <Menu {...args} />
+  </BrowserRouter>
+);
+export const Default = TemplateMenu.bind({});
+Default.args = {
+  menuList: MENU_LIST,
 };
-
-export { Default };
