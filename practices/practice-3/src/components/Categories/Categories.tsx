@@ -1,13 +1,13 @@
 import useSWR from "swr";
-import React, { useContext, useState } from "react";
+import React, { memo, useContext, useState } from "react";
 import { CategoryProps } from "@/types/category";
 import { SearchContext } from "@/context/SearchContext";
 import { CATEGORIES_URL } from "@/constants/url";
-import { get } from "@/helpers/fetchApi";
+import { getData } from "@/helpers/fetchApi";
 import "./categories.css";
 
-const Categories: React.FC = () => {
-  const { data } = useSWR(CATEGORIES_URL, get);
+const Categories: React.FC = memo(() => {
+  const { data } = useSWR(CATEGORIES_URL, getData);
   const [activeId, setActiveId] = useState("");
   const { setSearchValue } = useContext(SearchContext);
   const handleSearch = (id: string) => (e: React.MouseEvent<HTMLElement>) => {
@@ -54,6 +54,6 @@ const Categories: React.FC = () => {
       </ul>
     </div>
   );
-};
+});
 
 export default Categories;

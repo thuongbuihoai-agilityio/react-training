@@ -6,7 +6,7 @@ import { useState } from "react";
 import mockAxios from "@/__mocks__/axios";
 import { CATEGORY_MOCKING_LIST } from "@/constants/categories";
 import { CATEGORIES_URL } from "@/constants/url";
-import { get } from "@/helpers/fetchApi";
+import { getData } from "@/helpers/fetchApi";
 import FORM_VALUES from "@/constants/form";
 
 jest.mock("react", () => ({
@@ -76,7 +76,7 @@ describe("Modal create component", () => {
 
   test("get categories item should call", async () => {
     mockAxios.get.mockResolvedValueOnce({ data: CATEGORY_MOCKING_LIST });
-    const result = await get(CATEGORIES_URL);
+    const result = await getData(CATEGORIES_URL);
     expect(mockAxios.get).toHaveBeenCalledWith(CATEGORIES_URL);
     expect(result).toEqual(CATEGORY_MOCKING_LIST);
   });
